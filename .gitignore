@@ -1,0 +1,15 @@
+# Firebase / local debug files
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Never commit downloaded service-account keys
+*service-account*.json
+*serviceAccount*.json
+firebase-adminsdk-*.json

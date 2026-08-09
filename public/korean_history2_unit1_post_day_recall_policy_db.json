@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-post-day-recall-policy",
+    "version": "1.0.0-adaptive-post-day-count",
+    "scope": "Day 1-6 post-Day spacing recall count 0-3",
+    "goal": "3·7일 기억 유지 이득과 세션 종료 이탈 비용을 함께 보아 학생·가지별 마무리 회상 개수를 자동 조절한다."
+  },
+  "invariants": [
+    "미완료 Day의 원문 문제 우선 진입을 침범하지 않는다.",
+    "오답 후 메타인지·개념 뎁스 복구·원문 재도전은 축소하지 않는다.",
+    "같은 날 다음 Day 자동 연쇄 시작을 허용하지 않는다.",
+    "post-Day 회상은 0~3개이며 새 이론 설명 화면을 추가하지 않는다."
+  ],
+  "decision": {
+    "minCount": 0,
+    "maxCount": 3,
+    "coldStartCount": 1,
+    "candidateLimit": 8,
+    "minimumSessionsForAdaptation": 3,
+    "minimumBranchObservedPerGroup": 2,
+    "dropoutGraceMinutes": 120,
+    "loadCaps": {
+      "overloadOrBudgetExhausted": 0,
+      "budgetRatio75Percent": 1
+    },
+    "marginalThresholds": [0.12, 0.28, 0.42]
+  },
+  "retention": {
+    "windows": [
+      {"id": "d1", "days": 1, "maxDays": 2.5, "weight": 0.2},
+      {"id": "d3", "days": 3, "maxDays": 5, "weight": 0.35},
+      {"id": "d7", "days": 7, "maxDays": 14, "weight": 0.45}
+    ],
+    "stableRate": 0.85,
+    "weakRate": 0.65,
+    "negativeUplift": -0.05,
+    "positiveUplift": 0.10
+  },
+  "storage": {
+    "sessionMarker": "history2-unit1-day-session-end-v1",
+    "sessionHistory": "history2-unit1-post-day-session-history-v1"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "goal": "student-facing one-way warm-up before the next problem session",
+  "intervalPolicy": [
+    {
+      "condition": "lastCorrect=false",
+      "due": "now"
+    },
+    {
+      "condition": "first successful recall",
+      "days": 1
+    },
+    {
+      "condition": "success ratio < 0.70",
+      "days": 1
+    },
+    {
+      "condition": "2-3 attempts with stable recall",
+      "days": 3
+    },
+    {
+      "condition": "4+ attempts with stable recall",
+      "days": 7
+    }
+  ],
+  "studentQueue": {
+    "maxBeforeNewLesson": 3,
+    "maxWhenUnitCompleted": 5,
+    "interaction": "one prompt -> direct input -> next"
+  },
+  "storageKeys": {
+    "1": "history2-day1-original-mastery-v2",
+    "2": "history2-day2-attention-mastery-v2",
+    "3": "history2-day3-terms-mastery-v1",
+    "4": "history2-day4-terms-mastery-v1",
+    "5": "history2-day5-terms-mastery-v1",
+    "6": "history2-day6-unit-review-v1"
+  },
+  "memoryItemCount": 280,
+  "principles": [
+    "no day/menu selection on student start screen",
+    "parent analytics separated behind PIN",
+    "wrong recall requires retyping after brief answer reveal",
+    "student sees one primary action at a time"
+  ]
+}

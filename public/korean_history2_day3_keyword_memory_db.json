@@ -1,0 +1,958 @@
+[
+  {
+    "id": "p01-k1",
+    "keyword": "봉오동 전투",
+    "prompt": "홍범도 등이 일본군을 격파한 1920년 전투는?",
+    "answer": "봉오동 전투",
+    "accepted": [
+      "봉오동전투"
+    ],
+    "hint": "봉오동 ○○",
+    "link": "홍범도",
+    "problemId": "p01",
+    "problemTitle": "봉오동 전투와 청산리 대첩",
+    "conceptId": "armed-battles",
+    "conceptTitle": "1920년대 무장 독립 전쟁",
+    "source": "문제편 41쪽 01번 원문"
+  },
+  {
+    "id": "p01-k2",
+    "keyword": "청산리 대첩",
+    "prompt": "김좌진·홍범도 등이 크게 승리한 전투는?",
+    "answer": "청산리 대첩",
+    "accepted": [
+      "청산리대첩"
+    ],
+    "hint": "청산리 ○○",
+    "link": "1920.10",
+    "problemId": "p01",
+    "problemTitle": "봉오동 전투와 청산리 대첩",
+    "conceptId": "armed-battles",
+    "conceptTitle": "1920년대 무장 독립 전쟁",
+    "source": "문제편 41쪽 01번 원문"
+  },
+  {
+    "id": "p02-k1",
+    "keyword": "미쓰야 협정",
+    "prompt": "1925년 일제와 만주 군벌이 맺어 독립군을 탄압한 협정은?",
+    "answer": "미쓰야 협정",
+    "accepted": [
+      "미쓰야협정"
+    ],
+    "hint": "미쓰야 ○○",
+    "link": "1925",
+    "problemId": "p02",
+    "problemTitle": "1920년대 만주의 독립운동",
+    "conceptId": "manchuria-reorg",
+    "conceptTitle": "만주 독립군의 재편",
+    "source": "문제편 41쪽 02번 원문"
+  },
+  {
+    "id": "p02-k2",
+    "keyword": "3부",
+    "prompt": "참의부·정의부·신민부를 묶어 부르는 말은?",
+    "answer": "3부",
+    "accepted": [
+      "삼부",
+      "세 부"
+    ],
+    "hint": "○부",
+    "link": "공화주의적 자치 정부",
+    "problemId": "p02",
+    "problemTitle": "1920년대 만주의 독립운동",
+    "conceptId": "manchuria-reorg",
+    "conceptTitle": "만주 독립군의 재편",
+    "source": "문제편 41쪽 02번 원문"
+  },
+  {
+    "id": "p03-k1",
+    "keyword": "간도 참변",
+    "prompt": "청산리 대첩 뒤 일본군이 간도 한인을 학살한 사건은?",
+    "answer": "간도 참변",
+    "accepted": [
+      "간도참변"
+    ],
+    "hint": "간도 ○○",
+    "link": "보복",
+    "problemId": "p03",
+    "problemTitle": "간도 참변",
+    "conceptId": "armed-battles",
+    "conceptTitle": "1920년대 무장 독립 전쟁",
+    "source": "문제편 41쪽 03번 원문"
+  },
+  {
+    "id": "p03-k2",
+    "keyword": "청산리 대첩",
+    "prompt": "간도 참변의 직접 배경이 된 1920년 대승은?",
+    "answer": "청산리 대첩",
+    "accepted": [
+      "청산리대첩"
+    ],
+    "hint": "청산리 ○○",
+    "link": "독립군 대승",
+    "problemId": "p03",
+    "problemTitle": "간도 참변",
+    "conceptId": "armed-battles",
+    "conceptTitle": "1920년대 무장 독립 전쟁",
+    "source": "문제편 41쪽 03번 원문"
+  },
+  {
+    "id": "p04-k1",
+    "keyword": "삼권 분립",
+    "prompt": "입법·행정·사법을 나누는 원리는?",
+    "answer": "삼권 분립",
+    "accepted": [
+      "삼권분립"
+    ],
+    "hint": "삼권 ○○",
+    "link": "공화주의",
+    "problemId": "p04",
+    "problemTitle": "만주 3부의 공통점",
+    "conceptId": "manchuria-reorg",
+    "conceptTitle": "만주 독립군의 재편",
+    "source": "문제편 41쪽 04번 원문"
+  },
+  {
+    "id": "p04-k2",
+    "keyword": "민정·군정",
+    "prompt": "3부가 함께 운영한 두 조직은?",
+    "answer": "민정 군정",
+    "accepted": [
+      "민정과 군정",
+      "민정·군정"
+    ],
+    "hint": "민정 ○○",
+    "link": "자치와 군사",
+    "problemId": "p04",
+    "problemTitle": "만주 3부의 공통점",
+    "conceptId": "manchuria-reorg",
+    "conceptTitle": "만주 독립군의 재편",
+    "source": "문제편 41쪽 04번 원문"
+  },
+  {
+    "id": "p05-k1",
+    "keyword": "의열단",
+    "prompt": "김원봉이 1919년 조직한 의열 단체는?",
+    "answer": "의열단",
+    "accepted": [],
+    "hint": "의열○",
+    "link": "7가살·5파괴",
+    "problemId": "p05",
+    "problemTitle": "의열단",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 05번 원문"
+  },
+  {
+    "id": "p05-k2",
+    "keyword": "조선 혁명 선언",
+    "prompt": "의열단의 활동 지침이 된 신채호의 선언은?",
+    "answer": "조선 혁명 선언",
+    "accepted": [
+      "조선혁명선언"
+    ],
+    "hint": "조선 혁명 ○○",
+    "link": "1923",
+    "problemId": "p05",
+    "problemTitle": "의열단",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 05번 원문"
+  },
+  {
+    "id": "p06-k1",
+    "keyword": "윤봉길",
+    "prompt": "1932년 상하이 훙커우 공원 의거의 주인공은?",
+    "answer": "윤봉길",
+    "accepted": [],
+    "hint": "윤○길",
+    "link": "한인 애국단",
+    "problemId": "p06",
+    "problemTitle": "윤봉길 의거",
+    "conceptId": "patriotic-corps",
+    "conceptTitle": "한인 애국단",
+    "source": "문제편 42쪽 06번 원문"
+  },
+  {
+    "id": "p06-k2",
+    "keyword": "훙커우 공원",
+    "prompt": "윤봉길 의거가 일어난 장소는?",
+    "answer": "훙커우 공원",
+    "accepted": [
+      "홍커우 공원",
+      "훙커우공원"
+    ],
+    "hint": "훙커우 ○○",
+    "link": "상하이",
+    "problemId": "p06",
+    "problemTitle": "윤봉길 의거",
+    "conceptId": "patriotic-corps",
+    "conceptTitle": "한인 애국단",
+    "source": "문제편 42쪽 06번 원문"
+  },
+  {
+    "id": "p07-k1",
+    "keyword": "민중 직접 혁명",
+    "prompt": "신채호가 강조한 독립 방법은?",
+    "answer": "민중 직접 혁명",
+    "accepted": [
+      "민중의 직접 혁명"
+    ],
+    "hint": "민중 ○○ 혁명",
+    "link": "조선 혁명 선언",
+    "problemId": "p07",
+    "problemTitle": "조선 혁명 선언의 방법론",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 07번 원문"
+  },
+  {
+    "id": "p07-k2",
+    "keyword": "조선 혁명 선언",
+    "prompt": "의열단 활동 지침이 된 선언은?",
+    "answer": "조선 혁명 선언",
+    "accepted": [
+      "조선혁명선언"
+    ],
+    "hint": "조선 혁명 ○○",
+    "link": "신채호",
+    "problemId": "p07",
+    "problemTitle": "조선 혁명 선언의 방법론",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 07번 원문"
+  },
+  {
+    "id": "p08-k1",
+    "keyword": "김익상",
+    "prompt": "조선 총독부에 폭탄을 던진 의열단원은?",
+    "answer": "김익상",
+    "accepted": [],
+    "hint": "김○상",
+    "link": "1921",
+    "problemId": "p08",
+    "problemTitle": "의열단의 활동",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 08번 원문"
+  },
+  {
+    "id": "p08-k2",
+    "keyword": "조선 총독부",
+    "prompt": "김익상이 공격한 식민 통치 기관은?",
+    "answer": "조선 총독부",
+    "accepted": [
+      "조선총독부"
+    ],
+    "hint": "조선 ○○부",
+    "link": "의열단",
+    "problemId": "p08",
+    "problemTitle": "의열단의 활동",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 42쪽 08번 원문"
+  },
+  {
+    "id": "p09-k1",
+    "keyword": "한인 애국단",
+    "prompt": "김구가 1931년 조직한 단체는?",
+    "answer": "한인 애국단",
+    "accepted": [
+      "한인애국단"
+    ],
+    "hint": "한인 ○○단",
+    "link": "임시 정부",
+    "problemId": "p09",
+    "problemTitle": "한인 애국단",
+    "conceptId": "patriotic-corps",
+    "conceptTitle": "한인 애국단",
+    "source": "문제편 42쪽 09번 원문"
+  },
+  {
+    "id": "p09-k2",
+    "keyword": "이봉창",
+    "prompt": "도쿄에서 일왕 마차에 폭탄을 던진 인물은?",
+    "answer": "이봉창",
+    "accepted": [],
+    "hint": "이○창",
+    "link": "한인 애국단",
+    "problemId": "p09",
+    "problemTitle": "한인 애국단",
+    "conceptId": "patriotic-corps",
+    "conceptTitle": "한인 애국단",
+    "source": "문제편 42쪽 09번 원문"
+  },
+  {
+    "id": "p10-k1",
+    "keyword": "물산 장려 운동",
+    "prompt": "토산품 애용을 강조한 1920년대 경제 운동은?",
+    "answer": "물산 장려 운동",
+    "accepted": [
+      "물산장려운동"
+    ],
+    "hint": "물산 장려 ○○",
+    "link": "조선 사람 조선 것",
+    "problemId": "p10",
+    "problemTitle": "물산 장려 운동",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 43쪽 10번 원문"
+  },
+  {
+    "id": "p10-k2",
+    "keyword": "조만식",
+    "prompt": "평양에서 물산 장려 운동을 이끈 인물은?",
+    "answer": "조만식",
+    "accepted": [],
+    "hint": "조○식",
+    "link": "평양",
+    "problemId": "p10",
+    "problemTitle": "물산 장려 운동",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 43쪽 10번 원문"
+  },
+  {
+    "id": "p11-k1",
+    "keyword": "브나로드 운동",
+    "prompt": "동아일보의 민중 속으로 농촌 계몽 운동은?",
+    "answer": "브나로드 운동",
+    "accepted": [
+      "브나로드"
+    ],
+    "hint": "브나로드 ○○",
+    "link": "동아일보",
+    "problemId": "p11",
+    "problemTitle": "브나로드 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 43쪽 11번 원문"
+  },
+  {
+    "id": "p11-k2",
+    "keyword": "문맹 퇴치",
+    "prompt": "브나로드 운동의 핵심 교육 목표는?",
+    "answer": "문맹 퇴치",
+    "accepted": [
+      "문맹퇴치"
+    ],
+    "hint": "문맹 ○○",
+    "link": "한글 보급",
+    "problemId": "p11",
+    "problemTitle": "브나로드 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 43쪽 11번 원문"
+  },
+  {
+    "id": "p12-k1",
+    "keyword": "자치론",
+    "prompt": "일제 지배를 인정하고 일부 자치권을 얻자는 주장은?",
+    "answer": "자치론",
+    "accepted": [],
+    "hint": "자치○",
+    "link": "타협적 민족주의",
+    "problemId": "p12",
+    "problemTitle": "자치론",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 43쪽 12번 원문"
+  },
+  {
+    "id": "p12-k2",
+    "keyword": "타협적 민족주의",
+    "prompt": "자치론을 주장한 민족주의 흐름은?",
+    "answer": "타협적 민족주의",
+    "accepted": [
+      "타협 민족주의"
+    ],
+    "hint": "타협적 ○○주의",
+    "link": "일제 지배 인정",
+    "problemId": "p12",
+    "problemTitle": "자치론",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 43쪽 12번 원문"
+  },
+  {
+    "id": "p13-k1",
+    "keyword": "민립 대학 설립 운동",
+    "prompt": "우리 힘으로 대학을 세우려 한 운동은?",
+    "answer": "민립 대학 설립 운동",
+    "accepted": [
+      "민립대학설립운동"
+    ],
+    "hint": "민립 대학 설립 ○○",
+    "link": "한 사람 1원",
+    "problemId": "p13",
+    "problemTitle": "민립 대학 설립 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 43쪽 13번 원문"
+  },
+  {
+    "id": "p13-k2",
+    "keyword": "조선 민립 대학 기성회",
+    "prompt": "대학 설립 모금을 조직한 단체는?",
+    "answer": "조선 민립 대학 기성회",
+    "accepted": [
+      "조선민립대학기성회"
+    ],
+    "hint": "조선 민립 대학 ○○회",
+    "link": "이상재·이승훈",
+    "problemId": "p13",
+    "problemTitle": "민립 대학 설립 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 43쪽 13번 원문"
+  },
+  {
+    "id": "p14-k1",
+    "keyword": "자본가 계급",
+    "prompt": "사회주의자가 이 운동의 이익을 위한 것이라 본 계급은?",
+    "answer": "자본가 계급",
+    "accepted": [
+      "자본가"
+    ],
+    "hint": "자본가 ○○",
+    "link": "가격 폭등",
+    "problemId": "p14",
+    "problemTitle": "물산 장려 운동에 대한 사회주의자의 비판",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 43쪽 14번 원문"
+  },
+  {
+    "id": "p14-k2",
+    "keyword": "이기적 운동",
+    "prompt": "사회주의자가 물산 장려 운동을 평가한 말은?",
+    "answer": "이기적 운동",
+    "accepted": [
+      "이기적"
+    ],
+    "hint": "이기적 ○○",
+    "link": "계급 비판",
+    "problemId": "p14",
+    "problemTitle": "물산 장려 운동에 대한 사회주의자의 비판",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 43쪽 14번 원문"
+  },
+  {
+    "id": "p15-k1",
+    "keyword": "문자 보급 운동",
+    "prompt": "조선일보가 주도한 문맹 퇴치 운동은?",
+    "answer": "문자 보급 운동",
+    "accepted": [
+      "문자보급운동"
+    ],
+    "hint": "문자 보급 ○○",
+    "link": "조선일보",
+    "problemId": "p15",
+    "problemTitle": "문맹 퇴치 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 44쪽 15번 원문"
+  },
+  {
+    "id": "p15-k2",
+    "keyword": "브나로드 운동",
+    "prompt": "동아일보가 주도한 농촌 계몽 운동은?",
+    "answer": "브나로드 운동",
+    "accepted": [
+      "브나로드"
+    ],
+    "hint": "브나로드 ○○",
+    "link": "동아일보",
+    "problemId": "p15",
+    "problemTitle": "문맹 퇴치 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 44쪽 15번 원문"
+  },
+  {
+    "id": "p16-k1",
+    "keyword": "상록수",
+    "prompt": "브나로드 운동을 배경으로 한 심훈의 소설은?",
+    "answer": "상록수",
+    "accepted": [],
+    "hint": "상록○",
+    "link": "농촌 계몽",
+    "problemId": "p16",
+    "problemTitle": "브나로드 운동의 특징",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 44쪽 16번 원문"
+  },
+  {
+    "id": "p16-k2",
+    "keyword": "동아일보",
+    "prompt": "브나로드 운동을 주도한 언론사는?",
+    "answer": "동아일보",
+    "accepted": [],
+    "hint": "동아○○",
+    "link": "민중 속으로",
+    "problemId": "p16",
+    "problemTitle": "브나로드 운동의 특징",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 44쪽 16번 원문"
+  },
+  {
+    "id": "p17-k1",
+    "keyword": "6·10 만세 운동",
+    "prompt": "순종 장례일에 학생 중심으로 전개된 운동은?",
+    "answer": "6·10 만세 운동",
+    "accepted": [
+      "6.10 만세 운동",
+      "육십만세운동"
+    ],
+    "hint": "6·10 ○○ 운동",
+    "link": "1926",
+    "problemId": "p17",
+    "problemTitle": "6·10 만세 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 44쪽 17번 원문"
+  },
+  {
+    "id": "p17-k2",
+    "keyword": "신간회",
+    "prompt": "6·10 만세 운동 뒤 민족 협동 전선으로 조직된 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "1927",
+    "problemId": "p17",
+    "problemTitle": "6·10 만세 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 44쪽 17번 원문"
+  },
+  {
+    "id": "p18-k1",
+    "keyword": "광주 학생 항일 운동",
+    "prompt": "1929년 한·일 학생 충돌에서 시작된 운동은?",
+    "answer": "광주 학생 항일 운동",
+    "accepted": [
+      "광주학생항일운동"
+    ],
+    "hint": "광주 학생 항일 ○○",
+    "link": "11월 3일",
+    "problemId": "p18",
+    "problemTitle": "광주 학생 항일 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 44쪽 18번 원문"
+  },
+  {
+    "id": "p18-k2",
+    "keyword": "신간회",
+    "prompt": "광주 학생 항일 운동에 조사단을 파견한 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "민중 대회",
+    "problemId": "p18",
+    "problemTitle": "광주 학생 항일 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 44쪽 18번 원문"
+  },
+  {
+    "id": "p19-k1",
+    "keyword": "3부 통합 운동",
+    "prompt": "만주에서 독립운동 단체를 하나로 모으려 한 운동은?",
+    "answer": "3부 통합 운동",
+    "accepted": [
+      "삼부 통합 운동"
+    ],
+    "hint": "3부 통합 ○○",
+    "link": "국민부·혁신 의회",
+    "problemId": "p19",
+    "problemTitle": "민족 유일당 운동의 국내외 전개",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 44쪽 19번 원문"
+  },
+  {
+    "id": "p19-k2",
+    "keyword": "신간회",
+    "prompt": "국내 민족 협동 전선으로 조직된 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "1927",
+    "problemId": "p19",
+    "problemTitle": "민족 유일당 운동의 국내외 전개",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 44쪽 19번 원문"
+  },
+  {
+    "id": "p20-k1",
+    "keyword": "학생 운동",
+    "prompt": "6·10 만세와 광주 학생 항일 운동의 공통 주체는?",
+    "answer": "학생",
+    "accepted": [
+      "학생 중심",
+      "학생들"
+    ],
+    "hint": "학○",
+    "link": "대중 운동",
+    "problemId": "p20",
+    "problemTitle": "학생 중심 민족 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 45쪽 20번 원문"
+  },
+  {
+    "id": "p20-k2",
+    "keyword": "1920년대",
+    "prompt": "두 학생 운동이 전개된 시기는?",
+    "answer": "1920년대",
+    "accepted": [],
+    "hint": "1920○대",
+    "link": "1926·1929",
+    "problemId": "p20",
+    "problemTitle": "학생 중심 민족 운동",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 45쪽 20번 원문"
+  },
+  {
+    "id": "p21-k1",
+    "keyword": "신간회",
+    "prompt": "1927년 민족 협동 전선으로 창립된 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "6·10 이후",
+    "problemId": "p21",
+    "problemTitle": "신간회의 결성",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 21번 원문"
+  },
+  {
+    "id": "p21-k2",
+    "keyword": "광주 학생 항일 운동",
+    "prompt": "신간회가 1929년 지원한 학생 운동은?",
+    "answer": "광주 학생 항일 운동",
+    "accepted": [
+      "광주학생항일운동"
+    ],
+    "hint": "광주 학생 항일 ○○",
+    "link": "진상 조사단",
+    "problemId": "p21",
+    "problemTitle": "신간회의 결성",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 21번 원문"
+  },
+  {
+    "id": "p22-k1",
+    "keyword": "정우회 선언",
+    "prompt": "1926년 사회주의 세력이 연대를 제안한 선언은?",
+    "answer": "정우회 선언",
+    "accepted": [
+      "정우회선언"
+    ],
+    "hint": "정우회 ○○",
+    "link": "신간회",
+    "problemId": "p22",
+    "problemTitle": "정우회 선언과 신간회",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 22번 원문"
+  },
+  {
+    "id": "p22-k2",
+    "keyword": "신간회",
+    "prompt": "정우회 선언의 영향을 받아 조직된 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "민족 협동 전선",
+    "problemId": "p22",
+    "problemTitle": "정우회 선언과 신간회",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 22번 원문"
+  },
+  {
+    "id": "p23-k1",
+    "keyword": "비타협적 민족주의",
+    "prompt": "일제와 타협하지 않고 완전 독립을 추구한 흐름은?",
+    "answer": "비타협적 민족주의",
+    "accepted": [
+      "비타협 민족주의"
+    ],
+    "hint": "비타협적 ○○주의",
+    "link": "자치론 비판",
+    "problemId": "p23",
+    "problemTitle": "비타협적 민족주의와 사회주의",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 23번 원문"
+  },
+  {
+    "id": "p23-k2",
+    "keyword": "정우회 선언",
+    "prompt": "사회주의 세력이 발표한 연대 선언은?",
+    "answer": "정우회 선언",
+    "accepted": [
+      "정우회선언"
+    ],
+    "hint": "정우회 ○○",
+    "link": "신간회",
+    "problemId": "p23",
+    "problemTitle": "비타협적 민족주의와 사회주의",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 23번 원문"
+  },
+  {
+    "id": "p24-k1",
+    "keyword": "신간회",
+    "prompt": "이상재가 초대 회장을 맡은 민족 협동 전선은?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "1927",
+    "problemId": "p24",
+    "problemTitle": "신간회의 활동",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 24번 원문"
+  },
+  {
+    "id": "p24-k2",
+    "keyword": "민중 대회",
+    "prompt": "신간회가 광주 학생 운동 지원을 위해 계획한 대회는?",
+    "answer": "민중 대회",
+    "accepted": [
+      "민중대회"
+    ],
+    "hint": "민중 ○○",
+    "link": "일제 탄압",
+    "problemId": "p24",
+    "problemTitle": "신간회의 활동",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 45쪽 24번 원문"
+  },
+  {
+    "id": "p25-k1",
+    "keyword": "청산리 대첩",
+    "prompt": "1920년 10월 김좌진 등이 승리한 전투는?",
+    "answer": "청산리 대첩",
+    "accepted": [
+      "청산리대첩"
+    ],
+    "hint": "청산리 ○○",
+    "link": "1920.10",
+    "problemId": "p25",
+    "problemTitle": "청산리 대첩의 연표 위치",
+    "conceptId": "synthesis",
+    "conceptTitle": "민족 운동 종합 비교",
+    "source": "문제편 46쪽 25번 원문"
+  },
+  {
+    "id": "p25-k2",
+    "keyword": "대한 독립 군단",
+    "prompt": "청산리 대첩 뒤 밀산에서 조직된 군단은?",
+    "answer": "대한 독립 군단",
+    "accepted": [
+      "대한독립군단"
+    ],
+    "hint": "대한 독립 ○○",
+    "link": "1920.12",
+    "problemId": "p25",
+    "problemTitle": "청산리 대첩의 연표 위치",
+    "conceptId": "synthesis",
+    "conceptTitle": "민족 운동 종합 비교",
+    "source": "문제편 46쪽 25번 원문"
+  },
+  {
+    "id": "p26-k1",
+    "keyword": "토산품",
+    "prompt": "물산 장려 운동이 애용하자고 한 우리 상품은?",
+    "answer": "토산품",
+    "accepted": [],
+    "hint": "토산○",
+    "link": "조선 사람 조선 것",
+    "problemId": "p26",
+    "problemTitle": "물산 장려와 민립 대학",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 46쪽 26번 원문"
+  },
+  {
+    "id": "p26-k2",
+    "keyword": "민립 대학",
+    "prompt": "한 사람 1원 모금으로 세우려 한 교육 기관은?",
+    "answer": "민립 대학",
+    "accepted": [
+      "민립대학"
+    ],
+    "hint": "민립 ○○",
+    "link": "고등 교육",
+    "problemId": "p26",
+    "problemTitle": "물산 장려와 민립 대학",
+    "conceptId": "economic-capacity",
+    "conceptTitle": "경제적 실력 양성 운동",
+    "source": "문제편 46쪽 26번 원문"
+  },
+  {
+    "id": "p27-k1",
+    "keyword": "순종",
+    "prompt": "6·10 만세 운동의 계기가 된 황제의 서거는?",
+    "answer": "순종",
+    "accepted": [
+      "융희 황제",
+      "이척"
+    ],
+    "hint": "순○",
+    "link": "1926",
+    "problemId": "p27",
+    "problemTitle": "6·10 만세 운동의 배경",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 46쪽 27번 원문"
+  },
+  {
+    "id": "p27-k2",
+    "keyword": "6·10 만세 운동",
+    "prompt": "순종 장례일 학생 시위는?",
+    "answer": "6·10 만세 운동",
+    "accepted": [
+      "6.10 만세 운동"
+    ],
+    "hint": "6·10 ○○ 운동",
+    "link": "학생 중심",
+    "problemId": "p27",
+    "problemTitle": "6·10 만세 운동의 배경",
+    "conceptId": "student-movement",
+    "conceptTitle": "학생 중심 항일 운동",
+    "source": "문제편 46쪽 27번 원문"
+  },
+  {
+    "id": "p28-k1",
+    "keyword": "신간회",
+    "prompt": "1927년 최대 규모 민족 협동 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "합법 단체",
+    "problemId": "p28",
+    "problemTitle": "신간회의 해소",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 46쪽 28번 원문"
+  },
+  {
+    "id": "p28-k2",
+    "keyword": "해소",
+    "prompt": "신간회가 1931년 조직을 끝낸 것을 무엇이라 하는가?",
+    "answer": "해소",
+    "accepted": [
+      "신간회 해소"
+    ],
+    "hint": "해○",
+    "link": "사회주의 세력 주장",
+    "problemId": "p28",
+    "problemTitle": "신간회의 해소",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 46쪽 28번 원문"
+  },
+  {
+    "id": "p29-k1",
+    "keyword": "신간회",
+    "prompt": "비타협적 민족주의와 사회주의가 연대한 단체는?",
+    "answer": "신간회",
+    "accepted": [],
+    "hint": "신간○",
+    "link": "이상재",
+    "problemId": "p29",
+    "problemTitle": "신간회의 광주 학생 운동 지원",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 47쪽 29번 원문"
+  },
+  {
+    "id": "p29-k2",
+    "keyword": "진상 조사단",
+    "prompt": "광주 학생 운동 때 신간회가 파견한 조직은?",
+    "answer": "진상 조사단",
+    "accepted": [
+      "진상조사단"
+    ],
+    "hint": "진상 ○○단",
+    "link": "현지 조사",
+    "problemId": "p29",
+    "problemTitle": "신간회의 광주 학생 운동 지원",
+    "conceptId": "national-front",
+    "conceptTitle": "민족 유일당 운동과 신간회",
+    "source": "문제편 47쪽 29번 원문"
+  },
+  {
+    "id": "p30-k1",
+    "keyword": "의열단",
+    "prompt": "김익상·나석주가 활동한 단체는?",
+    "answer": "의열단",
+    "accepted": [],
+    "hint": "의열○",
+    "link": "김원봉",
+    "problemId": "p30",
+    "problemTitle": "의열단의 인물과 활동",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 47쪽 30번 원문"
+  },
+  {
+    "id": "p30-k2",
+    "keyword": "나석주",
+    "prompt": "동양 척식 주식회사와 식산 은행을 공격한 인물은?",
+    "answer": "나석주",
+    "accepted": [],
+    "hint": "나○주",
+    "link": "의열단",
+    "problemId": "p30",
+    "problemTitle": "의열단의 인물과 활동",
+    "conceptId": "heroic-struggle",
+    "conceptTitle": "의열단의 의열 투쟁",
+    "source": "문제편 47쪽 30번 원문"
+  },
+  {
+    "id": "p31-k1",
+    "keyword": "브나로드 운동",
+    "prompt": "동아일보가 1931년부터 전개한 운동은?",
+    "answer": "브나로드 운동",
+    "accepted": [
+      "브나로드"
+    ],
+    "hint": "브나로드 ○○",
+    "link": "민중 속으로",
+    "problemId": "p31",
+    "problemTitle": "브나로드 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 47쪽 31번 원문"
+  },
+  {
+    "id": "p31-k2",
+    "keyword": "동아일보",
+    "prompt": "브나로드 운동을 주도한 언론사는?",
+    "answer": "동아일보",
+    "accepted": [],
+    "hint": "동아○○",
+    "link": "농촌 계몽",
+    "problemId": "p31",
+    "problemTitle": "브나로드 운동",
+    "conceptId": "education-enlightenment",
+    "conceptTitle": "교육·문맹 퇴치 운동",
+    "source": "문제편 47쪽 31번 원문"
+  }
+]

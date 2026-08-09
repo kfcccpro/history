@@ -1,0 +1,803 @@
+[
+  {
+    "id": "p01-k1",
+    "keyword": "남촌",
+    "prompt": "경성에서 일본인이 주로 살고 근대 시설이 집중된 곳은?",
+    "answer": "남촌",
+    "accepted": [],
+    "hint": "청계천 남쪽",
+    "link": "",
+    "problemId": "p01",
+    "problemTitle": "경성의 남촌과 북촌",
+    "conceptId": "urban-life",
+    "conceptTitle": "식민지 도시와 생활 변화",
+    "source": "문제편 52쪽 01번 원문"
+  },
+  {
+    "id": "p01-k2",
+    "keyword": "북촌",
+    "prompt": "경성에서 한국인이 주로 살던 곳은?",
+    "answer": "북촌",
+    "accepted": [],
+    "hint": "청계천 북쪽",
+    "link": "",
+    "problemId": "p01",
+    "problemTitle": "경성의 남촌과 북촌",
+    "conceptId": "urban-life",
+    "conceptTitle": "식민지 도시와 생활 변화",
+    "source": "문제편 52쪽 01번 원문"
+  },
+  {
+    "id": "p02-k1",
+    "keyword": "농촌 진흥 운동",
+    "prompt": "1932~1940년 일제가 전개한 농촌 정책은?",
+    "answer": "농촌 진흥 운동",
+    "accepted": [
+      "농촌진흥운동"
+    ],
+    "hint": "농촌 ○○ 운동",
+    "link": "",
+    "problemId": "p02",
+    "problemTitle": "농촌 진흥 운동",
+    "conceptId": "rural-policy",
+    "conceptTitle": "농촌 진흥 운동과 농촌 현실",
+    "source": "문제편 52쪽 02번 원문"
+  },
+  {
+    "id": "p02-k2",
+    "keyword": "회유·통제",
+    "prompt": "농촌 진흥 운동의 실제 목적은 농촌 사회를 무엇하고 무엇하는 것이었나?",
+    "answer": "회유 통제",
+    "accepted": [
+      "회유·통제",
+      "회유와 통제"
+    ],
+    "hint": "회유 · ○○",
+    "link": "",
+    "problemId": "p02",
+    "problemTitle": "농촌 진흥 운동",
+    "conceptId": "rural-policy",
+    "conceptTitle": "농촌 진흥 운동과 농촌 현실",
+    "source": "문제편 52쪽 02번 원문"
+  },
+  {
+    "id": "p03-k1",
+    "keyword": "문화 주택",
+    "prompt": "부엌·욕실을 내부에 갖춘 근대식 주택은?",
+    "answer": "문화 주택",
+    "accepted": [
+      "문화주택"
+    ],
+    "hint": "문화 ○○",
+    "link": "",
+    "problemId": "p03",
+    "problemTitle": "일제 강점기의 생활 모습",
+    "conceptId": "urban-life",
+    "conceptTitle": "식민지 도시와 생활 변화",
+    "source": "문제편 52쪽 03번 원문"
+  },
+  {
+    "id": "p03-k2",
+    "keyword": "토막민",
+    "prompt": "도시 변두리 움막에 살던 빈민은?",
+    "answer": "토막민",
+    "accepted": [],
+    "hint": "토막○",
+    "link": "",
+    "problemId": "p03",
+    "problemTitle": "일제 강점기의 생활 모습",
+    "conceptId": "urban-life",
+    "conceptTitle": "식민지 도시와 생활 변화",
+    "source": "문제편 52쪽 03번 원문"
+  },
+  {
+    "id": "p04-k1",
+    "keyword": "강주룡",
+    "prompt": "1931년 을밀대에서 고공 농성을 한 여성 노동자는?",
+    "answer": "강주룡",
+    "accepted": [],
+    "hint": "강○룡",
+    "link": "",
+    "problemId": "p04",
+    "problemTitle": "1920년대 사회 운동 지도",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 52쪽 04번 원문"
+  },
+  {
+    "id": "p04-k2",
+    "keyword": "1931년",
+    "prompt": "강주룡의 을밀대 농성 연도는?",
+    "answer": "1931년",
+    "accepted": [
+      "1931"
+    ],
+    "hint": "193○년",
+    "link": "",
+    "problemId": "p04",
+    "problemTitle": "1920년대 사회 운동 지도",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 52쪽 04번 원문"
+  },
+  {
+    "id": "p05-k1",
+    "keyword": "사회주의 사상",
+    "prompt": "1930년대 농민 운동에 큰 영향을 준 사상은?",
+    "answer": "사회주의 사상",
+    "accepted": [
+      "사회주의"
+    ],
+    "hint": "사회주의 ○○",
+    "link": "",
+    "problemId": "p05",
+    "problemTitle": "농민 운동 성격의 변화",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 52쪽 05번 원문"
+  },
+  {
+    "id": "p05-k2",
+    "keyword": "반제국주의 항일 투쟁",
+    "prompt": "1930년대 농민 운동이 발전한 성격은?",
+    "answer": "반제국주의 항일 투쟁",
+    "accepted": [
+      "반제국주의",
+      "항일 투쟁"
+    ],
+    "hint": "반제국주의 ○○ 투쟁",
+    "link": "",
+    "problemId": "p05",
+    "problemTitle": "농민 운동 성격의 변화",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 52쪽 05번 원문"
+  },
+  {
+    "id": "p06-k1",
+    "keyword": "원산 총파업",
+    "prompt": "1929년 일제 강점기 최대 규모 노동 운동은?",
+    "answer": "원산 총파업",
+    "accepted": [
+      "원산총파업"
+    ],
+    "hint": "원산 ○○업",
+    "link": "",
+    "problemId": "p06",
+    "problemTitle": "원산 총파업",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 53쪽 06번 원문"
+  },
+  {
+    "id": "p06-k2",
+    "keyword": "1929년",
+    "prompt": "원산 총파업이 일어난 해는?",
+    "answer": "1929년",
+    "accepted": [
+      "1929"
+    ],
+    "hint": "192○년",
+    "link": "",
+    "problemId": "p06",
+    "problemTitle": "원산 총파업",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 53쪽 06번 원문"
+  },
+  {
+    "id": "p07-k1",
+    "keyword": "천도교 소년회",
+    "prompt": "방정환 중심의 소년 운동 단체는?",
+    "answer": "천도교 소년회",
+    "accepted": [
+      "천도교소년회"
+    ],
+    "hint": "천도교 ○○회",
+    "link": "",
+    "problemId": "p07",
+    "problemTitle": "천도교 소년회",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 07번 원문"
+  },
+  {
+    "id": "p07-k2",
+    "keyword": "어린이날",
+    "prompt": "천도교 소년회가 제정한 기념일은?",
+    "answer": "어린이날",
+    "accepted": [
+      "어린이 날"
+    ],
+    "hint": "어린이○",
+    "link": "",
+    "problemId": "p07",
+    "problemTitle": "천도교 소년회",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 07번 원문"
+  },
+  {
+    "id": "p08-k1",
+    "keyword": "근우회",
+    "prompt": "1927년 결성된 여성계 민족 협동 전선은?",
+    "answer": "근우회",
+    "accepted": [],
+    "hint": "근우○",
+    "link": "",
+    "problemId": "p08",
+    "problemTitle": "근우회",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 08번 원문"
+  },
+  {
+    "id": "p08-k2",
+    "keyword": "조혼 폐지",
+    "prompt": "근우회가 주장한 결혼 관련 요구는?",
+    "answer": "조혼 폐지",
+    "accepted": [
+      "조혼폐지"
+    ],
+    "hint": "조혼 ○○",
+    "link": "",
+    "problemId": "p08",
+    "problemTitle": "근우회",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 08번 원문"
+  },
+  {
+    "id": "p09-k1",
+    "keyword": "잡지 『근우』",
+    "prompt": "근우회가 발행한 기관지는?",
+    "answer": "근우",
+    "accepted": [
+      "잡지 근우",
+      "기관지 근우"
+    ],
+    "hint": "근○",
+    "link": "",
+    "problemId": "p09",
+    "problemTitle": "근우회의 활동",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 09번 원문"
+  },
+  {
+    "id": "p09-k2",
+    "keyword": "여성 권리 향상",
+    "prompt": "근우회 활동의 핵심 목표는 여성의 계몽과 무엇인가?",
+    "answer": "권리 향상",
+    "accepted": [
+      "여성 권리 향상",
+      "지위와 권리 향상"
+    ],
+    "hint": "권리 ○○",
+    "link": "",
+    "problemId": "p09",
+    "problemTitle": "근우회의 활동",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 09번 원문"
+  },
+  {
+    "id": "p10-k1",
+    "keyword": "조선 형평사",
+    "prompt": "형평 운동을 이끈 단체는?",
+    "answer": "조선 형평사",
+    "accepted": [
+      "형평사",
+      "조선형평사"
+    ],
+    "hint": "조선 ○○사",
+    "link": "",
+    "problemId": "p10",
+    "problemTitle": "형평 운동",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 10번 원문"
+  },
+  {
+    "id": "p10-k2",
+    "keyword": "진주",
+    "prompt": "형평 운동이 시작된 지역은?",
+    "answer": "진주",
+    "accepted": [],
+    "hint": "경남 ○○",
+    "link": "",
+    "problemId": "p10",
+    "problemTitle": "형평 운동",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 53쪽 10번 원문"
+  },
+  {
+    "id": "p11-k1",
+    "keyword": "한글 맞춤법 통일안",
+    "prompt": "조선어 학회가 1933년 제정한 한글 규범은?",
+    "answer": "한글 맞춤법 통일안",
+    "accepted": [
+      "맞춤법 통일안"
+    ],
+    "hint": "한글 맞춤법 ○○안",
+    "link": "",
+    "problemId": "p11",
+    "problemTitle": "조선어 학회의 활동",
+    "conceptId": "korean-language",
+    "conceptTitle": "우리말과 글 수호",
+    "source": "문제편 54쪽 11번 원문"
+  },
+  {
+    "id": "p11-k2",
+    "keyword": "우리말 큰사전",
+    "prompt": "조선어 학회가 편찬을 추진한 사전은?",
+    "answer": "우리말 큰사전",
+    "accepted": [
+      "큰사전",
+      "우리말큰사전"
+    ],
+    "hint": "우리말 큰○○",
+    "link": "",
+    "problemId": "p11",
+    "problemTitle": "조선어 학회의 활동",
+    "conceptId": "korean-language",
+    "conceptTitle": "우리말과 글 수호",
+    "source": "문제편 54쪽 11번 원문"
+  },
+  {
+    "id": "p12-k1",
+    "keyword": "보편적 발전 법칙",
+    "prompt": "백남운이 한국사도 따랐다고 본 역사 발전 원리는?",
+    "answer": "보편적 발전 법칙",
+    "accepted": [
+      "세계사적 발전 법칙"
+    ],
+    "hint": "보편적 발전 ○○",
+    "link": "",
+    "problemId": "p12",
+    "problemTitle": "백남운의 사회 경제 사학",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 12번 원문"
+  },
+  {
+    "id": "p12-k2",
+    "keyword": "정체성론",
+    "prompt": "한국이 발전하지 못했다는 식민 사관은?",
+    "answer": "정체성론",
+    "accepted": [],
+    "hint": "정체성○",
+    "link": "",
+    "problemId": "p12",
+    "problemTitle": "백남운의 사회 경제 사학",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 12번 원문"
+  },
+  {
+    "id": "p13-k1",
+    "keyword": "정체성론",
+    "prompt": "한국이 스스로 발전하지 못했다는 식민 사관은?",
+    "answer": "정체성론",
+    "accepted": [],
+    "hint": "정체성○",
+    "link": "",
+    "problemId": "p13",
+    "problemTitle": "식민 사관의 세 논리",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 13번 원문"
+  },
+  {
+    "id": "p13-k2",
+    "keyword": "타율성론·당파성론",
+    "prompt": "외세 의존과 민족 분열을 강조한 두 식민 사관은?",
+    "answer": "타율성론 당파성론",
+    "accepted": [
+      "타율성론·당파성론",
+      "타율성론과 당파성론"
+    ],
+    "hint": "타율성론 · ○○성론",
+    "link": "",
+    "problemId": "p13",
+    "problemTitle": "식민 사관의 세 논리",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 13번 원문"
+  },
+  {
+    "id": "p14-k1",
+    "keyword": "신채호",
+    "prompt": "「조선 혁명 선언」과 『조선상고사』의 저자는?",
+    "answer": "신채호",
+    "accepted": [],
+    "hint": "신○호",
+    "link": "",
+    "problemId": "p14",
+    "problemTitle": "신채호의 활동",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 14번 원문"
+  },
+  {
+    "id": "p14-k2",
+    "keyword": "아와 비아의 투쟁",
+    "prompt": "신채호가 역사를 무엇과 무엇의 투쟁이라 정의했나?",
+    "answer": "아와 비아의 투쟁",
+    "accepted": [
+      "아 비아 투쟁"
+    ],
+    "hint": "아와 ○○의 투쟁",
+    "link": "",
+    "problemId": "p14",
+    "problemTitle": "신채호의 활동",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 54쪽 14번 원문"
+  },
+  {
+    "id": "p15-k1",
+    "keyword": "조선어 학회 사건",
+    "prompt": "1942년 일제가 한글 학자를 탄압한 사건은?",
+    "answer": "조선어 학회 사건",
+    "accepted": [
+      "조선어학회사건"
+    ],
+    "hint": "조선어 학회 ○○",
+    "link": "",
+    "problemId": "p15",
+    "problemTitle": "조선어 학회 사건",
+    "conceptId": "korean-language",
+    "conceptTitle": "우리말과 글 수호",
+    "source": "문제편 54쪽 15번 원문"
+  },
+  {
+    "id": "p15-k2",
+    "keyword": "1942년",
+    "prompt": "조선어 학회 사건이 일어난 해는?",
+    "answer": "1942년",
+    "accepted": [
+      "1942"
+    ],
+    "hint": "194○년",
+    "link": "",
+    "problemId": "p15",
+    "problemTitle": "조선어 학회 사건",
+    "conceptId": "korean-language",
+    "conceptTitle": "우리말과 글 수호",
+    "source": "문제편 54쪽 15번 원문"
+  },
+  {
+    "id": "p16-k1",
+    "keyword": "조선학 운동",
+    "prompt": "안재홍·정인보·문일평이 주도한 민족 문화 운동은?",
+    "answer": "조선학 운동",
+    "accepted": [
+      "조선학운동"
+    ],
+    "hint": "조선학 ○○",
+    "link": "",
+    "problemId": "p16",
+    "problemTitle": "조선학 운동",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 55쪽 16번 원문"
+  },
+  {
+    "id": "p16-k2",
+    "keyword": "실학",
+    "prompt": "조선학 운동이 집중 연구한 조선 후기 학문은?",
+    "answer": "실학",
+    "accepted": [],
+    "hint": "실○",
+    "link": "",
+    "problemId": "p16",
+    "problemTitle": "조선학 운동",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 55쪽 16번 원문"
+  },
+  {
+    "id": "p17-k1",
+    "keyword": "저항 문학",
+    "prompt": "식민 통치에 맞서 독립을 염원한 문학은?",
+    "answer": "저항 문학",
+    "accepted": [
+      "저항문학"
+    ],
+    "hint": "저항 ○○",
+    "link": "",
+    "problemId": "p17",
+    "problemTitle": "저항 문학과 친일 문학",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 55쪽 17번 원문"
+  },
+  {
+    "id": "p17-k2",
+    "keyword": "노천명",
+    "prompt": "「님의 부르심을 받들고서」를 쓴 친일 문학가는?",
+    "answer": "노천명",
+    "accepted": [],
+    "hint": "노○명",
+    "link": "",
+    "problemId": "p17",
+    "problemTitle": "저항 문학과 친일 문학",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 55쪽 17번 원문"
+  },
+  {
+    "id": "p18-k1",
+    "keyword": "나운규",
+    "prompt": "1926년 영화 『아리랑』을 만든 인물은?",
+    "answer": "나운규",
+    "accepted": [],
+    "hint": "나○규",
+    "link": "",
+    "problemId": "p18",
+    "problemTitle": "나운규와 손기정",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 55쪽 18번 원문"
+  },
+  {
+    "id": "p18-k2",
+    "keyword": "손기정",
+    "prompt": "1936년 베를린 올림픽 마라톤 우승자는?",
+    "answer": "손기정",
+    "accepted": [],
+    "hint": "손○정",
+    "link": "",
+    "problemId": "p18",
+    "problemTitle": "나운규와 손기정",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 55쪽 18번 원문"
+  },
+  {
+    "id": "p19-k1",
+    "keyword": "중광단",
+    "prompt": "대종교가 조직한 항일 무장 단체는?",
+    "answer": "중광단",
+    "accepted": [],
+    "hint": "중광○",
+    "link": "",
+    "problemId": "p19",
+    "problemTitle": "대종교와 천도교",
+    "conceptId": "religions",
+    "conceptTitle": "종교계의 민족 운동",
+    "source": "문제편 55쪽 19번 원문"
+  },
+  {
+    "id": "p19-k2",
+    "keyword": "천도교 소년회",
+    "prompt": "천도교가 전개한 대표 소년 운동 단체는?",
+    "answer": "천도교 소년회",
+    "accepted": [
+      "천도교소년회"
+    ],
+    "hint": "천도교 ○○회",
+    "link": "",
+    "problemId": "p19",
+    "problemTitle": "대종교와 천도교",
+    "conceptId": "religions",
+    "conceptTitle": "종교계의 민족 운동",
+    "source": "문제편 55쪽 19번 원문"
+  },
+  {
+    "id": "p20-k1",
+    "keyword": "나혜석",
+    "prompt": "「이혼 고백서」를 발표한 여성 예술가는?",
+    "answer": "나혜석",
+    "accepted": [],
+    "hint": "나○석",
+    "link": "",
+    "problemId": "p20",
+    "problemTitle": "나혜석",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 56쪽 20번 원문"
+  },
+  {
+    "id": "p20-k2",
+    "keyword": "남성 중심 사회 비판",
+    "prompt": "나혜석이 비판한 사회 구조는?",
+    "answer": "남성 중심 사회",
+    "accepted": [
+      "남성 중심 사회 비판"
+    ],
+    "hint": "남성 중심 ○○",
+    "link": "",
+    "problemId": "p20",
+    "problemTitle": "나혜석",
+    "conceptId": "literature-arts",
+    "conceptTitle": "저항 문학·예술·체육",
+    "source": "문제편 56쪽 20번 원문"
+  },
+  {
+    "id": "p21-k1",
+    "keyword": "박은식",
+    "prompt": "『한국통사』와 『한국독립운동지혈사』의 저자는?",
+    "answer": "박은식",
+    "accepted": [],
+    "hint": "박○식",
+    "link": "",
+    "problemId": "p21",
+    "problemTitle": "박은식과 『한국통사』",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 56쪽 21번 원문"
+  },
+  {
+    "id": "p21-k2",
+    "keyword": "국혼",
+    "prompt": "박은식이 나라의 정신과 역사로 강조한 개념은?",
+    "answer": "국혼",
+    "accepted": [],
+    "hint": "국○",
+    "link": "",
+    "problemId": "p21",
+    "problemTitle": "박은식과 『한국통사』",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 56쪽 21번 원문"
+  },
+  {
+    "id": "p22-k1",
+    "keyword": "생존권 투쟁",
+    "prompt": "1920년대 소작 쟁의의 주된 성격은?",
+    "answer": "생존권 투쟁",
+    "accepted": [
+      "생존권"
+    ],
+    "hint": "생존권 ○○",
+    "link": "",
+    "problemId": "p22",
+    "problemTitle": "소작 쟁의와 노동 쟁의",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 56쪽 22번 원문"
+  },
+  {
+    "id": "p22-k2",
+    "keyword": "사회주의 사상",
+    "prompt": "1920년대 후반 쟁의 증가에 영향을 준 사상은?",
+    "answer": "사회주의 사상",
+    "accepted": [
+      "사회주의"
+    ],
+    "hint": "사회주의 ○○",
+    "link": "",
+    "problemId": "p22",
+    "problemTitle": "소작 쟁의와 노동 쟁의",
+    "conceptId": "workers-farmers",
+    "conceptTitle": "농민·노동 운동",
+    "source": "문제편 56쪽 22번 원문"
+  },
+  {
+    "id": "p23-k1",
+    "keyword": "천도교",
+    "prompt": "손병희가 동학을 개편한 종교는?",
+    "answer": "천도교",
+    "accepted": [],
+    "hint": "천도○",
+    "link": "",
+    "problemId": "p23",
+    "problemTitle": "천도교의 활동",
+    "conceptId": "religions",
+    "conceptTitle": "종교계의 민족 운동",
+    "source": "문제편 56쪽 23번 원문"
+  },
+  {
+    "id": "p23-k2",
+    "keyword": "개벽·신여성·어린이",
+    "prompt": "천도교가 발행한 대표 잡지 세 가지 중 하나를 쓰시오.",
+    "answer": "개벽",
+    "accepted": [
+      "신여성",
+      "어린이"
+    ],
+    "hint": "개벽 / 신여성 / ○○",
+    "link": "",
+    "problemId": "p23",
+    "problemTitle": "천도교의 활동",
+    "conceptId": "religions",
+    "conceptTitle": "종교계의 민족 운동",
+    "source": "문제편 56쪽 23번 원문"
+  },
+  {
+    "id": "p24-k1",
+    "keyword": "조선 혁명 선언",
+    "prompt": "신채호가 의열단을 위해 작성한 선언은?",
+    "answer": "조선 혁명 선언",
+    "accepted": [
+      "조선혁명선언"
+    ],
+    "hint": "조선 혁명 ○○",
+    "link": "",
+    "problemId": "p24",
+    "problemTitle": "신채호의 조선 혁명 선언",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 57쪽 24번 원문"
+  },
+  {
+    "id": "p24-k2",
+    "keyword": "김원봉",
+    "prompt": "신채호에게 선언 작성을 요청한 의열단 지도자는?",
+    "answer": "김원봉",
+    "accepted": [],
+    "hint": "김○봉",
+    "link": "",
+    "problemId": "p24",
+    "problemTitle": "신채호의 조선 혁명 선언",
+    "conceptId": "historical-studies",
+    "conceptTitle": "민족주의·사회 경제 사학",
+    "source": "문제편 57쪽 24번 원문"
+  },
+  {
+    "id": "p25-k1",
+    "keyword": "방정환",
+    "prompt": "어린이날 제정과 잡지 『어린이』 발행을 이끈 인물은?",
+    "answer": "방정환",
+    "accepted": [],
+    "hint": "방○환",
+    "link": "",
+    "problemId": "p25",
+    "problemTitle": "천도교 소년회의 어린이날",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 57쪽 25번 원문"
+  },
+  {
+    "id": "p25-k2",
+    "keyword": "천도교 소년회",
+    "prompt": "방정환이 중심이 된 소년 운동 단체는?",
+    "answer": "천도교 소년회",
+    "accepted": [
+      "천도교소년회"
+    ],
+    "hint": "천도교 ○○회",
+    "link": "",
+    "problemId": "p25",
+    "problemTitle": "천도교 소년회의 어린이날",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 57쪽 25번 원문"
+  },
+  {
+    "id": "p26-k1",
+    "keyword": "형평 운동",
+    "prompt": "백정 차별 철폐를 요구한 운동은?",
+    "answer": "형평 운동",
+    "accepted": [
+      "형평운동"
+    ],
+    "hint": "형평 ○○",
+    "link": "",
+    "problemId": "p26",
+    "problemTitle": "형평 운동의 전개",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 57쪽 26번 원문"
+  },
+  {
+    "id": "p26-k2",
+    "keyword": "1923년 진주",
+    "prompt": "형평 운동이 시작된 연도와 지역은?",
+    "answer": "1923년 진주",
+    "accepted": [
+      "1923 진주",
+      "진주 1923년"
+    ],
+    "hint": "1923년 ○○",
+    "link": "",
+    "problemId": "p26",
+    "problemTitle": "형평 운동의 전개",
+    "conceptId": "youth-women-equality",
+    "conceptTitle": "소년·여성·형평 운동",
+    "source": "문제편 57쪽 26번 원문"
+  }
+]

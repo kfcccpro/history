@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-session-resume",
+    "version": "1.0.0",
+    "scope": "Day 1-6 / session end-resume control",
+    "policy": "오답 복구 중에는 종료하지 않고 현재 원문 문제를 정답으로 마친 뒤에만 종료 후보를 평가한다. 다음 접속은 핵심 연결 1개 뒤 지정 원문 문제로 바로 재개한다."
+  },
+  "earlyEnd": {
+    "minimumCompletedProblems": 4,
+    "recentAttemptWindow": 5,
+    "maximumRecentAccuracy": 0.64,
+    "minimumSuppressionCycles": 2,
+    "minimumSuppressedOptionalInterventions": 4,
+    "maximumEarlyEndsPer24Hours": 2,
+    "earlyEndCooldownHours": 4,
+    "doNotEndWithRemainingProblemsAtOrBelow": 1
+  },
+  "resume": {
+    "deferSameTabMinutes": 30,
+    "anchorMaximumMissesBeforeAnswer": 2,
+    "suppressOptionalInterventionsOnTarget": true,
+    "storageKey": "history2-unit1-resume-token-v1",
+    "historyKey": "history2-unit1-resume-history-v1",
+    "sameTabDeferKey": "history2-unit1-resume-defer-v1"
+  },
+  "studentCopy": {
+    "endTitle": "오늘은 여기까지",
+    "endHint": "지금 문제까지 연결했습니다.",
+    "resumeKicker": "이어서 시작",
+    "resumeHint": "핵심 하나만 연결하고 바로 원문 문제로 갑니다."
+  }
+}

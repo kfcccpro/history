@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-policy-stability-risk",
+    "version": "1.0.0",
+    "generated": "2026-08-07",
+    "scope": "Day 1-6 / policy stability and proactive error-risk prediction",
+    "newStateFields": ["policyStabilityLog", "riskPredictionLog", "proactiveMicrocheckLog"],
+    "studentPolicy": "위험 점수·예측 진단명·설정 메뉴는 학생에게 표시하지 않는다."
+  },
+  "stability": {
+    "minimumConfidence": 0.62,
+    "switchConfidence": 0.72,
+    "hysteresisUtilityMargin": 0.05,
+    "cooldownHours": 12,
+    "purpose": "짧은 기록에 따라 개인화 정책이 빈번하게 바뀌는 것을 방지"
+  },
+  "riskModel": {
+    "threshold": 0.68,
+    "minimumConfidence": 0.58,
+    "signals": {
+      "recentRepeatedErrors": 0.24,
+      "retentionFailure": 0.26,
+      "deepRecoveryFrequency": 0.24,
+      "responseTime": 0.14,
+      "recentProblemWrong": 0.12
+    },
+    "responseTime": "새 시도부터 원문 문제 자체의 응답시간을 기록하며, 충분한 개인 기록이 있을 때만 보조 신호로 사용"
+  },
+  "proactiveMicrocheck": {
+    "allowedMethods": ["spacing-recall", "precheck"],
+    "minimumEpisodes": 3,
+    "minimumEffectScore": 0.68,
+    "maximumObservedAverageSeconds": 20,
+    "maximumAverageActions": 3,
+    "sessionMaximum": 2,
+    "falsePositiveRule": "고위험 예측 후 마이크로 체크를 첫 시도에 통과하고 원문도 바로 맞히면 오탐으로 판정하고 같은 세션의 추가 선제 개입 중단",
+    "retryRule": "방금 오답 복구한 원문 재도전 앞에는 선제 마이크로 체크를 삽입하지 않음"
+  },
+  "parentMetrics": ["predictionHitRate", "falsePositiveRate", "deepRecoveryAvoidedProxy", "actionsSavedEstimate", "policyStabilityConfidence"]
+}

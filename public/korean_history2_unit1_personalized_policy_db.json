@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-personalized-remediation-policy",
+    "version": "1.0.0",
+    "generated": "2026-08-07",
+    "scope": "Day 1-6 / personalized intervention selection and scaffolding fade",
+    "storageField": "interventionPolicyLog",
+    "decisionStorageField": "policyDecisionLog",
+    "policy": "같은 학습자·같은 큰 가지에서 보정 방법별 효과와 부담을 비교하여 유지 효과가 비슷하면 더 짧은 개입을 우선한다. 핵심 개념 뎁스 진단은 유지하고 보조 발판부터 자동 축소한다."
+  },
+  "methods": [
+    {"id":"depth-recovery","label":"개념 뎁스 복구","role":"core","burdenRank":4},
+    {"id":"pattern-remediation","label":"반복 오류 보정","role":"supplement","burdenRank":3},
+    {"id":"precheck","label":"선행개념 프리체크","role":"supplement","burdenRank":2},
+    {"id":"spacing-recall","label":"간격 회상","role":"supplement","burdenRank":1}
+  ],
+  "selection": {
+    "minimumEpisodesPerMethod": 2,
+    "minimumMethodsForComparison": 2,
+    "nearBestEffectMargin": 0.06,
+    "burdenPenaltyWeight": 0.18,
+    "effectWeights": {"immediate":0.25,"d1":0.15,"d3":0.25,"d7":0.35},
+    "burdenReference": {"durationMs":90000,"actions":10,"retries":3,"screens":6}
+  },
+  "fade": {
+    "stableRate": 0.8,
+    "minimumD3Observations": 2,
+    "minimumD7Observations": 2,
+    "level2MinimumD7Observations": 4,
+    "level1": ["skip-precheck-when-comparison-supports-it"],
+    "level2": ["skip-precheck","skip-low-value-pattern-remediation","reduce-routine-spacing-load"]
+  },
+  "strengthen": {
+    "deepImmediateFailureCount": 2,
+    "deepFailureLookback": 4,
+    "longTermWeakRate": 0.65,
+    "minimumLongTermObservations": 2,
+    "actionOnDeepFailure": "insert-one-prerequisite-keyword-before-depth-recovery",
+    "actionOnLongTermWeakness": "tighten-spacing-before-adding-more-concept-explanation"
+  },
+  "studentPolicy": {
+    "showScores": false,
+    "showDiagnosisNames": false,
+    "showPolicyNames": false,
+    "oneScreenOneAction": true
+  }
+}

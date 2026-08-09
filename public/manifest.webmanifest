@@ -1,0 +1,11 @@
+{
+  "name": "한국사Ⅱ 문제중심 학습",
+  "short_name": "한국사Ⅱ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#101b30",
+  "lang": "ko-KR",
+  "orientation": "landscape"
+}

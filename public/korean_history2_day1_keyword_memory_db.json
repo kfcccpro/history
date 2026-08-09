@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "courseId": "korean-history2-unit1-day1",
+    "version": "0.6.0-keyword-mastery-wrongbook",
+    "count": 28
+  },
+  "items": [
+    {
+      "id": "p01-k1",
+      "keyword": "러시아 혁명",
+      "prompt": "1917년 러시아에서 일어난 혁명은?",
+      "answer": "러시아 혁명",
+      "accepted": [
+        "러시아혁명"
+      ],
+      "hint": "러시아 ○○",
+      "link": "1917년 · 제1차 세계 대전 중",
+      "problemId": "p01",
+      "problemTitle": "제1차 세계 대전과 전후 질서",
+      "conceptId": "ww1",
+      "conceptTitle": "제1차 세계 대전과 전후 질서",
+      "source": "문제편 17쪽 01번 원문"
+    },
+    {
+      "id": "p01-k2",
+      "keyword": "1918년",
+      "prompt": "제1차 세계 대전이 끝난 해는?",
+      "answer": "1918년",
+      "accepted": [
+        "1918",
+        "1918 년"
+      ],
+      "hint": "19○○년",
+      "link": "1914년 시작 → 1918년 종료",
+      "problemId": "p01",
+      "problemTitle": "제1차 세계 대전과 전후 질서",
+      "conceptId": "ww1",
+      "conceptTitle": "제1차 세계 대전과 전후 질서",
+      "source": "문제편 17쪽 01번 원문"
+    },
+    {
+      "id": "p02-k1",
+      "keyword": "헌병 경찰",
+      "prompt": "1910년대 경찰 업무까지 맡은 군사 경찰은?",
+      "answer": "헌병 경찰",
+      "accepted": [
+        "헌병경찰"
+      ],
+      "hint": "헌병 ○○",
+      "link": "무단 통치의 핵심 조직",
+      "problemId": "p02",
+      "problemTitle": "조선 태형령과 무단 통치",
+      "conceptId": "military-rule",
+      "conceptTitle": "헌병 경찰에 의한 무단 통치",
+      "source": "문제편 17쪽 02번 원문"
+    },
+    {
+      "id": "p02-k2",
+      "keyword": "즉결 심판",
+      "prompt": "재판 없이 현장에서 처벌할 수 있던 권한은?",
+      "answer": "즉결 심판",
+      "accepted": [
+        "즉결심판"
+      ],
+      "hint": "즉결 ○○",
+      "link": "헌병 경찰의 강한 권한",
+      "problemId": "p02",
+      "problemTitle": "조선 태형령과 무단 통치",
+      "conceptId": "military-rule",
+      "conceptTitle": "헌병 경찰에 의한 무단 통치",
+      "source": "문제편 17쪽 02번 원문"
+    },
+    {
+      "id": "p03-k1",
+      "keyword": "중추원",
+      "prompt": "조선 총독부의 한국인 자문 기구는?",
+      "answer": "중추원",
+      "accepted": [],
+      "hint": "중○원",
+      "link": "조선 총독부 자문 기구",
+      "problemId": "p03",
+      "problemTitle": "중추원",
+      "conceptId": "governor",
+      "conceptTitle": "조선 총독부와 중추원",
+      "source": "문제편 17쪽 03번 원문"
+    },
+    {
+      "id": "p03-k2",
+      "keyword": "자문 기구",
+      "prompt": "중추원의 실제 성격을 두 글자로 시작해 쓰세요.",
+      "answer": "자문 기구",
+      "accepted": [
+        "자문기관",
+        "자문 기구"
+      ],
+      "hint": "자문 ○○",
+      "link": "실질적 정치 권한은 없음",
+      "problemId": "p03",
+      "problemTitle": "중추원",
+      "conceptId": "governor",
+      "conceptTitle": "조선 총독부와 중추원",
+      "source": "문제편 17쪽 03번 원문"
+    },
+    {
+      "id": "p04-k1",
+      "keyword": "토지 조사 사업",
+      "prompt": "1910~1918년에 실시된 토지 정리 사업은?",
+      "answer": "토지 조사 사업",
+      "accepted": [
+        "토지조사사업"
+      ],
+      "hint": "토지 ○○ 사업",
+      "link": "무단 통치 시기 경제 정책",
+      "problemId": "p04",
+      "problemTitle": "무단 통치 시기의 사실",
+      "conceptId": "land-survey",
+      "conceptTitle": "토지 조사 사업",
+      "source": "문제편 17쪽 04번 원문"
+    },
+    {
+      "id": "p04-k2",
+      "keyword": "신고주의",
+      "prompt": "토지 소유자가 직접 신고하게 한 원칙은?",
+      "answer": "신고주의",
+      "accepted": [],
+      "hint": "신고○○",
+      "link": "미신고 토지 상실과 연결",
+      "problemId": "p04",
+      "problemTitle": "무단 통치 시기의 사실",
+      "conceptId": "land-survey",
+      "conceptTitle": "토지 조사 사업",
+      "source": "문제편 17쪽 04번 원문"
+    },
+    {
+      "id": "p05-k1",
+      "keyword": "지세 수입 증가",
+      "prompt": "토지 조사 사업으로 총독부가 늘린 세금 수입은?",
+      "answer": "지세 수입",
+      "accepted": [
+        "지세수입",
+        "지세 수입 증가",
+        "지세수입증가"
+      ],
+      "hint": "지세 ○○",
+      "link": "총독부 식민 재정 강화",
+      "problemId": "p05",
+      "problemTitle": "토지 조사 사업의 결과",
+      "conceptId": "land-survey",
+      "conceptTitle": "토지 조사 사업",
+      "source": "문제편 17쪽 05번 원문"
+    },
+    {
+      "id": "p05-k2",
+      "keyword": "경작권 부정",
+      "prompt": "농민이 실제로 농사짓던 권리가 인정되지 않은 결과는?",
+      "answer": "경작권 부정",
+      "accepted": [
+        "경작권을 부정",
+        "경작권 불인정",
+        "경작권 인정 안 됨"
+      ],
+      "hint": "경작권 ○○",
+      "link": "소작농 증가로 연결",
+      "problemId": "p05",
+      "problemTitle": "토지 조사 사업의 결과",
+      "conceptId": "land-survey",
+      "conceptTitle": "토지 조사 사업",
+      "source": "문제편 17쪽 05번 원문"
+    },
+    {
+      "id": "p06-k1",
+      "keyword": "허가제",
+      "prompt": "1910년대 회사·어업·광업을 통제한 공통 방식은?",
+      "answer": "허가제",
+      "accepted": [],
+      "hint": "허가○",
+      "link": "총독의 허가가 필요",
+      "problemId": "p06",
+      "problemTitle": "1910년대 경제 정책의 특징",
+      "conceptId": "permit-economy",
+      "conceptTitle": "회사령과 자원 침탈",
+      "source": "문제편 18쪽 06번 원문"
+    },
+    {
+      "id": "p06-k2",
+      "keyword": "자원 독점",
+      "prompt": "허가제로 일제가 장악하려 한 것은 한국의 무엇인가?",
+      "answer": "자원",
+      "accepted": [
+        "한국 자원",
+        "한국의 자원",
+        "자원 독점"
+      ],
+      "hint": "자○",
+      "link": "경제 활동 통제 → 자원 독점",
+      "problemId": "p06",
+      "problemTitle": "1910년대 경제 정책의 특징",
+      "conceptId": "permit-economy",
+      "conceptTitle": "회사령과 자원 침탈",
+      "source": "문제편 18쪽 06번 원문"
+    },
+    {
+      "id": "p07-k1",
+      "keyword": "3·1 운동",
+      "prompt": "문화 정치 표방의 직접적인 계기가 된 운동은?",
+      "answer": "3·1 운동",
+      "accepted": [
+        "3.1 운동",
+        "삼일운동",
+        "3·1운동"
+      ],
+      "hint": "3·1 ○○",
+      "link": "1919년 전국적 만세 운동",
+      "problemId": "p07",
+      "problemTitle": "문화 정치의 배경",
+      "conceptId": "cultural-rule",
+      "conceptTitle": "문화 정치의 표면과 실상",
+      "source": "문제편 18쪽 08번 원문"
+    },
+    {
+      "id": "p07-k2",
+      "keyword": "문화 정치",
+      "prompt": "3·1 운동 이후 일제가 내세운 통치 방식은?",
+      "answer": "문화 정치",
+      "accepted": [
+        "문화정치"
+      ],
+      "hint": "문화 ○○",
+      "link": "표면적 완화 · 실제 탄압 강화",
+      "problemId": "p07",
+      "problemTitle": "문화 정치의 배경",
+      "conceptId": "cultural-rule",
+      "conceptTitle": "문화 정치의 표면과 실상",
+      "source": "문제편 18쪽 08번 원문"
+    },
+    {
+      "id": "p08-k1",
+      "keyword": "산미 증식 계획",
+      "prompt": "조선의 쌀을 늘려 일본으로 보내려 한 계획은?",
+      "answer": "산미 증식 계획",
+      "accepted": [
+        "산미증식계획"
+      ],
+      "hint": "산미 ○○ 계획",
+      "link": "1920년부터 추진",
+      "problemId": "p08",
+      "problemTitle": "산미 증식 계획",
+      "conceptId": "rice-plan",
+      "conceptTitle": "산미 증식 계획",
+      "source": "문제편 18쪽 09번 원문"
+    },
+    {
+      "id": "p08-k2",
+      "keyword": "쌀 소비 감소",
+      "prompt": "쌀 반출 증가로 한국인의 1인당 쌀 소비는 어떻게 되었나?",
+      "answer": "감소",
+      "accepted": [
+        "쌀 소비 감소",
+        "감소하였다",
+        "줄어들었다"
+      ],
+      "hint": "증가 / 감소 중 하나",
+      "link": "증산보다 반출이 더 빠르게 증가",
+      "problemId": "p08",
+      "problemTitle": "산미 증식 계획",
+      "conceptId": "rice-plan",
+      "conceptTitle": "산미 증식 계획",
+      "source": "문제편 18쪽 09번 원문"
+    },
+    {
+      "id": "p09-k1",
+      "keyword": "치안 유지법",
+      "prompt": "1925년 사회주의자와 독립운동가 탄압에 이용된 법은?",
+      "answer": "치안 유지법",
+      "accepted": [
+        "치안유지법"
+      ],
+      "hint": "치안 ○○법",
+      "link": "문화 정치의 실제 탄압",
+      "problemId": "p09",
+      "problemTitle": "치안 유지법",
+      "conceptId": "peace-law",
+      "conceptTitle": "치안 유지법",
+      "source": "문제편 19쪽 15번 원문"
+    },
+    {
+      "id": "p09-k2",
+      "keyword": "1925년",
+      "prompt": "치안 유지법이 제정된 해는?",
+      "answer": "1925년",
+      "accepted": [
+        "1925"
+      ],
+      "hint": "19○5년",
+      "link": "1920년대",
+      "problemId": "p09",
+      "problemTitle": "치안 유지법",
+      "conceptId": "peace-law",
+      "conceptTitle": "치안 유지법",
+      "source": "문제편 19쪽 15번 원문"
+    },
+    {
+      "id": "p10a-k1",
+      "keyword": "황국 신민 서사",
+      "prompt": "일왕에게 충성을 맹세하도록 암송시킨 문장은?",
+      "answer": "황국 신민 서사",
+      "accepted": [
+        "황국신민서사"
+      ],
+      "hint": "황국 신민 ○○",
+      "link": "민족 말살 통치",
+      "problemId": "p10a",
+      "problemTitle": "황국 신민 서사",
+      "conceptId": "assimilation",
+      "conceptTitle": "황국 신민화와 민족 말살",
+      "source": "문제편 20쪽 17번 원문"
+    },
+    {
+      "id": "p10a-k2",
+      "keyword": "일왕 충성",
+      "prompt": "황국 신민 서사가 강요한 핵심 대상은 누구에 대한 충성인가?",
+      "answer": "일왕",
+      "accepted": [
+        "천황",
+        "일본 천황",
+        "일왕에게 충성"
+      ],
+      "hint": "일○",
+      "link": "조선인을 일본 신민으로 동화",
+      "problemId": "p10a",
+      "problemTitle": "황국 신민 서사",
+      "conceptId": "assimilation",
+      "conceptTitle": "황국 신민화와 민족 말살",
+      "source": "문제편 20쪽 17번 원문"
+    },
+    {
+      "id": "p10b-k1",
+      "keyword": "1910년대",
+      "prompt": "헌병 경찰과 조선 태형령이 대표하는 시기는?",
+      "answer": "1910년대",
+      "accepted": [
+        "1910년",
+        "1910 년대"
+      ],
+      "hint": "19○0년대",
+      "link": "무단 통치",
+      "problemId": "p10b",
+      "problemTitle": "민족 말살 통치 시기의 모습",
+      "conceptId": "assimilation",
+      "conceptTitle": "황국 신민화와 민족 말살",
+      "source": "문제편 20쪽 18번 원문"
+    },
+    {
+      "id": "p10b-k2",
+      "keyword": "창씨개명",
+      "prompt": "1939년 이후 일본식 성명 사용을 강요한 정책은?",
+      "answer": "창씨개명",
+      "accepted": [
+        "창씨 개명"
+      ],
+      "hint": "창씨○○",
+      "link": "민족 말살 통치",
+      "problemId": "p10b",
+      "problemTitle": "민족 말살 통치 시기의 모습",
+      "conceptId": "assimilation",
+      "conceptTitle": "황국 신민화와 민족 말살",
+      "source": "문제편 20쪽 18번 원문"
+    },
+    {
+      "id": "p11-k1",
+      "keyword": "국가 총동원법",
+      "prompt": "1938년 인적·물적 자원을 전쟁에 동원한 법은?",
+      "answer": "국가 총동원법",
+      "accepted": [
+        "국가총동원법"
+      ],
+      "hint": "국가 총○○법",
+      "link": "전시 동원 체제",
+      "problemId": "p11",
+      "problemTitle": "국가 총동원법 이후 정책",
+      "conceptId": "mobilization",
+      "conceptTitle": "전시 동원 체제",
+      "source": "문제편 20쪽 20번 원문"
+    },
+    {
+      "id": "p11-k2",
+      "keyword": "신문지법",
+      "prompt": "국가 총동원법보다 앞선 1907년 언론 통제법은?",
+      "answer": "신문지법",
+      "accepted": [],
+      "hint": "신문○법",
+      "link": "“이후 정책”이 아닌 보기",
+      "problemId": "p11",
+      "problemTitle": "국가 총동원법 이후 정책",
+      "conceptId": "mobilization",
+      "conceptTitle": "전시 동원 체제",
+      "source": "문제편 20쪽 20번 원문"
+    },
+    {
+      "id": "p12-k1",
+      "keyword": "애국반",
+      "prompt": "10호 단위로 주민을 묶은 말단 통제 조직은?",
+      "answer": "애국반",
+      "accepted": [],
+      "hint": "애국○",
+      "link": "공출·감시·정책 전달",
+      "problemId": "p12",
+      "problemTitle": "애국반",
+      "conceptId": "aegukban",
+      "conceptTitle": "애국반",
+      "source": "문제편 21쪽 21번 원문"
+    },
+    {
+      "id": "p12-k2",
+      "keyword": "주민 감시",
+      "prompt": "애국반이 일상에서 수행한 핵심 기능은?",
+      "answer": "주민 감시",
+      "accepted": [
+        "감시",
+        "주민감시",
+        "주민을 감시"
+      ],
+      "hint": "주민 ○○",
+      "link": "식민 통제의 말단 조직",
+      "problemId": "p12",
+      "problemTitle": "애국반",
+      "conceptId": "aegukban",
+      "conceptTitle": "애국반",
+      "source": "문제편 21쪽 21번 원문"
+    },
+    {
+      "id": "p13-k1",
+      "keyword": "사진결혼",
+      "prompt": "하와이 한인 사회에서 성행한 결혼 형태는?",
+      "answer": "사진결혼",
+      "accepted": [
+        "사진 결혼"
+      ],
+      "hint": "사진○○",
+      "link": "1910~1924년",
+      "problemId": "p13",
+      "problemTitle": "하와이 이주 동포",
+      "conceptId": "hawaii",
+      "conceptTitle": "하와이 이주 동포",
+      "source": "문제편 21쪽 25번 원문"
+    },
+    {
+      "id": "p13-k2",
+      "keyword": "사탕수수 농장",
+      "prompt": "초기 하와이 이주 한인들이 주로 일한 곳은?",
+      "answer": "사탕수수 농장",
+      "accepted": [
+        "사탕수수농장",
+        "사탕수수"
+      ],
+      "hint": "사탕수수 ○○",
+      "link": "1903년 이주 시작",
+      "problemId": "p13",
+      "problemTitle": "하와이 이주 동포",
+      "conceptId": "hawaii",
+      "conceptTitle": "하와이 이주 동포",
+      "source": "문제편 21쪽 25번 원문"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-remediation-efficacy",
+    "version": "1.0.0",
+    "generated": "2026-08-07",
+    "scope": "Day 1-6 / concept-depth recovery efficacy and retention",
+    "storageField": "remediationEfficacyLog",
+    "precheckStorageField": "precheckLog",
+    "policy": "개념 뎁스 복구를 원문 재도전과 연결하고, 같은 큰 가지에서 root/unit 수준의 깊은 복구가 서로 다른 2문항 이상 반복되면 다음 관련 원문 문제 직전에 짧은 선행개념 프리체크를 자동 삽입한다."
+  },
+  "deepRecoveryTrigger": {
+    "baseLevels": ["root", "unit"],
+    "minimumEvents": 2,
+    "minimumDistinctProblems": 2,
+    "evidenceWindowDays": 21,
+    "resetAfterPrecheck": true
+  },
+  "precheck": {
+    "targetSeconds": [15, 30],
+    "steps": ["branch-choice", "keyword-recall"],
+    "studentLead": "문제 전에 연결 하나만 확인",
+    "studentReason": "이 가지가 최근에 여러 번 흔들려서, 문제 전에 짧게 연결하고 갑니다."
+  },
+  "retentionWindows": [
+    {"id":"d1","days":1,"label":"1일"},
+    {"id":"d3","days":3,"label":"3일"},
+    {"id":"d7","days":7,"label":"7일"}
+  ],
+  "retentionEvidence": ["keyword-recall", "related-original-problem"],
+  "studentPolicy": {
+    "showDiagnosisNames": false,
+    "showScores": false,
+    "oneScreenOneAction": true
+  }
+}

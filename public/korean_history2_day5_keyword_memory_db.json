@@ -1,0 +1,716 @@
+[
+  {
+    "id": "p01-k1",
+    "keyword": "지청천",
+    "prompt": "한국 독립군을 지휘한 인물은?",
+    "answer": "지청천",
+    "accepted": [],
+    "hint": "지○천",
+    "link": "",
+    "problemId": "p01",
+    "problemTitle": "한국 독립군과 조선 혁명군 구별",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 01번 원문"
+  },
+  {
+    "id": "p01-k2",
+    "keyword": "양세봉",
+    "prompt": "조선 혁명군을 지휘한 인물은?",
+    "answer": "양세봉",
+    "accepted": [],
+    "hint": "양○봉",
+    "link": "",
+    "problemId": "p01",
+    "problemTitle": "한국 독립군과 조선 혁명군 구별",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 01번 원문"
+  },
+  {
+    "id": "p02-k1",
+    "keyword": "한·중 연합 작전",
+    "prompt": "한국 독립군·조선 혁명군의 공통 전투 방식은?",
+    "answer": "한중 연합 작전",
+    "accepted": [
+      "한·중 연합 작전",
+      "한중연합작전"
+    ],
+    "hint": "한·중 ○○ 작전",
+    "link": "",
+    "problemId": "p02",
+    "problemTitle": "한·중 연합 작전",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 02번 원문"
+  },
+  {
+    "id": "p02-k2",
+    "keyword": "만주 사변",
+    "prompt": "이 연합 작전이 활발해진 직접적 국제 배경은?",
+    "answer": "만주 사변",
+    "accepted": [
+      "만주사변"
+    ],
+    "hint": "1931년 일본의 만주 침략",
+    "link": "",
+    "problemId": "p02",
+    "problemTitle": "한·중 연합 작전",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 02번 원문"
+  },
+  {
+    "id": "p03-k1",
+    "keyword": "만주국",
+    "prompt": "일제가 1932년 만주에 세운 나라는?",
+    "answer": "만주국",
+    "accepted": [],
+    "hint": "만주○",
+    "link": "",
+    "problemId": "p03",
+    "problemTitle": "한·중 연합 작전의 배경",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 03번 원문"
+  },
+  {
+    "id": "p03-k2",
+    "keyword": "반일 감정",
+    "prompt": "중국에서 높아져 한·중 연합 작전의 배경이 된 감정은?",
+    "answer": "반일 감정",
+    "accepted": [
+      "반일감정"
+    ],
+    "hint": "반일 ○○",
+    "link": "",
+    "problemId": "p03",
+    "problemTitle": "한·중 연합 작전의 배경",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 03번 원문"
+  },
+  {
+    "id": "p04-k1",
+    "keyword": "조국 광복회",
+    "prompt": "동북 항일 연군 한국인 유격대가 민족주의·사회주의 세력과 결성한 단체는?",
+    "answer": "조국 광복회",
+    "accepted": [
+      "조국광복회"
+    ],
+    "hint": "조국 ○○회",
+    "link": "",
+    "problemId": "p04",
+    "problemTitle": "1930년대 만주의 무장 투쟁",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 04번 원문"
+  },
+  {
+    "id": "p04-k2",
+    "keyword": "보천보 전투",
+    "prompt": "1937년 국내 보천보를 습격한 사건은?",
+    "answer": "보천보 전투",
+    "accepted": [
+      "보천보전투"
+    ],
+    "hint": "보천보 ○○",
+    "link": "",
+    "problemId": "p04",
+    "problemTitle": "1930년대 만주의 무장 투쟁",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 63쪽 04번 원문"
+  },
+  {
+    "id": "p05-k1",
+    "keyword": "민족 혁명당",
+    "prompt": "1935년 난징에서 결성된 최대 규모 통일 전선 정당은?",
+    "answer": "민족 혁명당",
+    "accepted": [
+      "민족혁명당"
+    ],
+    "hint": "민족 ○○당",
+    "link": "",
+    "problemId": "p05",
+    "problemTitle": "민족 혁명당",
+    "conceptId": "united-front",
+    "conceptTitle": "민족 혁명당과 통일 전선",
+    "source": "문제편 63쪽 05번 원문"
+  },
+  {
+    "id": "p05-k2",
+    "keyword": "통일 전선",
+    "prompt": "서로 다른 정치 계열이 공동 목표로 연합하는 방식은?",
+    "answer": "통일 전선",
+    "accepted": [
+      "통일전선"
+    ],
+    "hint": "통일 ○○",
+    "link": "",
+    "problemId": "p05",
+    "problemTitle": "민족 혁명당",
+    "conceptId": "united-front",
+    "conceptTitle": "민족 혁명당과 통일 전선",
+    "source": "문제편 63쪽 05번 원문"
+  },
+  {
+    "id": "p06-k1",
+    "keyword": "조선 의용대",
+    "prompt": "1938년 중국 관내에서 최초로 조직된 한인 무장 부대는?",
+    "answer": "조선 의용대",
+    "accepted": [
+      "조선의용대"
+    ],
+    "hint": "조선 의용○",
+    "link": "",
+    "problemId": "p06",
+    "problemTitle": "조선 의용대",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 06번 원문"
+  },
+  {
+    "id": "p06-k2",
+    "keyword": "조선 민족 전선 연맹",
+    "prompt": "조선 의용대를 조직한 사회주의 계열 연합 조직은?",
+    "answer": "조선 민족 전선 연맹",
+    "accepted": [
+      "조선민족전선연맹"
+    ],
+    "hint": "조선 민족 전선 ○○",
+    "link": "",
+    "problemId": "p06",
+    "problemTitle": "조선 의용대",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 06번 원문"
+  },
+  {
+    "id": "p07-k1",
+    "keyword": "1938년",
+    "prompt": "조선 의용대가 조직된 연도는?",
+    "answer": "1938년",
+    "accepted": [
+      "1938"
+    ],
+    "hint": "193○년",
+    "link": "",
+    "problemId": "p07",
+    "problemTitle": "조선 의용대의 조직 시기",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 07번 원문"
+  },
+  {
+    "id": "p07-k2",
+    "keyword": "중일 전쟁",
+    "prompt": "조선 의용대 조직 직전인 1937년에 발발한 전쟁은?",
+    "answer": "중일 전쟁",
+    "accepted": [
+      "중·일 전쟁",
+      "중일전쟁"
+    ],
+    "hint": "중·일 ○○",
+    "link": "",
+    "problemId": "p07",
+    "problemTitle": "조선 의용대의 조직 시기",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 07번 원문"
+  },
+  {
+    "id": "p08-k1",
+    "keyword": "김원봉",
+    "prompt": "의열단·민족 혁명당·조선 의용대를 조직한 인물은?",
+    "answer": "김원봉",
+    "accepted": [],
+    "hint": "김○봉",
+    "link": "",
+    "problemId": "p08",
+    "problemTitle": "김원봉의 활동",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 08번 원문"
+  },
+  {
+    "id": "p08-k2",
+    "keyword": "한국광복군",
+    "prompt": "김원봉이 조선 의용대 일부를 이끌고 1942년 합류한 부대는?",
+    "answer": "한국광복군",
+    "accepted": [
+      "한국 광복군"
+    ],
+    "hint": "한국○○군",
+    "link": "",
+    "problemId": "p08",
+    "problemTitle": "김원봉의 활동",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 64쪽 08번 원문"
+  },
+  {
+    "id": "p09-k1",
+    "keyword": "충칭",
+    "prompt": "대한민국 임시 정부가 1940년 정착한 도시는?",
+    "answer": "충칭",
+    "accepted": [],
+    "hint": "중국 내륙 도시",
+    "link": "",
+    "problemId": "p09",
+    "problemTitle": "충칭 시기 대한민국 임시 정부",
+    "conceptId": "imjeong-chongqing",
+    "conceptTitle": "충칭의 대한민국 임시 정부",
+    "source": "문제편 64쪽 09번 원문"
+  },
+  {
+    "id": "p09-k2",
+    "keyword": "한인 애국단",
+    "prompt": "1931년 상하이에서 김구가 조직한 의거 단체는?",
+    "answer": "한인 애국단",
+    "accepted": [
+      "한인애국단"
+    ],
+    "hint": "한인 ○○단",
+    "link": "",
+    "problemId": "p09",
+    "problemTitle": "충칭 시기 대한민국 임시 정부",
+    "conceptId": "imjeong-chongqing",
+    "conceptTitle": "충칭의 대한민국 임시 정부",
+    "source": "문제편 64쪽 09번 원문"
+  },
+  {
+    "id": "p10-k1",
+    "keyword": "한국광복군",
+    "prompt": "대한민국 임시 정부가 1940년 충칭에서 창설한 정규군은?",
+    "answer": "한국광복군",
+    "accepted": [
+      "한국 광복군"
+    ],
+    "hint": "한국○○군",
+    "link": "",
+    "problemId": "p10",
+    "problemTitle": "한국광복군 명칭",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 64쪽 10번 원문"
+  },
+  {
+    "id": "p10-k2",
+    "keyword": "지청천",
+    "prompt": "한국광복군 총사령관은?",
+    "answer": "지청천",
+    "accepted": [],
+    "hint": "지○천",
+    "link": "",
+    "problemId": "p10",
+    "problemTitle": "한국광복군 명칭",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 64쪽 10번 원문"
+  },
+  {
+    "id": "p11-k1",
+    "keyword": "미얀마·인도 전선",
+    "prompt": "한국광복군이 영국군과 함께 활동한 전선은?",
+    "answer": "미얀마 인도 전선",
+    "accepted": [
+      "미얀마·인도 전선",
+      "인도 미얀마 전선"
+    ],
+    "hint": "미얀마 · ○○ 전선",
+    "link": "",
+    "problemId": "p11",
+    "problemTitle": "한국광복군의 연합 작전",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 64쪽 11번 원문"
+  },
+  {
+    "id": "p11-k2",
+    "keyword": "국내 진공 작전",
+    "prompt": "OSS와 합작해 준비한 작전은?",
+    "answer": "국내 진공 작전",
+    "accepted": [
+      "국내진공작전"
+    ],
+    "hint": "국내 ○○ 작전",
+    "link": "",
+    "problemId": "p11",
+    "problemTitle": "한국광복군의 연합 작전",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 64쪽 11번 원문"
+  },
+  {
+    "id": "p12-k1",
+    "keyword": "OSS",
+    "prompt": "한국광복군에 특수 훈련을 제공한 미국 기관의 약칭은?",
+    "answer": "OSS",
+    "accepted": [],
+    "hint": "영문 세 글자",
+    "link": "",
+    "problemId": "p12",
+    "problemTitle": "국내 진공 작전",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 65쪽 12번 원문"
+  },
+  {
+    "id": "p12-k2",
+    "keyword": "국내 정진군",
+    "prompt": "국내 진공 작전을 위해 편성한 부대는?",
+    "answer": "국내 정진군",
+    "accepted": [
+      "국내정진군"
+    ],
+    "hint": "국내 ○○군",
+    "link": "",
+    "problemId": "p12",
+    "problemTitle": "국내 진공 작전",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 65쪽 12번 원문"
+  },
+  {
+    "id": "p13-k1",
+    "keyword": "보통 선거",
+    "prompt": "성인 국민에게 널리 선거권을 주는 선거 원칙은?",
+    "answer": "보통 선거",
+    "accepted": [
+      "보통선거"
+    ],
+    "hint": "보통 ○○",
+    "link": "",
+    "problemId": "p13",
+    "problemTitle": "건국 강령의 공통점",
+    "conceptId": "nation-building",
+    "conceptTitle": "삼균주의와 건국 강령",
+    "source": "문제편 65쪽 13번 원문"
+  },
+  {
+    "id": "p13-k2",
+    "keyword": "국유화",
+    "prompt": "대기업·주요 산업을 국가 소유로 바꾸는 것을 무엇이라 하나?",
+    "answer": "국유화",
+    "accepted": [],
+    "hint": "국○화",
+    "link": "",
+    "problemId": "p13",
+    "problemTitle": "건국 강령의 공통점",
+    "conceptId": "nation-building",
+    "conceptTitle": "삼균주의와 건국 강령",
+    "source": "문제편 65쪽 13번 원문"
+  },
+  {
+    "id": "p14-k1",
+    "keyword": "삼균주의",
+    "prompt": "정치·경제·교육의 균등을 강조한 조소앙의 이념은?",
+    "answer": "삼균주의",
+    "accepted": [],
+    "hint": "삼○주의",
+    "link": "",
+    "problemId": "p14",
+    "problemTitle": "삼균주의",
+    "conceptId": "nation-building",
+    "conceptTitle": "삼균주의와 건국 강령",
+    "source": "문제편 65쪽 14번 원문"
+  },
+  {
+    "id": "p14-k2",
+    "keyword": "정치·경제·교육",
+    "prompt": "삼균주의가 균등을 강조한 세 영역은?",
+    "answer": "정치 경제 교육",
+    "accepted": [
+      "정치·경제·교육",
+      "정치, 경제, 교육"
+    ],
+    "hint": "정치 · 경제 · ○○",
+    "link": "",
+    "problemId": "p14",
+    "problemTitle": "삼균주의",
+    "conceptId": "nation-building",
+    "conceptTitle": "삼균주의와 건국 강령",
+    "source": "문제편 65쪽 14번 원문"
+  },
+  {
+    "id": "p15-k1",
+    "keyword": "조선 독립 동맹",
+    "prompt": "1942년 화북에서 김두봉을 중심으로 조직된 단체는?",
+    "answer": "조선 독립 동맹",
+    "accepted": [
+      "조선독립동맹"
+    ],
+    "hint": "조선 독립 ○○",
+    "link": "",
+    "problemId": "p15",
+    "problemTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "conceptId": "independence-leagues",
+    "conceptTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "source": "문제편 65쪽 15번 원문"
+  },
+  {
+    "id": "p15-k2",
+    "keyword": "조선 건국 동맹",
+    "prompt": "1944년 국내에서 여운형이 조직한 비밀 결사는?",
+    "answer": "조선 건국 동맹",
+    "accepted": [
+      "조선건국동맹"
+    ],
+    "hint": "조선 건국 ○○",
+    "link": "",
+    "problemId": "p15",
+    "problemTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "conceptId": "independence-leagues",
+    "conceptTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "source": "문제편 65쪽 15번 원문"
+  },
+  {
+    "id": "p16-k1",
+    "keyword": "카이로 회담",
+    "prompt": "1943년 한국 독립을 처음 약속한 연합국 회담은?",
+    "answer": "카이로 회담",
+    "accepted": [
+      "카이로회담"
+    ],
+    "hint": "카이로 ○○",
+    "link": "",
+    "problemId": "p16",
+    "problemTitle": "카이로 회담",
+    "conceptId": "international-diplomacy",
+    "conceptTitle": "연합국의 한국 독립 약속",
+    "source": "문제편 65쪽 16번 원문"
+  },
+  {
+    "id": "p16-k2",
+    "keyword": "적절한 시기",
+    "prompt": "카이로 선언이 한국 독립 시점에 사용한 표현은?",
+    "answer": "적절한 시기",
+    "accepted": [
+      "적당한 시기"
+    ],
+    "hint": "적절한 ○○",
+    "link": "",
+    "problemId": "p16",
+    "problemTitle": "카이로 회담",
+    "conceptId": "international-diplomacy",
+    "conceptTitle": "연합국의 한국 독립 약속",
+    "source": "문제편 65쪽 16번 원문"
+  },
+  {
+    "id": "p17-k1",
+    "keyword": "만주 사변",
+    "prompt": "1931년 일본의 만주 침략 사건은?",
+    "answer": "만주 사변",
+    "accepted": [
+      "만주사변"
+    ],
+    "hint": "만주 ○○",
+    "link": "",
+    "problemId": "p17",
+    "problemTitle": "조선 혁명군과 중국군의 합의",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 66쪽 17번 원문"
+  },
+  {
+    "id": "p17-k2",
+    "keyword": "한·중 연합 작전",
+    "prompt": "조선 혁명군과 중국군이 공동으로 전개한 작전은?",
+    "answer": "한중 연합 작전",
+    "accepted": [
+      "한·중 연합 작전",
+      "한중연합작전"
+    ],
+    "hint": "한·중 ○○ 작전",
+    "link": "",
+    "problemId": "p17",
+    "problemTitle": "조선 혁명군과 중국군의 합의",
+    "conceptId": "manchuria-forces",
+    "conceptTitle": "1930년대 만주 무장 투쟁",
+    "source": "문제편 66쪽 17번 원문"
+  },
+  {
+    "id": "p18-k1",
+    "keyword": "조선 의용군",
+    "prompt": "조선 의용대 화북 지대가 1942년 재편된 군사 조직은?",
+    "answer": "조선 의용군",
+    "accepted": [
+      "조선의용군"
+    ],
+    "hint": "조선 의용○",
+    "link": "",
+    "problemId": "p18",
+    "problemTitle": "조선 의용대·의용군·한국광복군 관계",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 66쪽 18번 원문"
+  },
+  {
+    "id": "p18-k2",
+    "keyword": "팔로군",
+    "prompt": "조선 의용군이 함께 항일 투쟁을 전개한 중국 공산당 군대는?",
+    "answer": "팔로군",
+    "accepted": [],
+    "hint": "팔○군",
+    "link": "",
+    "problemId": "p18",
+    "problemTitle": "조선 의용대·의용군·한국광복군 관계",
+    "conceptId": "volunteer-corps",
+    "conceptTitle": "조선 의용대와 조선 의용군",
+    "source": "문제편 66쪽 18번 원문"
+  },
+  {
+    "id": "p19-k1",
+    "keyword": "지청천",
+    "prompt": "한국 독립군과 한국광복군을 모두 지휘한 인물은?",
+    "answer": "지청천",
+    "accepted": [],
+    "hint": "지○천",
+    "link": "",
+    "problemId": "p19",
+    "problemTitle": "지청천과 한국광복군",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 66쪽 19번 원문"
+  },
+  {
+    "id": "p19-k2",
+    "keyword": "OSS",
+    "prompt": "한국광복군과 국내 진공 작전을 준비한 미국 전략 정보 기관은?",
+    "answer": "OSS",
+    "accepted": [],
+    "hint": "영문 세 글자",
+    "link": "",
+    "problemId": "p19",
+    "problemTitle": "지청천과 한국광복군",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 66쪽 19번 원문"
+  },
+  {
+    "id": "p20-k1",
+    "keyword": "여운형",
+    "prompt": "1944년 조선 건국 동맹을 조직한 인물은?",
+    "answer": "여운형",
+    "accepted": [],
+    "hint": "여○형",
+    "link": "",
+    "problemId": "p20",
+    "problemTitle": "조선 건국 동맹",
+    "conceptId": "independence-leagues",
+    "conceptTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "source": "문제편 66쪽 20번 원문"
+  },
+  {
+    "id": "p20-k2",
+    "keyword": "조선 건국 동맹",
+    "prompt": "광복 직전 국내에서 조직된 건국 준비 단체는?",
+    "answer": "조선 건국 동맹",
+    "accepted": [
+      "조선건국동맹"
+    ],
+    "hint": "조선 건국 ○○",
+    "link": "",
+    "problemId": "p20",
+    "problemTitle": "조선 건국 동맹",
+    "conceptId": "independence-leagues",
+    "conceptTitle": "조선 독립 동맹과 조선 건국 동맹",
+    "source": "문제편 66쪽 20번 원문"
+  },
+  {
+    "id": "p21-k1",
+    "keyword": "인도·미얀마 전선",
+    "prompt": "한국광복군이 영국군과 함께 파견된 전선은?",
+    "answer": "인도 미얀마 전선",
+    "accepted": [
+      "인도·미얀마 전선",
+      "미얀마 인도 전선"
+    ],
+    "hint": "인도 · 미얀마 ○○",
+    "link": "",
+    "problemId": "p21",
+    "problemTitle": "한국광복군의 활동",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 67쪽 21번 원문"
+  },
+  {
+    "id": "p21-k2",
+    "keyword": "전단 살포",
+    "prompt": "인도·미얀마 전선에서 포로 심문·정보 수집과 함께 한 선전 활동은?",
+    "answer": "전단 살포",
+    "accepted": [
+      "전단살포"
+    ],
+    "hint": "전단 ○○",
+    "link": "",
+    "problemId": "p21",
+    "problemTitle": "한국광복군의 활동",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 67쪽 21번 원문"
+  },
+  {
+    "id": "p22-k1",
+    "keyword": "대한민국 임시 정부",
+    "prompt": "삼균주의를 건국 강령에 반영한 정부는?",
+    "answer": "대한민국 임시 정부",
+    "accepted": [
+      "대한민국임시정부"
+    ],
+    "hint": "대한민국 임시 ○○",
+    "link": "",
+    "problemId": "p22",
+    "problemTitle": "대한민국 임시 정부와 삼균주의",
+    "conceptId": "imjeong-chongqing",
+    "conceptTitle": "충칭의 대한민국 임시 정부",
+    "source": "문제편 67쪽 22번 원문"
+  },
+  {
+    "id": "p22-k2",
+    "keyword": "건국 강령",
+    "prompt": "1941년 임시 정부가 독립 이후 국가 건설 원칙을 정리해 발표한 것은?",
+    "answer": "건국 강령",
+    "accepted": [
+      "건국강령"
+    ],
+    "hint": "건국 ○○",
+    "link": "",
+    "problemId": "p22",
+    "problemTitle": "대한민국 임시 정부와 삼균주의",
+    "conceptId": "imjeong-chongqing",
+    "conceptTitle": "충칭의 대한민국 임시 정부",
+    "source": "문제편 67쪽 22번 원문"
+  },
+  {
+    "id": "p23-k1",
+    "keyword": "한국광복군",
+    "prompt": "사진 속 여성 독립운동가들이 소속된 임시 정부 산하 군사 조직은?",
+    "answer": "한국광복군",
+    "accepted": [
+      "한국 광복군"
+    ],
+    "hint": "한국○○군",
+    "link": "",
+    "problemId": "p23",
+    "problemTitle": "여성 독립운동가와 한국광복군",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 67쪽 23번 원문"
+  },
+  {
+    "id": "p23-k2",
+    "keyword": "OSS",
+    "prompt": "한국광복군이 태평양 전쟁 말 국내 진공 작전을 준비하며 연계한 미국 기관은?",
+    "answer": "OSS",
+    "accepted": [],
+    "hint": "영문 세 글자",
+    "link": "",
+    "problemId": "p23",
+    "problemTitle": "여성 독립운동가와 한국광복군",
+    "conceptId": "liberation-army",
+    "conceptTitle": "한국광복군과 연합 작전",
+    "source": "문제편 67쪽 23번 원문"
+  }
+]

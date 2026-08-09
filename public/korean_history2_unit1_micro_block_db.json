@@ -1,0 +1,12 @@
+{
+  "meta": {"id":"korean-history2-unit1-micro-blocks","version":"1.0.0"},
+  "policy": {
+    "targetProblems": 6,
+    "minimumProblems": 4,
+    "maximumProblems": 8,
+    "checkpointOnlyAfterMastery": true,
+    "neverInterruptRepair": true,
+    "studentPrimaryAction": "continue-or-pause-by-session-load"
+  },
+  "dayProblemCounts": {"1":14,"2":21,"3":31,"4":26,"5":23,"6":25}
+}

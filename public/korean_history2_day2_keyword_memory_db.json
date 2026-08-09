@@ -1,0 +1,665 @@
+[
+  {
+    "id": "p01-k1",
+    "keyword": "독립 의군부",
+    "prompt": "임병찬이 조직한 1910년대 비밀 결사는?",
+    "answer": "독립 의군부",
+    "accepted": [
+      "독립의군부"
+    ],
+    "hint": "독립 ○군부",
+    "link": "복벽주의",
+    "problemId": "p01",
+    "problemTitle": "독립 의군부와 대한 광복회",
+    "conceptId": "secret-society",
+    "conceptTitle": "1910년대 국내 비밀 결사",
+    "source": "문제편 29쪽 01번 원문"
+  },
+  {
+    "id": "p01-k2",
+    "keyword": "대한 광복회",
+    "prompt": "박상진이 조직하고 공화제를 지향한 단체는?",
+    "answer": "대한 광복회",
+    "accepted": [
+      "대한광복회"
+    ],
+    "hint": "대한 ○○회",
+    "link": "군대식 조직·공화주의",
+    "problemId": "p01",
+    "problemTitle": "독립 의군부와 대한 광복회",
+    "conceptId": "secret-society",
+    "conceptTitle": "1910년대 국내 비밀 결사",
+    "source": "문제편 29쪽 01번 원문"
+  },
+  {
+    "id": "p02-k1",
+    "keyword": "신흥 강습소",
+    "prompt": "서간도에서 독립군을 양성한 학교는?",
+    "answer": "신흥 강습소",
+    "accepted": [
+      "신흥강습소"
+    ],
+    "hint": "신흥 ○○소",
+    "link": "후에 신흥 무관 학교",
+    "problemId": "p02",
+    "problemTitle": "서간도의 독립운동 기지",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 29쪽 02번 원문"
+  },
+  {
+    "id": "p02-k2",
+    "keyword": "경학사",
+    "prompt": "서간도 삼원보의 자치 단체는?",
+    "answer": "경학사",
+    "accepted": [],
+    "hint": "경○사",
+    "link": "서간도 자치 조직",
+    "problemId": "p02",
+    "problemTitle": "서간도의 독립운동 기지",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 29쪽 02번 원문"
+  },
+  {
+    "id": "p03-k1",
+    "keyword": "공화제",
+    "prompt": "대한 광복회가 지향한 국가 형태는?",
+    "answer": "공화제",
+    "accepted": [
+      "민주 공화제",
+      "공화정"
+    ],
+    "hint": "공화○",
+    "link": "국민 주권",
+    "problemId": "p03",
+    "problemTitle": "대한 광복회의 강령",
+    "conceptId": "secret-society",
+    "conceptTitle": "1910년대 국내 비밀 결사",
+    "source": "문제편 29쪽 03번 원문"
+  },
+  {
+    "id": "p03-k2",
+    "keyword": "박상진",
+    "prompt": "대한 광복회를 조직한 중심 인물은?",
+    "answer": "박상진",
+    "accepted": [],
+    "hint": "박○진",
+    "link": "대한 광복회 총사령",
+    "problemId": "p03",
+    "problemTitle": "대한 광복회의 강령",
+    "conceptId": "secret-society",
+    "conceptTitle": "1910년대 국내 비밀 결사",
+    "source": "문제편 29쪽 03번 원문"
+  },
+  {
+    "id": "p04-k1",
+    "keyword": "연해주",
+    "prompt": "신한촌이 형성된 러시아 지역은?",
+    "answer": "연해주",
+    "accepted": [],
+    "hint": "연해○",
+    "link": "블라디보스토크",
+    "problemId": "p04",
+    "problemTitle": "연해주 독립운동",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 29쪽 04번 원문"
+  },
+  {
+    "id": "p04-k2",
+    "keyword": "대한 광복군 정부",
+    "prompt": "1914년 연해주에서 조직된 정부 형태의 단체는?",
+    "answer": "대한 광복군 정부",
+    "accepted": [
+      "대한광복군정부"
+    ],
+    "hint": "대한 광복군 ○○",
+    "link": "정통령 이상설",
+    "problemId": "p04",
+    "problemTitle": "연해주 독립운동",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 29쪽 04번 원문"
+  },
+  {
+    "id": "p05-k1",
+    "keyword": "아우내 장터",
+    "prompt": "유관순이 만세 시위를 주도한 곳은?",
+    "answer": "아우내 장터",
+    "accepted": [
+      "아우내장터"
+    ],
+    "hint": "아우내 ○○",
+    "link": "천안",
+    "problemId": "p05",
+    "problemTitle": "3·1 운동의 현장",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 29쪽 05번 원문"
+  },
+  {
+    "id": "p05-k2",
+    "keyword": "1919년",
+    "prompt": "3·1 운동이 일어난 해는?",
+    "answer": "1919년",
+    "accepted": [
+      "1919"
+    ],
+    "hint": "19○9년",
+    "link": "3월 1일",
+    "problemId": "p05",
+    "problemTitle": "3·1 운동의 현장",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 29쪽 05번 원문"
+  },
+  {
+    "id": "p06-k1",
+    "keyword": "비폭력 평화 시위",
+    "prompt": "3·1 운동이 처음 취한 방식은?",
+    "answer": "비폭력 평화 시위",
+    "accepted": [
+      "비폭력 시위",
+      "평화 시위"
+    ],
+    "hint": "비폭력 ○○ 시위",
+    "link": "초기 방식",
+    "problemId": "p06",
+    "problemTitle": "3·1 운동의 격화",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 30쪽 06번 원문"
+  },
+  {
+    "id": "p06-k2",
+    "keyword": "시위 격화",
+    "prompt": "일제의 폭력 탄압 뒤 일부 지역에서 나타난 변화는?",
+    "answer": "시위 격화",
+    "accepted": [
+      "격화",
+      "무력 저항"
+    ],
+    "hint": "시위 ○○",
+    "link": "통치 기관 공격",
+    "problemId": "p06",
+    "problemTitle": "3·1 운동의 격화",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 30쪽 06번 원문"
+  },
+  {
+    "id": "p07-k1",
+    "keyword": "민족 자결주의",
+    "prompt": "식민지 민족의 자결을 내세운 원칙은?",
+    "answer": "민족 자결주의",
+    "accepted": [
+      "민족자결주의"
+    ],
+    "hint": "민족 ○○주의",
+    "link": "윌슨",
+    "problemId": "p07",
+    "problemTitle": "민족 자결주의와 3·1 운동",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 30쪽 07번 원문"
+  },
+  {
+    "id": "p07-k2",
+    "keyword": "윌슨",
+    "prompt": "민족 자결주의를 제창한 미국 대통령은?",
+    "answer": "윌슨",
+    "accepted": [],
+    "hint": "윌○",
+    "link": "미국 대통령",
+    "problemId": "p07",
+    "problemTitle": "민족 자결주의와 3·1 운동",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 30쪽 07번 원문"
+  },
+  {
+    "id": "p08-k1",
+    "keyword": "대한민국 임시 정부",
+    "prompt": "3·1 운동 뒤 수립된 독립운동 지도 기관은?",
+    "answer": "대한민국 임시 정부",
+    "accepted": [
+      "대한민국임시정부",
+      "임시 정부"
+    ],
+    "hint": "대한민국 임시 ○○",
+    "link": "1919 상하이",
+    "problemId": "p08",
+    "problemTitle": "3·1 운동의 영향",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 30쪽 08번 원문"
+  },
+  {
+    "id": "p08-k2",
+    "keyword": "5·4 운동",
+    "prompt": "3·1 운동의 영향을 받은 중국의 민족 운동은?",
+    "answer": "5·4 운동",
+    "accepted": [
+      "5.4 운동",
+      "오사 운동",
+      "오사운동"
+    ],
+    "hint": "5·4 ○○",
+    "link": "중국 1919",
+    "problemId": "p08",
+    "problemTitle": "3·1 운동의 영향",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 30쪽 08번 원문"
+  },
+  {
+    "id": "p09-k1",
+    "keyword": "2·8 독립 선언",
+    "prompt": "일본 유학생들이 1919년 2월 발표한 선언은?",
+    "answer": "2·8 독립 선언",
+    "accepted": [
+      "2.8 독립 선언",
+      "이팔 독립 선언"
+    ],
+    "hint": "2·8 독립 ○○",
+    "link": "도쿄 유학생",
+    "problemId": "p09",
+    "problemTitle": "2·8 독립 선언의 시기",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 30쪽 09번 원문"
+  },
+  {
+    "id": "p09-k2",
+    "keyword": "조선 청년 독립단",
+    "prompt": "2·8 독립 선언을 발표한 유학생 조직은?",
+    "answer": "조선 청년 독립단",
+    "accepted": [
+      "조선청년독립단"
+    ],
+    "hint": "조선 청년 ○○단",
+    "link": "일본 유학생",
+    "problemId": "p09",
+    "problemTitle": "2·8 독립 선언의 시기",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 30쪽 09번 원문"
+  },
+  {
+    "id": "p10-k1",
+    "keyword": "한성 정부",
+    "prompt": "통합 임시 정부가 법통을 계승한 국내 정부는?",
+    "answer": "한성 정부",
+    "accepted": [
+      "한성정부"
+    ],
+    "hint": "한성 ○○",
+    "link": "국내 13도 대표",
+    "problemId": "p10",
+    "problemTitle": "임시 정부의 통합",
+    "conceptId": "provisional-formation",
+    "conceptTitle": "임시 정부의 수립과 통합",
+    "source": "문제편 31쪽 10번 원문"
+  },
+  {
+    "id": "p10-k2",
+    "keyword": "민주 공화제",
+    "prompt": "통합 대한민국 임시 정부의 국가 형태는?",
+    "answer": "민주 공화제",
+    "accepted": [
+      "민주공화제",
+      "공화제"
+    ],
+    "hint": "민주 ○○제",
+    "link": "국민 주권",
+    "problemId": "p10",
+    "problemTitle": "임시 정부의 통합",
+    "conceptId": "provisional-formation",
+    "conceptTitle": "임시 정부의 수립과 통합",
+    "source": "문제편 31쪽 10번 원문"
+  },
+  {
+    "id": "p11-k1",
+    "keyword": "국민 대표 회의",
+    "prompt": "1923년 독립운동 방향을 논의한 회의는?",
+    "answer": "국민 대표 회의",
+    "accepted": [
+      "국민대표회의"
+    ],
+    "hint": "국민 대표 ○○",
+    "link": "1923",
+    "problemId": "p11",
+    "problemTitle": "국민 대표 회의",
+    "conceptId": "provisional-crisis",
+    "conceptTitle": "국민 대표 회의와 체제 정비",
+    "source": "문제편 31쪽 11번 원문"
+  },
+  {
+    "id": "p11-k2",
+    "keyword": "창조파·개조파",
+    "prompt": "국민 대표 회의에서 대립한 두 세력은?",
+    "answer": "창조파 개조파",
+    "accepted": [
+      "창조파와 개조파",
+      "창조파·개조파"
+    ],
+    "hint": "창조파 · ○○파",
+    "link": "결렬 원인",
+    "problemId": "p11",
+    "problemTitle": "국민 대표 회의",
+    "conceptId": "provisional-crisis",
+    "conceptTitle": "국민 대표 회의와 체제 정비",
+    "source": "문제편 31쪽 11번 원문"
+  },
+  {
+    "id": "p12-k1",
+    "keyword": "연통제",
+    "prompt": "임시 정부의 비밀 행정 조직은?",
+    "answer": "연통제",
+    "accepted": [],
+    "hint": "연통○",
+    "link": "국내 행정망",
+    "problemId": "p12",
+    "problemTitle": "대한민국 임시 정부의 활동",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 12번 원문"
+  },
+  {
+    "id": "p12-k2",
+    "keyword": "교통국",
+    "prompt": "임시 정부의 통신 기관은?",
+    "answer": "교통국",
+    "accepted": [],
+    "hint": "교통○",
+    "link": "정보·연락",
+    "problemId": "p12",
+    "problemTitle": "대한민국 임시 정부의 활동",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 12번 원문"
+  },
+  {
+    "id": "p13-k1",
+    "keyword": "군무부",
+    "prompt": "임시 정부의 군사 업무 담당 기관은?",
+    "answer": "군무부",
+    "accepted": [],
+    "hint": "군무○",
+    "link": "군사",
+    "problemId": "p13",
+    "problemTitle": "임시 정부의 기관과 활동",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 13번 원문"
+  },
+  {
+    "id": "p13-k2",
+    "keyword": "구미 위원부",
+    "prompt": "미국에서 외교 활동을 한 임시 정부 기관은?",
+    "answer": "구미 위원부",
+    "accepted": [
+      "구미위원부"
+    ],
+    "hint": "구미 ○○부",
+    "link": "이승만 중심",
+    "problemId": "p13",
+    "problemTitle": "임시 정부의 기관과 활동",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 13번 원문"
+  },
+  {
+    "id": "p14-k1",
+    "keyword": "삼권 분립",
+    "prompt": "입법·행정·사법을 나눈 원리는?",
+    "answer": "삼권 분립",
+    "accepted": [
+      "삼권분립"
+    ],
+    "hint": "삼권 ○○",
+    "link": "임시 의정원·국무원·법원",
+    "problemId": "p14",
+    "problemTitle": "대한민국 임시 정부 수립의 의의",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 14번 원문"
+  },
+  {
+    "id": "p14-k2",
+    "keyword": "민주 공화제",
+    "prompt": "대한민국 임시 정부의 국가 형태는?",
+    "answer": "민주 공화제",
+    "accepted": [
+      "민주공화제"
+    ],
+    "hint": "민주 ○○제",
+    "link": "국민 주권",
+    "problemId": "p14",
+    "problemTitle": "대한민국 임시 정부 수립의 의의",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 31쪽 14번 원문"
+  },
+  {
+    "id": "p15-k1",
+    "keyword": "간민회",
+    "prompt": "북간도의 자치 단체는?",
+    "answer": "간민회",
+    "accepted": [],
+    "hint": "간민○",
+    "link": "북간도",
+    "problemId": "p15",
+    "problemTitle": "북간도의 독립운동",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 32쪽 15번 원문"
+  },
+  {
+    "id": "p15-k2",
+    "keyword": "명동 학교",
+    "prompt": "김약연이 북간도에 세운 학교는?",
+    "answer": "명동 학교",
+    "accepted": [
+      "명동학교"
+    ],
+    "hint": "명동 ○○",
+    "link": "민족 교육",
+    "problemId": "p15",
+    "problemTitle": "북간도의 독립운동",
+    "conceptId": "overseas-base",
+    "conceptTitle": "국외 독립운동 기지",
+    "source": "문제편 32쪽 15번 원문"
+  },
+  {
+    "id": "p16-k1",
+    "keyword": "제암리 학살",
+    "prompt": "3·1 운동 때 일제가 화성에서 저지른 학살은?",
+    "answer": "제암리 학살",
+    "accepted": [
+      "제암리학살"
+    ],
+    "hint": "제암리 ○○",
+    "link": "화성",
+    "problemId": "p16",
+    "problemTitle": "3·1 운동의 전 계층 참여",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 32쪽 16번 원문"
+  },
+  {
+    "id": "p16-k2",
+    "keyword": "전 계층 참여",
+    "prompt": "3·1 운동 참여 주체의 특징은?",
+    "answer": "전 계층 참여",
+    "accepted": [
+      "모든 계층",
+      "전국민 참여",
+      "전 계층"
+    ],
+    "hint": "전 ○○ 참여",
+    "link": "학생·여성·농민·노동자",
+    "problemId": "p16",
+    "problemTitle": "3·1 운동의 전 계층 참여",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 32쪽 16번 원문"
+  },
+  {
+    "id": "p17-k1",
+    "keyword": "대동단결 선언",
+    "prompt": "1917년 국민 주권과 임시 정부 수립을 주장한 선언은?",
+    "answer": "대동단결 선언",
+    "accepted": [
+      "대동단결선언"
+    ],
+    "hint": "대동단결 ○○",
+    "link": "1917",
+    "problemId": "p17",
+    "problemTitle": "대동단결 선언",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 32쪽 17번 원문"
+  },
+  {
+    "id": "p17-k2",
+    "keyword": "국민 주권",
+    "prompt": "대동단결 선언에서 주권이 계승되었다고 본 대상은?",
+    "answer": "국민",
+    "accepted": [
+      "국민 주권",
+      "일반 국민"
+    ],
+    "hint": "국○",
+    "link": "황제에서 국민으로",
+    "problemId": "p17",
+    "problemTitle": "대동단결 선언",
+    "conceptId": "march1-bg",
+    "conceptTitle": "3·1 운동의 배경",
+    "source": "문제편 32쪽 17번 원문"
+  },
+  {
+    "id": "p18-k1",
+    "keyword": "이승만 탄핵",
+    "prompt": "국민 대표 회의 결렬 뒤 탄핵된 대통령은?",
+    "answer": "이승만",
+    "accepted": [
+      "이승만 탄핵"
+    ],
+    "hint": "이○만",
+    "link": "임시 정부",
+    "problemId": "p18",
+    "problemTitle": "국민 대표 회의 이후 체제 정비",
+    "conceptId": "provisional-crisis",
+    "conceptTitle": "국민 대표 회의와 체제 정비",
+    "source": "문제편 32쪽 18번 원문"
+  },
+  {
+    "id": "p18-k2",
+    "keyword": "국무령제",
+    "prompt": "헌법 개정 뒤 마련된 지도 체제는?",
+    "answer": "국무령제",
+    "accepted": [],
+    "hint": "국무령○",
+    "link": "대통령제 개편",
+    "problemId": "p18",
+    "problemTitle": "국민 대표 회의 이후 체제 정비",
+    "conceptId": "provisional-crisis",
+    "conceptTitle": "국민 대표 회의와 체제 정비",
+    "source": "문제편 32쪽 18번 원문"
+  },
+  {
+    "id": "p19-k1",
+    "keyword": "문화 정치",
+    "prompt": "3·1 운동 뒤 일제가 내세운 통치 방식은?",
+    "answer": "문화 정치",
+    "accepted": [
+      "문화정치"
+    ],
+    "hint": "문화 ○○",
+    "link": "표면적 완화",
+    "problemId": "p19",
+    "problemTitle": "3·1 운동의 영향",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 33쪽 19번 원문"
+  },
+  {
+    "id": "p19-k2",
+    "keyword": "3·1 운동",
+    "prompt": "문화 정치 표방의 직접 계기는?",
+    "answer": "3·1 운동",
+    "accepted": [
+      "3.1 운동",
+      "삼일운동"
+    ],
+    "hint": "3·1 ○○",
+    "link": "1919",
+    "problemId": "p19",
+    "problemTitle": "3·1 운동의 영향",
+    "conceptId": "march1-flow",
+    "conceptTitle": "3·1 운동의 전개와 영향",
+    "source": "문제편 33쪽 19번 원문"
+  },
+  {
+    "id": "p20-k1",
+    "keyword": "신한청년당",
+    "prompt": "김규식을 파리 강화 회의에 파견한 단체는?",
+    "answer": "신한청년당",
+    "accepted": [],
+    "hint": "신한청년○",
+    "link": "상하이",
+    "problemId": "p20",
+    "problemTitle": "신한청년당의 외교 활동",
+    "conceptId": "diplomacy",
+    "conceptTitle": "외교 활동",
+    "source": "문제편 33쪽 20번 원문"
+  },
+  {
+    "id": "p20-k2",
+    "keyword": "김규식",
+    "prompt": "파리 강화 회의에 파견된 독립운동가는?",
+    "answer": "김규식",
+    "accepted": [],
+    "hint": "김○식",
+    "link": "외교 활동",
+    "problemId": "p20",
+    "problemTitle": "신한청년당의 외교 활동",
+    "conceptId": "diplomacy",
+    "conceptTitle": "외교 활동",
+    "source": "문제편 33쪽 20번 원문"
+  },
+  {
+    "id": "p21-k1",
+    "keyword": "구미 위원부",
+    "prompt": "대한민국 임시 정부의 미국 외교 기관은?",
+    "answer": "구미 위원부",
+    "accepted": [
+      "구미위원부"
+    ],
+    "hint": "구미 ○○부",
+    "link": "이승만",
+    "problemId": "p21",
+    "problemTitle": "대한민국 임시 정부의 외교 기관",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 33쪽 21번 원문"
+  },
+  {
+    "id": "p21-k2",
+    "keyword": "독립 공채",
+    "prompt": "임시 정부가 독립운동 자금을 마련하려 발행한 것은?",
+    "answer": "독립 공채",
+    "accepted": [
+      "독립공채"
+    ],
+    "hint": "독립 ○○",
+    "link": "자금 조달",
+    "problemId": "p21",
+    "problemTitle": "대한민국 임시 정부의 외교 기관",
+    "conceptId": "provisional-system",
+    "conceptTitle": "임시 정부의 체제와 활동",
+    "source": "문제편 33쪽 21번 원문"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-risk-calibration-net-benefit",
+    "version": "1.0.0",
+    "generated": "2026-08-07",
+    "scope": "Day 1-6 / branch-level calibration and proactive intervention net-benefit gate",
+    "newStateFields": ["riskCalibrationLog"],
+    "studentPolicy": "교정 임계값·순이익·휴면 상태는 학생에게 표시하지 않는다."
+  },
+  "calibration": {
+    "globalThreshold": 0.68,
+    "minimumEvaluatedPerBranch": 6,
+    "recentWindow": 12,
+    "minimumThreshold": 0.64,
+    "maximumThreshold": 0.82,
+    "raiseStep": 0.04,
+    "lowerStep": 0.02,
+    "highFalsePositiveRate": 0.35,
+    "lowFalsePositiveRate": 0.15,
+    "minimumHitRateForLowering": 0.7,
+    "overPredictionGap": 0.12,
+    "minimumPositiveNetEquivalentForLowering": 1.0,
+    "timePerActionMs": 6000,
+    "purpose": "표본이 적으면 전역 임계값을 유지하고, 충분한 가지 기록에서 오탐·교정오차·순이익을 함께 반영"
+  },
+  "netBenefit": {
+    "grossBenefitProxy": "마이크로 체크에서 흔들림이 확인됐지만 원문을 바로 맞혀 깊은 복구를 회피한 경우의 평균 depth-recovery 부담",
+    "cost": "실제 선제 마이크로 체크 행동 수와 소요시간",
+    "netActions": "grossSavedActions - microcheckActions",
+    "netTimeMs": "grossSavedTimeMs - microcheckTimeMs",
+    "netEquivalent": "netActions + netTimeMs / 6000",
+    "gate": "충분한 표본에서 평균 netEquivalent가 0 이하이면 해당 가지의 선제 개입을 허용하지 않음"
+  },
+  "dormancy": {
+    "durationHours": 24,
+    "consecutiveFalsePositives": 2,
+    "negativeRecentWindow": 3,
+    "minimumEvaluatedForNegativeAverage": 6,
+    "negativeAverageNetEquivalent": 0,
+    "reasonPriority": ["연속 오탐", "반복 음의 순이익", "충분한 표본의 음의 평균 순이익"],
+    "behavior": "휴면 중에도 원문 문제·기존 오답 복구·간격 반복은 정상 작동"
+  },
+  "parentMetrics": [
+    "calibrationStatus",
+    "currentThreshold",
+    "meanPredictedRisk",
+    "observedHitRate",
+    "calibrationGap",
+    "netSavedActions",
+    "netSavedTimeMs",
+    "netEquivalent",
+    "dormancyReason",
+    "dormancyUntil"
+  ]
+}

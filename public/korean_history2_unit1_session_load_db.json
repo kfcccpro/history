@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "id": "korean-history2-unit1-session-load",
+    "version": "1.0.0",
+    "purpose": "ADHD 친화 세션 수준 인지 부하/집중 이탈 조절 및 비필수 개입 예산"
+  },
+  "session": {
+    "idleResetMinutes": 30,
+    "maximumSessionMinutes": 90,
+    "stableProblemsToReleaseWithTiming": 2,
+    "stableProblemsToReleaseWithoutTiming": 3
+  },
+  "budget": {
+    "extraActions": 16,
+    "extraScreens": 8,
+    "proactiveChecks": 2,
+    "warningActionRatio": 0.7,
+    "warningScreenRatio": 0.7
+  },
+  "signals": {
+    "responseSlow": {
+      "weight": 0.22,
+      "minimumBaselineAttempts": 6,
+      "recentWindow": 3
+    },
+    "fastGuess": {
+      "weight": 0.18,
+      "minimumBaselineAttempts": 6,
+      "recentWindow": 3
+    },
+    "wrongStreak": {
+      "weight": 0.24,
+      "recentWindow": 3
+    },
+    "deepRecovery": {
+      "weight": 0.18,
+      "recentWindow": 4
+    },
+    "interventionBurden": {
+      "weight": 0.18
+    }
+  },
+  "overload": {
+    "threshold": 0.65,
+    "minimumAvailableSignals": 2,
+    "essentialPreserved": [
+      "original-question",
+      "metacognition",
+      "concept-depth-recovery",
+      "original-retry",
+      "spacing-review"
+    ],
+    "nonessentialSuppressed": [
+      "proactive-microcheck",
+      "automatic-precheck",
+      "pattern-remediation",
+      "policy-prerequisite"
+    ],
+    "strongSignalCount": 3,
+    "strongSignalFloor": 0.55
+  },
+  "anchor": {
+    "maximumPerSuppressionCycle": 1,
+    "preferredType": "existing-keyword-memory",
+    "studentLabel": "문제 전에 연결 하나만"
+  },
+  "parentMetrics": [
+    "sessionBudget",
+    "overloadSignals",
+    "suppressedNonessentialCount",
+    "anchorsServed",
+    "postAnchorAccuracy"
+  ]
+}
