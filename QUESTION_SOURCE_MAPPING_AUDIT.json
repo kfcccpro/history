@@ -1,0 +1,2267 @@
+{
+  "version": "2026-08-10-v4-audit",
+  "total": 140,
+  "days": {
+    "1": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 17쪽 01번 원문",
+        "page": 17,
+        "questionNo": "01",
+        "title": "제1차 세계 대전과 전후 질서",
+        "concept": "ww1",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 17쪽 02번 원문",
+        "page": 17,
+        "questionNo": "02",
+        "title": "조선 태형령과 무단 통치",
+        "concept": "military-rule",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 17쪽 03번 원문",
+        "page": 17,
+        "questionNo": "03",
+        "title": "중추원",
+        "concept": "governor",
+        "type": "fill",
+        "answer": "중추원",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 17쪽 04번 원문",
+        "page": 17,
+        "questionNo": "04",
+        "title": "무단 통치 시기의 사실",
+        "concept": "land-survey",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 17쪽 05번 원문",
+        "page": 17,
+        "questionNo": "05",
+        "title": "토지 조사 사업의 결과",
+        "concept": "land-survey",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "미신고 토지",
+              "미신고토지",
+              "국공유지",
+              "국·공유지",
+              "총독부가 토지",
+              "토지를 차지"
+            ],
+            [
+              "지세 수입 증가",
+              "지세수입 증가",
+              "지세 증가",
+              "총독부 재정",
+              "세금 수입 증가"
+            ],
+            [
+              "경작권 부정",
+              "경작권을 인정하지",
+              "소작농 증가",
+              "소작농으로 전락",
+              "기한부 계약"
+            ]
+          ],
+          "model": "조선 총독부가 미신고 토지와 국·공유지 등을 차지하였고 지세 수입이 증가하였다. 또한 농민의 경작권이 부정되어 소작농이 늘어났다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 18쪽 06번 원문",
+        "page": 18,
+        "questionNo": "06",
+        "title": "1910년대 경제 정책의 특징",
+        "concept": "permit-economy",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "허가제",
+              "허가를 받아",
+              "허가제로 전환",
+              "허가를 받도록"
+            ],
+            [
+              "자원 독점",
+              "한국의 자원",
+              "수탈",
+              "어업권",
+              "광업권",
+              "경제 활동 통제"
+            ]
+          ],
+          "model": "일제는 어업과 광업 등의 경제 활동을 허가제로 전환하여 한국인의 경제 활동을 통제하고 한국의 자원을 독점하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 18쪽 08번 원문",
+        "page": 18,
+        "questionNo": "08",
+        "title": "문화 정치의 배경",
+        "concept": "cultural-rule",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 18쪽 09번 원문",
+        "page": 18,
+        "questionNo": "09",
+        "title": "산미 증식 계획",
+        "concept": "rice-plan",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 19쪽 15번 원문",
+        "page": 19,
+        "questionNo": "15",
+        "title": "치안 유지법",
+        "concept": "peace-law",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10a",
+        "source": "문제편 20쪽 17번 원문",
+        "page": 20,
+        "questionNo": "17",
+        "title": "황국 신민 서사",
+        "concept": "assimilation",
+        "type": "fill",
+        "answer": "황국 신민 서사",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p10b",
+        "source": "문제편 20쪽 18번 원문",
+        "page": 20,
+        "questionNo": "18",
+        "title": "민족 말살 통치 시기의 모습",
+        "concept": "assimilation",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p11",
+        "source": "문제편 20쪽 20번 원문",
+        "page": 20,
+        "questionNo": "20",
+        "title": "국가 총동원법 이후 정책",
+        "concept": "mobilization",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p12",
+        "source": "문제편 21쪽 21번 원문",
+        "page": 21,
+        "questionNo": "21",
+        "title": "애국반",
+        "concept": "aegukban",
+        "type": "fill",
+        "answer": "애국반",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p13",
+        "source": "문제편 21쪽 25번 원문",
+        "page": 21,
+        "questionNo": "25",
+        "title": "하와이 이주 동포",
+        "concept": "hawaii",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ],
+    "2": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 29쪽 01번 원문",
+        "page": 29,
+        "questionNo": "01",
+        "title": "독립 의군부와 대한 광복회",
+        "concept": "secret-society",
+        "type": "essay",
+        "answer": {
+          "required": 3,
+          "groups": [
+            [
+              "독립 의군부",
+              "독립의군부"
+            ],
+            [
+              "대한 광복회",
+              "대한광복회"
+            ],
+            [
+              "1910년대",
+              "비밀 결사",
+              "비밀결사"
+            ]
+          ],
+          "model": "(가)는 독립 의군부, (나)는 대한 광복회이다. 두 단체는 모두 1910년대에 활동한 비밀 결사이다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 29쪽 02번 원문",
+        "page": 29,
+        "questionNo": "02",
+        "title": "서간도의 독립운동 기지",
+        "concept": "overseas-base",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 29쪽 03번 원문",
+        "page": 29,
+        "questionNo": "03",
+        "title": "대한 광복회의 강령",
+        "concept": "secret-society",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 29쪽 04번 원문",
+        "page": 29,
+        "questionNo": "04",
+        "title": "연해주 독립운동",
+        "concept": "overseas-base",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 29쪽 05번 원문",
+        "page": 29,
+        "questionNo": "05",
+        "title": "3·1 운동의 현장",
+        "concept": "march1-flow",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 30쪽 06번 원문",
+        "page": 30,
+        "questionNo": "06",
+        "title": "3·1 운동의 격화",
+        "concept": "march1-flow",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 30쪽 07번 원문",
+        "page": 30,
+        "questionNo": "07",
+        "title": "민족 자결주의와 3·1 운동",
+        "concept": "march1-bg",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 30쪽 08번 원문",
+        "page": 30,
+        "questionNo": "08",
+        "title": "3·1 운동의 영향",
+        "concept": "march1-flow",
+        "type": "essay",
+        "answer": {
+          "required": 3,
+          "groups": [
+            [
+              "문화 정치",
+              "통치 방식 변화"
+            ],
+            [
+              "대한민국 임시 정부",
+              "임시정부 수립"
+            ],
+            [
+              "5·4 운동",
+              "오사운동",
+              "중국 민족 운동"
+            ],
+            [
+              "학생",
+              "여성",
+              "농민",
+              "노동자",
+              "주체 확대"
+            ],
+            [
+              "무장 투쟁",
+              "무장투쟁",
+              "독립군 활동"
+            ]
+          ],
+          "model": "일제가 문화 정치를 표방하게 되었고, 대한민국 임시 정부 수립에 영향을 주었다. 중국의 5·4 운동 등 해외 민족 운동에 영향을 주었으며, 학생·여성·농민·노동자 등 참여 주체가 확대되고 국외 무장 투쟁이 활성화되었다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 30쪽 09번 원문",
+        "page": 30,
+        "questionNo": "09",
+        "title": "2·8 독립 선언의 시기",
+        "concept": "march1-bg",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10",
+        "source": "문제편 31쪽 10번 원문",
+        "page": 31,
+        "questionNo": "10",
+        "title": "임시 정부의 통합",
+        "concept": "provisional-formation",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p11",
+        "source": "문제편 31쪽 11번 원문",
+        "page": 31,
+        "questionNo": "11",
+        "title": "국민 대표 회의",
+        "concept": "provisional-crisis",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p12",
+        "source": "문제편 31쪽 12번 원문",
+        "page": 31,
+        "questionNo": "12",
+        "title": "대한민국 임시 정부의 활동",
+        "concept": "provisional-system",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p13",
+        "source": "문제편 31쪽 13번 원문",
+        "page": 31,
+        "questionNo": "13",
+        "title": "임시 정부의 기관과 활동",
+        "concept": "provisional-system",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p14",
+        "source": "문제편 31쪽 14번 원문",
+        "page": 31,
+        "questionNo": "14",
+        "title": "대한민국 임시 정부 수립의 의의",
+        "concept": "provisional-system",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "삼권 분립",
+              "삼권분립"
+            ],
+            [
+              "민주 공화제",
+              "민주공화제",
+              "공화제"
+            ],
+            [
+              "우리 역사상 최초",
+              "최초"
+            ]
+          ],
+          "model": "우리 역사상 최초로 삼권 분립에 입각한 민주 공화제 정부가 수립되었다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 15,
+        "id": "p15",
+        "source": "문제편 32쪽 15번 원문",
+        "page": 32,
+        "questionNo": "15",
+        "title": "북간도의 독립운동",
+        "concept": "overseas-base",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 16,
+        "id": "p16",
+        "source": "문제편 32쪽 16번 원문",
+        "page": 32,
+        "questionNo": "16",
+        "title": "3·1 운동의 전 계층 참여",
+        "concept": "march1-flow",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 17,
+        "id": "p17",
+        "source": "문제편 32쪽 17번 원문",
+        "page": 32,
+        "questionNo": "17",
+        "title": "대동단결 선언",
+        "concept": "march1-bg",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 18,
+        "id": "p18",
+        "source": "문제편 32쪽 18번 원문",
+        "page": 32,
+        "questionNo": "18",
+        "title": "국민 대표 회의 이후 체제 정비",
+        "concept": "provisional-crisis",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 19,
+        "id": "p19",
+        "source": "문제편 33쪽 19번 원문",
+        "page": 33,
+        "questionNo": "19",
+        "title": "3·1 운동의 영향",
+        "concept": "march1-flow",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 20,
+        "id": "p20",
+        "source": "문제편 33쪽 20번 원문",
+        "page": 33,
+        "questionNo": "20",
+        "title": "신한청년당의 외교 활동",
+        "concept": "diplomacy",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 21,
+        "id": "p21",
+        "source": "문제편 33쪽 21번 원문",
+        "page": 33,
+        "questionNo": "21",
+        "title": "대한민국 임시 정부의 외교 기관",
+        "concept": "provisional-system",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ],
+    "3": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 41쪽 01번 원문",
+        "page": 41,
+        "questionNo": "01",
+        "title": "봉오동 전투와 청산리 대첩",
+        "concept": "armed-battles",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 41쪽 02번 원문",
+        "page": 41,
+        "questionNo": "02",
+        "title": "1920년대 만주의 독립운동",
+        "concept": "manchuria-reorg",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 41쪽 03번 원문",
+        "page": 41,
+        "questionNo": "03",
+        "title": "간도 참변",
+        "concept": "armed-battles",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 41쪽 04번 원문",
+        "page": 41,
+        "questionNo": "04",
+        "title": "만주 3부의 공통점",
+        "concept": "manchuria-reorg",
+        "type": "essay",
+        "answer": {
+          "required": 4,
+          "groups": [
+            [
+              "삼권 분립",
+              "삼권분립"
+            ],
+            [
+              "공화주의적 자치 정부",
+              "공화주의 자치 정부",
+              "자치 정부"
+            ],
+            [
+              "민정 조직",
+              "민정"
+            ],
+            [
+              "군정 조직",
+              "군정"
+            ]
+          ],
+          "model": "3부는 삼권 분립에 기반한 공화주의적 자치 정부였으며, 한인 사회를 관리하는 민정 조직과 독립군을 운영하는 군정 조직을 갖추었다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 42쪽 05번 원문",
+        "page": 42,
+        "questionNo": "05",
+        "title": "의열단",
+        "concept": "heroic-struggle",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 42쪽 06번 원문",
+        "page": 42,
+        "questionNo": "06",
+        "title": "윤봉길 의거",
+        "concept": "patriotic-corps",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 42쪽 07번 원문",
+        "page": 42,
+        "questionNo": "07",
+        "title": "조선 혁명 선언의 방법론",
+        "concept": "heroic-struggle",
+        "type": "essay",
+        "answer": {
+          "required": 4,
+          "groups": [
+            [
+              "외교론",
+              "외교"
+            ],
+            [
+              "실력 양성론",
+              "실력 양성"
+            ],
+            [
+              "민중의 직접 혁명",
+              "민중 직접 혁명",
+              "직접 혁명"
+            ],
+            [
+              "폭력",
+              "폭력 투쟁"
+            ]
+          ],
+          "model": "외교론과 실력 양성론을 비판하고, 폭력을 바탕으로 한 민중의 직접 혁명을 통해 독립을 쟁취할 것을 주장하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 42쪽 08번 원문",
+        "page": 42,
+        "questionNo": "08",
+        "title": "의열단의 활동",
+        "concept": "heroic-struggle",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 42쪽 09번 원문",
+        "page": 42,
+        "questionNo": "09",
+        "title": "한인 애국단",
+        "concept": "patriotic-corps",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10",
+        "source": "문제편 43쪽 10번 원문",
+        "page": 43,
+        "questionNo": "10",
+        "title": "물산 장려 운동",
+        "concept": "economic-capacity",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p11",
+        "source": "문제편 43쪽 11번 원문",
+        "page": 43,
+        "questionNo": "11",
+        "title": "브나로드 운동",
+        "concept": "education-enlightenment",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p12",
+        "source": "문제편 43쪽 12번 원문",
+        "page": 43,
+        "questionNo": "12",
+        "title": "자치론",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p13",
+        "source": "문제편 43쪽 13번 원문",
+        "page": 43,
+        "questionNo": "13",
+        "title": "민립 대학 설립 운동",
+        "concept": "education-enlightenment",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p14",
+        "source": "문제편 43쪽 14번 원문",
+        "page": 43,
+        "questionNo": "14",
+        "title": "물산 장려 운동에 대한 사회주의자의 비판",
+        "concept": "economic-capacity",
+        "type": "essay",
+        "answer": {
+          "required": 3,
+          "groups": [
+            [
+              "자본가 계급",
+              "자본가"
+            ],
+            [
+              "이익만 추구",
+              "이익"
+            ],
+            [
+              "이기적 운동",
+              "이기적"
+            ]
+          ],
+          "model": "사회주의 계열은 물산 장려 운동이 자본가 계급의 이익만 추구하는 이기적 운동이라고 비판하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 15,
+        "id": "p15",
+        "source": "문제편 44쪽 15번 원문",
+        "page": 44,
+        "questionNo": "15",
+        "title": "문맹 퇴치 운동",
+        "concept": "education-enlightenment",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 16,
+        "id": "p16",
+        "source": "문제편 44쪽 16번 원문",
+        "page": 44,
+        "questionNo": "16",
+        "title": "브나로드 운동의 특징",
+        "concept": "education-enlightenment",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 17,
+        "id": "p17",
+        "source": "문제편 44쪽 17번 원문",
+        "page": 44,
+        "questionNo": "17",
+        "title": "6·10 만세 운동",
+        "concept": "student-movement",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 18,
+        "id": "p18",
+        "source": "문제편 44쪽 18번 원문",
+        "page": 44,
+        "questionNo": "18",
+        "title": "광주 학생 항일 운동",
+        "concept": "student-movement",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 19,
+        "id": "p19",
+        "source": "문제편 44쪽 19번 원문",
+        "page": 44,
+        "questionNo": "19",
+        "title": "민족 유일당 운동의 국내외 전개",
+        "concept": "national-front",
+        "type": "essay",
+        "answer": {
+          "required": 5,
+          "groups": [
+            [
+              "3부 통합 운동",
+              "삼부 통합 운동"
+            ],
+            [
+              "국민부",
+              "혁신 의회",
+              "혁신의회"
+            ],
+            [
+              "비타협적 민족주의",
+              "비타협 민족주의"
+            ],
+            [
+              "사회주의"
+            ],
+            [
+              "신간회"
+            ]
+          ],
+          "model": "(가) 만주에서는 3부 통합 운동이 전개되어 국민부와 혁신 의회가 조직되었다. (나) 국내에서는 비타협적 민족주의 세력과 사회주의 세력이 힘을 합쳐 신간회를 조직하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 20,
+        "id": "p20",
+        "source": "문제편 45쪽 20번 원문",
+        "page": 45,
+        "questionNo": "20",
+        "title": "학생 중심 민족 운동",
+        "concept": "student-movement",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 21,
+        "id": "p21",
+        "source": "문제편 45쪽 21번 원문",
+        "page": 45,
+        "questionNo": "21",
+        "title": "신간회의 결성",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 22,
+        "id": "p22",
+        "source": "문제편 45쪽 22번 원문",
+        "page": 45,
+        "questionNo": "22",
+        "title": "정우회 선언과 신간회",
+        "concept": "national-front",
+        "type": "essay",
+        "answer": {
+          "required": 3,
+          "groups": [
+            [
+              "정우회 선언",
+              "정우회선언"
+            ],
+            [
+              "사회주의",
+              "비타협적 민족주의"
+            ],
+            [
+              "신간회",
+              "신간회 조직"
+            ]
+          ],
+          "model": "정우회 선언이다. 이 선언은 사회주의 세력과 비타협적 민족주의 세력이 연대하여 신간회를 조직하는 데 큰 영향을 주었다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 23,
+        "id": "p23",
+        "source": "문제편 45쪽 23번 원문",
+        "page": 45,
+        "questionNo": "23",
+        "title": "비타협적 민족주의와 사회주의",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 24,
+        "id": "p24",
+        "source": "문제편 45쪽 24번 원문",
+        "page": 45,
+        "questionNo": "24",
+        "title": "신간회의 활동",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 25,
+        "id": "p25",
+        "source": "문제편 46쪽 25번 원문",
+        "page": 46,
+        "questionNo": "25",
+        "title": "청산리 대첩의 연표 위치",
+        "concept": "synthesis",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 26,
+        "id": "p26",
+        "source": "문제편 46쪽 26번 원문",
+        "page": 46,
+        "questionNo": "26",
+        "title": "물산 장려와 민립 대학",
+        "concept": "economic-capacity",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 27,
+        "id": "p27",
+        "source": "문제편 46쪽 27번 원문",
+        "page": 46,
+        "questionNo": "27",
+        "title": "6·10 만세 운동의 배경",
+        "concept": "student-movement",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 28,
+        "id": "p28",
+        "source": "문제편 46쪽 28번 원문",
+        "page": 46,
+        "questionNo": "28",
+        "title": "신간회의 해소",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 29,
+        "id": "p29",
+        "source": "문제편 47쪽 29번 원문",
+        "page": 47,
+        "questionNo": "29",
+        "title": "신간회의 광주 학생 운동 지원",
+        "concept": "national-front",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 30,
+        "id": "p30",
+        "source": "문제편 47쪽 30번 원문",
+        "page": 47,
+        "questionNo": "30",
+        "title": "의열단의 인물과 활동",
+        "concept": "heroic-struggle",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 31,
+        "id": "p31",
+        "source": "문제편 47쪽 31번 원문",
+        "page": 47,
+        "questionNo": "31",
+        "title": "브나로드 운동",
+        "concept": "education-enlightenment",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ],
+    "4": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 52쪽 01번 원문",
+        "page": 52,
+        "questionNo": "01",
+        "title": "경성의 남촌과 북촌",
+        "concept": "urban-life",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 52쪽 02번 원문",
+        "page": 52,
+        "questionNo": "02",
+        "title": "농촌 진흥 운동",
+        "concept": "rural-policy",
+        "type": "fill",
+        "answer": "농촌 진흥 운동",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 52쪽 03번 원문",
+        "page": 52,
+        "questionNo": "03",
+        "title": "일제 강점기의 생활 모습",
+        "concept": "urban-life",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 52쪽 04번 원문",
+        "page": 52,
+        "questionNo": "04",
+        "title": "1920년대 사회 운동 지도",
+        "concept": "workers-farmers",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 52쪽 05번 원문",
+        "page": 52,
+        "questionNo": "05",
+        "title": "농민 운동 성격의 변화",
+        "concept": "workers-farmers",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "사회주의 사상",
+              "사회주의"
+            ],
+            [
+              "혁명적 농민 조합",
+              "혁명적농민조합"
+            ],
+            [
+              "반제국주의 항일 투쟁",
+              "반제국주의",
+              "일본 제국주의 타도"
+            ]
+          ],
+          "model": "1930년대 농민 운동은 사회주의 사상의 영향을 받아 혁명적 농민 조합을 조직하고 일본 제국주의 타도 등을 주장하는 반제국주의 항일 투쟁으로 발전하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 53쪽 06번 원문",
+        "page": 53,
+        "questionNo": "06",
+        "title": "원산 총파업",
+        "concept": "workers-farmers",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 53쪽 07번 원문",
+        "page": 53,
+        "questionNo": "07",
+        "title": "천도교 소년회",
+        "concept": "youth-women-equality",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 53쪽 08번 원문",
+        "page": 53,
+        "questionNo": "08",
+        "title": "근우회",
+        "concept": "youth-women-equality",
+        "type": "fill",
+        "answer": "근우회",
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 53쪽 09번 원문",
+        "page": 53,
+        "questionNo": "09",
+        "title": "근우회의 활동",
+        "concept": "youth-women-equality",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "잡지 근우",
+              "근우 발행",
+              "기관지 근우"
+            ],
+            [
+              "강연회",
+              "토론회"
+            ],
+            [
+              "여성 계몽",
+              "권리 향상",
+              "여성의 지위"
+            ]
+          ],
+          "model": "근우회는 잡지 『근우』를 발행하고 강연회와 토론회를 열어 여성의 계몽과 권리 향상을 위해 노력하였다."
+        },
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10",
+        "source": "문제편 53쪽 10번 원문",
+        "page": 53,
+        "questionNo": "10",
+        "title": "형평 운동",
+        "concept": "youth-women-equality",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p11",
+        "source": "문제편 54쪽 11번 원문",
+        "page": 54,
+        "questionNo": "11",
+        "title": "조선어 학회의 활동",
+        "concept": "korean-language",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "한글 맞춤법 통일안"
+            ],
+            [
+              "표준어",
+              "외래어 표기법"
+            ],
+            [
+              "우리말 큰사전",
+              "큰사전"
+            ]
+          ],
+          "model": "조선어 학회는 한글 맞춤법 통일안과 표준어·외래어 표기법 통일안을 제정하고 우리말 큰사전 편찬을 추진하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p12",
+        "source": "문제편 54쪽 12번 원문",
+        "page": 54,
+        "questionNo": "12",
+        "title": "백남운의 사회 경제 사학",
+        "concept": "historical-studies",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "보편적 발전 법칙",
+              "세계사적 발전 법칙"
+            ],
+            [
+              "정체성론",
+              "정체성"
+            ]
+          ],
+          "model": "밑줄은 한국사도 세계사의 보편적 발전 법칙에 따라 발전했다는 뜻이며, 이를 통해 한국이 발전하지 못하고 정체되었다는 식민 사관의 정체성론을 비판하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p13",
+        "source": "문제편 54쪽 13번 원문",
+        "page": 54,
+        "questionNo": "13",
+        "title": "식민 사관의 세 논리",
+        "concept": "historical-studies",
+        "type": "fill",
+        "answer": "정체성론 타율성론 당파성론",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p14",
+        "source": "문제편 54쪽 14번 원문",
+        "page": 54,
+        "questionNo": "14",
+        "title": "신채호의 활동",
+        "concept": "historical-studies",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 15,
+        "id": "p15",
+        "source": "문제편 54쪽 15번 원문",
+        "page": 54,
+        "questionNo": "15",
+        "title": "조선어 학회 사건",
+        "concept": "korean-language",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 16,
+        "id": "p16",
+        "source": "문제편 55쪽 16번 원문",
+        "page": 55,
+        "questionNo": "16",
+        "title": "조선학 운동",
+        "concept": "historical-studies",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 17,
+        "id": "p17",
+        "source": "문제편 55쪽 17번 원문",
+        "page": 55,
+        "questionNo": "17",
+        "title": "저항 문학과 친일 문학",
+        "concept": "literature-arts",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 18,
+        "id": "p18",
+        "source": "문제편 55쪽 18번 원문",
+        "page": 55,
+        "questionNo": "18",
+        "title": "나운규와 손기정",
+        "concept": "literature-arts",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 19,
+        "id": "p19",
+        "source": "문제편 55쪽 19번 원문",
+        "page": 55,
+        "questionNo": "19",
+        "title": "대종교와 천도교",
+        "concept": "religions",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 20,
+        "id": "p20",
+        "source": "문제편 56쪽 20번 원문",
+        "page": 56,
+        "questionNo": "20",
+        "title": "나혜석",
+        "concept": "literature-arts",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 21,
+        "id": "p21",
+        "source": "문제편 56쪽 21번 원문",
+        "page": 56,
+        "questionNo": "21",
+        "title": "박은식과 『한국통사』",
+        "concept": "historical-studies",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 22,
+        "id": "p22",
+        "source": "문제편 56쪽 22번 원문",
+        "page": 56,
+        "questionNo": "22",
+        "title": "소작 쟁의와 노동 쟁의",
+        "concept": "workers-farmers",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 23,
+        "id": "p23",
+        "source": "문제편 56쪽 23번 원문",
+        "page": 56,
+        "questionNo": "23",
+        "title": "천도교의 활동",
+        "concept": "religions",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 24,
+        "id": "p24",
+        "source": "문제편 57쪽 24번 원문",
+        "page": 57,
+        "questionNo": "24",
+        "title": "신채호의 조선 혁명 선언",
+        "concept": "historical-studies",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 25,
+        "id": "p25",
+        "source": "문제편 57쪽 25번 원문",
+        "page": 57,
+        "questionNo": "25",
+        "title": "천도교 소년회의 어린이날",
+        "concept": "youth-women-equality",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 26,
+        "id": "p26",
+        "source": "문제편 57쪽 26번 원문",
+        "page": 57,
+        "questionNo": "26",
+        "title": "형평 운동의 전개",
+        "concept": "youth-women-equality",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ],
+    "5": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 63쪽 01번 원문",
+        "page": 63,
+        "questionNo": "01",
+        "title": "한국 독립군과 조선 혁명군 구별",
+        "concept": "manchuria-forces",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 63쪽 02번 원문",
+        "page": 63,
+        "questionNo": "02",
+        "title": "한·중 연합 작전",
+        "concept": "manchuria-forces",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 63쪽 03번 원문",
+        "page": 63,
+        "questionNo": "03",
+        "title": "한·중 연합 작전의 배경",
+        "concept": "manchuria-forces",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "만주 사변",
+              "만주사변",
+              "만주 침략",
+              "1931"
+            ],
+            [
+              "만주국",
+              "1932"
+            ],
+            [
+              "반일 감정",
+              "한중 연합 작전",
+              "한·중 연합 작전",
+              "항일 중국군"
+            ]
+          ],
+          "model": "1930년대 초 일제가 만주 사변을 일으키고 만주국을 수립하면서 중국의 반일 감정이 높아졌고, 이에 한국 독립군·조선 혁명군과 항일 중국군의 한·중 연합 작전이 전개되었다."
+        },
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 63쪽 04번 원문",
+        "page": 63,
+        "questionNo": "04",
+        "title": "1930년대 만주의 무장 투쟁",
+        "concept": "manchuria-forces",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 63쪽 05번 원문",
+        "page": 63,
+        "questionNo": "05",
+        "title": "민족 혁명당",
+        "concept": "united-front",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 64쪽 06번 원문",
+        "page": 64,
+        "questionNo": "06",
+        "title": "조선 의용대",
+        "concept": "volunteer-corps",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 64쪽 07번 원문",
+        "page": 64,
+        "questionNo": "07",
+        "title": "조선 의용대의 조직 시기",
+        "concept": "volunteer-corps",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 64쪽 08번 원문",
+        "page": 64,
+        "questionNo": "08",
+        "title": "김원봉의 활동",
+        "concept": "volunteer-corps",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 64쪽 09번 원문",
+        "page": 64,
+        "questionNo": "09",
+        "title": "충칭 시기 대한민국 임시 정부",
+        "concept": "imjeong-chongqing",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10",
+        "source": "문제편 64쪽 10번 원문",
+        "page": 64,
+        "questionNo": "10",
+        "title": "한국광복군 명칭",
+        "concept": "liberation-army",
+        "type": "fill",
+        "answer": "한국광복군",
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p11",
+        "source": "문제편 64쪽 11번 원문",
+        "page": 64,
+        "questionNo": "11",
+        "title": "한국광복군의 연합 작전",
+        "concept": "liberation-army",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "미얀마",
+              "인도",
+              "영국군",
+              "포로 심문",
+              "선전 활동"
+            ],
+            [
+              "OSS",
+              "미국 전략 정보국",
+              "국내 정진군",
+              "국내 진공 작전",
+              "국내진공"
+            ]
+          ],
+          "model": "한국광복군은 영국군의 요청으로 미얀마·인도 전선에 파견되어 포로 심문·선전 활동을 했고, 미국 전략 정보국(OSS)과 합작해 특수 훈련을 받고 국내 정진군을 편성하는 등 국내 진공 작전을 준비했다."
+        },
+        "originalImageCount": 2,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p12",
+        "source": "문제편 65쪽 12번 원문",
+        "page": 65,
+        "questionNo": "12",
+        "title": "국내 진공 작전",
+        "concept": "liberation-army",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p13",
+        "source": "문제편 65쪽 13번 원문",
+        "page": 65,
+        "questionNo": "13",
+        "title": "건국 강령의 공통점",
+        "concept": "nation-building",
+        "type": "essay",
+        "answer": {
+          "required": 2,
+          "groups": [
+            [
+              "보통 선거",
+              "보통선거",
+              "민주 공화국",
+              "민주정권"
+            ],
+            [
+              "국유화",
+              "대기업 국유화",
+              "주요 산업 국유화",
+              "토지 국유화"
+            ],
+            [
+              "의무 교육",
+              "무상 교육",
+              "의무교육",
+              "무상교육"
+            ]
+          ],
+          "model": "두 건국 강령은 보통 선거를 통한 민주 공화국 수립, 대기업·주요 산업의 국유화, 의무 교육과 무상 교육 등을 공통으로 내세웠다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p14",
+        "source": "문제편 65쪽 14번 원문",
+        "page": 65,
+        "questionNo": "14",
+        "title": "삼균주의",
+        "concept": "nation-building",
+        "type": "fill",
+        "answer": "삼균주의",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 15,
+        "id": "p15",
+        "source": "문제편 65쪽 15번 원문",
+        "page": 65,
+        "questionNo": "15",
+        "title": "조선 독립 동맹과 조선 건국 동맹",
+        "concept": "independence-leagues",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 16,
+        "id": "p16",
+        "source": "문제편 65쪽 16번 원문",
+        "page": 65,
+        "questionNo": "16",
+        "title": "카이로 회담",
+        "concept": "international-diplomacy",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 17,
+        "id": "p17",
+        "source": "문제편 66쪽 17번 원문",
+        "page": 66,
+        "questionNo": "17",
+        "title": "조선 혁명군과 중국군의 합의",
+        "concept": "manchuria-forces",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 18,
+        "id": "p18",
+        "source": "문제편 66쪽 18번 원문",
+        "page": 66,
+        "questionNo": "18",
+        "title": "조선 의용대·의용군·한국광복군 관계",
+        "concept": "volunteer-corps",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 19,
+        "id": "p19",
+        "source": "문제편 66쪽 19번 원문",
+        "page": 66,
+        "questionNo": "19",
+        "title": "지청천과 한국광복군",
+        "concept": "liberation-army",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 20,
+        "id": "p20",
+        "source": "문제편 66쪽 20번 원문",
+        "page": 66,
+        "questionNo": "20",
+        "title": "조선 건국 동맹",
+        "concept": "independence-leagues",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 21,
+        "id": "p21",
+        "source": "문제편 67쪽 21번 원문",
+        "page": 67,
+        "questionNo": "21",
+        "title": "한국광복군의 활동",
+        "concept": "liberation-army",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 22,
+        "id": "p22",
+        "source": "문제편 67쪽 22번 원문",
+        "page": 67,
+        "questionNo": "22",
+        "title": "대한민국 임시 정부와 삼균주의",
+        "concept": "imjeong-chongqing",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 23,
+        "id": "p23",
+        "source": "문제편 67쪽 23번 원문",
+        "page": 67,
+        "questionNo": "23",
+        "title": "여성 독립운동가와 한국광복군",
+        "concept": "liberation-army",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ],
+    "6": [
+      {
+        "order": 1,
+        "id": "p01",
+        "source": "문제편 68쪽 01번 원문",
+        "page": 68,
+        "questionNo": "01",
+        "title": "회사령·조선 광업령의 허가권자",
+        "concept": "colonial-control",
+        "type": "fill",
+        "answer": "조선 총독",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 2,
+        "id": "p02",
+        "source": "문제편 68쪽 02번 원문",
+        "page": 68,
+        "questionNo": "02",
+        "title": "조선 총독의 임명과 권한",
+        "concept": "colonial-control",
+        "type": "essay",
+        "answer": {
+          "groups": [
+            [
+              "육군",
+              "해군",
+              "대장"
+            ],
+            [
+              "입법",
+              "사법",
+              "행정",
+              "군사",
+              "통치 전권"
+            ]
+          ],
+          "required": 2,
+          "model": "조선 총독은 일본 육군과 해군의 대장 중에서 임명되었고, 한국에서 입법·사법·행정·군사 등 통치의 전권을 행사하였다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 3,
+        "id": "p03",
+        "source": "문제편 68쪽 03번 원문",
+        "page": 68,
+        "questionNo": "03",
+        "title": "헌병 경찰제 시기의 경제 정책",
+        "concept": "colonial-control",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 4,
+        "id": "p04",
+        "source": "문제편 68쪽 04번 원문",
+        "page": 68,
+        "questionNo": "04",
+        "title": "문화 정치의 목적",
+        "concept": "colonial-control",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 5,
+        "id": "p05",
+        "source": "문제편 68쪽 05번 원문",
+        "page": 68,
+        "questionNo": "05",
+        "title": "민족 말살 정책의 강요",
+        "concept": "assimilation-exploitation",
+        "type": "essay",
+        "answer": {
+          "groups": [
+            [
+              "황국 신민 서사",
+              "황국신민서사"
+            ],
+            [
+              "신사 참배"
+            ],
+            [
+              "궁성 요배",
+              "궁성요배"
+            ],
+            [
+              "창씨개명",
+              "창씨 개명"
+            ]
+          ],
+          "required": 3,
+          "model": "황국 신민 서사 암송, 신사 참배, 궁성 요배, 창씨개명 중 세 가지"
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 6,
+        "id": "p06",
+        "source": "문제편 69쪽 06번 원문",
+        "page": 69,
+        "questionNo": "06",
+        "title": "산미 증식 계획",
+        "concept": "assimilation-exploitation",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 7,
+        "id": "p07",
+        "source": "문제편 69쪽 07번 원문",
+        "page": 69,
+        "questionNo": "07",
+        "title": "국민 대표 회의",
+        "concept": "march-provisional",
+        "type": "fill",
+        "answer": "국민 대표 회의",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 8,
+        "id": "p08",
+        "source": "문제편 69쪽 08번 원문",
+        "page": 69,
+        "questionNo": "08",
+        "title": "국민 대표 회의의 결과",
+        "concept": "march-provisional",
+        "type": "essay",
+        "answer": {
+          "groups": [
+            [
+              "창조파"
+            ],
+            [
+              "개조파"
+            ],
+            [
+              "결렬",
+              "성과 없이"
+            ]
+          ],
+          "required": 3,
+          "model": "창조파와 개조파가 대립하여 성과 없이 결렬되었다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 9,
+        "id": "p09",
+        "source": "문제편 69쪽 09번 원문",
+        "page": 69,
+        "questionNo": "09",
+        "title": "독립 의군부와 복벽주의",
+        "concept": "direct-action",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 10,
+        "id": "p10",
+        "source": "문제편 69쪽 10번 원문",
+        "page": 69,
+        "questionNo": "10",
+        "title": "1919년 아시아 민족 운동",
+        "concept": "march-provisional",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 11,
+        "id": "p11",
+        "source": "문제편 70쪽 11번 원문",
+        "page": 70,
+        "questionNo": "11",
+        "title": "의열단의 활동",
+        "concept": "direct-action",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 12,
+        "id": "p12",
+        "source": "문제편 70쪽 12번 원문",
+        "page": 70,
+        "questionNo": "12",
+        "title": "이봉창 의거의 시기",
+        "concept": "direct-action",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 13,
+        "id": "p13",
+        "source": "문제편 70쪽 13번 원문",
+        "page": 70,
+        "questionNo": "13",
+        "title": "물산 장려 운동",
+        "concept": "national-coalition",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 14,
+        "id": "p14",
+        "source": "문제편 70쪽 14번 원문",
+        "page": 70,
+        "questionNo": "14",
+        "title": "신간회의 활동과 성격",
+        "concept": "national-coalition",
+        "type": "single",
+        "answer": 0,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 15,
+        "id": "p15",
+        "source": "문제편 71쪽 15번 원문",
+        "page": 71,
+        "questionNo": "15",
+        "title": "독립군 전투의 순서",
+        "concept": "direct-action",
+        "type": "fill",
+        "answer": "나-다-가-라",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 16,
+        "id": "p16",
+        "source": "문제편 71쪽 16번 원문",
+        "page": 71,
+        "questionNo": "16",
+        "title": "12월 테제와 신간회 해소",
+        "concept": "national-coalition",
+        "type": "essay",
+        "answer": {
+          "groups": [
+            [
+              "사회주의",
+              "공산주의"
+            ],
+            [
+              "신간회"
+            ],
+            [
+              "해소",
+              "해체"
+            ]
+          ],
+          "required": 3,
+          "model": "사회주의 세력의 주도로 신간회가 해소되는 데 영향을 끼쳤다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 17,
+        "id": "p17",
+        "source": "문제편 71쪽 17번 원문",
+        "page": 71,
+        "questionNo": "17",
+        "title": "광주 학생 항일 운동",
+        "concept": "national-coalition",
+        "type": "single",
+        "answer": 2,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 18,
+        "id": "p18",
+        "source": "문제편 71쪽 18번 원문",
+        "page": 71,
+        "questionNo": "18",
+        "title": "원산 총파업",
+        "concept": "social-movement",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 19,
+        "id": "p19",
+        "source": "문제편 71쪽 19번 원문",
+        "page": 71,
+        "questionNo": "19",
+        "title": "일제 강점기 사회 운동",
+        "concept": "social-movement",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 20,
+        "id": "p20",
+        "source": "문제편 72쪽 20번 원문",
+        "page": 72,
+        "questionNo": "20",
+        "title": "박은식과 신채호의 공통점",
+        "concept": "culture-defense",
+        "type": "single",
+        "answer": 3,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 21,
+        "id": "p21",
+        "source": "문제편 72쪽 21번 원문",
+        "page": 72,
+        "questionNo": "21",
+        "title": "전형필과 문화유산 보호",
+        "concept": "culture-defense",
+        "type": "fill",
+        "answer": "전형필",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 22,
+        "id": "p22",
+        "source": "문제편 72쪽 22번 원문",
+        "page": 72,
+        "questionNo": "22",
+        "title": "동북 항일 연군",
+        "concept": "armed-1930s",
+        "type": "single",
+        "answer": 1,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 23,
+        "id": "p23",
+        "source": "문제편 72쪽 23번 원문",
+        "page": 72,
+        "questionNo": "23",
+        "title": "한국광복군",
+        "concept": "liberation-army",
+        "type": "fill",
+        "answer": "한국광복군",
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 24,
+        "id": "p24",
+        "source": "문제편 72쪽 24번 원문",
+        "page": 72,
+        "questionNo": "24",
+        "title": "국내 진공 작전과 결과",
+        "concept": "liberation-army",
+        "type": "essay",
+        "answer": {
+          "groups": [
+            [
+              "국내 진공 작전",
+              "독수리 작전"
+            ],
+            [
+              "일본",
+              "항복"
+            ],
+            [
+              "실행",
+              "못",
+              "무산"
+            ]
+          ],
+          "required": 3,
+          "model": "국내 진공 작전(독수리 작전)을 계획했으나, 실행 직전에 일본이 항복하여 실행하지 못했다."
+        },
+        "originalImageCount": 1,
+        "hasFeedback": true
+      },
+      {
+        "order": 25,
+        "id": "p25",
+        "source": "문제편 72쪽 25번 원문",
+        "page": 72,
+        "questionNo": "25",
+        "title": "대한민국 임시 정부의 대일 선전 포고",
+        "concept": "diplomacy-nation",
+        "type": "single",
+        "answer": 4,
+        "originalImageCount": 1,
+        "hasFeedback": true
+      }
+    ]
+  }
+}

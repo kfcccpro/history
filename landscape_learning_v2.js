@@ -197,3 +197,52 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
   setTimeout(()=>{installIntroOverride();installKeywordOverride();installContextOverride();enhance()},0);
 })();
+
+/* History2 Focus UX v4: question viewport and transparent resume context */
+(function(){
+  'use strict';
+  function esc4(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function learningReady(){try{return typeof COURSE!=='undefined'&&COURSE&&Array.isArray(COURSE.problems)&&typeof state!=='undefined'&&typeof currentProblem==='function'}catch(_){return false}}
+  function sourceLabel4(p){return p?.original?.label||p?.source||p?.title||'현재 문제'}
+  function isQuestionMode4(){try{return state?.phase==='learn'&&runtime?.mode==='question'}catch(_){return false}}
+  function enhanceQuestion4(){
+    if(!learningReady()||!isQuestionMode4())return;
+    document.body.classList.add('h2-ux-v4');
+    const panel=document.querySelector('.question-panel');if(!panel)return;
+    const p=currentProblem();if(!p)return;
+    const original=panel.querySelector('.original-question');
+    if(original){original.classList.toggle('h2-multi-image',original.querySelectorAll('img').length>1)}
+    let dock=panel.querySelector('.h2-answer-dock');
+    if(!dock){
+      dock=document.createElement('aside');dock.className='h2-answer-dock';dock.setAttribute('aria-label','정답 입력 영역');
+      const guide=panel.querySelector('.answer-guide');
+      const answer=panel.querySelector('.number-choice-grid,.essay-input,.fill-input');
+      const action=panel.querySelector('.action-area');
+      if(guide)panel.insertBefore(dock,guide);else if(action)panel.insertBefore(dock,action);else panel.appendChild(dock);
+      const context=document.createElement('div');context.className='h2-q-context';dock.appendChild(context);
+      [guide,answer,action].forEach(x=>{if(x)dock.appendChild(x)});
+    }
+    const ctx=dock.querySelector('.h2-q-context');
+    if(ctx)ctx.innerHTML=`<b>${esc4(sourceLabel4(p))}</b><span>${esc4(p.title||'')} · 오늘 학습 ${Number(state.problemIndex||0)+1}/${COURSE.problems.length}</span>`;
+    if(Number(state.problemIndex||0)>0&&!dock.querySelector('.h2-resume-note')){
+      const note=document.createElement('div');note.className='h2-resume-note';
+      note.innerHTML=`<span>저장된 학습 기록을 이어서 <b>${Number(state.problemIndex)+1}번째 문항</b>부터 시작했습니다.</span><button type="button" data-h2-start-first>1번부터 다시 풀기</button>`;
+      dock.insertBefore(note,ctx?.nextSibling||dock.firstChild);
+    }
+  }
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-h2-start-first]');if(!b||!learningReady())return;
+    try{
+      state.phase='learn';state.problemIndex=0;
+      if(typeof resetRuntimeForQuestion==='function')resetRuntimeForQuestion();else{runtime.mode='question';runtime.answer=null}
+      if(typeof saveState==='function')saveState();
+      if(typeof render==='function')render();
+    }catch(_){ }
+  },true);
+  let pending=0;function schedule(){cancelAnimationFrame(pending);pending=requestAnimationFrame(enhanceQuestion4)}
+  const obs=new MutationObserver(schedule);obs.observe(document.documentElement,{childList:true,subtree:true});
+  window.addEventListener('resize',schedule,{passive:true});
+  function boot4(){document.body.classList.add('h2-ux-v4');schedule()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot4,{once:true});else boot4();
+  setTimeout(schedule,0);
+})();
