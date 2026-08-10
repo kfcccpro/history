@@ -303,6 +303,7 @@ body.h2-ux-v6 .screen-title{font-size:clamp(34px,3.15vw,50px)!important;line-hei
 body.h2-ux-v6 button,body.h2-ux-v6 input,body.h2-ux-v6 textarea,body.h2-ux-v6 select{font-size:17px}
 body.h2-ux-v6 .primary{font-size:19px!important;min-height:60px!important}
 
+/* History2 Focus UX v6.1: prevent four-column overflow at tablet/intermediate widths. */
 /* Intro uses almost the full landscape viewport. No lower explanation drawer. */
 body.h2-ux-v6 .h2-intro-v6{
   width:min(1760px,calc(100vw - 34px));
@@ -321,13 +322,13 @@ body.h2-ux-v6 .h2-v6-kicker{font-size:16px;font-weight:900;color:#49617e;margin-
 body.h2-ux-v6 .h2-v6-head h1{margin:0;font-size:clamp(30px,2.65vw,44px);line-height:1.12;letter-spacing:-.04em;word-break:keep-all}
 body.h2-ux-v6 .h2-v6-progress{flex:none;display:flex;align-items:baseline;gap:6px;padding:10px 15px;border:1px solid var(--h2-v6-line);border-radius:15px;background:#fff;box-shadow:0 5px 18px rgba(23,45,72,.05);font-weight:850;color:#52657c}
 body.h2-ux-v6 .h2-v6-progress b{font-size:28px;color:var(--h2-v6-ink)}
-body.h2-ux-v6 .h2-v6-progress span{font-size:15px}
+body.h2-ux-v6 .h2-v6-progress span{font-size:16px}
 
 body.h2-ux-v6 .h2-v6-map{
   position:relative;
   min-height:0;
   display:grid;
-  grid-template-columns:minmax(190px,17%) minmax(300px,29%) minmax(300px,25%) minmax(350px,29%);
+  grid-template-columns:minmax(180px,.72fr) minmax(280px,1.22fr) minmax(250px,1.05fr) minmax(320px,1.31fr);
   gap:18px;
   align-items:stretch;
   border:1px solid var(--h2-v6-line);
@@ -338,10 +339,10 @@ body.h2-ux-v6 .h2-v6-map{
   overflow:hidden;
 }
 body.h2-ux-v6 .h2-v6-col{position:relative;z-index:2;min-width:0;min-height:0}
-body.h2-ux-v6 .h2-v6-col-label{height:28px;display:flex;align-items:center;font-size:14px;font-weight:950;letter-spacing:.02em;color:#6b7d91;text-transform:none}
+body.h2-ux-v6 .h2-v6-col-label{height:30px;display:flex;align-items:center;font-size:16px;font-weight:950;letter-spacing:.01em;color:#5c7088;text-transform:none}
 body.h2-ux-v6 .h2-v6-root-wrap{display:grid;place-items:center;height:calc(100% - 28px)}
 body.h2-ux-v6 .h2-v6-root{width:100%;max-width:245px;min-height:118px;border-radius:20px;background:var(--h2-v6-navy);color:#fff;padding:20px 18px;display:grid;align-content:center;gap:7px;box-shadow:0 14px 30px rgba(16,36,63,.18)}
-body.h2-ux-v6 .h2-v6-root small{font-size:15px;color:#bdcad9;font-weight:800}
+body.h2-ux-v6 .h2-v6-root small{font-size:16px;color:#bdcad9;font-weight:850}
 body.h2-ux-v6 .h2-v6-root b{font-size:clamp(23px,2vw,31px);line-height:1.18;letter-spacing:-.035em;word-break:keep-all}
 
 body.h2-ux-v6 .h2-v6-branches{height:calc(100% - 28px);display:grid;align-content:center;gap:9px;overflow:auto;padding:4px 4px 4px 0;scrollbar-width:thin}
@@ -367,7 +368,7 @@ body.h2-ux-v6 .h2-v6-key.current{box-shadow:0 0 0 3px rgba(24,130,93,.10)}
 body.h2-ux-v6 .h2-v6-focus{height:calc(100% - 28px);min-height:0;display:grid;align-content:center}
 body.h2-ux-v6 .h2-v6-focus-card{border:1px solid #cfdce8;border-radius:20px;background:#f8fbfe;padding:20px 21px;display:grid;gap:13px;box-shadow:0 7px 22px rgba(19,43,68,.05);animation:h2V6Slide .28s cubic-bezier(.2,.85,.3,1) both}
 body.h2-ux-v6 .h2-v6-focus-card.empty{min-height:180px;align-content:center;color:#65788e}
-body.h2-ux-v6 .h2-v6-focus-card .eyebrow{font-size:14px;font-weight:950;color:#61758c}
+body.h2-ux-v6 .h2-v6-focus-card .eyebrow{font-size:16px;font-weight:950;color:#536b85}
 body.h2-ux-v6 .h2-v6-focus-card h2{margin:0;font-size:clamp(26px,2.25vw,36px);line-height:1.15;letter-spacing:-.035em;word-break:keep-all;color:var(--h2-v6-ink)}
 body.h2-ux-v6 .h2-v6-focus-card .fact{font-size:18px;line-height:1.55;font-weight:700;color:#334b66;word-break:keep-all}
 body.h2-ux-v6 .h2-v6-focus-card .reveal{min-height:58px;border:0;border-radius:14px;background:var(--h2-v6-navy);color:#fff;font-size:18px;font-weight:950;padding:11px 16px}
@@ -377,7 +378,7 @@ body.h2-ux-v6 .h2-v6-recall-row{display:grid;grid-template-columns:minmax(0,1fr)
 body.h2-ux-v6 .h2-v6-recall input{height:58px;border:2px solid #cbd9e6;border-radius:14px;padding:0 14px;font-size:19px;font-weight:800;color:#122945;background:#fff;min-width:0}
 body.h2-ux-v6 .h2-v6-recall input:focus{outline:0;border-color:#4d98d1;box-shadow:0 0 0 4px rgba(47,128,199,.12)}
 body.h2-ux-v6 .h2-v6-recall button{min-height:58px;border:0;border-radius:14px;background:var(--h2-v6-navy);color:#fff;font-size:17px;font-weight:950;padding:0 17px}
-body.h2-ux-v6 .h2-v6-recall-msg{min-height:22px;font-size:15px;font-weight:850;color:#b42318;line-height:1.4}
+body.h2-ux-v6 .h2-v6-recall-msg{min-height:24px;font-size:16px;font-weight:850;color:#b42318;line-height:1.45}
 body.h2-ux-v6 .h2-v6-done{border:1px solid #9ed8bf;background:#eaf8f1;color:#176749;border-radius:14px;padding:14px 16px;font-size:18px;font-weight:950;text-align:center}
 
 body.h2-ux-v6 .h2-v6-actions{display:grid;grid-template-columns:minmax(280px,660px) auto;justify-content:center;align-items:center;gap:15px;padding:0 4px}
@@ -418,7 +419,7 @@ body.h2-ux-v6 .h2-chain-next{font-size:18px!important;min-height:60px!important}
 
 @keyframes h2V6Slide{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
 @media (max-width:1180px) and (orientation:landscape){
-  body.h2-ux-v6 .h2-v6-map{grid-template-columns:16% 28% 24% 32%;gap:12px;padding:14px}
+  body.h2-ux-v6 .h2-v6-map{grid-template-columns:minmax(0,.72fr) minmax(0,1.22fr) minmax(0,1.05fr) minmax(0,1.36fr);gap:12px;padding:14px}
   body.h2-ux-v6 .h2-v6-branch b,body.h2-ux-v6 .h2-v6-key b{font-size:16px}
   body.h2-ux-v6 .h2-v6-focus-card .fact{font-size:16px}
   body.h2-ux-v6 .h2-v6-focus-card h2{font-size:27px}
@@ -432,3 +433,29 @@ body.h2-ux-v6 .h2-chain-next{font-size:18px!important;min-height:60px!important}
   body.h2-ux-v6 .h2-v6-focus-card{padding:15px 16px;gap:9px}
 }
 @media (prefers-reduced-motion:reduce){body.h2-ux-v6 .h2-v6-key.shown,body.h2-ux-v6 .h2-v6-focus-card{animation:none!important}}
+
+
+/* History2 Focus UX v6.2: fit core learning screens inside the actual landscape viewport. */
+@media (orientation:landscape) and (min-width:700px){
+  body.h2-ux-v6 .h2-intro-v6{
+    height:calc(100dvh - 98px)!important;
+    min-height:0!important;
+  }
+  body.h2-ux-v6 .question-panel{
+    height:calc(100dvh - 98px)!important;
+    max-height:calc(100dvh - 98px)!important;
+    min-height:0!important;
+  }
+  body.h2-ux-v6 .feedback-screen{
+    height:calc(100dvh - 98px)!important;
+    min-height:0!important;
+    max-height:calc(100dvh - 98px)!important;
+    overflow:auto!important;
+  }
+}
+@media (max-height:700px) and (orientation:landscape){
+  body.h2-ux-v6 .h2-intro-v6{
+    height:calc(100dvh - 98px)!important;
+    min-height:0!important;
+  }
+}
