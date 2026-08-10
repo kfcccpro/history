@@ -1,149 +1,199 @@
 (function(){
   'use strict';
-  document.body && document.body.classList.add('h2-ux-v2');
+  document.body && document.body.classList.add('h2-ux-v3');
 
-  const esc = (v)=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-  const safeEscape = (v)=>{ try{return typeof escapeHtml==='function'?escapeHtml(v):esc(v)}catch(_){return esc(v)} };
+  const esc=(v)=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const safeEscape=(v)=>{try{return typeof escapeHtml==='function'?escapeHtml(v):esc(v)}catch(_){return esc(v)}};
+  const norm=(v)=>String(v??'').toLowerCase().replace(/[^0-9a-z가-힣]/g,'');
 
-  /* ---------- landscape guard ---------- */
+  /* orientation guard */
   function ensureOrientationGate(){
     let gate=document.getElementById('h2OrientationGate');
     if(!gate){
       gate=document.createElement('div');gate.id='h2OrientationGate';gate.className='h2-orientation-gate';gate.setAttribute('role','dialog');gate.setAttribute('aria-modal','true');
-      gate.innerHTML='<div class="h2-orientation-card"><div class="h2-orientation-icon" aria-hidden="true"></div><h2>가로 화면으로 돌려주세요</h2><p>이 학습앱은 문제와 풀이를 한 화면에서 보기 위해 가로 화면을 기준으로 배치했습니다. 기기를 가로로 돌리면 바로 이어집니다.</p><button type="button" id="h2TryLandscape">가로모드 시도</button></div>';
+      gate.innerHTML='<div class="h2-orientation-card"><div class="h2-orientation-icon" aria-hidden="true"></div><h2>가로 화면으로 돌려주세요</h2><p>문제와 풀이를 한 화면에서 보기 위한 가로형 학습 화면입니다.</p><button type="button" id="h2TryLandscape">가로모드 시도</button></div>';
       document.body.appendChild(gate);
       gate.querySelector('#h2TryLandscape').addEventListener('click',async()=>{
-        try{ if(document.documentElement.requestFullscreen && !document.fullscreenElement) await document.documentElement.requestFullscreen(); }catch(_){ }
-        try{ if(screen.orientation && screen.orientation.lock) await screen.orientation.lock('landscape'); }catch(_){ }
+        try{if(document.documentElement.requestFullscreen&&!document.fullscreenElement)await document.documentElement.requestFullscreen()}catch(_){ }
+        try{if(screen.orientation&&screen.orientation.lock)await screen.orientation.lock('landscape')}catch(_){ }
         updateOrientationGate();
       });
     }
     return gate;
   }
-  function isTouchPrimary(){return matchMedia('(pointer:coarse)').matches || (navigator.maxTouchPoints||0)>1}
-  function updateOrientationGate(){
-    const gate=ensureOrientationGate();
-    const portrait=matchMedia('(orientation:portrait)').matches;
-    const touch=isTouchPrimary();
-    gate.classList.toggle('show',touch&&portrait);
-  }
-  try{
-    if(matchMedia('(display-mode: standalone)').matches && screen.orientation && screen.orientation.lock){screen.orientation.lock('landscape').catch(()=>{});}
-  }catch(_){ }
+  function isTouchPrimary(){return matchMedia('(pointer:coarse)').matches||(navigator.maxTouchPoints||0)>1}
+  function updateOrientationGate(){ensureOrientationGate().classList.toggle('show',isTouchPrimary()&&matchMedia('(orientation:portrait)').matches)}
+  try{if(matchMedia('(display-mode: standalone)').matches&&screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}catch(_){ }
   window.addEventListener('resize',updateOrientationGate,{passive:true});
   window.addEventListener('orientationchange',()=>setTimeout(updateOrientationGate,80),{passive:true});
 
-  /* ---------- intro mind-map gate ---------- */
+  /* learning globals */
   function hasLearningGlobals(){
-    try{return typeof COURSE!=='undefined' && COURSE && COURSE.previewMap && Array.isArray(COURSE.previewMap.branches) && typeof state!=='undefined' && typeof renderIntro==='function'}catch(_){return false}
+    try{return typeof COURSE!=='undefined'&&COURSE&&COURSE.previewMap&&Array.isArray(COURSE.previewMap.branches)&&typeof state!=='undefined'&&typeof renderIntro==='function'}catch(_){return false}
   }
   function ensureIntroGateState(){
-    if(!state.introGate || typeof state.introGate!=='object')state.introGate={confirmed:{},selected:''};
-    if(!state.introGate.confirmed || typeof state.introGate.confirmed!=='object')state.introGate.confirmed={};
+    if(!state.introGate||typeof state.introGate!=='object')state.introGate={};
+    if(!state.introGate.confirmed||typeof state.introGate.confirmed!=='object')state.introGate.confirmed={};
+    if(!state.introGate.revealed||typeof state.introGate.revealed!=='object')state.introGate.revealed={};
+    if(!state.introGate.recallDone||typeof state.introGate.recallDone!=='object')state.introGate.recallDone={};
+    if(typeof state.introGate.selected!=='string')state.introGate.selected='';
     return state.introGate;
   }
   function branchConcepts(branch){
     const all=Array.isArray(COURSE.concepts)?COURSE.concepts:[];
-    return all.filter(c=>c.branch===branch.id).slice(0,6);
+    const found=all.filter(c=>c.branch===branch.id).slice(0,4);
+    if(found.length)return found;
+    return [{title:branch.label,one:branch.hint||'핵심 개념을 확인합니다.',down:[]}];
   }
-  function renderConceptDrawer(branch,gate){
-    if(!branch)return '<section class="h2-concept-drawer"><div class="h2-concept-empty">마인드맵의 가지를 하나 눌러보세요.<br>눌러야 아래에 연결 개념이 나타납니다.</div></section>';
-    const items=branchConcepts(branch);
+  function conceptKeyword(c){
+    const down=Array.isArray(c.down)?c.down.filter(Boolean):[];
+    return String(down[0]||c.title||c.one||'핵심어').trim();
+  }
+  function recallTarget(branch){
+    const cs=branchConcepts(branch);
+    const withDown=cs.find(c=>Array.isArray(c.down)&&c.down.length);
+    return conceptKeyword(withDown||cs[0]||{title:branch.label});
+  }
+  function introSummary(branch,gate){
+    if(!branch)return '<section class="h2-focus-drawer empty"><div><b>왼쪽에서 가지를 하나 선택하세요.</b><span>클릭할 때마다 오른쪽으로 핵심어가 한 단계씩 열립니다.</span></div></section>';
+    const cs=branchConcepts(branch);
+    const shown=Math.min(Number(gate.revealed[branch.id]||0),cs.length);
     const done=!!gate.confirmed[branch.id];
-    const body=items.length?items.map((c,i)=>{
-      const chips=(Array.isArray(c.down)?c.down:[]).slice(0,3).map(x=>`<span class="h2-concept-chip">${safeEscape(x)}</span>`).join('');
-      return `<article class="h2-concept-item" style="animation-delay:${i*45}ms"><b>${safeEscape(c.title||c.one||branch.label)}</b><p>${safeEscape(c.one||branch.hint||'')}</p>${chips}</article>`;
-    }).join(''):`<article class="h2-concept-item"><b>${safeEscape(branch.label)}</b><p>${safeEscape(branch.hint||'이 가지의 핵심 개념을 확인합니다.')}</p></article>`;
-    return `<section class="h2-concept-drawer"><div class="h2-concept-head"><div><h2>${safeEscape(branch.label)}</h2><p>${safeEscape(branch.hint||'아래 연결 개념을 읽고 확인하세요.')}</p></div><button type="button" class="h2-branch-confirm ${done?'done':''}" data-h2-confirm-branch="${safeEscape(branch.id)}">${done?'✓ 확인 완료':'이 가지 확인 완료'}</button></div><div class="h2-concept-list">${body}</div></section>`;
+    const items=cs.slice(0,shown).map((c,i)=>{
+      const kw=conceptKeyword(c);
+      return `<article class="h2-focus-concept ${i===shown-1?'is-new':''}"><span class="h2-focus-num">${i+1}</span><div><b>${safeEscape(kw)}</b><p>${safeEscape(c.one||c.title||branch.hint||'')}</p></div></article>`;
+    }).join('');
+    let action='';
+    if(shown<cs.length){
+      action=`<button type="button" class="h2-reveal-next" data-h2-reveal-concept="${safeEscape(branch.id)}">핵심어 ${shown+1} 나타내기</button>`;
+    }else if(!done){
+      action=`<div class="h2-active-recall"><div class="h2-active-recall-label">방금 본 내용을 꺼내서 쓰기</div><p><b>${safeEscape(branch.label)}</b>에서 본 핵심어 하나를 입력하세요.</p><div class="h2-recall-row"><input type="text" data-h2-recall-input="${safeEscape(branch.id)}" autocomplete="off" spellcheck="false" placeholder="기억나는 핵심어 입력"><button type="button" data-h2-recall-check="${safeEscape(branch.id)}">기억 확인</button></div><div class="h2-recall-msg" data-h2-recall-msg="${safeEscape(branch.id)}"></div></div>`;
+    }else{
+      action='<div class="h2-branch-done">✓ 이 가지를 기억해서 확인했습니다.</div>';
+    }
+    return `<section class="h2-focus-drawer"><div class="h2-focus-drawer-head"><div><span>선택한 가지</span><h2>${safeEscape(branch.label)}</h2></div><strong>${shown} / ${cs.length}</strong></div><div class="h2-focus-concepts">${items||'<div class="h2-focus-placeholder">아직 핵심어를 열지 않았습니다.</div>'}</div>${action}</section>`;
   }
   function newRenderIntro(){
-    const gate=ensureIntroGateState(),branches=COURSE.previewMap.branches||[],selected=branches.find(b=>b.id===gate.selected)||null;
+    const gate=ensureIntroGateState(),branches=COURSE.previewMap.branches||[];
+    if(!gate.selected&&branches[0])gate.selected=branches[0].id;
+    const selected=branches.find(b=>b.id===gate.selected)||branches[0]||null;
     const confirmed=branches.filter(b=>gate.confirmed[b.id]).length,total=branches.length,all=total>0&&confirmed===total;
-    const nodes=branches.map((b,i)=>`<button type="button" class="h2-map-branch ${gate.selected===b.id?'selected':''} ${gate.confirmed[b.id]?'confirmed':''}" data-h2-branch="${safeEscape(b.id)}" data-h2-map-index="${i}" aria-pressed="${gate.selected===b.id?'true':'false'}">${safeEscape(b.label)}${gate.confirmed[b.id]?'<span class="h2-check">✓</span>':''}</button>`).join('');
-    return `<div class="h2-intro-v2"><div class="h2-intro-head"><div><h1 class="screen-title">오늘의 개념 지도</h1><p class="screen-sub">가지를 눌러 연결 개념을 직접 확인해야 문제 풀이가 열립니다.</p></div><div class="h2-intro-progress"><span>필수 확인</span><strong>${confirmed} / ${total}</strong></div></div><section class="h2-map-card"><div class="h2-map-canvas" data-h2-intro-map><svg class="h2-map-wires" aria-hidden="true"></svg><div class="h2-map-root"><b>${safeEscape(COURSE.previewMap.root||COURSE.focusMap?.root||'오늘의 지도')}</b><span>중심 개념</span></div>${nodes}<div class="h2-map-hint">가지를 클릭 → 하단 개념 확인</div></div></section>${renderConceptDrawer(selected,gate)}<div class="h2-intro-actions"><button class="primary" id="startStudy" ${all?'':'disabled'}>${all?'문제 시작':`개념 ${total-confirmed}가지 더 확인`}</button>${all?'':'<p class="h2-intro-locknote">모든 가지를 직접 확인하면 문제 시작 버튼이 열립니다.</p>'}</div></div>`;
+    const branchNodes=branches.map((b,i)=>`<button type="button" class="h2-lr-branch ${selected&&selected.id===b.id?'selected':''} ${gate.confirmed[b.id]?'confirmed':''}" data-h2-branch="${safeEscape(b.id)}"><span>${i+1}</span><b>${safeEscape(b.label)}</b>${gate.confirmed[b.id]?'<em>✓</em>':'<em>›</em>'}</button>`).join('');
+    const detailNodes=selected?branchConcepts(selected).map((c,i)=>{
+      const shown=Number(gate.revealed[selected.id]||0)>i;
+      return `<div class="h2-lr-detail ${shown?'shown':'locked'}" data-h2-detail-index="${i}"><span>${shown?safeEscape(conceptKeyword(c)):'클릭해서 나타내기'}</span></div>`;
+    }).join(''):'';
+    return `<div class="h2-intro-v3"><header class="h2-intro-v3-head"><div><div class="h2-kicker">오늘 먼저 볼 핵심 지도</div><h1>클릭하며 핵심어를 훑고, 기억해서 입력합니다.</h1></div><div class="h2-intro-progress"><b>${confirmed}</b><span>/ ${total} 가지 완료</span></div></header><section class="h2-lr-map" data-h2-lr-map><svg class="h2-lr-wires" aria-hidden="true"></svg><div class="h2-lr-root"><small>오늘의 중심</small><b>${safeEscape(COURSE.previewMap.root||COURSE.focusMap?.root||'오늘의 지도')}</b></div><div class="h2-lr-branches">${branchNodes}</div><div class="h2-lr-details">${detailNodes}</div></section>${introSummary(selected,gate)}<div class="h2-intro-actions"><button class="primary" id="startStudy" ${all?'':'disabled'}>${all?'문제 시작':`남은 가지 ${total-confirmed}개`}</button><p class="h2-intro-locknote">읽기만 하지 않고, 각 가지의 핵심어를 한 번 직접 입력해야 다음으로 넘어갑니다.</p></div></div>`;
   }
   function installIntroOverride(){
-    if(!hasLearningGlobals() || window.__H2_INTRO_OVERRIDE__)return;
-    window.__H2_INTRO_OVERRIDE__=true;
-    try{renderIntro=newRenderIntro;}catch(_){return}
-    try{if(state.phase==='intro' && typeof render==='function')render();}catch(_){ }
+    if(!hasLearningGlobals()||window.__H2_INTRO_V3__)return;
+    window.__H2_INTRO_V3__=true;
+    try{renderIntro=newRenderIntro}catch(_){return}
+    try{if(state.phase==='intro'&&typeof render==='function')render()}catch(_){ }
   }
-  function layoutIntroMindmap(){
-    document.querySelectorAll('[data-h2-intro-map]').forEach(canvas=>{
-      const root=canvas.querySelector('.h2-map-root'),nodes=[...canvas.querySelectorAll('.h2-map-branch')],svg=canvas.querySelector('.h2-map-wires');
-      if(!root||!svg||!nodes.length)return;
-      const w=canvas.clientWidth,h=canvas.clientHeight,cx=w/2,cy=h/2;
-      const rx=Math.max(150,w*.38),ry=Math.max(92,h*.34);
-      nodes.forEach((node,i)=>{
-        const angle=(-Math.PI/2)+(Math.PI*2*i/nodes.length);
-        let x=cx+Math.cos(angle)*rx,y=cy+Math.sin(angle)*ry;
-        const halfW=Math.min(95,w*.125),halfH=32;
-        x=Math.max(halfW+10,Math.min(w-halfW-10,x));y=Math.max(halfH+10,Math.min(h-halfH-16,y));
-        node.style.left=x+'px';node.style.top=y+'px';
-      });
-      const r=canvas.getBoundingClientRect(),rr=root.getBoundingClientRect();
-      const rxc=rr.left-r.left+rr.width/2,ryc=rr.top-r.top+rr.height/2;
-      svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
-      svg.innerHTML=nodes.map(node=>{
-        const nr=node.getBoundingClientRect(),nx=nr.left-r.left+nr.width/2,ny=nr.top-r.top+nr.height/2;
-        const mx=(rxc+nx)/2,cls=['h2-map-wire',node.classList.contains('selected')?'selected':'',node.classList.contains('confirmed')?'confirmed':''].filter(Boolean).join(' ');
-        return `<path class="${cls}" d="M ${rxc.toFixed(1)} ${ryc.toFixed(1)} C ${mx.toFixed(1)} ${ryc.toFixed(1)}, ${mx.toFixed(1)} ${ny.toFixed(1)}, ${nx.toFixed(1)} ${ny.toFixed(1)}"></path>`;
-      }).join('');
+
+  function layoutLeftRightMap(){
+    document.querySelectorAll('[data-h2-lr-map]').forEach(map=>{
+      const svg=map.querySelector('.h2-lr-wires'),root=map.querySelector('.h2-lr-root');
+      const branches=[...map.querySelectorAll('.h2-lr-branch')],details=[...map.querySelectorAll('.h2-lr-detail')];
+      if(!svg||!root||!branches.length)return;
+      const r=map.getBoundingClientRect(),rr=root.getBoundingClientRect();
+      const center=(el)=>{const x=el.getBoundingClientRect();return {x:x.left-r.left+x.width/2,y:x.top-r.top+x.height/2}};
+      const rc=center(root);svg.setAttribute('viewBox',`0 0 ${Math.max(1,r.width)} ${Math.max(1,r.height)}`);
+      const paths=[];
+      branches.forEach(b=>{const p=center(b),active=b.classList.contains('selected')||b.classList.contains('confirmed');paths.push(`<path class="${active?'active':''}" d="M ${rc.x} ${rc.y} C ${rc.x+70} ${rc.y}, ${p.x-70} ${p.y}, ${p.x} ${p.y}"/>`)});
+      const selected=branches.find(b=>b.classList.contains('selected'));
+      if(selected){const s=center(selected);details.forEach(d=>{const p=center(d);paths.push(`<path class="detail ${d.classList.contains('shown')?'active':''}" d="M ${s.x} ${s.y} C ${s.x+70} ${s.y}, ${p.x-70} ${p.y}, ${p.x} ${p.y}"/>`)})}
+      svg.innerHTML=paths.join('');
     });
   }
 
-  /* ---------- staged keyword chain ---------- */
+  /* staged explanation reveal */
   function installKeywordOverride(){
     try{
-      if(typeof renderCorrectRepair!=='function' || window.__H2_KEYWORD_OVERRIDE__)return;
-      window.__H2_KEYWORD_OVERRIDE__=true;
+      if(typeof renderCorrectRepair!=='function'||window.__H2_KEYWORD_V3__)return;
+      window.__H2_KEYWORD_V3__=true;
       const original=renderCorrectRepair;
       renderCorrectRepair=function(p){
         const w=p&&p.feedback&&p.feedback.correctWhy;
         if(!w||!Array.isArray(w.chain)||!w.chain.length)return original(p);
         const key=String(p.id||'')+':'+String(runtime.feedbackStep||0);
-        if(runtime.__h2ChainKey!==key){runtime.__h2ChainKey=key;runtime.__h2ChainShown=1;}
+        if(runtime.__h2ChainKey!==key){runtime.__h2ChainKey=key;runtime.__h2ChainShown=1}
         const shown=Math.max(1,Math.min(Number(runtime.__h2ChainShown||1),w.chain.length)),done=shown>=w.chain.length;
-        const chain=w.chain.slice(0,shown).map((x,i)=>`${i?'<em>→</em>':''}<span class="h2-chain-item ${i===shown-1&&shown>1?'is-new':''}">${safeEscape(x)}</span>`).join('');
-        const next=!done?`<button type="button" class="h2-chain-next" data-h2-chain-next>다음 연결 나타내기 · ${shown} / ${w.chain.length}</button>`:'';
-        const compare=done?`<div class="compare-grid"><div class="compare-box"><b>${safeEscape(p.feedback.compare.left.title)}</b><p>${safeEscape(p.feedback.compare.left.text)}</p></div><div class="compare-box"><b>${safeEscape(p.feedback.compare.right.title)}</b><p>${safeEscape(p.feedback.compare.right.text)}</p></div></div><div class="repair-tip">${safeEscape(p.feedback.compare.tip)}</div><button class="primary" id="repairNext" data-delay="650">키워드 직접 입력</button>`:'';
-        return `<div class="repair-focus-label">정답 핵심</div><h2 class="focus-keyword">${safeEscape(w.title)}</h2><div class="focus-fact">${safeEscape(w.text)}</div><div class="h2-chain-stage"><div class="h2-key-chain">${chain}</div>${next}</div>${compare}`;
+        const chain=w.chain.slice(0,shown).map((x,i)=>`${i?'<em>→</em>':''}<span class="h2-chain-item ${i===shown-1?'is-new':''}">${safeEscape(x)}</span>`).join('');
+        const next=!done?`<button type="button" class="h2-chain-next" data-h2-chain-next>다음 연결 나타내기 <b>${shown}/${w.chain.length}</b></button>`:'';
+        const compare=done?`<div class="compare-grid"><div class="compare-box"><b>${safeEscape(p.feedback.compare.left.title)}</b><p>${safeEscape(p.feedback.compare.left.text)}</p></div><div class="compare-box"><b>${safeEscape(p.feedback.compare.right.title)}</b><p>${safeEscape(p.feedback.compare.right.text)}</p></div></div><div class="repair-tip">${safeEscape(p.feedback.compare.tip)}</div><button class="primary" id="repairNext" data-delay="450">기억해서 직접 입력</button>`:'';
+        return `<div class="h2-repair-context">${safeEscape(p.title||'현재 문제')}의 핵심 연결</div><div class="repair-focus-label">정답 핵심</div><h2 class="focus-keyword">${safeEscape(w.title)}</h2><div class="focus-fact">${safeEscape(w.text)}</div><div class="h2-chain-stage"><div class="h2-key-chain">${chain}</div>${next}</div>${compare}`;
       };
     }catch(_){ }
   }
 
-  /* ---------- original image zoom ---------- */
-  function openImageZoom(src,alt){
-    const old=document.getElementById('h2ImageZoom');if(old)old.remove();
-    const box=document.createElement('div');box.id='h2ImageZoom';box.className='h2-image-zoom';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
-    box.innerHTML=`<div class="h2-image-zoom-head"><button type="button" data-h2-close-zoom aria-label="문제 크게 보기 닫기">닫기</button></div><div class="h2-image-zoom-body"><img src="${src}" alt="${safeEscape(alt||'문제 원문 크게 보기')}"></div>`;
-    document.body.appendChild(box);box.querySelector('[data-h2-close-zoom]').focus();
+  /* make metacognition screens self-contained, so "이 문제" never appears without context */
+  function installContextOverride(){
+    try{
+      if(window.__H2_CONTEXT_V3__)return;window.__H2_CONTEXT_V3__=true;
+      if(typeof renderAnchorRepair==='function'){
+        const old=renderAnchorRepair;
+        renderAnchorRepair=function(p){return `<div class="h2-repair-context"><b>현재 문제</b> · ${safeEscape(p.title||p.original?.label||p.source||'오답 문제')}</div>`+old(p)};
+      }
+      if(typeof renderMetacogRepair==='function'){
+        const old=renderMetacogRepair;
+        renderMetacogRepair=function(p){return `<div class="h2-repair-context"><b>현재 문제</b> · ${safeEscape(p.title||p.original?.label||p.source||'오답 문제')}</div>`+old(p)};
+      }
+      if(typeof renderSelectedRepair==='function'){
+        const old=renderSelectedRepair;
+        renderSelectedRepair=function(p){return `<div class="h2-repair-context"><b>현재 문제</b> · ${safeEscape(p.title||p.original?.label||p.source||'오답 문제')}</div>`+old(p)};
+      }
+    }catch(_){ }
   }
 
-  /* ---------- global interactions ---------- */
+  /* image zoom */
+  function openImageZoom(src,alt){
+    document.getElementById('h2ImageZoom')?.remove();
+    const box=document.createElement('div');box.id='h2ImageZoom';box.className='h2-image-zoom';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
+    box.innerHTML=`<div class="h2-image-zoom-head"><button type="button" data-h2-close-zoom>닫기</button></div><div class="h2-image-zoom-body"><img src="${src}" alt="${safeEscape(alt||'문제 원문 크게 보기')}"></div>`;
+    document.body.appendChild(box);box.querySelector('button')?.focus();
+  }
+
+  function saveAndRender(){try{saveState()}catch(_){ }try{render()}catch(_){ }}
+
   document.addEventListener('click',e=>{
     const branch=e.target.closest('[data-h2-branch]');
     if(branch&&hasLearningGlobals()){
-      const gate=ensureIntroGateState();gate.selected=branch.dataset.h2Branch;try{saveState(false)}catch(_){try{localStorage.setItem('history2-intro-gate-temp',JSON.stringify(gate))}catch(__){}};try{render()}catch(_){ }return;
+      const gate=ensureIntroGateState();gate.selected=branch.dataset.h2Branch;saveAndRender();return;
     }
-    const confirm=e.target.closest('[data-h2-confirm-branch]');
-    if(confirm&&hasLearningGlobals()){
-      const gate=ensureIntroGateState();gate.confirmed[confirm.dataset.h2ConfirmBranch]=true;gate.selected=confirm.dataset.h2ConfirmBranch;try{saveState()}catch(_){ };try{render()}catch(_){ }return;
+    const reveal=e.target.closest('[data-h2-reveal-concept]');
+    if(reveal&&hasLearningGlobals()){
+      const gate=ensureIntroGateState(),id=reveal.dataset.h2RevealConcept,b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;
+      const max=branchConcepts(b).length;gate.revealed[id]=Math.min(max,Number(gate.revealed[id]||0)+1);saveAndRender();return;
     }
-    const chain=e.target.closest('[data-h2-chain-next]');
-    if(chain){try{runtime.__h2ChainShown=Number(runtime.__h2ChainShown||1)+1;render()}catch(_){ }return;}
-    const img=e.target.closest('.original-question img');if(img){openImageZoom(img.currentSrc||img.src,img.alt);return;}
-    if(e.target.closest('[data-h2-close-zoom]')||e.target.id==='h2ImageZoom'){document.getElementById('h2ImageZoom')?.remove();return;}
+    const detail=e.target.closest('.h2-lr-detail.locked');
+    if(detail&&hasLearningGlobals()){
+      const gate=ensureIntroGateState(),id=gate.selected,b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;
+      const max=branchConcepts(b).length;gate.revealed[id]=Math.min(max,Number(gate.revealed[id]||0)+1);saveAndRender();return;
+    }
+    const check=e.target.closest('[data-h2-recall-check]');
+    if(check&&hasLearningGlobals()){
+      const id=check.dataset.h2RecallCheck,gate=ensureIntroGateState(),b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;
+      const input=document.querySelector(`[data-h2-recall-input="${CSS.escape(id)}"]`),msg=document.querySelector(`[data-h2-recall-msg="${CSS.escape(id)}"]`);
+      const got=norm(input?.value),target=norm(recallTarget(b));
+      const ok=got.length>=2&&(got===target||target.includes(got)||got.includes(target));
+      if(ok){gate.confirmed[id]=true;gate.recallDone[id]=true;const branches=COURSE.previewMap.branches||[],idx=branches.findIndex(x=>x.id===id),next=branches.find((x,j)=>j>idx&&!gate.confirmed[x.id]);if(next)gate.selected=next.id;saveAndRender()}else{if(msg)msg.textContent='한 번 더 떠올려 보세요. 방금 나타난 핵심어 중 하나를 그대로 입력하면 됩니다.';input?.focus()}
+      return;
+    }
+    const chain=e.target.closest('[data-h2-chain-next]');if(chain){try{runtime.__h2ChainShown=Number(runtime.__h2ChainShown||1)+1;render()}catch(_){ }return}
+    const img=e.target.closest('.original-question img');if(img){openImageZoom(img.currentSrc||img.src,img.alt);return}
+    if(e.target.closest('[data-h2-close-zoom]')||e.target.id==='h2ImageZoom'){document.getElementById('h2ImageZoom')?.remove();return}
   },true);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('h2ImageZoom')?.remove()});
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape')document.getElementById('h2ImageZoom')?.remove();
+    if(e.key==='Enter'&&e.target.matches('[data-h2-recall-input]'))document.querySelector(`[data-h2-recall-check="${CSS.escape(e.target.dataset.h2RecallInput)}"]`)?.click();
+  });
 
-  let raf=0;function enhance(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{layoutIntroMindmap();});}
-  const observer=new MutationObserver(ms=>{if(ms.some(m=>{const t=m.target;return !(t&&t.nodeType===1&&t.closest&&t.closest('.h2-map-wires'));}))enhance();});observer.observe(document.documentElement,{subtree:true,childList:true});
-  window.addEventListener('resize',enhance,{passive:true});
+  let raf=0;function enhance(){cancelAnimationFrame(raf);raf=requestAnimationFrame(layoutLeftRightMap)}
+  const observer=new MutationObserver(()=>enhance());observer.observe(document.documentElement,{subtree:true,childList:true});window.addEventListener('resize',enhance,{passive:true});
 
-  function boot(){
-    document.body.classList.add('h2-ux-v2');updateOrientationGate();installIntroOverride();installKeywordOverride();enhance();
-  }
+  function boot(){document.body.classList.add('h2-ux-v3');updateOrientationGate();installIntroOverride();installKeywordOverride();installContextOverride();enhance()}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
-  setTimeout(()=>{installIntroOverride();installKeywordOverride();enhance();},0);
+  setTimeout(()=>{installIntroOverride();installKeywordOverride();installContextOverride();enhance()},0);
 })();
