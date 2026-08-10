@@ -1,0 +1,22 @@
+(function(){
+  'use strict';
+  window.HISTORY2_APP_CONFIG=Object.freeze({
+    buildMode:'development',
+    studentPin:'8081',
+    adminPin:'2007',
+    development:Object.freeze({
+      persistProgress:false,
+      persistLearningHistory:false,
+      firebaseSync:false,
+      freeNavigation:true,
+      adminStartsInDevConsole:true
+    }),
+    release:Object.freeze({
+      persistProgress:true,
+      persistLearningHistory:true,
+      firebaseSync:true,
+      freeNavigation:false,
+      adminStartsInDevConsole:false
+    })
+  });
+})();

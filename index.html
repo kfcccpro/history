@@ -14,6 +14,7 @@
 </style>
 <link rel="stylesheet" href="responsive_accessibility.css">
 <link rel="stylesheet" href="landscape_learning_v2.css">
+<script src="app_mode_config.js"></script>
 <script src="landscape_learning_v2.js" defer></script>
 <meta name="theme-color" content="#f5f7fa">
 <link rel="manifest" href="manifest.webmanifest">
@@ -56,7 +57,7 @@ function migrateFlowEntryPolicy(){try{const raw=localStorage.getItem(FLOW_ENTRY_
 migrateFlowEntryPolicy();
 let phase='hero',queue=[],idx=0,tries=0,msg='',showAnswer=false;
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function state(day){try{return JSON.parse(localStorage.getItem(META.storage[String(day)])||'{}')}catch(e){return {}}}
+function state(day){if(window.HISTORY2_APP_CONFIG?.buildMode==='development')return {};try{return JSON.parse(localStorage.getItem(META.storage[String(day)])||'{}')}catch(e){return {}}}
 function completed(day){const s=state(day);return !!(s.finishedAt||s.phase==='done')}
 function nextDay(){for(let d=1;d<=6;d++)if(!completed(d))return d;return null}
 function studiedDays(){let n=0;for(let d=1;d<=6;d++)if(completed(d))n++;return n}
@@ -87,12 +88,25 @@ function fastSameDaySessionLock(){try{const m=JSON.parse(localStorage.getItem('h
 
 <script id="simplePinGateScript">
 (function(){
-  const STUDENT_PIN='8081', ADMIN_PIN='2007', KEY='history2-simple-role';
+  const CFG=window.HISTORY2_APP_CONFIG||{};
+  const STUDENT_PIN=String(CFG.studentPin||'8081'), ADMIN_PIN=String(CFG.adminPin||'2007'), KEY='history2-simple-role';
+  const DEV=CFG.buildMode==='development';
   const gate=document.getElementById('simplePinGate'), input=document.getElementById('simplePinInput'), msg=document.getElementById('simplePinMsg');
   function enter(){
     const v=(input.value||'').trim();
-    if(v===STUDENT_PIN){sessionStorage.setItem(KEY,'student');gate.classList.add('hidden');return;}
-    if(v===ADMIN_PIN){sessionStorage.setItem(KEY,'admin');location.href='korean_history2_unit1_parent_mode_metacog.html';return;}
+    if(v===STUDENT_PIN){
+      sessionStorage.setItem(KEY,'student');
+      sessionStorage.removeItem('history2-dev-mode');
+      gate.classList.add('hidden');
+      return;
+    }
+    if(v===ADMIN_PIN){
+      sessionStorage.setItem(KEY,'admin');
+      sessionStorage.setItem('history2-parent-mode-unlocked','1');
+      if(DEV){sessionStorage.setItem('history2-dev-mode','1');location.href='dev.html';}
+      else{sessionStorage.removeItem('history2-dev-mode');location.href='korean_history2_unit1_parent_mode_metacog.html';}
+      return;
+    }
     msg.textContent='PIN을 확인하세요.';input.select();
   }
   if(sessionStorage.getItem(KEY)==='student') gate.classList.add('hidden');

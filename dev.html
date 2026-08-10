@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>한국사Ⅱ 개발 테스트 콘솔</title>
+<script src="app_mode_config.js"></script>
+<style>
+:root{--bg:#f3f6fa;--paper:#fff;--ink:#152038;--muted:#65738a;--line:#d9e2ee;--navy:#10203b;--blue:#3f93d3;--soft:#eaf4fb;--ok:#14734b}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);letter-spacing:-.025em}button,select{font:inherit}.wrap{width:min(1440px,96vw);margin:0 auto;padding:28px 0 48px}.top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:20px}.ey{font-size:14px;font-weight:900;color:#4a6a8c}.top h1{font-size:clamp(32px,4vw,52px);margin:5px 0 7px;line-height:1.05}.top p{margin:0;color:var(--muted);font-size:17px;font-weight:700}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px 14px;font-weight:850;color:var(--ink);cursor:pointer}.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.notice{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:15px 17px;background:#fff8e8;border:1px solid #ead7a6;border-radius:16px;margin-bottom:18px}.notice b{font-size:15px}.notice span{color:#745e2f;font-size:14px;font-weight:700}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.stat b{display:block;font-size:27px}.stat span{color:var(--muted);font-weight:750;font-size:14px}.days{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.day{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(19,34,58,.05)}.day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.day h2{margin:0;font-size:24px}.day .count{color:#3b6f9d;background:var(--soft);border-radius:999px;padding:7px 10px;font-weight:900}.launch{display:grid;grid-template-columns:1fr auto;gap:8px;margin:12px 0}.launch select{height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 10px;font-weight:750;min-width:0}.launch button{border:0;border-radius:12px;background:var(--navy);color:#fff;padding:0 15px;font-weight:900}.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick a{display:flex;justify-content:center;align-items:center;text-decoration:none;min-height:42px;border:1px solid var(--line);border-radius:11px;color:var(--ink);font-weight:850;background:#fff}.quick a:hover{border-color:var(--blue);background:var(--soft)}.map-note{font-size:13px;color:var(--muted);font-weight:700;margin-top:11px;line-height:1.5}.foot{margin-top:20px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:16px}.foot h3{margin:0 0 8px;font-size:18px}.foot p{margin:0;color:var(--muted);line-height:1.6;font-weight:700}
+@media(max-width:1000px){.days{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.days,.stats{grid-template-columns:1fr}.top{flex-direction:column}.wrap{width:94vw}.top h1{font-size:34px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="top">
+    <div><div class="ey">ADMIN 2007 · DEVELOPMENT BUILD</div><h1>개발 테스트 콘솔</h1><p>진도와 학습이력을 저장하지 않고 원하는 Day·문항·오답 단계를 바로 확인합니다.</p></div>
+    <div class="top-actions"><button class="btn" id="studentPreview">학생 시작 화면</button><button class="btn" id="parentPreview">관리자 이력 화면</button><button class="btn primary" id="logout">PIN 화면</button></div>
+  </section>
+  <section class="notice"><b>개발 중 저장 OFF</b><span>이 콘솔에서 연 문항은 localStorage/Firebase 진도에 반영하지 않습니다. 최종 학생 배포판에서는 진도·오답·복구·학습이력을 다시 활성화합니다.</span></section>
+  <section class="stats" id="stats"></section>
+  <section class="days" id="days"><div class="day">문항 매핑 정보를 읽는 중...</div></section>
+  <section class="foot"><h3>테스트 권장 순서</h3><p>① 마인드맵 → ② 원문 문제 전체 표시 → ③ 일부러 오답 → ④ 복구 단계 이동 → ⑤ 키워드 직접 입력 → ⑥ 원문 재도전. 화면에서 우측 상단의 개발 툴바로 문항과 단계를 즉시 바꿀 수 있습니다.</p></section>
+</main>
+<script>
+(function(){
+  const cfg=window.HISTORY2_APP_CONFIG||{};
+  if(cfg.buildMode!=='development'){location.replace('index.html');return;}
+  if(sessionStorage.getItem('history2-simple-role')!=='admin'){location.replace('index.html');return;}
+  sessionStorage.setItem('history2-dev-mode','1');
+  const titles={1:'일제의 식민지 통치 정책',2:'3·1 운동과 대한민국 임시 정부',3:'민족 운동의 전개와 분화',4:'사회·문화의 변화와 대중 운동',5:'독립 국가 건설 노력',6:'대단원 마무리'};
+  const app=d=>`korean_history2_day${d}_metacog_app.html`;
+  const link=(d,i,mode='question')=>`${app(d)}?dev=1&index=${i}&devmode=${encodeURIComponent(mode)}`;
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  fetch('QUESTION_SOURCE_MAPPING_AUDIT.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('mapping');return r.json()}).then(data=>{
+    const total=Number(data.total||0),days=data.days||{};
+    const mapped=Object.values(days).flat().filter(x=>x.originalImageCount>0&&x.hasFeedback).length;
+    document.getElementById('stats').innerHTML=`<div class="stat"><b>${total}</b><span>전체 선정 문항</span></div><div class="stat"><b>${mapped}</b><span>원문+해설 데이터 연결</span></div><div class="stat"><b>6</b><span>개발 Day</span></div><div class="stat"><b>OFF</b><span>개발 중 진도 저장</span></div>`;
+    document.getElementById('days').innerHTML=Object.keys(days).map(key=>{
+      const d=Number(key),items=days[key]||[];
+      const options=items.map((x,i)=>`<option value="${i}">${i+1}. ${esc(x.source)} · ${esc(x.title)}</option>`).join('');
+      return `<article class="day"><div class="day-head"><div><div class="ey">DAY ${d}</div><h2>${esc(titles[d]||'')}</h2></div><span class="count">${items.length}문항</span></div><div class="launch"><select data-select-day="${d}">${options}</select><button data-launch-day="${d}">열기</button></div><div class="quick"><a href="${link(d,0,'intro')}">마인드맵부터</a><a href="${link(d,0,'wrong')}">1번 오답 복구</a></div><div class="map-note">문항을 열면 상단 개발 툴바에서 이전/다음 문항, 문제/오답/정답/복구 단계로 즉시 이동할 수 있습니다.</div></article>`;
+    }).join('');
+  }).catch(()=>{document.getElementById('days').innerHTML='<div class="day"><h2>매핑 파일을 읽지 못했습니다.</h2><p>GitHub Pages 배포 후 다시 열어주세요.</p></div>'});
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-launch-day]');if(!b)return;const d=Number(b.dataset.launchDay),s=document.querySelector(`[data-select-day="${d}"]`);location.href=link(d,Number(s?.value||0),'question')});
+  document.getElementById('studentPreview').onclick=()=>{sessionStorage.removeItem('history2-dev-mode');sessionStorage.setItem('history2-simple-role','student');location.href='index.html'};
+  document.getElementById('parentPreview').onclick=()=>{sessionStorage.setItem('history2-parent-mode-unlocked','1');location.href='korean_history2_unit1_parent_mode_metacog.html'};
+  document.getElementById('logout').onclick=()=>{sessionStorage.removeItem('history2-simple-role');sessionStorage.removeItem('history2-dev-mode');sessionStorage.removeItem('history2-parent-mode-unlocked');location.href='index.html'};
+})();
+</script>
+</body></html>

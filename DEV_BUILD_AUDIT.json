@@ -1,0 +1,27 @@
+{
+  "version": "focus-ux-v5-development-qa",
+  "buildMode": "development",
+  "selectedQuestionTotal": 140,
+  "dayCounts": {
+    "1": 14,
+    "2": 21,
+    "3": 31,
+    "4": 26,
+    "5": 23,
+    "6": 25
+  },
+  "originalImageMapped": 140,
+  "feedbackMapped": 140,
+  "developmentPersistence": false,
+  "developmentFirebaseSync": false,
+  "finalReleaseRequirements": [
+    "progress resume",
+    "per-question attempt history",
+    "wrong-answer depth",
+    "keyword recall history",
+    "repair completion",
+    "retry result",
+    "Firestore cross-device restore",
+    "admin review"
+  ]
+}

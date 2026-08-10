@@ -246,3 +246,94 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot4,{once:true});else boot4();
   setTimeout(schedule,0);
 })();
+
+/* History2 Focus UX v5: development QA mode. Final release mode is untouched. */
+(function(){
+  'use strict';
+  const CFG=window.HISTORY2_APP_CONFIG||{};
+  const params=new URLSearchParams(location.search);
+  const devBuild=CFG.buildMode==='development';
+  const devRequested=params.get('dev')==='1'||sessionStorage.getItem('history2-dev-mode')==='1';
+  if(!devBuild)return;
+  if(devRequested){sessionStorage.setItem('history2-dev-mode','1');document.body && document.body.classList.add('h2-dev-mode');}
+
+  function ready5(){try{return typeof COURSE!=='undefined'&&COURSE&&Array.isArray(COURSE.problems)&&typeof state!=='undefined'&&typeof runtime!=='undefined'&&typeof render==='function'&&typeof defaultState==='function'}catch(_){return false}}
+  function source5(p){return p?.original?.label||p?.source||p?.title||p?.id||'현재 문항'}
+  function clamp5(n,a,b){return Math.max(a,Math.min(b,n))}
+  function currentIndex5(){try{return clamp5(Number(state.problemIndex||0),0,Math.max(0,COURSE.problems.length-1))}catch(_){return 0}}
+  function resetQuestion5(){try{if(typeof resetRuntimeForQuestion==='function')resetRuntimeForQuestion();else{runtime.mode='question';runtime.answer=null;runtime.feedbackStep=0}}catch(_){}}
+  function setPhase5(mode){
+    if(!ready5())return;
+    const p=COURSE.problems[currentIndex5()];
+    state.phase=mode==='intro'?'intro':'learn';
+    if(mode==='intro'){try{state.introGate={confirmed:{},revealed:{},recallDone:{},selected:''}}catch(_){};render();return}
+    if(mode==='question'){resetQuestion5();render();return}
+    if(mode==='correct'){resetQuestion5();runtime.mode='correct';render();return}
+    if(mode==='wrong'){
+      resetQuestion5();
+      let wrong;
+      if(p.type==='single')wrong=(Array.isArray(p.options)?p.options:[]).findIndex((_,i)=>Number(i)!==Number(p.answer));
+      else if(p.type==='multi')wrong=[(Array.isArray(p.options)?p.options:[]).findIndex((_,i)=>!p.answer.includes(i))].filter(i=>i>=0);
+      else wrong='개발용 오답';
+      if(wrong===-1)wrong=0;
+      runtime.answer=wrong;
+      try{runtime.lastDiagnosis=typeof diagnosisFor==='function'?diagnosisFor(p,wrong):{depth:'개발 테스트',message:'오답 복구 화면 확인'}}catch(_){runtime.lastDiagnosis={depth:'개발 테스트',message:'오답 복구 화면 확인'}}
+      runtime.feedbackStep=0;
+      try{if(typeof resetRepairInteraction==='function')resetRepairInteraction()}catch(_){}
+      try{if(typeof ensureWrongNote==='function')ensureWrongNote(p,wrong,runtime.lastDiagnosis)}catch(_){}
+      runtime.mode='explain';render();return;
+    }
+  }
+  function setIndex5(i,mode){if(!ready5())return;state.problemIndex=clamp5(Number(i||0),0,COURSE.problems.length-1);setPhase5(mode||'question')}
+  function repairMove5(delta){
+    if(!ready5())return;
+    if(runtime.mode!=='explain')setPhase5('wrong');
+    try{const steps=typeof explanationSteps==='function'?explanationSteps(COURSE.problems[currentIndex5()]):[];runtime.feedbackStep=clamp5(Number(runtime.feedbackStep||0)+delta,0,Math.max(0,steps.length-1));if(typeof resetRepairInteraction==='function')resetRepairInteraction();render()}catch(_){render()}
+  }
+  function disablePersistence5(){
+    try{state.sync={...(state.sync||{}),enabled:false};runtime.firebase=null}catch(_){}
+    try{if(typeof saveState==='function'&&!window.__H2_DEV_ORIG_SAVE){window.__H2_DEV_ORIG_SAVE=saveState;saveState=function(){return state}}}catch(_){}
+    try{if(typeof remotePatch==='function'&&!window.__H2_DEV_ORIG_REMOTE_PATCH){window.__H2_DEV_ORIG_REMOTE_PATCH=remotePatch;remotePatch=async function(){}}}catch(_){}
+    try{if(typeof remoteArrayUnion==='function'&&!window.__H2_DEV_ORIG_REMOTE_ARRAY){window.__H2_DEV_ORIG_REMOTE_ARRAY=remoteArrayUnion;remoteArrayUnion=async function(){}}}catch(_){}
+  }
+  function freshState5(){
+    if(!ready5())return;
+    try{state=defaultState()}catch(_){try{const f=defaultState();Object.keys(state).forEach(k=>delete state[k]);Object.assign(state,f)}catch(__){}}
+    try{state.sync={...(state.sync||{}),enabled:false}}catch(_){}
+    const pid=params.get('problem');let idx=Number(params.get('index'));
+    if(pid){const found=COURSE.problems.findIndex(p=>p.id===pid);if(found>=0)idx=found}
+    if(!Number.isFinite(idx))idx=0;
+    state.problemIndex=clamp5(idx,0,COURSE.problems.length-1);
+    const start=params.get('devmode')||'question';
+    setPhase5(start);
+  }
+  function day5(){const m=String(COURSE?.meta?.id||'').match(/day(\d+)/i);return m?Number(m[1]):''}
+  function toolbar5(){
+    if(!ready5())return;
+    let bar=document.getElementById('h2DevToolbar');
+    const i=currentIndex5(),p=COURSE.problems[i],d=day5();
+    if(!bar){bar=document.createElement('div');bar.id='h2DevToolbar';bar.className='h2-dev-toolbar';bar.innerHTML='<div class="h2-dev-badge"><b>개발 테스트</b><span>저장 OFF</span></div><div class="h2-dev-group"><button data-h2-dev-prev>이전</button><select data-h2-dev-select></select><button data-h2-dev-next>다음</button></div><div class="h2-dev-group"><button data-h2-dev-mode="intro">마인드맵</button><button data-h2-dev-mode="question">문제</button><button data-h2-dev-mode="wrong">오답</button><button data-h2-dev-repair-prev>복구−</button><button data-h2-dev-repair-next>복구＋</button><button data-h2-dev-mode="correct">정답</button></div><div class="h2-dev-spacer"></div><div class="h2-dev-source"></div><div class="h2-dev-saveoff">진도·이력 미저장</div><button data-h2-dev-home>콘솔</button>';document.body.appendChild(bar)}
+    const select=bar.querySelector('[data-h2-dev-select]');
+    if(select){const stamp=`${d}:${COURSE.problems.length}`;if(select.dataset.stamp!==stamp){select.dataset.stamp=stamp;select.innerHTML=COURSE.problems.map((x,j)=>`<option value="${j}">${j+1}. ${source5(x)}</option>`).join('')}select.value=String(i)}
+    const src=bar.querySelector('.h2-dev-source');if(src)src.textContent=`DAY ${d} · ${i+1}/${COURSE.problems.length} · ${source5(p)}`;
+    bar.querySelectorAll('[data-h2-dev-mode]').forEach(b=>b.classList.toggle('active',(b.dataset.h2DevMode==='question'&&runtime.mode==='question'&&state.phase==='learn')||(b.dataset.h2DevMode==='wrong'&&runtime.mode==='explain')||(b.dataset.h2DevMode==='correct'&&runtime.mode==='correct')||(b.dataset.h2DevMode==='intro'&&state.phase==='intro')));
+  }
+  document.addEventListener('click',e=>{
+    const bar=e.target.closest('#h2DevToolbar');if(!bar)return;
+    if(e.target.closest('[data-h2-dev-prev]')){setIndex5(currentIndex5()-1,'question');return}
+    if(e.target.closest('[data-h2-dev-next]')){setIndex5(currentIndex5()+1,'question');return}
+    const m=e.target.closest('[data-h2-dev-mode]');if(m){setPhase5(m.dataset.h2DevMode);return}
+    if(e.target.closest('[data-h2-dev-repair-prev]')){repairMove5(-1);return}
+    if(e.target.closest('[data-h2-dev-repair-next]')){repairMove5(1);return}
+    if(e.target.closest('[data-h2-dev-home]')){location.href='dev.html';return}
+  },true);
+  document.addEventListener('change',e=>{if(e.target.matches('#h2DevToolbar [data-h2-dev-select]'))setIndex5(Number(e.target.value),'question')},true);
+  let mo=null;if(devRequested){mo=new MutationObserver(()=>toolbar5());mo.observe(document.documentElement,{subtree:true,childList:true})}
+  function freshStudent5(){
+    if(!ready5())return;
+    try{state=defaultState()}catch(_){try{const f=defaultState();Object.keys(state).forEach(k=>delete state[k]);Object.assign(state,f)}catch(__){}}
+    try{state.sync={...(state.sync||{}),enabled:false};runtime.firebase=null;resetQuestion5();state.phase='intro';render()}catch(_){}
+  }
+  function boot5(){if(!ready5())return;disablePersistence5();if(devRequested){freshState5();toolbar5()}else freshStudent5()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot5,{once:true});else setTimeout(boot5,0);
+})();
