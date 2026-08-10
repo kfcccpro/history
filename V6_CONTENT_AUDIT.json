@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "file": "korean_history2_day1_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 14,
+      "concepts": 12,
+      "sha256_courseData": "48f49c0a78ae35584dcdbaa9fd7cdee4b523bd1cb0e758adcce13c1b35638298"
+    },
+    {
+      "file": "korean_history2_day2_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 21,
+      "concepts": 8,
+      "sha256_courseData": "e0fa761f755ee6949dc2131bd6a47a8458fd68ec1bd820d91d094d2ed1998506"
+    },
+    {
+      "file": "korean_history2_day3_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 31,
+      "concepts": 9,
+      "sha256_courseData": "98c86b9f37a59b2abf57404115280ea730a7272bb6aca8952ad3f7604f9e179c"
+    },
+    {
+      "file": "korean_history2_day4_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 26,
+      "concepts": 8,
+      "sha256_courseData": "1dca72554bb2dc7da2de1feaba30704a49398d2a7b5ffdc3d5164c26ad6bdf56"
+    },
+    {
+      "file": "korean_history2_day5_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 23,
+      "concepts": 8,
+      "sha256_courseData": "f5ff41b702614d0e9efeeecdc94c7bd8dd973004d3312aa7797887e0ccf879e8"
+    },
+    {
+      "file": "korean_history2_day6_student_flow_app.html",
+      "errors": [],
+      "warnings": [],
+      "problems": 25,
+      "concepts": 10,
+      "sha256_courseData": "421eb41e9f7a5481b6c80e73389f43d5bf1fc2491e549a8e6197ed536314bf35"
+    }
+  ],
+  "totals": {
+    "problems": 140,
+    "concepts": 55,
+    "errors": 0,
+    "warnings": 0
+  },
+  "suspect_terms": [],
+  "integrity": {
+    "visible_term_presence": {
+      "국체 변혁": true,
+      "사유 재산제 부인": true,
+      "신고주의": true,
+      "회사령": true,
+      "산미 증식 계획": true,
+      "황국 신민 서사": true,
+      "국가 총동원법": true,
+      "치안 유지법": true,
+      "헌병 경찰": true,
+      "토지 조사 사업": true
+    },
+    "known_bad_term_absent": true
+  }
+}
