@@ -4,8 +4,13 @@
   const params=new URLSearchParams(location.search);
   const day=String(params.get('day')||'7').replace(/[^0-9]/g,'')||'7';
   const dayNum=Number(day);
+  const sourceFile=dayNum===11
+    ? 'korean_history2_day11_summary_fast_content.js'
+    : (dayNum>=12&&dayNum<=18
+      ? `korean_history2_day${dayNum-1}_fast_content.js`
+      : `korean_history2_day${day}_fast_content.js`);
   const script=document.createElement('script');
-  script.src=`korean_history2_day${day}_fast_content.js`;
+  script.src=sourceFile;
   script.onload=boot;
   script.onerror=()=>fatal(`Day ${day} 콘텐츠를 불러오지 못했습니다.`);
   document.head.appendChild(script);
@@ -14,7 +19,7 @@
   function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function boot(){
     const C=window.HISTORY2_FAST_CONTENT;
-    if(!C||String(C.day)!==day||!Array.isArray(C.questions)||!C.questions.length)return fatal('콘텐츠 형식이 올바르지 않습니다.');
+    if(!C||!Array.isArray(C.questions)||!C.questions.length)return fatal('콘텐츠 형식이 올바르지 않습니다.');
     const key=`history2-fast-day-${day}`;
     let state=load()||{phase:'intro',index:0,wrong:{},needsRetry:false,repairOxMiss:false,answered:null};
     if(state.index>=C.questions.length)state={phase:'done',index:C.questions.length,wrong:state.wrong||{}};
@@ -25,7 +30,7 @@
     function q(){return C.questions[state.index]}
     function progress(){return Math.min(state.index,C.questions.length)}
     function shell(content){
-      return `<div class="shell"><header class="top"><div><div class="kicker">${esc(C.unit)} · Day ${esc(C.day)}</div><h1 class="title">${esc(C.title)}</h1></div><div class="progress"><b>${progress()}</b> / ${C.questions.length}</div></header>${content}<footer class="foot">빠른 학습 모드 · 필요한 내용만</footer></div>`;
+      return `<div class="shell"><header class="top"><div><div class="kicker">${esc(C.unit)} · Day ${dayNum}</div><h1 class="title">${esc(C.title)}</h1></div><div class="progress"><b>${progress()}</b> / ${C.questions.length}</div></header>${content}<footer class="foot">빠른 학습 모드 · 필요한 내용만</footer></div>`;
     }
     function render(){
       if(state.phase==='intro')return renderIntro();
@@ -76,9 +81,9 @@
     function renderDone(){
       const weak=Object.entries(state.wrong||{}).sort((a,b)=>b[1]-a[1]).filter(x=>x[1]>0);
       const weakHtml=weak.length?`<div class="weak">${weak.map(([b,n])=>`<span>${esc(b)} ${n}회</span>`).join('')}</div>`:'<div class="score">오답 없이 완료했습니다.</div>';
-      const nextDay=dayNum>=7&&dayNum<17?dayNum+1:null;
+      const nextDay=dayNum>=7&&dayNum<18?dayNum+1:null;
       const nextButton=nextDay?`<button class="primary" id="nextDay">Day ${nextDay} 바로 시작 →</button>`:'';
-      app.innerHTML=shell(`<section class="card done-card"><div class="done-title">Day ${esc(C.day)} 완료</div><div class="score">${C.questions.length}문제 학습 완료</div>${weakHtml}${nextButton}<button class="small" id="hub">전체 Day 목록</button><button class="small" id="again">이 Day 다시 풀기</button></section>`);
+      app.innerHTML=shell(`<section class="card done-card"><div class="done-title">Day ${dayNum} 완료</div><div class="score">${C.questions.length}문제 학습 완료</div>${weakHtml}${nextButton}<button class="small" id="hub">전체 Day 목록</button><button class="small" id="again">이 Day 다시 풀기</button></section>`);
       const n=app.querySelector('#nextDay');if(n)n.onclick=()=>location.href=`fast_day.html?day=${nextDay}`;
       app.querySelector('#hub').onclick=()=>location.href='fast_index.html';
       app.querySelector('#again').onclick=reset;
