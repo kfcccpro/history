@@ -3,13 +3,14 @@
   const app=document.getElementById('app');
   const params=new URLSearchParams(location.search);
   const day=String(params.get('day')||'7').replace(/[^0-9]/g,'')||'7';
+  const dayNum=Number(day);
   const script=document.createElement('script');
   script.src=`korean_history2_day${day}_fast_content.js`;
   script.onload=boot;
   script.onerror=()=>fatal(`Day ${day} 콘텐츠를 불러오지 못했습니다.`);
   document.head.appendChild(script);
 
-  function fatal(msg){app.innerHTML=`<div class="shell"><div></div><section class="card"><h1 class="title">${esc(msg)}</h1></section><div></div></div>`}
+  function fatal(msg){app.innerHTML=`<div class="shell"><div></div><section class="card"><h1 class="title">${esc(msg)}</h1><button class="primary" id="goHub">전체 목록</button></section><div></div></div>`;const b=document.getElementById('goHub');if(b)b.onclick=()=>location.href='fast_index.html'}
   function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function boot(){
     const C=window.HISTORY2_FAST_CONTENT;
@@ -34,8 +35,9 @@
     }
     function renderIntro(){
       const branches=(C.branches||[]).map((b,i)=>`<div class="branch"><em>${i+1}</em>${esc(b)}</div>`).join('');
-      app.innerHTML=shell(`<section class="card intro-card"><div class="intro-lead">큰 흐름만 보고 바로 문제로 들어갑니다.</div><div class="branches">${branches}</div><div class="intro-note">틀린 문제만 짧게 복구하고 다시 풉니다.</div><button class="primary" id="start">문제 시작</button></section>`);
+      app.innerHTML=shell(`<section class="card intro-card"><div class="intro-lead">큰 흐름만 보고 바로 문제로 들어갑니다.</div><div class="branches">${branches}</div><div class="intro-note">틀린 문제만 짧게 복구하고 다시 풉니다.</div><button class="primary" id="start">문제 시작</button><button class="small" id="hub">전체 Day 목록</button></section>`);
       app.querySelector('#start').onclick=()=>{state.phase='question';save();render()};
+      app.querySelector('#hub').onclick=()=>location.href='fast_index.html';
     }
     function renderQuestion(){
       const item=q(); if(!item){state.phase='done';save();return render()}
@@ -74,7 +76,11 @@
     function renderDone(){
       const weak=Object.entries(state.wrong||{}).sort((a,b)=>b[1]-a[1]).filter(x=>x[1]>0);
       const weakHtml=weak.length?`<div class="weak">${weak.map(([b,n])=>`<span>${esc(b)} ${n}회</span>`).join('')}</div>`:'<div class="score">오답 없이 완료했습니다.</div>';
-      app.innerHTML=shell(`<section class="card done-card"><div class="done-title">Day ${esc(C.day)} 완료</div><div class="score">${C.questions.length}문제 학습 완료</div>${weakHtml}<button class="primary" id="again">처음부터 다시</button></section>`);
+      const nextDay=dayNum>=7&&dayNum<17?dayNum+1:null;
+      const nextButton=nextDay?`<button class="primary" id="nextDay">Day ${nextDay} 바로 시작 →</button>`:'';
+      app.innerHTML=shell(`<section class="card done-card"><div class="done-title">Day ${esc(C.day)} 완료</div><div class="score">${C.questions.length}문제 학습 완료</div>${weakHtml}${nextButton}<button class="small" id="hub">전체 Day 목록</button><button class="small" id="again">이 Day 다시 풀기</button></section>`);
+      const n=app.querySelector('#nextDay');if(n)n.onclick=()=>location.href=`fast_day.html?day=${nextDay}`;
+      app.querySelector('#hub').onclick=()=>location.href='fast_index.html';
       app.querySelector('#again').onclick=reset;
     }
     render();
