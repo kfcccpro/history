@@ -76,4 +76,14 @@
     }
     return r;
   };
+
+  // Shared intro UX addon loader. Keeps Day 1–6 HTML untouched and makes future UX edits one-file changes.
+  if(!window.__H2_FOCUS_OX_ADDON_REQUESTED__){
+    window.__H2_FOCUS_OX_ADDON_REQUESTED__=true;
+    const s=document.createElement('script');
+    s.src='focus_recall_ox_addon.js';
+    s.defer=true;
+    s.onerror=()=>console.error('[History2] focus_recall_ox_addon.js load failed');
+    document.head.appendChild(s);
+  }
 })();
