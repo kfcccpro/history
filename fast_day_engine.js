@@ -21,14 +21,34 @@
     const C=window.HISTORY2_FAST_CONTENT;
     if(!C||!Array.isArray(C.questions)||!C.questions.length)return fatal('콘텐츠 형식이 올바르지 않습니다.');
     const key=`history2-fast-day-${day}`;
-    let state=load()||{phase:'intro',index:0,wrong:{},needsRetry:false,repairOxMiss:false,answered:null};
-    if(state.index>=C.questions.length)state={phase:'done',index:C.questions.length,wrong:state.wrong||{}};
+    const emptyState=()=>({phase:'intro',index:0,wrong:{},needsRetry:false,repairOxMiss:false,answered:null,history:[],repairLog:[],updatedAt:0,lastQuestionId:null,finishedAt:0});
+    let state=load()||emptyState();
+    normalize();
+    if(state.index>=C.questions.length){state.phase='done';state.index=C.questions.length;if(!state.finishedAt)state.finishedAt=Date.now()}
 
-    function load(){try{return JSON.parse(sessionStorage.getItem(key)||'null')}catch(_){return null}}
-    function save(){try{sessionStorage.setItem(key,JSON.stringify(state))}catch(_){}}
-    function reset(){try{sessionStorage.removeItem(key)}catch(_){} state={phase:'intro',index:0,wrong:{},needsRetry:false,repairOxMiss:false,answered:null};render()}
+    function normalize(){
+      if(!state||typeof state!=='object')state=emptyState();
+      state.wrong=state.wrong&&typeof state.wrong==='object'?state.wrong:{};
+      state.history=Array.isArray(state.history)?state.history:[];
+      state.repairLog=Array.isArray(state.repairLog)?state.repairLog:[];
+      state.updatedAt=Number(state.updatedAt||0);
+      state.finishedAt=Number(state.finishedAt||0);
+      if(typeof state.needsRetry!=='boolean')state.needsRetry=false;
+      if(typeof state.repairOxMiss!=='boolean')state.repairOxMiss=false;
+      if(!Number.isInteger(state.index)||state.index<0)state.index=0;
+    }
+    function load(){try{return JSON.parse(localStorage.getItem(key)||'null')}catch(_){return null}}
+    function save(){
+      try{
+        state.updatedAt=Date.now();
+        const item=q();state.lastQuestionId=item&&item.id?item.id:null;
+        localStorage.setItem(key,JSON.stringify(state));
+      }catch(_){ }
+    }
+    function reset(){try{localStorage.removeItem(key)}catch(_){} state=emptyState();render()}
     function q(){return C.questions[state.index]}
     function progress(){return Math.min(state.index,C.questions.length)}
+    function eventId(kind,item){return `${kind}-${day}-${item&&item.id?item.id:'q'}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,7)}`}
     function shell(content){
       return `<div class="shell"><header class="top"><div><div class="kicker">${esc(C.unit)} · Day ${dayNum}</div><h1 class="title">${esc(C.title)}</h1></div><div class="progress"><b>${progress()}</b> / ${C.questions.length}</div></header>${content}<footer class="foot">빠른 학습 모드 · 필요한 내용만</footer></div>`;
     }
@@ -45,7 +65,7 @@
       app.querySelector('#hub').onclick=()=>location.href='fast_index.html';
     }
     function renderQuestion(){
-      const item=q(); if(!item){state.phase='done';save();return render()}
+      const item=q(); if(!item){state.phase='done';if(!state.finishedAt)state.finishedAt=Date.now();save();return render()}
       const answered=state.answered;
       const choices=item.options.map((o,i)=>{
         const cls=answered===null||answered===undefined?'':(i===item.answer?' correct':(i===answered?' wrong':''));
@@ -62,11 +82,19 @@
       if(answered!==null&&answered!==undefined&&answered!==item.answer)setTimeout(()=>{state.phase='repair';state.answered=null;save();render()},520);
     }
     function answer(i){
-      const item=q(); state.answered=i;
+      const item=q();if(!item)return;
+      const wasRepair=!!state.needsRetry;
+      state.answered=i;
+      state.history.push({id:eventId('a',item),questionId:item.id,branch:item.branch,concept:item.concept,choice:i,correct:i===item.answer,afterRepair:wasRepair,at:Date.now()});
       if(i!==item.answer){state.wrong[item.branch]=(state.wrong[item.branch]||0)+1;state.needsRetry=true}
       save();render();
     }
-    function advance(){state.index++;state.answered=null;state.needsRetry=false;state.repairOxMiss=false;state.phase=state.index>=C.questions.length?'done':'question';save();render()}
+    function advance(){
+      state.index++;state.answered=null;state.needsRetry=false;state.repairOxMiss=false;
+      state.phase=state.index>=C.questions.length?'done':'question';
+      if(state.phase==='done'&&!state.finishedAt)state.finishedAt=Date.now();
+      save();render();
+    }
     function renderRepair(){
       const item=q();const r=item.recovery;const path=(r.path||[]).map((p,i)=>`${i?'<i>→</i>':''}<span>${esc(p)}</span>`).join('');
       const miss=state.repairOxMiss;
@@ -74,11 +102,14 @@
       app.querySelectorAll('[data-v]').forEach(btn=>btn.onclick=()=>judge(btn.dataset.v==='1'));
     }
     function judge(v){
-      const item=q();
-      if(v===!!item.recovery.ox.answer){state.phase='question';state.answered=null;state.repairOxMiss=false;save();render()}
+      const item=q();if(!item)return;
+      const correct=v===!!item.recovery.ox.answer;
+      state.repairLog.push({id:eventId('r',item),questionId:item.id,branch:item.branch,concept:item.concept,picked:v,correct,at:Date.now()});
+      if(correct){state.phase='question';state.answered=null;state.repairOxMiss=false;save();render()}
       else{state.repairOxMiss=true;save();render()}
     }
     function renderDone(){
+      if(!state.finishedAt){state.finishedAt=Date.now();save()}
       const weak=Object.entries(state.wrong||{}).sort((a,b)=>b[1]-a[1]).filter(x=>x[1]>0);
       const weakHtml=weak.length?`<div class="weak">${weak.map(([b,n])=>`<span>${esc(b)} ${n}회</span>`).join('')}</div>`:'<div class="score">오답 없이 완료했습니다.</div>';
       const nextDay=dayNum>=7&&dayNum<18?dayNum+1:null;
