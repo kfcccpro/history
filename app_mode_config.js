@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   window.HISTORY2_APP_CONFIG=Object.freeze({
-    buildMode:'development',
+    buildMode:'release',
     studentPin:'8081',
     adminPin:'2007',
     development:Object.freeze({
