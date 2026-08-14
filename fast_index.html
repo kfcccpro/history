@@ -39,14 +39,22 @@
 </div></section>
 <div class="foot">교재 학습표와 동일한 Day 1~18 순서</div>
 </main>
+<script src="app_mode_config.js"></script>
+<script src="firebase_config.js"></script>
+<script src="sync_local_hook.js"></script>
+<script src="firebase_sync_engine.js"></script>
 <script>
-document.querySelectorAll('.day.fast[data-day]').forEach(a=>{
-  const d=a.dataset.day;
-  try{
-    const s=JSON.parse(sessionStorage.getItem(`history2-fast-day-${d}`)||'null');
-    if(s&&s.phase==='done')a.classList.add('done');
-  }catch(_){ }
-});
+function markFastDone(){
+  document.querySelectorAll('.day.fast[data-day]').forEach(a=>{
+    const d=a.dataset.day;
+    try{
+      const s=JSON.parse(localStorage.getItem(`history2-fast-day-${d}`)||'null');
+      a.classList.toggle('done',!!(s&&s.phase==='done'));
+    }catch(_){ }
+  });
+}
+markFastDone();
+window.addEventListener('history2:cloud-reconciled',()=>setTimeout(markFastDone,30));
 </script>
 </body>
 </html>
