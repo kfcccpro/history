@@ -1,0 +1,85 @@
+{
+  "project": "한국사Ⅱ 문제 중심 학습 웹앱",
+  "repository": "kfcccpro/history",
+  "branch": "main",
+  "public_site": "https://kfcccpro.github.io/history/",
+  "start_page": "https://kfcccpro.github.io/history/fast_index.html",
+  "runtime_baseline_commit": "88efea0d491b6c23ce12d242de293af3fd93efab",
+  "status": "release-final-qa",
+  "build_mode": "release",
+  "student_pin": "8081",
+  "admin_pin": "2007",
+  "release_flags": {
+    "persistProgress": true,
+    "persistLearningHistory": true,
+    "firebaseSync": true,
+    "freeNavigation": false,
+    "adminStartsInDevConsole": false
+  },
+  "course_scope": {
+    "days": "1-18",
+    "day1_to_day6": "legacy full-depth student flow",
+    "day7_to_day18": "fast lightweight flow",
+    "official_day_numbering_aligned": true,
+    "fast_flow": "question -> wrong diagnosis path -> clue -> OX recovery -> original question retry"
+  },
+  "persistence": {
+    "storage_prefix": "history2-",
+    "fast_day_keys": "history2-fast-day-{day}",
+    "firebase_config_file": "firebase_config.js",
+    "storage_hook_file": "sync_local_hook.js",
+    "cloud_engine_file": "firebase_sync_engine.js",
+    "initial_cloud_reconcile_fix_commit": "88efea0d491b6c23ce12d242de293af3fd93efab"
+  },
+  "important_files": [
+    "app_mode_config.js",
+    "firebase_config.js",
+    "firestore.rules",
+    "sync_local_hook.js",
+    "firebase_sync_engine.js",
+    "fast_index.html",
+    "fast_day.html",
+    "fast_day_engine.js",
+    "fast_sync_boot.js",
+    "fast_source_boost.js",
+    "fast_source_boost_more.js",
+    "fast_boost_hook.js"
+  ],
+  "content_counts_fast": {
+    "day7": 16,
+    "day8": 12,
+    "day9": 12,
+    "day10": 12,
+    "day11": 15,
+    "day12": 12,
+    "day13": 12,
+    "day14": 12,
+    "day15": 15,
+    "day16": 21,
+    "day17": 24,
+    "day18": 22
+  },
+  "next_work": {
+    "principle": "Do not add features. Perform only final real-use QA and defect-only fixes.",
+    "checks": [
+      "Day 1 representative flow",
+      "Day 7 representative fast flow",
+      "Day 16 TEST representative flow",
+      "wrong answer -> repair OX -> original question retry",
+      "reload -> progress retained",
+      "fast index completion mark",
+      "if possible, second device -> same progress restored"
+    ],
+    "completion_rule": "If there is no critical defect, stop development and treat the app as finished. If a defect appears, change only the smallest affected runtime file and re-check GitHub Pages built status."
+  },
+  "workflow_rules": [
+    "When the user says only '다음 작업 진행' in a new project chat, read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub first, then continue immediately without asking what to do.",
+    "Use course-mindmap-builder skill first for this project work.",
+    "Do not create full backup ZIPs during ordinary incremental work.",
+    "Create a full backup only if explicitly requested or at a major final milestone.",
+    "Do not reintroduce Firebase Hosting, Cloud Shell, GitHub Actions Firebase deployment, or service-account secrets.",
+    "GitHub Pages on main is the deployment path; Firebase is only for student progress/history synchronization.",
+    "Prefer direct minimal edits to main and verify Pages status after runtime changes.",
+    "Explain technical actions in Korean at a middle-schooler-friendly level when user action is required."
+  ]
+}
