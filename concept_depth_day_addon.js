@@ -33,10 +33,13 @@ const css=`
 const st=document.createElement('style');st.id='conceptDepthStyles';st.textContent=css;document.head.appendChild(st);
 function esc(v){return escapeHtml(v)}
 const AUDIT_DIAG={
+  '4:p02':{depth:'D2',skill:'핵심 개념 뜻',message:'농촌 진흥 운동이라는 정책 명칭과 핵심 성격을 정확히 회상하는 단계에서 막혔습니다.'},
   '4:p05':{depth:'D3',skill:'변화·관계 연결',message:'사회주의 사상 → 혁명적 농민 조합 → 반제국주의 항일 투쟁으로 농민 운동의 성격이 바뀌는 관계에서 막혔습니다.'},
+  '4:p08':{depth:'D2',skill:'핵심 개념 뜻',message:'여성계 민족 협동 전선인 근우회의 명칭을 정확히 회상하는 단계에서 막혔습니다.'},
   '4:p09':{depth:'D2',skill:'핵심 개념·활동',message:'근우회가 무엇을 했고 무엇을 목표로 했는지 핵심 활동을 정확히 회상하는 단계에서 막혔습니다.'},
   '4:p11':{depth:'D2',skill:'핵심 개념·활동',message:'조선어 학회의 주요 활동을 정확히 회상하는 단계에서 막혔습니다.'},
   '4:p12':{depth:'D3',skill:'관계 연결',message:'보편적 발전 법칙이라는 주장과 식민 사관의 정체성론 비판을 서로 연결하는 단계에서 막혔습니다.'},
+  '4:p13':{depth:'D2',skill:'핵심 개념 뜻',message:'식민 사관의 세 논리인 정체성론·타율성론·당파성론의 명칭을 정확히 회상하는 단계에서 막혔습니다.'},
   '6:p15':{depth:'D3',skill:'시대·순서 연결',message:'전투 이름 자체보다 봉오동 → 청산리 → 자유시 → 독립군 재편의 시대·순서 연결에서 막혔습니다.'}
 };
 function auditDiag(p){return p&&AUDIT_DIAG[DAYNUM+':'+p.id]||null}
