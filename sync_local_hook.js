@@ -77,6 +77,26 @@
     return r;
   };
 
+  // On a direct Day 1-6 visit, the page can render before the first cloud reconcile finishes.
+  // If initial reconciliation actually replaces/merges local state, reload once so the UI reads
+  // the reconciled progress. Restrict this to the startup window so later remote edits do not
+  // interrupt an active learning session.
+  if(!cloudDisabled){
+    const syncBootAt=Date.now();
+    const reloadKey='history2-sync-applied-v1:'+location.pathname;
+    const applyInitialCloudState=e=>{
+      if(Date.now()-syncBootAt>30000){window.removeEventListener('history2:cloud-reconciled',applyInitialCloudState);return}
+      if(!(e&&e.detail&&e.detail.changed))return;
+      try{
+        if(sessionStorage.getItem(reloadKey)==='1')return;
+        sessionStorage.setItem(reloadKey,'1');
+        setTimeout(()=>location.reload(),80);
+      }catch(_){setTimeout(()=>location.reload(),80)}
+    };
+    window.addEventListener('history2:cloud-reconciled',applyInitialCloudState);
+    setTimeout(()=>window.removeEventListener('history2:cloud-reconciled',applyInitialCloudState),30000);
+  }
+
   // Shared intro UX addon loader. Keeps Day 1–6 HTML untouched and makes future UX edits one-file changes.
   if(!window.__H2_FOCUS_OX_ADDON_REQUESTED__){
     window.__H2_FOCUS_OX_ADDON_REQUESTED__=true;
