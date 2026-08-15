@@ -49,10 +49,9 @@
     const down=Array.isArray(c.down)?c.down.filter(Boolean):[];
     return String(down[0]||c.title||c.one||'핵심어').trim();
   }
-  function recallTarget(branch){
+  function recallTargets(branch){
     const cs=branchConcepts(branch);
-    const withDown=cs.find(c=>Array.isArray(c.down)&&c.down.length);
-    return conceptKeyword(withDown||cs[0]||{title:branch.label});
+    return cs.map(conceptKeyword).filter(Boolean);
   }
   function introSummary(branch,gate){
     if(!branch)return '<section class="h2-focus-drawer empty"><div><b>왼쪽에서 가지를 하나 선택하세요.</b><span>클릭할 때마다 오른쪽으로 핵심어가 한 단계씩 열립니다.</span></div></section>';
@@ -176,8 +175,8 @@
     if(check&&hasLearningGlobals()){
       const id=check.dataset.h2RecallCheck,gate=ensureIntroGateState(),b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;
       const input=document.querySelector(`[data-h2-recall-input="${CSS.escape(id)}"]`),msg=document.querySelector(`[data-h2-recall-msg="${CSS.escape(id)}"]`);
-      const got=norm(input?.value),target=norm(recallTarget(b));
-      const ok=got.length>=2&&(got===target||target.includes(got)||got.includes(target));
+      const got=norm(input?.value),targets=recallTargets(b).map(norm).filter(Boolean);
+      const ok=got.length>=2&&targets.includes(got);
       if(ok){gate.confirmed[id]=true;gate.recallDone[id]=true;const branches=COURSE.previewMap.branches||[],idx=branches.findIndex(x=>x.id===id),next=branches.find((x,j)=>j>idx&&!gate.confirmed[x.id]);if(next)gate.selected=next.id;saveAndRender()}else{if(msg)msg.textContent='한 번 더 떠올려 보세요. 방금 나타난 핵심어 중 하나를 그대로 입력하면 됩니다.';input?.focus()}
       return;
     }
@@ -338,9 +337,10 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot5,{once:true});else setTimeout(boot5,0);
 })();
 
-/* History2 Focus UX v6: full-canvas, left-to-right active-recall map. */
+/* History2 Focus UX v6.2: full-canvas, left-to-right active-recall map. */
 (function(){
   'use strict';
+  window.__H2_FOCUS_UX_VERSION__='6.2';
   const esc6=(v)=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const safe6=(v)=>{try{return typeof escapeHtml==='function'?escapeHtml(v):esc6(v)}catch(_){return esc6(v)}};
   const norm6=(v)=>String(v??'').toLowerCase().replace(/[^0-9a-z가-힣]/g,'');
@@ -361,7 +361,7 @@
   function focus6(branch,g){
     if(!branch)return `<div class="h2-v6-focus-card empty"><div class="eyebrow">3. 핵심 확인</div><h2>가지를 선택하세요.</h2><div class="fact">왼쪽에서 오른쪽으로 한 경로만 따라갑니다.</div></div>`;
     const cs=concepts6(branch),shown=Math.min(Number(g.revealed[branch.id]||0),cs.length),done=!!g.confirmed[branch.id];
-    if(!shown)return `<div class="h2-v6-focus-card empty"><div class="eyebrow">3. 핵심 확인</div><h2>${safe6(branch.label)}</h2><div class="fact">첫 핵심어를 직접 눌러 나타내세요. 한 번에 하나씩만 봅니다.</div><button type="button" class="reveal" data-h2-reveal-concept="${safe6(branch.id)}">첫 핵심어 나타내기</button></div>`;
+    if(!shown)return `<div class="h2-v6-focus-card empty"><div class="eyebrow">3 → 4. 핵심 확인</div><h2>${safe6(branch.label)}</h2><div class="fact">왼쪽 3열의 <b>첫 핵심어 나타내기</b>를 누르세요. 나타난 핵심어의 설명이 바로 이 자리로 이어집니다.</div></div>`;
     const current=cs[Math.max(0,shown-1)],kw=keyword6(current);
     if(shown<cs.length)return `<div class="h2-v6-focus-card"><div class="eyebrow">${shown} / ${cs.length} · 지금 볼 핵심</div><h2>${safe6(kw)}</h2><div class="fact">${safe6(current.one||current.title||branch.hint||'')}</div><button type="button" class="reveal" data-h2-reveal-concept="${safe6(branch.id)}">다음 핵심어 나타내기 →</button></div>`;
     if(!done)return `<div class="h2-v6-focus-card"><div class="eyebrow">4. 기억해서 출력</div><h2>${safe6(kw)}</h2><div class="fact">${safe6(current.one||current.title||branch.hint||'')}</div><div class="h2-v6-recall"><label>${safe6(branch.label)}에서 방금 본 핵심어 하나를 기억해서 입력하세요.</label><div class="h2-v6-recall-row"><input type="text" data-h2-recall-input="${safe6(branch.id)}" autocomplete="off" spellcheck="false" placeholder="핵심어 입력"><button type="button" data-h2-recall-check="${safe6(branch.id)}">기억 확인</button></div><div class="h2-v6-recall-msg" data-h2-recall-msg="${safe6(branch.id)}"></div></div></div>`;
@@ -374,7 +374,11 @@
     const confirmed=branches.filter(b=>g.confirmed[b.id]).length,total=branches.length,all=total>0&&confirmed===total;
     const branchNodes=branches.map((b,i)=>`<button type="button" class="h2-v6-branch ${selected?.id===b.id?'selected':''} ${g.confirmed[b.id]?'confirmed':''}" data-h2-branch="${safe6(b.id)}"><span class="num">${i+1}</span><b>${safe6(b.label)}</b><em class="state">${g.confirmed[b.id]?'✓':'›'}</em></button>`).join('');
     const cs=selected?concepts6(selected):[],shown=selected?Math.min(Number(g.revealed[selected.id]||0),cs.length):0;
-    const keyNodes=cs.map((c,i)=>{const on=shown>i,cur=on&&i===shown-1;return `<button type="button" class="h2-v6-key ${on?'shown':'locked'} ${cur?'current':''}" ${on?'disabled':''} data-h2-detail-index="${i}"><span class="num">${i+1}</span><b>${on?safe6(keyword6(c)):'클릭해서 나타내기'}</b></button>`}).join('');
+    const keyNodes=cs.map((c,i)=>{
+      const on=shown>i,cur=on&&i===shown-1,ready=shown===0&&i===0,future=!on&&!ready;
+      const label=on?safe6(keyword6(c)):(ready?'첫 핵심어 나타내기 →':'다음 단계에서 열림');
+      return `<button type="button" class="h2-v6-key ${on?'shown':''} ${cur?'current':''} ${ready?'ready':''} ${future?'future':''}" ${(on||future)?'disabled':''} data-h2-detail-index="${i}"><span class="num">${i+1}</span><b>${label}</b></button>`;
+    }).join('');
     return `<div class="h2-intro-v6"><header class="h2-v6-head"><div class="h2-v6-headcopy"><div class="h2-v6-kicker">오늘 먼저 볼 핵심 지도</div><h1>한 방향으로 보고, 기억해서 직접 입력합니다.</h1></div><div class="h2-v6-progress"><b>${confirmed}</b><span>/ ${total} 가지 완료</span></div></header><section class="h2-v6-map" data-h2-v6-map><svg class="h2-v6-guide" aria-hidden="true"></svg><section class="h2-v6-col"><div class="h2-v6-col-label">1. 오늘의 중심</div><div class="h2-v6-root-wrap"><div class="h2-v6-root"><small>오늘의 중심</small><b>${safe6(COURSE.previewMap.root||COURSE.focusMap?.root||'오늘의 지도')}</b></div></div></section><section class="h2-v6-col"><div class="h2-v6-col-label">2. 큰 가지</div><div class="h2-v6-branches">${branchNodes}</div></section><section class="h2-v6-col"><div class="h2-v6-col-label">3. 핵심어</div><div class="h2-v6-keys">${keyNodes}</div></section><section class="h2-v6-col"><div class="h2-v6-col-label">4. 설명 → 직접 입력</div><div class="h2-v6-focus">${focus6(selected,g)}</div></section></section><div class="h2-v6-actions"><button class="primary" id="startStudy" ${all?'':'disabled'}>${all?'문제 시작':`남은 가지 ${total-confirmed}개`}</button><p class="h2-v6-locknote">모든 가지에서 핵심어를 확인하고 한 번 직접 입력하면 문제로 넘어갑니다.</p></div></div>`;
   }
   function wire6(){
@@ -386,19 +390,29 @@
       svg.setAttribute('viewBox',`0 0 ${Math.max(1,mr.width)} ${Math.max(1,mr.height)}`);svg.innerHTML=ps.join('');
     });
   }
+  function settle6(){
+    document.querySelectorAll('[data-h2-v6-map]').forEach(map=>{
+      const centerIn=(el,box)=>{if(!el||!box)return;const er=el.getBoundingClientRect(),br=box.getBoundingClientRect();if(er.top<br.top||er.bottom>br.bottom){box.scrollTop+=er.top-br.top-(br.height-er.height)/2}};
+      const branch=map.querySelector('.h2-v6-branch.selected'),key=map.querySelector('.h2-v6-key.current');
+      centerIn(branch,map.querySelector('.h2-v6-branches'));centerIn(key,map.querySelector('.h2-v6-keys'));
+      const input=map.querySelector('[data-h2-recall-input]');
+      if(input&&document.activeElement!==input){try{input.focus({preventScroll:true})}catch(_){input.focus()}}
+    });
+  }
+  function sync6(){requestAnimationFrame(()=>{wire6();settle6()})}
   function saveRender6(){try{if(typeof saveState==='function')saveState()}catch(_){ }try{if(typeof render==='function')render()}catch(_){ }}
   document.addEventListener('click',e=>{
     if(!ready6())return;
-    const locked=e.target.closest('.h2-v6-key.locked');if(locked){const g=gate6(),id=g.selected,b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;g.revealed[id]=Math.min(concepts6(b).length,Number(g.revealed[id]||0)+1);saveRender6();return}
+    const ready=e.target.closest('.h2-v6-key.ready');if(ready){const g=gate6(),id=g.selected,b=(COURSE.previewMap.branches||[]).find(x=>x.id===id);if(!b)return;g.revealed[id]=Math.min(concepts6(b).length,Number(g.revealed[id]||0)+1);saveRender6();return}
   },true);
   function install6(){
     if(!ready6())return false;
     document.body.classList.add('h2-ux-v6');
     try{renderIntro=render6;window.__H2_INTRO_V6__=true}catch(_){return false}
     try{if(state.phase==='intro'&&typeof render==='function')render()}catch(_){ }
-    requestAnimationFrame(wire6);return true;
+    sync6();return true;
   }
   let tries=0;function boot6(){if(install6())return;if(++tries<80)setTimeout(boot6,50)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot6,{once:true});else boot6();
-  const mo=new MutationObserver(()=>requestAnimationFrame(wire6));mo.observe(document.documentElement,{subtree:true,childList:true});window.addEventListener('resize',()=>requestAnimationFrame(wire6),{passive:true});
+  const mo=new MutationObserver(ms=>{const meaningful=ms.some(m=>!(m.target instanceof Element&&m.target.closest('.h2-v6-guide')));if(meaningful)sync6()});mo.observe(document.documentElement,{subtree:true,childList:true});window.addEventListener('resize',sync6,{passive:true});
 })();

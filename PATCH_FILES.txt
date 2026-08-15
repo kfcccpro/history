@@ -1,0 +1,22 @@
+HISTORY2 Focus UX V6.2 deploy patch
+Base: HISTORY2_MASTER_BACKUP_2026-08-10_2051_V6.zip
+Changed source/deploy files: 18
+
+concept_depth_engine.js
+index.html
+index_metacog.html
+korean_history2_day6_metacog_app.html
+korean_history2_day6_student_flow_app.html
+korean_history2_unit1_adaptive_review_flow.html
+korean_history2_unit1_adaptive_review_metacog_flow.html
+korean_history2_unit1_concept_depth_db.json
+korean_history2_unit1_learning_pattern_db.json
+korean_history2_unit1_parent_diagnostic.html
+korean_history2_unit1_parent_mode.html
+korean_history2_unit1_parent_mode_metacog.html
+korean_history2_unit1_student_flow.html
+korean_history2_unit1_student_metacog_flow.html
+landscape_learning_v2.css
+landscape_learning_v2.js
+learning_pattern_engine.js
+parent.html

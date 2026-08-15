@@ -1,0 +1,11 @@
+HISTORY2 V6.2 적용 방법
+
+1) 이 ZIP의 파일을 모두 풉니다.
+2) V6.2 폴더 안 파일을 C:\GitHub\history 에 그대로 덮어씁니다.
+   - V6_2_CHANGELOG.md, V6_2_VALIDATION.md, PATCH_FILES.txt, APPLY_PATCH.txt는 설명 문서이므로 GitHub에 넣어도 되고 제외해도 됩니다.
+3) GitHub Desktop에서 변경 파일을 확인합니다.
+4) Commit summary 예: Focus UX V6.2
+5) Commit to main → Push origin
+6) GitHub Pages가 반영된 뒤 웹앱을 새로고침합니다.
+
+Cloud Shell / Firebase Hosting 배포는 하지 않습니다.
