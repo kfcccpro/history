@@ -1,0 +1,29 @@
+HISTORY2 V6.3 증분 패치
+기준: GitHub main에 V6.2 및 release/Firebase 진도 코드가 이미 반영된 상태
+
+이 ZIP의 아래 7개 파일만 C:\GitHub\history 에 덮어씁니다.
+- concept_depth_day_addon.js
+- landscape_learning_v2.css
+- landscape_learning_v2.js
+- concept_depth_engine.js
+- concept_depth_parent_addon.js
+- korean_history2_unit1_concept_depth_db.json
+- firebase_sync_parent_ui.js
+
+적용은 3단계입니다.
+1) ZIP을 풀고 위 7개 파일만 C:\GitHub\history 에 덮어쓰기
+2) GitHub Desktop에서 Commit summary: Focus UX V6.3
+3) Commit to main -> Push origin
+
+하지 않을 것:
+- V6.2 전체 ZIP 재적용
+- Cloud Shell 배포
+- Firebase Hosting 배포
+
+V6.3 핵심:
+- 오답 Depth 화면 상단에 실제 D1/D2/D3/D4 진단과 진단 문구 표시
+- 모르면 위로 올라가 아는 지점을 찾은 뒤 다시 내려오는 흐름을 큰 화면으로 명확화
+- 긴 원문 이미지에 클릭 확대 안내 자동 표시, 원문은 object-fit:contain 유지
+- 학생/보호자/DB의 '소개념' 용어를 '세부 개념'으로 통일
+- 보호자 동기화 화면의 잘못된 Firebase Hosting 안내를 실제 배포 방식인 GitHub Pages/HTTPS 기준으로 정정
+- 현재 main의 release/Firebase 동기화 코드는 덮어쓰지 않음

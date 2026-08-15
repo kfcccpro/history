@@ -1,0 +1,25 @@
+HISTORY2 V6.3 증분 검증
+
+정적 검사
+- 루트 JavaScript 51개 node --check 통과
+- concept depth DB JSON 파싱 통과
+- Day1~6 원문 문제 140문항 유지
+- 원문 이미지 150개 유지
+- 문제 -> concept 누락 참조 0
+- concept depth catalog 140/140, UID 중복 0
+- V6.3 JS/CSS 마커 확인
+- '소개념' 사용자 노출 용어 제거: 학생 Depth / 보호자 Depth / engine meta / DB meta
+- 'Firebase Hosting 주소/배포 후' 사용자 안내 제거: GitHub Pages/HTTPS 기준으로 교정
+
+현재 main release 구조 점검
+- app_mode_config.js: buildMode='release'
+- release: persistProgress=true, persistLearningHistory=true, firebaseSync=true
+- Firebase project: history-698f7
+- sync: anonymous auth + shared single-student state + local persistence + remote reconcile
+- Firestore rule: authenticated requests only
+
+남은 실기 검증
+- 실제 GitHub Pages 반영 후 PC/태블릿에서 V6.3 화면 확인
+- 다른 기기 1회 접속으로 동일 진도 복원 확인
+- Firestore 실제 저장 확인
+- Chromium 자동 시각 회귀는 현재 실행환경 hang으로 수행하지 못함

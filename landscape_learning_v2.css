@@ -590,3 +590,18 @@ body.h2-ux-v6 .h2-v6-guide path.deep{stroke-width:2.35}
   body.h2-ux-v6 .h2-v6-focus-card{min-height:180px;padding:14px 15px;gap:8px}
   body.h2-ux-v6 .h2-v6-focus-card.empty{min-height:180px}
 }
+
+/* =====================================================================
+   History2 Focus UX v6.3 - long source cue + depth-repair integration
+   2026-08-15
+   ===================================================================== */
+body.h2-ux-v6 .original-question.h2-tall-source{position:relative!important}
+body.h2-ux-v6 .h2-source-zoom-hint{
+  position:absolute;right:12px;bottom:12px;z-index:4;
+  pointer-events:none;padding:8px 11px;border-radius:999px;
+  background:rgba(20,36,58,.88);color:#fff;font-size:13px;font-weight:900;
+  line-height:1;letter-spacing:-.01em;box-shadow:0 3px 12px rgba(8,20,38,.15)
+}
+@media (orientation:landscape) and (max-height:700px){
+  body.h2-ux-v6 .h2-source-zoom-hint{right:8px;bottom:8px;padding:6px 9px;font-size:12px}
+}

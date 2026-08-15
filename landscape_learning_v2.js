@@ -416,3 +416,24 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot6,{once:true});else boot6();
   const mo=new MutationObserver(ms=>{const meaningful=ms.some(m=>!(m.target instanceof Element&&m.target.closest('.h2-v6-guide')));if(meaningful)sync6()});mo.observe(document.documentElement,{subtree:true,childList:true});window.addEventListener('resize',sync6,{passive:true});
 })();
+
+/* History2 Focus UX v6.3: identify unusually tall source scans without cropping them. */
+(function(){
+  'use strict';
+  window.__H2_FOCUS_UX_VERSION__='6.3';
+  function annotate(box){
+    if(!box)return;
+    const imgs=[...box.querySelectorAll('img')];
+    if(!imgs.length)return;
+    const ratios=imgs.map(img=>img.naturalWidth?img.naturalHeight/img.naturalWidth:0);
+    const tall=ratios.some(r=>r>=1.6);
+    box.classList.toggle('h2-tall-source',tall);
+    let hint=box.querySelector('.h2-source-zoom-hint');
+    if(tall&&!hint){hint=document.createElement('span');hint.className='h2-source-zoom-hint';hint.textContent='긴 원문 · 클릭하면 확대';box.appendChild(hint)}
+    if(!tall&&hint)hint.remove();
+  }
+  function scan(){document.querySelectorAll('.original-question').forEach(box=>{annotate(box);box.querySelectorAll('img').forEach(img=>{if(!img.complete)img.addEventListener('load',()=>annotate(box),{once:true})})})}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+  const mo=new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&((n.matches&&n.matches('.original-question,.original-question *'))||(n.querySelector&&n.querySelector('.original-question'))))))scan()});
+  mo.observe(document.documentElement,{subtree:true,childList:true});
+})();
