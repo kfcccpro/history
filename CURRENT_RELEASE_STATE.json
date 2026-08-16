@@ -4,8 +4,8 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "runtime_baseline_commit": "88efea0d491b6c23ce12d242de293af3fd93efab",
-  "status": "release-final-qa",
+  "runtime_baseline_commit": "d1d033864d3bb595ebfdeeb5f3f04c56083128f1",
+  "status": "release-complete",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
@@ -43,7 +43,9 @@
     "fast_sync_boot.js",
     "fast_source_boost.js",
     "fast_source_boost_more.js",
-    "fast_boost_hook.js"
+    "fast_boost_hook.js",
+    "concept_depth_day_addon.js",
+    "flow_guard_day_addon.js"
   ],
   "content_counts_fast": {
     "day7": 16,
@@ -59,27 +61,37 @@
     "day17": 24,
     "day18": 22
   },
-  "next_work": {
-    "principle": "Do not add features. Perform only final real-use QA and defect-only fixes.",
-    "checks": [
-      "Day 1 representative flow",
-      "Day 7 representative fast flow",
-      "Day 16 TEST representative flow",
-      "wrong answer -> repair OX -> original question retry",
-      "reload -> progress retained",
+  "final_qa": {
+    "completed_at": "2026-08-16",
+    "result": "pass-no-critical-defect",
+    "verified": [
+      "Day 1-6 wrong answer -> adaptive depth repair -> direct original question retry",
+      "Day 7-18 wrong answer -> clue/OX repair -> original question retry",
+      "local progress persistence and reload path",
+      "Firebase history2-* sync hook and initial cloud reconciliation path",
       "fast index completion mark",
-      "if possible, second device -> same progress restored"
+      "Day 7-18 next-Day navigation",
+      "GitHub Pages build/deploy success"
     ],
-    "completion_rule": "If there is no critical defect, stop development and treat the app as finished. If a defect appears, change only the smallest affected runtime file and re-check GitHub Pages built status."
+    "non_blocking_field_check": "Actual second-device round trip should be observed during normal use when convenient; only a reproduced failure reopens development."
+  },
+  "maintenance_rule": {
+    "principle": "Development is frozen. Do not add features or start new broad audits unless explicitly requested.",
+    "reopen_only_for": [
+      "reproducible blocking runtime error",
+      "wrong answer cannot complete repair or retry",
+      "saved progress is lost",
+      "GitHub Pages cannot load the app",
+      "confirmed cross-device sync failure"
+    ]
   },
   "workflow_rules": [
-    "When the user says only '다음 작업 진행' in a new project chat, read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub first, then continue immediately without asking what to do.",
-    "Use course-mindmap-builder skill first for this project work.",
-    "Do not create full backup ZIPs during ordinary incremental work.",
+    "When the user says only '다음 작업 진행' in a new project chat, read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub first. If status is release-complete, do not resume broad development automatically.",
+    "Do not create full backup ZIPs during ordinary work.",
     "Create a full backup only if explicitly requested or at a major final milestone.",
     "Do not reintroduce Firebase Hosting, Cloud Shell, GitHub Actions Firebase deployment, or service-account secrets.",
     "GitHub Pages on main is the deployment path; Firebase is only for student progress/history synchronization.",
-    "Prefer direct minimal edits to main and verify Pages status after runtime changes.",
+    "For a reproduced defect, prefer the smallest direct edit to main and verify Pages status after runtime changes.",
     "Explain technical actions in Korean at a middle-schooler-friendly level when user action is required."
   ]
 }
