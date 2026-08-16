@@ -1,12 +1,15 @@
 (function(){
 'use strict';
-if(window.__H2_DEPTH_CHOICE_MODE__)return;
-window.__H2_DEPTH_CHOICE_MODE__=true;
-
-const style=document.createElement('style');
-style.textContent=`
-.depth-objective-hidden{display:none!important}
-.depth-memory-choice-wrap{display:grid;gap:12px;margin-top:4px}
-.depth-memory-choice-lead{font-size:17px;line-height:1.45;font-weight:900;color:#53677e}
-.depth-memory-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.depth-memory-choice{width:100%;min-height:76px;border:2px solid #d9e3ec;border-radius:15px;background:#fff;padding:15px 17px;text-align:left;font:inherit;font-size:18px;font-weight:900;line-height:1.
+if(window.__H2_DEPTH_CHOICE_MODE__)return;window.__H2_DEPTH_CHOICE_MODE__=true;
+var css='.depth-objective-hidden{display:none!important}.depth-memory-choice-wrap{display:grid;gap:12px;margin-top:4px}.depth-memory-choice-lead{font-size:17px;line-height:1.45;font-weight:900;color:#53677e}.depth-memory-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.depth-memory-choice{width:100%;min-height:76px;border:2px solid #d9e3ec;border-radius:15px;background:#fff;padding:15px 17px;text-align:left;font:inherit;font-size:18px;font-weight:900;line-height:1.45;color:#18324f;word-break:keep-all;cursor:pointer}.depth-memory-choice:hover,.depth-memory-choice:focus-visible{border-color:#72a9d0;background:#f5faff;outline:none}.choice-no{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:9px;border-radius:9px;background:#edf3f8;color:#41617f;font-size:14px}.depth-hint-hidden{display:none!important}@media(max-width:820px){.depth-memory-choice-grid{grid-template-columns:1fr}}';
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+function n(v){return String(v==null?'':v).replace(/\s+/g,' ').trim()}
+function esc(v){var d=document.createElement('div');d.textContent=v;return d.innerHTML}
+function uniq(a){var s={};return a.map(n).filter(function(x){if(!x||s[x])return false;s[x]=1;return true})}
+function shuffle(a,key){var h=0,i,j,t;for(i=0;i<key.length;i++)h=(h*31+key.charCodeAt(i))>>>0;a=a.slice();for(i=a.length-1;i>0;i--){h=(h*1664525+1013904223)>>>0;j=h%(i+1);t=a[i];a[i]=a[j];a[j]=t}return a}
+function wrongs(answer,r){var out=[],p=answer.split(/\s*→\s*/).map(n).filter(Boolean);if(p.length>1){out.push(p.slice().reverse().join(' → '));if(p.length>2){var x=p.slice();t=x[x.length-1];x[x.length-1]=x[x.length-2];x[x.length-2]=t;out.push(x.join(' → '))}}var g=answer.split(/\s*\/\s*/).map(n).filter(Boolean);if(g.length>1)out.push(g.slice().reverse().join(' / '));var y=answer.match(/(?:18|19|20)\d{2}/g);if(y&&y.length>1){var k=0,rev=y.slice().reverse();out.push(answer.replace(/(?:18|19|20)\d{2}/g,function(){return rev[k++]}))}return uniq(out.concat(r.conceptOptions||[],r.branchOptions||[],[r.conceptTitle,r.branchLabel,r.rootLabel])).filter(function(x){return x!==answer})}
+function options(m,r){var a=n(m&&m.answer||r.conceptTitle||''),w=wrongs(a,r).slice(0,3),fallback=['원인과 결과가 뒤바뀐 설명','시기와 순서가 맞지 않는 설명','서로 다른 개념을 잘못 연결한 설명'];while(w.length<3)w.push(a+' · '+fallback[w.length]);return shuffle([a].concat(w),a)}
+function transform(card){if(card.dataset.choiceMode==='1')return;var input=card.querySelector('#depthInput'),submit=card.querySelector('#depthSubmit');if(!input||!submit)return;var s=window.runtime&&window.runtime._depth,r=s&&s.route,m=r&&r.memory;if(!r)return;card.dataset.choiceMode='1';var title=card.querySelector('.depth-title'),sub=card.querySelector('.depth-sub'),note=card.querySelector('.depth-note');if(title)title.textContent='마지막은 선택해서 고정';if(sub)sub.textContent='다음 중 핵심 내용이나 연결이 가장 정확한 것을 고르세요.';input.classList.add('depth-objective-hidden');submit.classList.add('depth-objective-hidden');if(note){note.classList.toggle('depth-hint-hidden',!(s&&s.inputTry>0));if(s&&s.inputTry>0)note.textContent='힌트 · '+n(m&&m.hint||m&&m.link||'보기의 순서와 연결을 다시 비교하세요.')}var o=options(m,r),wrap=document.createElement('div');wrap.className='depth-memory-choice-wrap';wrap.innerHTML='<div class="depth-memory-choice-lead">가장 정확한 문장·순서·연결을 하나 고르세요.</div><div class="depth-memory-choice-grid">'+o.map(function(x,i){return '<button type="button" class="depth-memory-choice" data-i="'+i+'"><span class="choice-no">'+(i+1)+'</span>'+esc(x)+'</button>'}).join('')+'</div>';input.parentNode.insertBefore(wrap,input);wrap.querySelectorAll('[data-i]').forEach(function(b){b.onclick=function(){input.value=o[Number(b.dataset.i)];submit.click()}})}
+function scan(){document.querySelectorAll('.depth-card').forEach(transform)}
+new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+})();
