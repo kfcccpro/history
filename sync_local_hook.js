@@ -9,6 +9,16 @@
   const cloudDisabled=mode.firebaseSync===false;
   const firebaseCfgKey='history2-firebase-config-v1';
 
+  // Shared student visibility boost. One stylesheet raises readability across the hub,
+  // Day 7-18 fast flow, and Day 1-6 full/adaptive flow without changing learning logic.
+  if(!document.getElementById('history2-student-visibility-boost')){
+    const styleLink=document.createElement('link');
+    styleLink.id='history2-student-visibility-boost';
+    styleLink.rel='stylesheet';
+    styleLink.href='student_visibility_boost.css';
+    document.head.appendChild(styleLink);
+  }
+
   window.__HISTORY2_SYNC_DIRTY__=window.__HISTORY2_SYNC_DIRTY__||new Set();
   const should=k=>typeof k==='string'&&k.startsWith('history2-')&&!k.startsWith('history2-firebase-')&&!k.startsWith('history2-sync-');
   const p=Storage.prototype;
