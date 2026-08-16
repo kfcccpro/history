@@ -106,4 +106,14 @@
     s.onerror=()=>console.error('[History2] focus_recall_ox_addon.js load failed');
     document.head.appendChild(s);
   }
+
+  // Convert the final depth keyword-typing step into a four-choice recognition step.
+  if(!window.__H2_DEPTH_CHOICE_ADDON_REQUESTED__){
+    window.__H2_DEPTH_CHOICE_ADDON_REQUESTED__=true;
+    const s=document.createElement('script');
+    s.src='depth_choice_mode_addon.js';
+    s.defer=true;
+    s.onerror=()=>console.error('[History2] depth_choice_mode_addon.js load failed');
+    document.head.appendChild(s);
+  }
 })();
