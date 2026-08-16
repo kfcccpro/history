@@ -1,0 +1,141 @@
+/* History2 student-wide visibility boost
+   Scope: student hub, Day 7-18 fast flow, Day 1-6 full/adaptive flow.
+   Goal: larger readable text and larger choice targets without changing learning logic. */
+
+/* ---------- Day 1-18 hub ---------- */
+.wrap{width:min(1500px,calc(100% - 32px))!important;padding-top:clamp(24px,3vw,42px)!important}
+.wrap>.head{gap:28px!important;margin-bottom:30px!important}
+.wrap>.head .kicker{font-size:18px!important}
+.wrap>.head h1{font-size:clamp(40px,5vw,64px)!important;line-height:1.12!important}
+.wrap>.head p{font-size:clamp(18px,1.5vw,23px)!important;line-height:1.5!important}
+.wrap>.group{padding:clamp(22px,2.2vw,32px)!important;margin:18px 0!important;border-radius:24px!important}
+.wrap>.group h2{font-size:clamp(24px,2vw,30px)!important;margin-bottom:18px!important}
+.wrap .grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))!important;gap:14px!important}
+.wrap .day{min-height:126px!important;padding:20px 20px!important;border-radius:18px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.wrap .day b{font-size:18px!important;margin-bottom:8px!important}
+.wrap .day strong{font-size:clamp(20px,1.55vw,25px)!important;line-height:1.42!important;word-break:keep-all!important}
+.wrap .day span{font-size:16px!important;margin-top:10px!important}
+.wrap .day.done::after{font-size:14px!important;padding:6px 9px!important}
+.wrap>.foot{font-size:15px!important}
+
+/* ---------- Day 7-18 fast flow: intro ---------- */
+.intro-card{width:min(1500px,calc(100vw - 48px))!important;gap:clamp(24px,2.2vw,34px)!important;padding:clamp(30px,3.4vw,54px)!important;min-height:clamp(480px,68dvh,650px)!important;align-content:center!important}
+.intro-lead{font-size:clamp(34px,3.25vw,52px)!important;line-height:1.22!important}
+.branches{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:clamp(12px,1.2vw,20px)!important}
+.branch{min-height:132px!important;border-radius:20px!important;padding:22px 20px!important;font-size:clamp(20px,1.55vw,26px)!important;line-height:1.42!important;display:flex!important;flex-direction:column!important;justify-content:center!important;word-break:keep-all!important}
+.branch em{font-size:18px!important;margin-bottom:10px!important}
+.intro-note{font-size:clamp(20px,1.65vw,25px)!important;line-height:1.5!important;font-weight:850!important}
+.intro-card .primary{width:min(760px,100%)!important;min-height:84px!important;border-radius:20px!important;font-size:clamp(25px,2vw,31px)!important;padding:0 32px!important}
+.intro-card .small{font-size:clamp(18px,1.4vw,22px)!important;padding:8px 16px!important}
+
+/* ---------- Day 7-18 fast flow: questions / choices / feedback ---------- */
+.question-card,.repair-card,.done-card{width:min(1420px,100%)!important;padding:clamp(24px,3vw,42px)!important}
+.question-card{gap:24px!important}
+.qmeta{font-size:18px!important;line-height:1.4!important}
+.concept{font-size:18px!important;padding:9px 14px!important}
+.qtext{font-size:clamp(28px,2.8vw,42px)!important;line-height:1.48!important;word-break:keep-all!important}
+.choices{gap:14px!important}
+.choice{min-height:78px!important;padding:20px 22px!important;gap:15px!important;font-size:clamp(20px,1.55vw,25px)!important;line-height:1.5!important;border-radius:19px!important;word-break:keep-all!important}
+.choice .n{width:36px!important;height:36px!important;border-radius:11px!important;font-size:18px!important}
+.feedback{gap:12px!important;padding:20px 22px!important;font-size:20px!important;line-height:1.55!important;border-radius:18px!important}
+.feedback strong{font-size:25px!important}
+.next{min-height:64px!important;padding:0 26px!important;font-size:20px!important}
+.repair-card{gap:21px!important}
+.repair-title{font-size:21px!important}
+.path{gap:9px!important}
+.path span{font-size:18px!important;padding:9px 13px!important}
+.clue{font-size:clamp(26px,2.5vw,37px)!important;line-height:1.52!important}
+.judge{gap:15px!important;padding-top:20px!important}
+.judge-label{font-size:19px!important}
+.judge-statement{font-size:clamp(23px,2vw,31px)!important;line-height:1.5!important;padding:20px 22px!important;border-radius:18px!important}
+.ox{gap:15px!important}
+.ox button{min-height:84px!important;font-size:23px!important;border-radius:18px!important}
+.ox button strong{font-size:38px!important}
+.repair-help{font-size:19px!important}
+.correction{font-size:20px!important;line-height:1.55!important;padding:18px 20px!important}
+.done-title{font-size:clamp(36px,4.5vw,58px)!important}
+.score{font-size:21px!important}.weak span{font-size:18px!important;padding:10px 14px!important}
+.done-card .small{font-size:18px!important;padding:8px 12px!important}
+
+/* ---------- Day 1-6 full flow: mind map / concept review ---------- */
+body.h2-ux-v6 .h2-v6-branch{font-size:clamp(17px,1.25vw,21px)!important;min-height:58px!important;line-height:1.35!important}
+body.h2-ux-v6 .h2-v6-key{font-size:clamp(17px,1.2vw,20px)!important;min-height:52px!important;line-height:1.35!important}
+body.h2-ux-v6 .h2-v6-focus-title{font-size:clamp(31px,3vw,44px)!important;line-height:1.18!important}
+body.h2-ux-v6 .h2-v6-focus-card .fact,body.h2-ux-v6 .h2-v6-fact-copy{font-size:clamp(21px,1.7vw,27px)!important;line-height:1.55!important}
+body.h2-ux-v6 .h2-v6-focus-card .eyebrow{font-size:17px!important}
+body.h2-ux-v6 .h2-v6-focus-card .reveal{min-height:60px!important;font-size:19px!important;padding:12px 18px!important}
+body.h2-ux-v6 .h2-v6-judge-label{font-size:19px!important}
+body.h2-ux-v6 .h2-v6-judge-statement{font-size:clamp(22px,1.75vw,28px)!important;line-height:1.5!important;padding:17px 19px!important}
+body.h2-ux-v6 .h2-v6-judge-actions button{min-height:78px!important}
+body.h2-ux-v6 .h2-v6-judge-actions button strong{font-size:36px!important}
+body.h2-ux-v6 .h2-v6-judge-actions button span{font-size:21px!important}
+body.h2-ux-v6 .h2-v6-judge-msg{font-size:18px!important}
+
+/* ---------- Day 1-6 full flow: original questions and answer choices ---------- */
+body.h2-ux-v6 .question-panel .q-meta{font-size:17px!important;line-height:1.4!important}
+body.h2-ux-v6 .question-panel .q-type{font-size:16px!important;padding:6px 9px!important}
+body.h2-ux-v6 .question-panel .original-source{font-size:16px!important;line-height:1.45!important;padding:8px 10px!important}
+body.h2-ux-v6 .question-panel .original-source b{font-size:17px!important}
+body.h2-ux-v6 .h2-answer-dock .h2-q-context b{font-size:clamp(22px,1.7vw,27px)!important;line-height:1.35!important}
+body.h2-ux-v6 .h2-answer-dock .h2-q-context span{font-size:19px!important;line-height:1.5!important}
+body.h2-ux-v6 .question-panel .answer-guide,body.h2-ux-v6 .h2-answer-dock .answer-guide{font-size:20px!important;line-height:1.5!important}
+body.h2-ux-v6 .question-panel .number-choice,body.h2-ux-v6 .h2-answer-dock .number-choice{height:76px!important;min-height:76px!important;font-size:27px!important;border-radius:15px!important}
+body.h2-ux-v6 .question-panel .fill-input,body.h2-ux-v6 .question-panel .essay-input,body.h2-ux-v6 .h2-answer-dock .fill-input,body.h2-ux-v6 .h2-answer-dock .essay-input{font-size:22px!important;line-height:1.5!important}
+body.h2-ux-v6 .question-panel .action-area .primary,body.h2-ux-v6 .h2-answer-dock .action-area .primary{min-height:66px!important;font-size:20px!important}
+
+/* ---------- Day 1-6 full flow: wrong-answer explanation / examples / remediation ---------- */
+body.h2-ux-v6 .feedback-screen{font-size:19px!important;line-height:1.55!important}
+body.h2-ux-v6 .feedback-screen p,body.h2-ux-v6 .feedback-screen li{font-size:clamp(18px,1.35vw,22px)!important;line-height:1.6!important}
+body.h2-ux-v6 .repair-card{width:min(1360px,100%)!important}
+body.h2-ux-v6 .repair-title{font-size:clamp(29px,2.7vw,40px)!important;line-height:1.22!important}
+body.h2-ux-v6 .repair-lead{font-size:clamp(20px,1.55vw,25px)!important;line-height:1.58!important}
+body.h2-ux-v6 .focus-keyword{font-size:clamp(40px,4vw,60px)!important;line-height:1.12!important}
+body.h2-ux-v6 .focus-fact{font-size:clamp(24px,2vw,32px)!important;line-height:1.5!important}
+body.h2-ux-v6 .focus-detail{font-size:clamp(18px,1.4vw,22px)!important;line-height:1.6!important;padding:14px 16px!important}
+body.h2-ux-v6 .compare-grid,body.h2-ux-v6 .compare-card{font-size:19px!important;line-height:1.55!important}
+body.h2-ux-v6 .feedback-screen .primary{min-height:62px!important;font-size:19px!important}
+
+/* ---------- Adaptive depth diagnosis: examples and objective options ---------- */
+html body .depth-card{width:min(1380px,100%)!important}
+html body .depth-kicker{font-size:19px!important}
+html body .depth-diagnosis{padding:15px 17px!important;gap:15px!important}
+html body .depth-diagnosis b{min-height:48px!important;font-size:20px!important}
+html body .depth-diagnosis span{font-size:20px!important;line-height:1.55!important}
+html body .depth-path span{min-height:54px!important;font-size:17px!important;line-height:1.3!important}
+html body .depth-title{font-size:clamp(36px,3.4vw,50px)!important;line-height:1.14!important}
+html body .depth-sub{font-size:23px!important;line-height:1.6!important}
+html body .depth-choice{min-height:88px!important;padding:19px 21px!important;font-size:22px!important;line-height:1.5!important}
+html body .depth-msg{font-size:19px!important;line-height:1.5!important}
+html body .depth-input{height:80px!important;font-size:29px!important}
+html body .depth-anchor{padding:22px 24px!important}
+html body .depth-anchor b{font-size:31px!important;line-height:1.3!important}
+html body .depth-anchor p{font-size:21px!important;line-height:1.6!important}
+html body .depth-note{font-size:18px!important;line-height:1.5!important}
+html body .depth-card>.primary{min-height:68px!important;font-size:20px!important}
+html body .depth-memory-choice-lead{font-size:21px!important;line-height:1.55!important}
+html body .depth-memory-choice-grid{gap:14px!important}
+html body .depth-memory-choice{min-height:94px!important;padding:20px 22px!important;font-size:22px!important;line-height:1.55!important}
+html body .choice-no{width:36px!important;height:36px!important;font-size:18px!important;margin-right:11px!important}
+
+/* ---------- Smaller screens: stay readable without horizontal overflow ---------- */
+@media(max-width:820px){
+  .wrap{width:min(100% - 20px,760px)!important}.wrap>.head h1{font-size:36px!important}.wrap>.head p{font-size:18px!important}.wrap .grid{grid-template-columns:1fr!important}.wrap .day{min-height:110px!important}.wrap .day strong{font-size:21px!important}
+  .intro-card{width:100%!important;min-height:auto!important;gap:18px!important;padding:22px 18px!important}.intro-lead{font-size:clamp(28px,8vw,36px)!important}.branches{grid-template-columns:1fr 1fr!important}.branch{min-height:104px!important;padding:16px!important;font-size:18px!important}.branch em{font-size:15px!important;margin-bottom:6px!important}.intro-note{font-size:18px!important}.intro-card .primary{min-height:70px!important;font-size:23px!important}.intro-card .small{font-size:17px!important}
+  .question-card,.repair-card,.done-card{padding:20px 16px!important}.qmeta{font-size:16px!important}.concept{font-size:16px!important}.qtext{font-size:clamp(25px,7vw,32px)!important}.choice{font-size:19px!important;min-height:72px!important;padding:17px!important}.choice .n{width:34px!important;height:34px!important}.feedback{font-size:18px!important}.clue{font-size:25px!important}.judge-statement{font-size:21px!important}.ox button{min-height:72px!important;font-size:20px!important}.correction{font-size:18px!important}
+  html body .depth-title{font-size:31px!important}html body .depth-sub{font-size:19px!important}html body .depth-choice,html body .depth-memory-choice{font-size:19px!important;min-height:78px!important}html body .depth-diagnosis span{font-size:18px!important}html body .depth-anchor p{font-size:18px!important}
+}
+@media(max-width:460px){.branches{grid-template-columns:1fr!important}.branch{min-height:90px!important}}
+
+/* Short landscape screens: reduce only enough to fit, never back to tiny text. */
+@media (orientation:landscape) and (max-height:700px){
+  body.h2-ux-v6 .question-panel .q-meta{font-size:15px!important}
+  body.h2-ux-v6 .question-panel .original-source,body.h2-ux-v6 .question-panel .original-source b{font-size:15px!important}
+  body.h2-ux-v6 .h2-answer-dock .h2-q-context b{font-size:20px!important}
+  body.h2-ux-v6 .h2-answer-dock .h2-q-context span{font-size:17px!important}
+  body.h2-ux-v6 .question-panel .answer-guide{font-size:18px!important}
+  body.h2-ux-v6 .question-panel .number-choice,body.h2-ux-v6 .h2-answer-dock .number-choice{height:60px!important;min-height:60px!important;font-size:23px!important}
+  body.h2-ux-v6 .h2-v6-judge-statement{font-size:19px!important}
+  body.h2-ux-v6 .h2-v6-judge-actions button{min-height:58px!important}
+  body.h2-ux-v6 .h2-v6-judge-actions button span{font-size:18px!important}
+  html body .depth-title{font-size:32px!important}html body .depth-sub{font-size:18px!important}html body .depth-choice,html body .depth-memory-choice{min-height:66px!important;font-size:19px!important;padding:13px 15px!important}html body .depth-diagnosis span{font-size:17px!important}html body .depth-path span{font-size:15px!important;min-height:44px!important}
+}
