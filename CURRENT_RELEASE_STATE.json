@@ -4,8 +4,8 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "runtime_baseline_commit": "d1d033864d3bb595ebfdeeb5f3f04c56083128f1",
-  "status": "release-complete",
+  "status": "release-complete-with-pending-ux-adjustment",
+  "handoff_at": "2026-08-16T21:41:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
@@ -16,82 +16,81 @@
     "freeNavigation": false,
     "adminStartsInDevConsole": false
   },
+  "deployment": {
+    "method": "GitHub Pages from main",
+    "do_not_use": [
+      "Firebase Hosting",
+      "Cloud Shell deployment",
+      "GitHub Actions Firebase deployment",
+      "service-account secret deployment"
+    ],
+    "firebase_role": "student progress/history cross-device sync only"
+  },
   "course_scope": {
     "days": "1-18",
-    "day1_to_day6": "legacy full-depth student flow",
+    "day1_to_day6": "full adaptive-depth student flow",
     "day7_to_day18": "fast lightweight flow",
-    "official_day_numbering_aligned": true,
-    "fast_flow": "question -> wrong diagnosis path -> clue -> OX recovery -> original question retry"
+    "official_day_numbering_aligned": true
   },
-  "persistence": {
-    "storage_prefix": "history2-",
-    "fast_day_keys": "history2-fast-day-{day}",
-    "firebase_config_file": "firebase_config.js",
-    "storage_hook_file": "sync_local_hook.js",
-    "cloud_engine_file": "firebase_sync_engine.js",
-    "initial_cloud_reconcile_fix_commit": "88efea0d491b6c23ce12d242de293af3fd93efab"
+  "completed_runtime_work": {
+    "day1_to_day6_flow": "wrong answer -> diagnosis -> adaptive depth recovery -> final recognition -> original question retry",
+    "checkpoint_removed": true,
+    "depth_diagnosis_audit": "major D2/D3/D4 mismatches corrected and common diagnosis source aligned to concept-depth routes",
+    "objective_depth_final_step": {
+      "requested_by_user": true,
+      "implementation": "final free-text depth keyword step is converted to a four-choice recognition step by depth_choice_mode_addon.js",
+      "loader": "sync_local_hook.js loads depth_choice_mode_addon.js without changing the original storage/Firebase hook logic",
+      "latest_addon_commit": "2838e04f7d2ca3f75167eb232e6fde84120eb675",
+      "pages_build_for_latest_addon_commit": "success"
+    },
+    "storage_and_sync": "release persistence and Firebase sync remain enabled"
+  },
+  "pending_user_request": {
+    "priority": 1,
+    "request": "시인성 지금보다 2배더 키워줘",
+    "target_screen": "Day 7-18 fast-day intro screen shown in the latest screenshot: headline '큰 흐름만 보고 바로 문제로 들어갑니다.', 5 branch cards, info note, 문제 시작 button, 전체 Day 목록",
+    "status": "NOT YET APPLIED TO CODE",
+    "important_note": "An illustrative image mockup was generated in chat, but the actual webapp CSS/HTML was not changed for this visibility request.",
+    "implementation_intent": [
+      "Increase the intro screen's perceived readability roughly 2x, especially headline, branch labels, explanatory note, primary button and overall card scale.",
+      "Use more of the desktop/tablet viewport; avoid tiny centered content with large empty margins.",
+      "Keep mobile responsive and avoid horizontal overflow.",
+      "Do not redesign the learning flow or add new features while doing this UX adjustment."
+    ],
+    "likely_files": [
+      "fast_day.html",
+      "fast_day_engine.js only if markup behavior requires it"
+    ]
   },
   "important_files": [
+    "NEXT_CHAT_START_HERE.md",
+    "CURRENT_RELEASE_STATE.json",
     "app_mode_config.js",
-    "firebase_config.js",
-    "firestore.rules",
     "sync_local_hook.js",
+    "depth_choice_mode_addon.js",
+    "concept_depth_day_addon.js",
+    "flow_guard_day_addon.js",
     "firebase_sync_engine.js",
     "fast_index.html",
     "fast_day.html",
     "fast_day_engine.js",
-    "fast_sync_boot.js",
-    "fast_source_boost.js",
-    "fast_source_boost_more.js",
-    "fast_boost_hook.js",
-    "concept_depth_day_addon.js",
-    "flow_guard_day_addon.js"
+    "fast_sync_boot.js"
   ],
-  "content_counts_fast": {
-    "day7": 16,
-    "day8": 12,
-    "day9": 12,
-    "day10": 12,
-    "day11": 15,
-    "day12": 12,
-    "day13": 12,
-    "day14": 12,
-    "day15": 15,
-    "day16": 21,
-    "day17": 24,
-    "day18": 22
-  },
-  "final_qa": {
+  "final_qa_before_latest_ux_request": {
     "completed_at": "2026-08-16",
     "result": "pass-no-critical-defect",
     "verified": [
       "Day 1-6 wrong answer -> adaptive depth repair -> direct original question retry",
-      "Day 7-18 wrong answer -> clue/OX repair -> original question retry",
+      "Day 7-18 wrong answer -> recovery -> original question retry",
       "local progress persistence and reload path",
       "Firebase history2-* sync hook and initial cloud reconciliation path",
-      "fast index completion mark",
-      "Day 7-18 next-Day navigation",
       "GitHub Pages build/deploy success"
-    ],
-    "non_blocking_field_check": "Actual second-device round trip should be observed during normal use when convenient; only a reproduced failure reopens development."
-  },
-  "maintenance_rule": {
-    "principle": "Development is frozen. Do not add features or start new broad audits unless explicitly requested.",
-    "reopen_only_for": [
-      "reproducible blocking runtime error",
-      "wrong answer cannot complete repair or retry",
-      "saved progress is lost",
-      "GitHub Pages cannot load the app",
-      "confirmed cross-device sync failure"
     ]
   },
-  "workflow_rules": [
-    "When the user says only '다음 작업 진행' in a new project chat, read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub first. If status is release-complete, do not resume broad development automatically.",
-    "Do not create full backup ZIPs during ordinary work.",
-    "Create a full backup only if explicitly requested or at a major final milestone.",
-    "Do not reintroduce Firebase Hosting, Cloud Shell, GitHub Actions Firebase deployment, or service-account secrets.",
-    "GitHub Pages on main is the deployment path; Firebase is only for student progress/history synchronization.",
-    "For a reproduced defect, prefer the smallest direct edit to main and verify Pages status after runtime changes.",
-    "Explain technical actions in Korean at a middle-schooler-friendly level when user action is required."
-  ]
+  "next_chat_rule": {
+    "first_action": "Read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub main before doing anything else.",
+    "then": "Apply only the pending visibility enlargement to the fast-day intro screen, verify it, then report the URL.",
+    "do_not": "Do not restart broad audits or redesign the app unless the user explicitly asks."
+  },
+  "backup_rule": "Do not create a full ZIP for this handoff. GitHub main is the source of truth. Create a ZIP only if explicitly requested."
 }
