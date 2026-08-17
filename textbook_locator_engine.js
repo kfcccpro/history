@@ -33,33 +33,22 @@ function normalizeId(id){return clean(id)}
 
 function fromAuditEntry(day,e){
   const d=DAY[day]||{};
+  const hasPage=Number.isFinite(Number(e&&e.page));
   return {
-    day:Number(day),
-    questionId:normalizeId(e&&e.id),
-    book:BOOK,
-    page:Number.isFinite(Number(e&&e.page))?Number(e.page):null,
-    pageRange:null,
-    questionNo:clean(e&&e.questionNo)||null,
-    unit:d.unit||null,
-    chapter:d.chapter||null,
-    section:null,
+    day:Number(day),questionId:normalizeId(e&&e.id),book:BOOK,
+    page:hasPage?Number(e.page):null,pageRange:null,questionNo:clean(e&&e.questionNo)||null,
+    unit:d.unit||null,chapter:d.chapter||null,section:null,
     keywords:uniq([e&&e.title,e&&e.concept]),
-    confidence:Number.isFinite(Number(e&&e.page))?'A':'C',
-    verified:Number.isFinite(Number(e&&e.page)),
-    sourceText:clean(e&&e.source)||null,
-    sourceKind:'source-audit'
+    confidence:hasPage?'A':'C',verified:hasPage,
+    sourceText:clean(e&&e.source)||null,sourceKind:'source-audit'
   };
 }
 
 function buildAuditMap(json){
-  const out={};
-  const days=json&&json.days||{};
-  Object.keys(days).forEach(day=>{
-    (Array.isArray(days[day])?days[day]:[]).forEach(e=>{
-      if(!e||!e.id)return;
-      out[`${Number(day)}:${normalizeId(e.id)}`]=fromAuditEntry(Number(day),e);
-    });
-  });
+  const out={},days=json&&json.days||{};
+  Object.keys(days).forEach(day=>(Array.isArray(days[day])?days[day]:[]).forEach(e=>{
+    if(e&&e.id)out[`${Number(day)}:${normalizeId(e.id)}`]=fromAuditEntry(Number(day),e);
+  }));
   return out;
 }
 
@@ -76,41 +65,23 @@ function loadExactMap(){
 function safeKeywordCandidates(item){
   if(!item||typeof item!=='object')return [];
   const path=item.recovery&&Array.isArray(item.recovery.path)?item.recovery.path:[];
-  return uniq([
-    item.branch,
-    path.length>1?path[path.length-2]:'',
-    item.concept
-  ]).slice(0,3);
+  return uniq([item.branch,path.length>1?path[path.length-2]:'',item.concept]).slice(0,3);
 }
 
 function fallback(day,questionId,item){
-  const d=DAY[Number(day)]||{};
-  const section=clean(item&&item.branch)||null;
-  const keywords=safeKeywordCandidates(item);
+  const d=DAY[Number(day)]||{},section=clean(item&&item.branch)||null;
   return {
-    day:Number(day)||0,
-    questionId:normalizeId(questionId)||clean(item&&item.id)||null,
-    book:BOOK,
-    page:null,
-    pageRange:null,
-    questionNo:null,
-    unit:d.unit||clean(item&&item.unit)||null,
-    chapter:d.chapter||null,
-    section,
-    keywords,
-    confidence:section?'C':'D',
-    verified:false,
-    sourceText:null,
-    sourceKind:'chapter-locator'
+    day:Number(day)||0,questionId:normalizeId(questionId)||clean(item&&item.id)||null,
+    book:BOOK,page:null,pageRange:null,questionNo:null,
+    unit:d.unit||clean(item&&item.unit)||null,chapter:d.chapter||null,section,
+    keywords:safeKeywordCandidates(item),confidence:'C',verified:false,
+    sourceText:null,sourceKind:'chapter-locator'
   };
 }
 
 function enrich(base,item){
   const x={...base};
-  if(item){
-    if(!x.section)x.section=clean(item.branch)||null;
-    x.keywords=uniq([...(x.keywords||[]),...safeKeywordCandidates(item)]).slice(0,4);
-  }
+  if(item){if(!x.section)x.section=clean(item.branch)||null;x.keywords=uniq([...(x.keywords||[]),...safeKeywordCandidates(item)]).slice(0,4)}
   return x;
 }
 
@@ -122,16 +93,16 @@ function getSync(day,questionId,item){
 
 async function get(day,questionId,item){
   const d=Number(day)||0;
-  if(d>=1&&d<=6){
-    const map=await loadExactMap();
-    const key=`${d}:${normalizeId(questionId||item&&item.id)}`;
-    if(map[key])return enrich(map[key],item);
-  }
+  if(d>=1&&d<=6){const map=await loadExactMap(),key=`${d}:${normalizeId(questionId||item&&item.id)}`;if(map[key])return enrich(map[key],item)}
   return fallback(d,questionId,item);
 }
 
-function confidenceLabel(c){
-  return ({A:'정확한 문제 페이지 확인',B:'페이지 범위 확인',C:'단원·소단원 위치 확인',D:'단원·찾을 말 확인'})[c]||'교재 위치 확인';
+function confidenceLabel(c,verified){
+  if(c==='A'&&verified)return '감사 자료에서 정확한 문제 페이지 확인';
+  if(c==='B'&&verified)return '감사 자료에서 페이지 범위 확인';
+  if(c==='C'&&!verified)return '페이지 미검증 · 챕터/목록 기준 탐색 안내';
+  if(c==='C')return '단원·소단원 위치 확인';
+  return '페이지 미검증 · 단원 기준 탐색 안내';
 }
 
 function pageLabel(loc){
@@ -143,9 +114,7 @@ function pageLabel(loc){
 
 function guide(loc,opts){
   if(!loc)return null;
-  const o=opts||{};
-  const rows=[];
-  const p=pageLabel(loc);
+  const o=opts||{},rows=[],p=pageLabel(loc);
   if(loc.book)rows.push({label:'책',value:loc.book});
   if(p)rows.push({label:'페이지',value:p});
   if(loc.unit)rows.push({label:'대단원',value:loc.unit});
@@ -153,19 +122,10 @@ function guide(loc,opts){
   if(loc.section)rows.push({label:'목록',value:loc.section});
   const kws=Array.isArray(loc.keywords)?loc.keywords.filter(Boolean):[];
   if(o.includeKeywords!==false&&kws.length)rows.push({label:'찾아볼 말',value:kws.slice(0,o.keywordLimit||2).join(' · ')});
-  return {
-    ...loc,
-    pageLabel:p||null,
-    confidenceLabel:confidenceLabel(loc.confidence),
-    rows,
-    instruction:p?'표시된 페이지에서 아래 목록을 찾아보세요.':'페이지를 추측하지 않았습니다. 아래 챕터와 목록에서 찾아보세요.'
-  };
+  return {...loc,pageLabel:p||null,confidenceLabel:confidenceLabel(loc.confidence,loc.verified),rows,instruction:p?'표시된 페이지에서 아래 목록을 찾아보세요.':'페이지를 추측하지 않았습니다. 아래 챕터와 목록에서 찾아보세요.'};
 }
 
-function isExact(loc){return !!(loc&&loc.confidence==='A'&&Number.isFinite(Number(loc.page)))}
-
-// Warm the verified Day 1-6 map without blocking the page.
+function isExact(loc){return !!(loc&&loc.confidence==='A'&&loc.verified&&Number.isFinite(Number(loc.page)))}
 if(typeof fetch==='function')loadExactMap();
-
 g.H2TextbookLocator={DAY,BOOK,loadExactMap,get,getSync,guide,pageLabel,confidenceLabel,isExact};
 })(window);
