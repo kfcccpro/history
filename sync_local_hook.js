@@ -16,6 +16,9 @@
     /\/fast_index\.html$/i.test(studentPath)||
     /\/fast_day\.html$/i.test(studentPath)||
     /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
+  const isStudentLearningPage=
+    /\/fast_day\.html$/i.test(studentPath)||
+    /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
   if(isStudentVisibilityPage){
     if(!document.getElementById('history2-student-visibility-boost')){
       const styleLink=document.createElement('link');
@@ -31,6 +34,17 @@
       refineLink.href='student_visibility_refine.css';
       document.head.appendChild(refineLink);
     }
+  }
+
+  // Show textbook context on the actual learning screens only.
+  // Exact page numbers come only from existing source labels/image filenames; otherwise unit/chapter is shown.
+  if(isStudentLearningPage&&!window.__H2_LEARNING_SOURCE_CONTEXT_REQUESTED__){
+    window.__H2_LEARNING_SOURCE_CONTEXT_REQUESTED__=true;
+    const sourceContext=document.createElement('script');
+    sourceContext.src='learning_source_context_addon.js';
+    sourceContext.defer=true;
+    sourceContext.onerror=()=>console.error('[History2] learning_source_context_addon.js load failed');
+    document.head.appendChild(sourceContext);
   }
 
   window.__HISTORY2_SYNC_DIRTY__=window.__HISTORY2_SYNC_DIRTY__||new Set();
