@@ -4,8 +4,8 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "status": "exam-release-stage1-integrated-flow-qa-passed-with-fixes",
-  "handoff_at": "2026-08-17T18:50:00+09:00",
+  "status": "exam-release-stage2-hardening-passed-with-fixes",
+  "handoff_at": "2026-08-17T18:58:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
@@ -13,12 +13,7 @@
     "method": "GitHub Pages from main root",
     "firebase_role": "student progress/history cross-device sync only",
     "do_not_use": ["Firebase Hosting", "Cloud Shell deployment", "service-account secret deployment"],
-    "last_confirmed_functional_build": {
-      "commit": "a7b32f9d53ea4d96354d7884c5ff456928036e23",
-      "status": "built",
-      "error": null
-    },
-    "latest_functional_fix_pending_build_confirmation": "4d965dbb3fa83dec0482a08da5c41868d11a4e7c"
+    "pages_note": "Rapid consecutive commits have intermittently received duration=0 Page build failed responses; final Exam Release 1.0 must not be declared until the single frozen Stage 3 commit is confirmed built."
   },
   "course_scope": {
     "days": "1-18",
@@ -30,51 +25,53 @@
     "question_quality_audit": "QUESTION_QUALITY_AUDIT_2026-08-17.json",
     "runtime_regression_qa": "RUNTIME_REGRESSION_QA_2026-08-17.json",
     "wrong_book_gate_audit": "WRONG_ANSWER_BOOK_GATE_AUDIT_2026-08-17.json v3",
+    "exam_release_hardening": "EXAM_RELEASE_HARDENING_2026-08-17.json v1",
     "permanent_wrong_registry": {
       "engine": "wrong_answer_registry.js",
       "storage": "history2-wrong-answer-registry-v1",
       "policy": "once wrong, always retained as history; mastery changes status but does not delete record",
-      "reopen_fix": "a later source-learning wrong after resolvedAt reopens the record",
-      "source_revision": "chapter passes are keyed to uid + source wrongCount + source lastWrongAt"
+      "source_timestamp_fix": "Day1-6 import uses actual wrongNote lastAt and problemStatus at/masteredAt rather than manufacturing Date.now() timestamps",
+      "merge_normalization": "loaded/saved records reconstruct resolved/book-retry/recurring/open from timestamp invariants after Firebase merge",
+      "book_lookup_persistence": "lastBookPromptAt + needsBookLookup() preserves mandatory textbook lookup across refresh/back/re-entry"
     },
     "textbook_locator": {
-      "engine": "textbook_locator_engine.js",
-      "day1_to_day6": "use QUESTION_SOURCE_MAPPING_AUDIT.json exact problem-page mapping where verified",
-      "day7_to_day18": "never guess pages; use page-unverified unit/chapter/section guidance"
+      "day1_to_day6": "QUESTION_SOURCE_MAPPING_AUDIT.json exact page/question mapping where verified",
+      "day7_to_day18": "page is never guessed; unit/chapter/section locator is used"
     },
     "pre_chapter_wrong_gate": {
-      "policy": "before Day2-18, resurface up to three historical wrongs from any earlier Day",
-      "pass_fix": "new source wrong history invalidates stale PASS/session",
-      "day1_to_day6_isolation": "gate uses original question UI and isCorrect() but an isolated gate-only checkAnswer(); normal attempts/problemStatus/wrongNotes are not mutated",
-      "day7_to_day18_isolation": "dedicated fast_book_gate_engine.js does not mutate normal history2-fast-day-* state"
+      "scope": "Day2-18 actual entry pages",
+      "pass_policy": "PASS/session are bound to source-wrong revision",
+      "direct_url": "normal direct Day URL cannot bypass required prior-wrong gate",
+      "refresh_back": "repeated wrong keeps textbook lookup mandatory across interrupted navigation",
+      "day1_to_day6_isolation": "original source UI and answer checker are reused without mutating normal Day attempts/problemStatus/wrongNotes",
+      "day7_to_day18_isolation": "dedicated fast book-gate engine does not mutate normal fast-day state"
     },
-    "firebase_sync": "history2-wrong-answer-registry-v1 is included by the generic history2-* syncPrefix and therefore participates in release Firebase reconciliation/upload"
+    "release_controls": "buildMode=release; persistence and Firebase on; freeNavigation off; adminStartsInDevConsole off"
   },
   "qa_fixes": [
-    {"id":"QA-GATE-STATE-001","severity":"high","commit":"a512b5860b2efc179ab8f2947c95c834cbab2447","result":"resolved historical wrongs reopen after a newer source-learning wrong"},
-    {"id":"QA-GATE-PASS-002","severity":"high","commits":["2201ea6d43ec55f7a804fc39e6b7e24818b71d56","a7b32f9d53ea4d96354d7884c5ff456928036e23"],"result":"stale PASS/session invalidated when source wrong history changes"},
-    {"id":"QA-GATE-ISOLATION-003","severity":"critical","commit":"010de08f334cade9f67e0ae8fcd56fb80d928b8d","result":"Day1-6 gate no longer contaminates normal Day mastery/wrong history"},
-    {"id":"QA-GATE-BOOK-EVIDENCE-004","severity":"low","commit":"4d965dbb3fa83dec0482a08da5c41868d11a4e7c","result":"textbook-use evidence persists across retry and success wording is accurate"}
+    {"id":"QA-GATE-STATE-001","severity":"high","commit":"a512b5860b2efc179ab8f2947c95c834cbab2447"},
+    {"id":"QA-GATE-PASS-002","severity":"high","commits":["2201ea6d43ec55f7a804fc39e6b7e24818b71d56","a7b32f9d53ea4d96354d7884c5ff456928036e23"]},
+    {"id":"QA-GATE-ISOLATION-003","severity":"critical","commit":"010de08f334cade9f67e0ae8fcd56fb80d928b8d"},
+    {"id":"QA-GATE-BOOK-EVIDENCE-004","severity":"low","commit":"4d965dbb3fa83dec0482a08da5c41868d11a4e7c"},
+    {"id":"HARD-TIME-002","severity":"critical","commit":"47de5793136ad42deb6ee7407f8cc2c715c66607"},
+    {"id":"HARD-REFRESH-001","severity":"high","commits":["47de5793136ad42deb6ee7407f8cc2c715c66607","e1adef1bbca78aa987f3133dc8d596ad7ae80517","09ba095cc74efe94cdbebf4081e9949751171073"]},
+    {"id":"HARD-SYNC-003","severity":"high","commit":"0ed00ced893a8b8aa7653cea01752737553d6033"}
   ],
   "exam_release_remaining": {
-    "stage_1_integrated_flow_qa": "static/runtime-code portion passed with fixes; real learner click-through remains the only unverified sub-check because no interactive browser/local learner state is available here",
-    "stage_2_release_hardening": "next",
-    "stage_3_exam_release_freeze": "after hardening"
+    "stage_1_integrated_flow_qa": "passed with fixes; visual learner click-through remains unclaimed because no learner browser state is available",
+    "stage_2_release_hardening": "passed with fixes",
+    "stage_3_exam_release_freeze": "NEXT AND FINAL"
   },
-  "next_work": {
-    "priority": 1,
-    "task": "exam release hardening: refresh/back/direct-url/storage-sync/dead-end resilience; fix only concrete defects",
-    "checks": [
-      "refresh while inside pre-chapter gate or textbook lookup",
-      "browser back navigation cannot bypass the gate",
-      "direct Day URL entry cannot bypass required prior wrong review",
-      "Firebase reconcile cannot delete or incorrectly downgrade the permanent wrong registry",
-      "no empty/dead-end learner screen after interrupted gate flow",
-      "mobile-sized gate screens preserve one clear action",
-      "release pages expose no development-only controls"
-    ],
-    "limitation": "No interactive browser with the learner's actual localStorage/Firebase state is available; do not claim visual click-through unless performed externally."
-  },
-  "local_sync_note": "GitHub main is newer than the user's local checkpoint. At a stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
+  "stage_3_plan": [
+    "assign Exam Release 1.0 release marker",
+    "freeze storage schema and learning-flow code",
+    "fix only safe non-blocking cleanup if required",
+    "record exact release commit and recovery point",
+    "confirm one final GitHub Pages build is built with error=null",
+    "update CURRENT_RELEASE_STATE.json and NEXT_CHAT_START_HERE.md to frozen release",
+    "after freeze, allow only critical exam-blocking hotfixes"
+  ],
+  "known_non_blocking_item": "fast_day_engine.js esc() has &quot without a semicolon; low risk and should only be changed during Stage 3 if a safe full-file edit is practical.",
+  "local_sync_note": "At the next stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
   "backup_rule": "GitHub main is source of truth. Do not create a full ZIP unless explicitly requested."
 }
