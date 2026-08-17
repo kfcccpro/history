@@ -14,7 +14,8 @@ function read(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(_)
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}}
 function safeReturn(){return returnUrl&&/^(?:[A-Za-z0-9_.?=&%+\-]|%[0-9A-Fa-f]{2})+$/.test(returnUrl)?returnUrl:defaultReturn(targetDay)}
 function waitSystem(){return new Promise(resolve=>{if(window.H2WrongAnswerRegistry)return resolve();let n=0;const t=setInterval(()=>{if(window.H2WrongAnswerRegistry||++n>120){clearInterval(t);resolve()}},50)})}
-function makeSession(records){return{version:1,targetDay,createdAt:Date.now(),updatedAt:Date.now(),uids:records.map(r=>r.uid),done:{},awaiting:null,baselineCorrect:0}}
+function revision(){return window.H2WrongAnswerRegistry&&typeof H2WrongAnswerRegistry.sourceRevisionBefore==='function'?H2WrongAnswerRegistry.sourceRevisionBefore(targetDay):''}
+function makeSession(records,rev){return{version:2,targetDay,revision:rev,createdAt:Date.now(),updatedAt:Date.now(),uids:records.map(r=>r.uid),done:{},awaiting:null,baselineCorrect:0}}
 function reconcile(){
   if(!session||!session.awaiting||!window.H2WrongAnswerRegistry)return;
   const rec=H2WrongAnswerRegistry.get(session.awaiting);
@@ -23,7 +24,7 @@ function reconcile(){
 }
 function records(){return(session&&session.uids||[]).map(uid=>window.H2WrongAnswerRegistry&&H2WrongAnswerRegistry.get(uid)).filter(Boolean)}
 function nextRecord(){return records().find(r=>!session.done[r.uid])||null}
-function pass(){save(PASS,{version:1,targetDay,passedAt:Date.now(),uids:session?session.uids:[]});try{sessionStorage.setItem(PASS,'1')}catch(_){}location.replace(safeReturn())}
+function pass(){const rev=revision();save(PASS,{version:2,targetDay,passedAt:Date.now(),revision:rev,uids:session?session.uids:[]});try{sessionStorage.setItem(PASS,rev)}catch(_){}location.replace(safeReturn())}
 function launch(rec){
   session.awaiting=rec.uid;session.baselineCorrect=Number(rec.gateCorrectCount||0);session.updatedAt=Date.now();save(SESSION,session);
   const back=`pre_chapter_wrong_gate.html?targetDay=${targetDay}&return=${encodeURIComponent(safeReturn())}`;
@@ -47,10 +48,11 @@ function render(){
 async function boot(){
   await waitSystem();if(!window.H2WrongAnswerRegistry)return location.replace(safeReturn());
   try{await H2WrongAnswerRegistry.sync()}catch(_){}
+  const rev=revision();
   session=read(SESSION);
-  if(!session||session.targetDay!==targetDay||!Array.isArray(session.uids)){
+  if(!session||session.targetDay!==targetDay||!Array.isArray(session.uids)||session.revision!==rev){
     const chosen=H2WrongAnswerRegistry.historicalBefore(targetDay,3);
-    if(!chosen.length)return pass();session=makeSession(chosen);save(SESSION,session);
+    if(!chosen.length)return pass();session=makeSession(chosen,rev);save(SESSION,session);
   }
   reconcile();render();
 }
