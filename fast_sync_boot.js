@@ -3,9 +3,10 @@
   let started=false;
   function start(){
     if(started)return;started=true;
+    const gate=new URLSearchParams(location.search).get('bookGate')==='1';
     const s=document.createElement('script');
-    s.src='fast_day_engine.js';
-    s.onerror=()=>console.error('[History2] fast_day_engine.js load failed');
+    s.src=gate?'fast_book_gate_engine.js':'fast_day_engine.js';
+    s.onerror=()=>console.error(`[History2] ${s.src} load failed`);
     document.body.appendChild(s);
   }
   const sync=window.History2CloudSync;
