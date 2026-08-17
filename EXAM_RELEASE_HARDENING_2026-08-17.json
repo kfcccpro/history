@@ -1,0 +1,61 @@
+{
+  "version": "2026-08-17-v1",
+  "stage": "EXAM_RELEASE_STAGE_2_HARDENING",
+  "status": "STATIC_RUNTIME_HARDENING_PASSED_WITH_FIXES",
+  "scope": [
+    "refresh during pre-chapter gate and textbook lookup",
+    "browser back and interrupted gate re-entry",
+    "direct Day URL gate enforcement",
+    "Day1-6 source-state isolation",
+    "Day1-6 source timestamp correctness",
+    "Firebase wrong-registry reconciliation invariants",
+    "release-mode development-control exposure",
+    "mobile one-primary-action gate layout"
+  ],
+  "fixes": [
+    {
+      "id": "HARD-REFRESH-001",
+      "severity": "high",
+      "problem": "After a repeated wrong, textbook lookup obligation existed only in the current rendered screen. Refresh/back could reopen the question before textbook lookup.",
+      "fix": "lastBookPromptAt is persisted in the permanent wrong registry; needsBookLookup() reconstructs the mandatory textbook-lookup state. Both Day1-6 and Day7-18 book-gate engines render the lookup screen first after reload/re-entry.",
+      "commits": [
+        "47de5793136ad42deb6ee7407f8cc2c715c66607",
+        "e1adef1bbca78aa987f3133dc8d596ad7ae80517",
+        "09ba095cc74efe94cdbebf4081e9949751171073"
+      ]
+    },
+    {
+      "id": "HARD-TIME-002",
+      "severity": "critical",
+      "problem": "Day1-6 source wrong notes use lastAt and problemStatus uses at, but the permanent registry previously preferred lastWrongAt/updatedAt. Re-syncing an old wrong could therefore manufacture a new current timestamp and invalidate PASS or reopen a resolved record.",
+      "fix": "Day1-6 registry import now reads lastWrongAt -> lastAt -> updatedAt -> createdAt, and mastery uses wrongNote.masteredAt / problemStatus.at / problemStatus.updatedAt. Existing registry lastWrongAt is retained as fallback instead of Date.now().",
+      "commit": "47de5793136ad42deb6ee7407f8cc2c715c66607"
+    },
+    {
+      "id": "HARD-SYNC-003",
+      "severity": "high",
+      "problem": "Generic Firebase object reconciliation can combine a status string from one device with newer timestamp fields from another, producing an internally inconsistent wrong record.",
+      "fix": "wrong_answer_registry.js normalizes every loaded/saved record using resolvedAt, lastResolvedAt, lastBookPromptAt and lastWrongAt. Pending textbook lookup, resolved state and recurring/open state are reconstructed from time-order invariants.",
+      "commit": "0ed00ced893a8b8aa7653cea01752737553d6033"
+    }
+  ],
+  "verified_paths": {
+    "direct_day_url": "pre_chapter_gate_guard.js runs on Day2-6 student_flow_app and Day7-18 fast_day after registry sync; required prior wrong review cannot be skipped by opening the normal Day URL directly.",
+    "hub_links": "fast_index.html links Day1-6 only to student_flow_app pages and Day7-18 only to fast_day.html routes; no normal learner link exposes the metacog implementation page.",
+    "back_navigation": "Returning from a book-gate page to pre_chapter_wrong_gate leaves the same item unfinished; relaunching it reads pending textbook lookup and returns to textbook lookup before question retry.",
+    "gate_pass": "PASS is bound to the deterministic source-wrong revision and is invalidated only when actual source wrong history changes.",
+    "firebase": "history2-wrong-answer-registry-v1 is covered by the generic history2-* cloud sync prefix; registry-side normalization repairs merge inconsistencies.",
+    "release_config": "app_mode_config.js is buildMode=release with persistProgress=true, persistLearningHistory=true, firebaseSync=true, freeNavigation=false and adminStartsInDevConsole=false.",
+    "mobile_gate": "pre_chapter_wrong_gate and both textbook lookup UIs collapse to a single-column primary-action layout at small widths."
+  },
+  "non_blocking_known_item": {
+    "file": "fast_day_engine.js",
+    "item": "esc() uses &quot without a semicolon for the double-quote entity.",
+    "risk": "low; browser entity parsing normally tolerates it, but fix at the next safe full-file edit or release freeze if practical."
+  },
+  "deployment": {
+    "latest_attempted_functional_commit": "0ed00ced893a8b8aa7653cea01752737553d6033",
+    "pages_observation": "Several rapid commits received GitHub Pages duration=0 immediate Page build failed responses. This pattern previously alternated with successful builds. Final release build success must be confirmed on the single frozen Stage 3 commit before declaring Exam Release 1.0."
+  },
+  "limitation": "No interactive browser carrying the learner's actual localStorage/Firebase account state is available in this environment. This stage verifies static/runtime state transitions and persistence logic, not a visual click-through claim."
+}
