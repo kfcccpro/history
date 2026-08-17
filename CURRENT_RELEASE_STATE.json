@@ -4,93 +4,62 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "status": "release-complete-with-pending-ux-adjustment",
-  "handoff_at": "2026-08-16T21:41:00+09:00",
+  "status": "release-maintenance-content-quality-audited",
+  "handoff_at": "2026-08-17T14:44:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
-  "release_flags": {
-    "persistProgress": true,
-    "persistLearningHistory": true,
-    "firebaseSync": true,
-    "freeNavigation": false,
-    "adminStartsInDevConsole": false
-  },
   "deployment": {
-    "method": "GitHub Pages from main",
-    "do_not_use": [
-      "Firebase Hosting",
-      "Cloud Shell deployment",
-      "GitHub Actions Firebase deployment",
-      "service-account secret deployment"
-    ],
-    "firebase_role": "student progress/history cross-device sync only"
+    "method": "GitHub Pages from main root",
+    "firebase_role": "student progress/history cross-device sync only",
+    "do_not_use": ["Firebase Hosting","Cloud Shell deployment","service-account secret deployment"]
   },
   "course_scope": {
     "days": "1-18",
-    "day1_to_day6": "full adaptive-depth student flow",
-    "day7_to_day18": "fast lightweight flow",
-    "official_day_numbering_aligned": true
+    "day1_to_day6": "140 source-based original questions with full adaptive depth remediation",
+    "day7_to_day18": "fast lightweight flow with adaptive wrong-answer review"
   },
-  "completed_runtime_work": {
-    "day1_to_day6_flow": "wrong answer -> diagnosis -> adaptive depth recovery -> final recognition -> original question retry",
-    "checkpoint_removed": true,
-    "depth_diagnosis_audit": "major D2/D3/D4 mismatches corrected and common diagnosis source aligned to concept-depth routes",
-    "objective_depth_final_step": {
-      "requested_by_user": true,
-      "implementation": "final free-text depth keyword step is converted to a four-choice recognition step by depth_choice_mode_addon.js",
-      "loader": "sync_local_hook.js loads depth_choice_mode_addon.js without changing the original storage/Firebase hook logic",
-      "latest_addon_commit": "2838e04f7d2ca3f75167eb232e6fde84120eb675",
-      "pages_build_for_latest_addon_commit": "success"
+  "completed_work": {
+    "visibility": "student-wide visibility boost/refinement is deployed and scoped away from parent/admin pages",
+    "accuracy_audit": "CONTENT_ACCURACY_AUDIT_2026-08-17.json; high-risk historical wording corrected without answer-key changes",
+    "question_quality_audit": "QUESTION_QUALITY_AUDIT_2026-08-17.json",
+    "day1_to_day6_quality_policy": "preserve workbook/textbook original stems/options; use option feedback and depth repair rather than rewriting source questions",
+    "day7_to_day18_quality": {
+      "patch": "fast_question_quality_patch.js",
+      "selected_rewrites": 30,
+      "distractors": "replaced selected obviously unrelated distractors with same-domain plausible alternatives",
+      "answer_position": "deterministically balanced by question id while moving correct option and answer index together",
+      "depth": "per-question qualityDiagnosis can override generic D2/D3/D4 keyword heuristic",
+      "normal_flow": "fast_day.html + fast_boost_hook.js + fast_day_engine.js",
+      "adaptive_review": "adaptive_fast_review.html + adaptive_fast_review.js use the same quality/accuracy content"
     },
-    "storage_and_sync": "release persistence and Firebase sync remain enabled"
-  },
-  "pending_user_request": {
-    "priority": 1,
-    "request": "시인성 지금보다 2배더 키워줘",
-    "target_screen": "Day 7-18 fast-day intro screen shown in the latest screenshot: headline '큰 흐름만 보고 바로 문제로 들어갑니다.', 5 branch cards, info note, 문제 시작 button, 전체 Day 목록",
-    "status": "NOT YET APPLIED TO CODE",
-    "important_note": "An illustrative image mockup was generated in chat, but the actual webapp CSS/HTML was not changed for this visibility request.",
-    "implementation_intent": [
-      "Increase the intro screen's perceived readability roughly 2x, especially headline, branch labels, explanatory note, primary button and overall card scale.",
-      "Use more of the desktop/tablet viewport; avoid tiny centered content with large empty margins.",
-      "Keep mobile responsive and avoid horizontal overflow.",
-      "Do not redesign the learning flow or add new features while doing this UX adjustment."
-    ],
-    "likely_files": [
-      "fast_day.html",
-      "fast_day_engine.js only if markup behavior requires it"
-    ]
+    "storage_and_sync": "release persistence and Firebase sync remain enabled; existing historical correct/incorrect records are not rewritten"
   },
   "important_files": [
     "NEXT_CHAT_START_HERE.md",
     "CURRENT_RELEASE_STATE.json",
-    "app_mode_config.js",
-    "sync_local_hook.js",
-    "depth_choice_mode_addon.js",
-    "concept_depth_day_addon.js",
-    "flow_guard_day_addon.js",
-    "firebase_sync_engine.js",
-    "fast_index.html",
+    "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
+    "QUESTION_QUALITY_AUDIT_2026-08-17.json",
+    "fast_content_accuracy_patch.js",
+    "fast_question_quality_patch.js",
+    "fast_boost_hook.js",
     "fast_day.html",
     "fast_day_engine.js",
-    "fast_sync_boot.js"
+    "adaptive_fast_review.html",
+    "adaptive_fast_review.js",
+    "sync_local_hook.js"
   ],
-  "final_qa_before_latest_ux_request": {
-    "completed_at": "2026-08-16",
-    "result": "pass-no-critical-defect",
-    "verified": [
-      "Day 1-6 wrong answer -> adaptive depth repair -> direct original question retry",
-      "Day 7-18 wrong answer -> recovery -> original question retry",
-      "local progress persistence and reload path",
-      "Firebase history2-* sync hook and initial cloud reconciliation path",
-      "GitHub Pages build/deploy success"
+  "next_work": {
+    "priority": 1,
+    "task": "runtime regression/visual QA of the new Day 7-18 question-quality layer, then only fix concrete defects found",
+    "checks": [
+      "normal fast question correct option remains correct after deterministic reorder",
+      "adaptive review shows the same reordered options and answer",
+      "D4 comparison/application items display D4 diagnosis",
+      "wrong answer -> repair -> original question retry still works",
+      "Pages build succeeds"
     ]
   },
-  "next_chat_rule": {
-    "first_action": "Read NEXT_CHAT_START_HERE.md and CURRENT_RELEASE_STATE.json from GitHub main before doing anything else.",
-    "then": "Apply only the pending visibility enlargement to the fast-day intro screen, verify it, then report the URL.",
-    "do_not": "Do not restart broad audits or redesign the app unless the user explicitly asks."
-  },
-  "backup_rule": "Do not create a full ZIP for this handoff. GitHub main is the source of truth. Create a ZIP only if explicitly requested."
+  "local_sync_note": "Direct GitHub main commits were added after the user's last local sync. At a stable checkpoint, GitHub Desktop only needs Pull origin; do not Commit or Push local stale files.",
+  "backup_rule": "GitHub main is source of truth. Do not create a full ZIP unless explicitly requested."
 }
