@@ -47,7 +47,7 @@ async function renderLookup(){
 async function renderSuccess(){
   ensureStyle();await markCorrect();const r=root();if(!r)return;
   const p=current();r.innerHTML=`<section class="h2-book-gate"><div class="h2-book-kicker" style="color:#0b765c">교재 탐색 복구 완료</div><div class="h2-book-title">책에서 근거를 찾아 스스로 해결했습니다.</div><div class="h2-book-sub">${esc(p&&p.title||'이 문제')}를 다시 맞혔습니다. 이제 다음 오답 또는 새 챕터로 이동합니다.</div><button class="h2-book-action" id="h2BookReturn">계속하기 →</button></section>`;
-  const b=document.getElementById('h2BookReturn');if(b)b.onclick=()=>location.href=returnUrl;
+  const b=document.getElementById('h2BookReturn');if(b)b.onclick=()=>{try{window.top.location.href=returnUrl}catch(_){location.href=returnUrl}};
 }
 let baseRender=null;
 function install(){
