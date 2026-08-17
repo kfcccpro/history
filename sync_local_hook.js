@@ -9,8 +9,6 @@
   const cloudDisabled=mode.firebaseSync===false;
   const firebaseCfgKey='history2-firebase-config-v1';
 
-  // Load student readability styles only on student-facing learning pages.
-  // parent/admin pages also use this sync hook and must keep their own layout untouched.
   const studentPath=location.pathname||'';
   const isStudentVisibilityPage=
     /\/fast_index\.html$/i.test(studentPath)||
@@ -19,6 +17,9 @@
   const isStudentLearningPage=
     /\/fast_day\.html$/i.test(studentPath)||
     /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
+  const isStudentHub=/\/fast_index\.html$/i.test(studentPath);
+  const isParentPage=/\/parent\.html$/i.test(studentPath);
+
   if(isStudentVisibilityPage){
     if(!document.getElementById('history2-student-visibility-boost')){
       const styleLink=document.createElement('link');
@@ -36,8 +37,6 @@
     }
   }
 
-  // Show textbook context on the actual learning screens only.
-  // Exact page numbers come only from existing source labels/image filenames; otherwise unit/chapter is shown.
   if(isStudentLearningPage&&!window.__H2_LEARNING_SOURCE_CONTEXT_REQUESTED__){
     window.__H2_LEARNING_SOURCE_CONTEXT_REQUESTED__=true;
     const sourceContext=document.createElement('script');
@@ -47,14 +46,29 @@
     document.head.appendChild(sourceContext);
   }
 
+  // Day 1-18 weakness profile: one aggregation engine, different student/parent views.
+  if((isStudentHub||isParentPage)&&!window.__H2_WEAKNESS_PROFILE_REQUESTED__){
+    window.__H2_WEAKNESS_PROFILE_REQUESTED__=true;
+    const core=document.createElement('script');
+    core.src='weakness_profile_engine.js';
+    core.defer=true;
+    core.onload=()=>{
+      const view=document.createElement('script');
+      view.defer=true;
+      view.src=isParentPage?'weakness_profile_parent_addon.js':'weakness_profile_student_addon.js';
+      view.onerror=()=>console.error('[History2] weakness profile view load failed');
+      document.head.appendChild(view);
+    };
+    core.onerror=()=>console.error('[History2] weakness_profile_engine.js load failed');
+    document.head.appendChild(core);
+  }
+
   window.__HISTORY2_SYNC_DIRTY__=window.__HISTORY2_SYNC_DIRTY__||new Set();
   const should=k=>typeof k==='string'&&k.startsWith('history2-')&&!k.startsWith('history2-firebase-')&&!k.startsWith('history2-sync-');
   const p=Storage.prototype;
   const rawGet=p.getItem, rawSet=p.setItem, rawRemove=p.removeItem, rawClear=p.clear;
   window.__HISTORY2_RAW_STORAGE__={getItem:rawGet,setItem:rawSet,removeItem:rawRemove,clear:rawClear};
 
-  // Development mode must not silently reconnect to Firebase just because a web config exists.
-  // Keep a diagnostic copy, but hide both the bundled and locally saved config from the sync engine.
   if(cloudDisabled){
     window.__HISTORY2_FIREBASE_CONFIG_DISABLED__=window.HISTORY2_FIREBASE_CONFIG||null;
     window.HISTORY2_FIREBASE_CONFIG=null;
@@ -70,7 +84,6 @@
 
   p.setItem=function(k,v){
     if(this===localStorage&&ephemeralLearning&&should(k)){
-      // Preserve the same-tab learning flow without writing durable progress in development.
       return rawSet.call(sessionStorage,k,v);
     }
     const r=rawSet.call(this,k,v);
@@ -93,7 +106,6 @@
 
   p.clear=function(){
     if(this===localStorage&&ephemeralLearning){
-      // A development reset must not erase durable release data from the same browser.
       const keys=[];
       for(let i=0;i<sessionStorage.length;i++){
         const k=sessionStorage.key(i);
@@ -115,10 +127,6 @@
     return r;
   };
 
-  // On a direct Day 1-6 visit, the page can render before the first cloud reconcile finishes.
-  // If initial reconciliation actually replaces/merges local state, reload once so the UI reads
-  // the reconciled progress. Restrict this to the startup window so later remote edits do not
-  // interrupt an active learning session.
   if(!cloudDisabled){
     const syncBootAt=Date.now();
     const reloadKey='history2-sync-applied-v1:'+location.pathname;
@@ -135,7 +143,6 @@
     setTimeout(()=>window.removeEventListener('history2:cloud-reconciled',applyInitialCloudState),30000);
   }
 
-  // Shared intro UX addon loader. Keeps Day 1–6 HTML untouched and makes future UX edits one-file changes.
   if(!window.__H2_FOCUS_OX_ADDON_REQUESTED__){
     window.__H2_FOCUS_OX_ADDON_REQUESTED__=true;
     const s=document.createElement('script');
@@ -145,7 +152,6 @@
     document.head.appendChild(s);
   }
 
-  // Convert the final depth keyword-typing step into a four-choice recognition step.
   if(!window.__H2_DEPTH_CHOICE_ADDON_REQUESTED__){
     window.__H2_DEPTH_CHOICE_ADDON_REQUESTED__=true;
     const s=document.createElement('script');
