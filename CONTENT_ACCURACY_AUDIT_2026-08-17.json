@@ -1,0 +1,94 @@
+{
+  "project": "History2 Korean History II learning webapp",
+  "audit_date": "2026-08-17",
+  "scope": "Day 1-18 student learning content",
+  "status": "high-risk historical wording audited and corrected",
+  "methodology": {
+    "day1_to_day6": "Reuse existing 140-question structural/source mapping audits, then perform high-risk terminology, chronology and causal-framing spot audit on student-facing content.",
+    "day7_to_day18": "Direct review of question stems, options, answer keys, explanations, recovery clues, O/X corrections and source-boost test questions.",
+    "verification": "High-risk claims cross-checked against authoritative historical/public records sources before correction.",
+    "principle": "Preserve question IDs, answer indices and learner history unless a verified answer-key error is found. Correct misleading simplification at explanation/recovery level first."
+  },
+  "results": {
+    "answer_key_changes": 0,
+    "fast_content_precision_patches": [
+      {
+        "id": "d7q04",
+        "topic": "US military government",
+        "risk": "overstatement",
+        "change": "Clarified direct military-government rule and non-recognition of Korean political organizations as official governments."
+      },
+      {
+        "id": "d7q10",
+        "topic": "May 10, 1948 election",
+        "risk": "oversimplified election scope",
+        "change": "Clarified the UN commission-observation principle and actual election in South Korea under UN observation."
+      },
+      {
+        "id": "d7q13",
+        "topic": "Special Investigation Committee of Anti-National Activities",
+        "risk": "causal oversimplification",
+        "change": "Added government opposition/noncooperation and the 1949 police attack as major reasons for weakened activity."
+      },
+      {
+        "id": "d7q15",
+        "topic": "Jeju April 3",
+        "risk": "single-cause framing",
+        "change": "Expanded context from the 1947 police shooting through 1948 conflict, armed uprising, suppression and civilian casualties."
+      },
+      {
+        "id": "d8q01",
+        "topic": "Acheson speech",
+        "risk": "single-cause implication",
+        "change": "Specified the January 1950 Pacific defense-perimeter context and prevented teaching the speech as a sole cause of the Korean War."
+      },
+      {
+        "id": "d8q03",
+        "topic": "UN forces",
+        "risk": "institutional simplification",
+        "change": "Clarified UN Security Council resolutions, member-state military support and U.S.-led unified command."
+      },
+      {
+        "id": "d9q04",
+        "topic": "1969 constitutional amendment",
+        "risk": "ambiguous wording",
+        "change": "Reworded to Park Chung-hee's eligibility to seek a third presidential term."
+      },
+      {
+        "id": "d15q06",
+        "topic": "Provisional Government of the Republic of Korea",
+        "risk": "implied permanent location",
+        "change": "Changed 'central city' to the city where it was established in 1919 and noted later movement through China and settlement in Chongqing in 1940."
+      },
+      {
+        "id": "d17src08",
+        "topic": "Jeju April 3 test item",
+        "risk": "single-cause framing",
+        "change": "Aligned test remediation with the fuller historical context used in the main learning flow."
+      }
+    ],
+    "unit1_precision_patches": [
+      {
+        "topic": "Governor-General of Korea appointment qualification",
+        "risk": "period-wide overgeneralization",
+        "change": "Clarified that early rules required active-duty generals/admirals, the 1919 revision allowed civilian appointment in law, while all actual governors-general remained military-background figures."
+      }
+    ]
+  },
+  "runtime_application": {
+    "normal_day7_to_day18": "fast_content_accuracy_patch.js -> fast_boost_hook.js -> fast_day_engine.js",
+    "adaptive_day7_to_day18_review": "same source boosts and accuracy patch are loaded before adaptive_fast_review.js",
+    "day1_to_day6": "unit1_content_accuracy_patch.js is loaded only on detailed student flows through sync_local_hook.js"
+  },
+  "source_context_rule": {
+    "priority_1": "Show exact textbook/workbook page only when an existing source label or source image filename provides a reliable page number.",
+    "priority_2": "Otherwise show unit/chapter/day context.",
+    "no_invented_pages": true
+  },
+  "limitations": [
+    "A structural/source audit does not by itself prove historical accuracy.",
+    "Historical interpretation can differ by textbook and scholarship; the audit prioritizes broadly established factual chronology, institutional descriptions and neutral causal wording.",
+    "This audit does not claim that every sentence in Day 1-18 has been independently source-cited line by line.",
+    "Future textbook-edition-specific page mapping should be added only from verified source metadata."
+  ]
+}
