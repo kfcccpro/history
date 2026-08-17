@@ -17,6 +17,8 @@
   const isStudentLearningPage=
     /\/fast_day\.html$/i.test(studentPath)||
     /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
+  const isAdaptiveFastReview=/\/adaptive_fast_review\.html$/i.test(studentPath);
+  const isUnifiedJourneyPage=isStudentLearningPage||isAdaptiveFastReview;
   const isStudentHub=/\/fast_index\.html$/i.test(studentPath);
   const isParentPage=/\/parent\.html$/i.test(studentPath);
 
@@ -46,21 +48,39 @@
     document.head.appendChild(sourceContext);
   }
 
-  // Day 1-18 weakness profile: one aggregation engine, different student/parent views.
-  if((isStudentHub||isParentPage)&&!window.__H2_WEAKNESS_PROFILE_REQUESTED__){
+  // One Day 1-18 weakness engine powers hub, parent analytics and the next-learning recommendation.
+  if((isStudentHub||isParentPage||isUnifiedJourneyPage)&&!window.__H2_WEAKNESS_PROFILE_REQUESTED__){
     window.__H2_WEAKNESS_PROFILE_REQUESTED__=true;
     const core=document.createElement('script');
     core.src='weakness_profile_engine.js';
     core.defer=true;
     core.onload=()=>{
-      const view=document.createElement('script');
-      view.defer=true;
-      view.src=isParentPage?'weakness_profile_parent_addon.js':'weakness_profile_student_addon.js';
-      view.onerror=()=>console.error('[History2] weakness profile view load failed');
-      document.head.appendChild(view);
+      if(isStudentHub||isParentPage){
+        const view=document.createElement('script');
+        view.defer=true;
+        view.src=isParentPage?'weakness_profile_parent_addon.js':'weakness_profile_student_addon.js';
+        view.onerror=()=>console.error('[History2] weakness profile view load failed');
+        document.head.appendChild(view);
+      }
+      if(isUnifiedJourneyPage)loadUnifiedJourney();
     };
-    core.onerror=()=>console.error('[History2] weakness_profile_engine.js load failed');
+    core.onerror=()=>{
+      console.error('[History2] weakness_profile_engine.js load failed');
+      if(isUnifiedJourneyPage)loadUnifiedJourney();
+    };
     document.head.appendChild(core);
+  }else if(isUnifiedJourneyPage){
+    loadUnifiedJourney();
+  }
+
+  function loadUnifiedJourney(){
+    if(window.__H2_UNIFIED_JOURNEY_REQUESTED__)return;
+    window.__H2_UNIFIED_JOURNEY_REQUESTED__=true;
+    const journey=document.createElement('script');
+    journey.src='unified_learning_journey_addon.js';
+    journey.defer=true;
+    journey.onerror=()=>console.error('[History2] unified_learning_journey_addon.js load failed');
+    document.head.appendChild(journey);
   }
 
   window.__HISTORY2_SYNC_DIRTY__=window.__HISTORY2_SYNC_DIRTY__||new Set();
