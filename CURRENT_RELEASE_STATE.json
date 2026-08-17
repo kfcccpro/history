@@ -4,8 +4,8 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "status": "release-maintenance-content-quality-audited",
-  "handoff_at": "2026-08-17T14:44:00+09:00",
+  "status": "release-maintenance-runtime-qa-passed",
+  "handoff_at": "2026-08-17T15:09:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
@@ -17,29 +17,43 @@
   "course_scope": {
     "days": "1-18",
     "day1_to_day6": "140 source-based original questions with full adaptive depth remediation",
-    "day7_to_day18": "fast lightweight flow with adaptive wrong-answer review"
+    "day7_to_day18": "fast lightweight flow with question-quality patch and adaptive unresolved-wrong review"
   },
   "completed_work": {
-    "visibility": "student-wide visibility boost/refinement is deployed and scoped away from parent/admin pages",
-    "accuracy_audit": "CONTENT_ACCURACY_AUDIT_2026-08-17.json; high-risk historical wording corrected without answer-key changes",
+    "visibility": "student-wide visibility boost/refinement deployed; parent/admin excluded",
+    "accuracy_audit": "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
     "question_quality_audit": "QUESTION_QUALITY_AUDIT_2026-08-17.json",
-    "day1_to_day6_quality_policy": "preserve workbook/textbook original stems/options; use option feedback and depth repair rather than rewriting source questions",
+    "runtime_regression_qa": "RUNTIME_REGRESSION_QA_2026-08-17.json; PASS_WITH_FIXES",
+    "day1_to_day6_quality_policy": "preserve workbook/textbook original stems/options; use option feedback and adaptive depth repair rather than rewriting source questions",
     "day7_to_day18_quality": {
       "patch": "fast_question_quality_patch.js",
       "selected_rewrites": 30,
-      "distractors": "replaced selected obviously unrelated distractors with same-domain plausible alternatives",
-      "answer_position": "deterministically balanced by question id while moving correct option and answer index together",
-      "depth": "per-question qualityDiagnosis can override generic D2/D3/D4 keyword heuristic",
-      "normal_flow": "fast_day.html + fast_boost_hook.js + fast_day_engine.js",
-      "adaptive_review": "adaptive_fast_review.html + adaptive_fast_review.js use the same quality/accuracy content"
+      "distractors": "selected obviously unrelated distractors replaced with plausible same-domain alternatives",
+      "answer_position": "deterministically balanced while moving correct option and answer index together",
+      "depth": "per-question qualityDiagnosis overrides generic heuristic where specified",
+      "normal_flow": "wrong answer -> diagnosis -> O/X repair -> same original question retry",
+      "adaptive_review": "only unresolved wrong questions are actionable; resolved questions remain only as reduced-weight history"
     },
-    "storage_and_sync": "release persistence and Firebase sync remain enabled; existing historical correct/incorrect records are not rewritten"
+    "runtime_fixes": [
+      {
+        "id": "QA-FAST-STATE-001",
+        "commit": "4c9e117e7bcfd068506abeffecdad31439e8302d",
+        "result": "one-time transient selected-option/repair state reset after answer-order migration; accumulated progress/history preserved"
+      },
+      {
+        "id": "QA-FAST-REVIEW-002",
+        "commit": "777136e6bf12bb8c39a6f36f11e6699296612a24",
+        "result": "resolved fast questions excluded from actionable adaptive-review queue and empty review recommendations prevented"
+      }
+    ],
+    "storage_and_sync": "release persistence and Firebase sync remain enabled; historical learning events are not rewritten"
   },
   "important_files": [
     "NEXT_CHAT_START_HERE.md",
     "CURRENT_RELEASE_STATE.json",
     "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
     "QUESTION_QUALITY_AUDIT_2026-08-17.json",
+    "RUNTIME_REGRESSION_QA_2026-08-17.json",
     "fast_content_accuracy_patch.js",
     "fast_question_quality_patch.js",
     "fast_boost_hook.js",
@@ -47,19 +61,19 @@
     "fast_day_engine.js",
     "adaptive_fast_review.html",
     "adaptive_fast_review.js",
+    "weakness_profile_engine.js",
     "sync_local_hook.js"
   ],
   "next_work": {
     "priority": 1,
-    "task": "runtime regression/visual QA of the new Day 7-18 question-quality layer, then only fix concrete defects found",
-    "checks": [
-      "normal fast question correct option remains correct after deterministic reorder",
-      "adaptive review shows the same reordered options and answer",
-      "D4 comparison/application items display D4 diagnosis",
-      "wrong answer -> repair -> original question retry still works",
-      "Pages build succeeds"
+    "task": "maintenance only: fix concrete defects observed in actual learner use or explicit user-requested UX/content changes",
+    "do_not": [
+      "restart broad audits without a new explicit reason",
+      "rewrite Day 1-6 source questions",
+      "redesign Firebase/deployment architecture",
+      "add speculative features"
     ]
   },
-  "local_sync_note": "Direct GitHub main commits were added after the user's last local sync. At a stable checkpoint, GitHub Desktop only needs Pull origin; do not Commit or Push local stale files.",
+  "local_sync_note": "GitHub main is newer than the user's last local checkpoint. At the next stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
   "backup_rule": "GitHub main is source of truth. Do not create a full ZIP unless explicitly requested."
 }
