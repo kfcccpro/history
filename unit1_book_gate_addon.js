@@ -13,6 +13,8 @@ function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;',
 function dayNumber(){const m=(location.pathname||'').match(/day(\d+)_metacog/i);if(m)return Number(m[1]);try{const x=String(COURSE&&COURSE.meta&&COURSE.meta.id||'').match(/day(\d+)/i);return x?Number(x[1]):0}catch(_){return 0}}
 function current(){try{return COURSE.problems&&COURSE.problems[state.problemIndex]||null}catch(_){return null}}
 function root(){return document.getElementById('appMain')||document.querySelector('main')||document.body}
+function registryRecord(){try{return window.H2WrongAnswerRegistry&&gateUid?H2WrongAnswerRegistry.get(gateUid):null}catch(_){return null}}
+function pendingLookup(){try{return !!(window.H2WrongAnswerRegistry&&gateUid&&typeof H2WrongAnswerRegistry.needsBookLookup==='function'&&H2WrongAnswerRegistry.needsBookLookup(gateUid))}catch(_){return false}}
 function guideRows(loc){
   const g=window.H2TextbookLocator&&H2TextbookLocator.guide?H2TextbookLocator.guide(loc,{includeKeywords:false}):null;
   if(!g)return '';
@@ -32,17 +34,20 @@ function ensureStyle(){
 }
 async function locator(){
   const d=dayNumber(),p=current();
-  const registry=window.H2WrongAnswerRegistry;const rec=registry&&gateUid?registry.get(gateUid):null;
-  if(rec&&rec.locator)return rec.locator;
+  const rec=registryRecord();if(rec&&rec.locator)return rec.locator;
   if(window.H2TextbookLocator&&H2TextbookLocator.get)return H2TextbookLocator.get(d,requested||p&&p.id,p||{});
   return rec&&rec.locator||null;
 }
-async function markWrong(){if(markedWrongForAttempt)return;markedWrongForAttempt=true;bookSeen=true;try{if(window.H2WrongAnswerRegistry&&gateUid)H2WrongAnswerRegistry.markGateAttempt(gateUid,false,{bookUsed:false})}catch(_){}}
+async function markWrong(){
+  if(markedWrongForAttempt)return;markedWrongForAttempt=true;bookSeen=true;
+  if(pendingLookup())return;
+  try{if(window.H2WrongAnswerRegistry&&gateUid)H2WrongAnswerRegistry.markGateAttempt(gateUid,false,{bookUsed:false})}catch(_){}
+}
 async function markCorrect(){if(finishing)return;finishing=true;try{if(window.H2WrongAnswerRegistry&&gateUid)H2WrongAnswerRegistry.markGateAttempt(gateUid,true,{bookUsed:bookSeen})}catch(_){}}
 async function renderLookup(){
   ensureStyle();await markWrong();const loc=await locator();const r=root();if(!r)return;
   r.innerHTML=`<section class="h2-book-gate"><div class="h2-book-kicker">다시 틀렸습니다 · 해설은 아직 보지 않습니다</div><div class="h2-book-title">책에서 근거를 찾아 다시 풀어보세요.</div><div class="h2-book-sub">정답을 바로 알려주지 않습니다. 아래 위치에서 관련 내용을 직접 찾은 뒤 같은 문제에 다시 답합니다.</div><div class="h2-book-box">${guideRows(loc)||'<div class="h2-book-row"><b>안내</b><span>현재 챕터의 해당 목록에서 찾아보세요.</span></div>'}</div><div class="h2-book-rule">책을 펼쳐 내용을 확인하세요. 정답·해설·정답 핵심어는 지금 화면에서 공개하지 않습니다.</div><button class="h2-book-action" id="h2BookRetry">책에서 찾았습니다 → 같은 문제 다시 풀기</button></section>`;
-  const b=document.getElementById('h2BookRetry');if(b)b.onclick=()=>{markedWrongForAttempt=false;finishing=false;try{if(typeof resetRuntimeForQuestion==='function')resetRuntimeForQuestion();else{runtime.mode='question';runtime.answer=null;runtime.feedbackStep=0;runtime.lastDiagnosis=null}baseRender()}catch(_){location.reload()}};
+  const b=document.getElementById('h2BookRetry');if(b)b.onclick=()=>{finishing=false;try{if(typeof resetRuntimeForQuestion==='function')resetRuntimeForQuestion();else{runtime.mode='question';runtime.answer=null;runtime.feedbackStep=0;runtime.lastDiagnosis=null}baseRender()}catch(_){location.reload()}};
 }
 async function renderSuccess(){
   ensureStyle();await markCorrect();const r=root();if(!r)return;
@@ -82,6 +87,7 @@ function install(){
       return baseRender();
     };
     if(!installGateAnswerCheck())return false;
+    if(pendingLookup()){markedWrongForAttempt=true;bookSeen=true;runtime.mode='explain';runtime.answer=null;runtime.feedbackStep=0;runtime.lastDiagnosis=null}
     wrapped=true;render();return true;
   }catch(e){console.error('[History2] unit1 book gate install failed',e);return false}
 }
