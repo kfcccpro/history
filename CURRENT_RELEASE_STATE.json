@@ -4,15 +4,20 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "status": "release-persistent-wrong-book-gate-implemented",
-  "handoff_at": "2026-08-17T15:40:00+09:00",
+  "status": "release-wrong-gate-state-qa-passed-with-fixes",
+  "handoff_at": "2026-08-17T16:46:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
   "deployment": {
     "method": "GitHub Pages from main root",
     "firebase_role": "student progress/history cross-device sync only",
-    "do_not_use": ["Firebase Hosting", "Cloud Shell deployment", "service-account secret deployment"]
+    "do_not_use": ["Firebase Hosting", "Cloud Shell deployment", "service-account secret deployment"],
+    "last_confirmed_functional_build": {
+      "commit": "a7b32f9d53ea4d96354d7884c5ff456928036e23",
+      "status": "built",
+      "error": null
+    }
   },
   "course_scope": {
     "days": "1-18",
@@ -24,11 +29,13 @@
     "accuracy_audit": "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
     "question_quality_audit": "QUESTION_QUALITY_AUDIT_2026-08-17.json",
     "runtime_regression_qa": "RUNTIME_REGRESSION_QA_2026-08-17.json",
-    "wrong_book_gate_audit": "WRONG_ANSWER_BOOK_GATE_AUDIT_2026-08-17.json",
+    "wrong_book_gate_audit": "WRONG_ANSWER_BOOK_GATE_AUDIT_2026-08-17.json v2",
     "permanent_wrong_registry": {
       "engine": "wrong_answer_registry.js",
       "storage": "history2-wrong-answer-registry-v1",
-      "policy": "once wrong, always retained as history; mastery changes status but does not delete record"
+      "policy": "once wrong, always retained as history; mastery changes status but does not delete record",
+      "reopen_fix": "a later source-learning wrong after resolvedAt reopens the record instead of leaving it resolved",
+      "source_revision": "chapter passes are keyed to uid + source wrongCount + source lastWrongAt, not gate-only counters"
     },
     "textbook_locator": {
       "engine": "textbook_locator_engine.js",
@@ -39,7 +46,8 @@
       "guard": "pre_chapter_gate_guard.js",
       "page": "pre_chapter_wrong_gate.html",
       "controller": "pre_chapter_wrong_gate.js",
-      "policy": "before Day2-18, resurface up to three historical wrongs from any earlier Day"
+      "policy": "before Day2-18, resurface up to three historical wrongs from any earlier Day",
+      "pass_fix": "PASS and gate session store the current source-wrong revision; any new earlier-Day source wrong invalidates stale PASS/session and rebuilds the gate"
     },
     "book_first_repeat_wrong": {
       "day1_to_day6": "unit1_book_gate.html + unit1_book_gate_addon.js reuse original source problem",
@@ -47,8 +55,26 @@
       "wrong_behavior": "no answer, why, recovery clue, O/X or answer keyword; show book location then retry same problem",
       "correct_behavior": "brief consolidation allowed only after correct retry"
     },
+    "load_order": "textbook locator -> wrong registry -> registry sync -> pre-chapter gate guard",
     "storage_and_sync": "release persistence and Firebase sync remain enabled; registry follows history2-* storage convention"
   },
+  "qa_fixes": [
+    {
+      "id": "QA-GATE-STATE-001",
+      "severity": "high",
+      "commit": "a512b5860b2efc179ab8f2947c95c834cbab2447",
+      "result": "resolved historical wrongs reopen when a newer source-learning wrong occurs"
+    },
+    {
+      "id": "QA-GATE-PASS-002",
+      "severity": "high",
+      "commits": [
+        "2201ea6d43ec55f7a804fc39e6b7e24818b71d56",
+        "a7b32f9d53ea4d96354d7884c5ff456928036e23"
+      ],
+      "result": "stale chapter PASS and stale selected-uids session are invalidated when source wrong history changes"
+    }
+  ],
   "important_files": [
     "NEXT_CHAT_START_HERE.md",
     "CURRENT_RELEASE_STATE.json",
@@ -68,15 +94,17 @@
   ],
   "next_work": {
     "priority": 1,
-    "task": "live click-through QA of the new wrong-book gate with real stored wrongs, then fix only concrete defects",
+    "task": "interactive click-through QA with real stored learner wrongs; fix only concrete runtime or visual defects",
     "checks": [
-      "a Day1-6 wrong appears before a later chapter and opens the exact original problem",
-      "a repeated Day1-6 wrong shows audited page/chapter guidance without explanation",
-      "a Day7-18 repeated wrong shows page-unverified chapter/list guidance without guessing a page",
-      "correct retry returns to the gate and advances to the next stored wrong",
-      "all gate items completed -> requested new chapter starts",
-      "wrong registry persists after mastery and across Firebase reconciliation"
-    ]
+      "Day1-6 historical wrong opens the exact existing source problem through unit1_book_gate wrapper",
+      "repeated Day1-6 wrong suppresses explanation and shows audited page/chapter guidance",
+      "Day7-18 repeated wrong suppresses explanation and shows page-unverified chapter/list guidance",
+      "correct retry increments gateCorrectCount and returns to the same pre-chapter session",
+      "all selected gate items completed -> requested new chapter starts",
+      "after a later new wrong, an old PASS becomes invalid and the gate appears again",
+      "wrong registry remains present after mastery and after Firebase reconciliation"
+    ],
+    "limitation": "No interactive browser with the learner's real localStorage/Firebase account state is available in this environment, so visual click-through is not claimed as completed."
   },
   "local_sync_note": "GitHub main is newer than the user's local checkpoint. At a stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
   "backup_rule": "GitHub main is source of truth. Do not create a full ZIP unless explicitly requested."
