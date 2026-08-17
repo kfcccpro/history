@@ -1,0 +1,6 @@
+(function(){
+'use strict';
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){if(!window.H2WeaknessProfile)return;const root=document.querySelector('main.wrap');if(!root||document.getElementById('studentWeaknessSummary'))return;const p=H2WeaknessProfile.get(),items=(p.topConcept||[]).filter(x=>x.score>0).slice(0,3);if(!items.length)return;const sec=document.createElement('section');sec.id='studentWeaknessSummary';sec.className='group';sec.innerHTML=`<h2>지금 우선 보완할 3가지</h2><div style="color:#64788d;font-size:18px;font-weight:800;line-height:1.5;margin:-2px 0 16px">점수가 아니라, 최근 오답에서 반복된 개념을 보여줍니다.</div><div class="grid">${items.map((x,i)=>`<div class="day" style="cursor:default"><b>우선 ${i+1}</b><strong>${esc(x.name)}</strong><span>${x.count}회 흔들림 · ${x.dayCount}개 Day에서 확인</span></div>`).join('')}</div>`;const first=root.querySelector('.group');if(first)root.insertBefore(sec,first);else root.appendChild(sec)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render,{once:true});else render();window.addEventListener('history2:cloud-reconciled',()=>setTimeout(()=>{const old=document.getElementById('studentWeaknessSummary');if(old)old.remove();render()},60));
+})();
