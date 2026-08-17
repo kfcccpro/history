@@ -1,0 +1,45 @@
+{
+  "audit": "History2 runtime regression QA",
+  "date": "2026-08-17",
+  "scope": "Day 1-18 student learning flow with focus on Day 7-18 question-quality layer",
+  "checks": [
+    "normal fast-flow content loads after accuracy and question-quality patches",
+    "deterministic answer reordering moves correct option and answer index together",
+    "normal fast flow and adaptive fast review consume the same patched content",
+    "per-question qualityDiagnosis overrides generic D2/D3/D4 heuristic",
+    "wrong answer -> diagnosis -> repair O/X -> same original question retry remains intact",
+    "O/X miss keeps learner in repair and shows correction before rejudging",
+    "resolved adaptive-review items are excluded from actionable review queue",
+    "next-action recommendation never points to an empty resolved fast-review queue",
+    "legacy transient selected-option state is cleared once after answer-position migration while progress/history remain preserved"
+  ],
+  "defects_found_and_fixed": [
+    {
+      "id": "QA-FAST-STATE-001",
+      "severity": "medium",
+      "problem": "A learner who had an option selected in an old Day 7-18 session could reopen after deterministic option reordering and see the old numeric selected index applied to the new option order.",
+      "fix": "fast_boost_hook.js now performs a one-time QA-version migration that clears only transient answered/repair state while preserving index, accumulated history, wrong counts, finished state, and synced progress.",
+      "commit": "4c9e117e7bcfd068506abeffecdad31439e8302d"
+    },
+    {
+      "id": "QA-FAST-REVIEW-002",
+      "severity": "medium",
+      "problem": "A question already solved in adaptive review could remain actionable because historical wrong-count weight stayed above threshold; recommendation could then open a review page with no unresolved item.",
+      "fix": "weakness_profile_engine.js keeps resolved mistakes in weakness statistics at reduced weight but filters them out of weakFastDetail actionable queues and skips fast-day review recommendations that have no unresolved question.",
+      "commit": "777136e6bf12bb8c39a6f36f11e6699296612a24"
+    }
+  ],
+  "day1_to_day6": {
+    "policy": "source/workbook stems and options preserved",
+    "regression_result": "no new code-path modification in this QA; existing adaptive depth -> original question retry architecture retained"
+  },
+  "day7_to_day18": {
+    "regression_result": "pass after the two concrete fixes above",
+    "normal_flow": "fast_day.html -> fast_boost_hook.js -> fast_day_engine.js",
+    "adaptive_review": "adaptive_fast_review.html -> fast_boost_hook.js -> adaptive_fast_review.js",
+    "quality_layer": "fast_question_quality_patch.js"
+  },
+  "storage_policy": "Historical learning events are never rewritten. Only obsolete transient current-option state is reset once for compatibility with reordered choices.",
+  "result": "PASS_WITH_FIXES",
+  "next_policy": "Do not start another broad redesign. From this point, fix only defects observed in actual learner use or explicitly requested UX/content changes."
+}
