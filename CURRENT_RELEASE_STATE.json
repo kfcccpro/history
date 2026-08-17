@@ -4,76 +4,80 @@
   "branch": "main",
   "public_site": "https://kfcccpro.github.io/history/",
   "start_page": "https://kfcccpro.github.io/history/fast_index.html",
-  "status": "release-maintenance-runtime-qa-passed",
-  "handoff_at": "2026-08-17T15:09:00+09:00",
+  "status": "release-persistent-wrong-book-gate-implemented",
+  "handoff_at": "2026-08-17T15:40:00+09:00",
   "build_mode": "release",
   "student_pin": "8081",
   "admin_pin": "2007",
   "deployment": {
     "method": "GitHub Pages from main root",
     "firebase_role": "student progress/history cross-device sync only",
-    "do_not_use": ["Firebase Hosting","Cloud Shell deployment","service-account secret deployment"]
+    "do_not_use": ["Firebase Hosting", "Cloud Shell deployment", "service-account secret deployment"]
   },
   "course_scope": {
     "days": "1-18",
     "day1_to_day6": "140 source-based original questions with full adaptive depth remediation",
-    "day7_to_day18": "fast lightweight flow with question-quality patch and adaptive unresolved-wrong review"
+    "day7_to_day18": "fast lightweight flow with question-quality patch and adaptive wrong review"
   },
   "completed_work": {
-    "visibility": "student-wide visibility boost/refinement deployed; parent/admin excluded",
+    "visibility": "student-wide visibility boost/refinement deployed",
     "accuracy_audit": "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
     "question_quality_audit": "QUESTION_QUALITY_AUDIT_2026-08-17.json",
-    "runtime_regression_qa": "RUNTIME_REGRESSION_QA_2026-08-17.json; PASS_WITH_FIXES",
-    "day1_to_day6_quality_policy": "preserve workbook/textbook original stems/options; use option feedback and adaptive depth repair rather than rewriting source questions",
-    "day7_to_day18_quality": {
-      "patch": "fast_question_quality_patch.js",
-      "selected_rewrites": 30,
-      "distractors": "selected obviously unrelated distractors replaced with plausible same-domain alternatives",
-      "answer_position": "deterministically balanced while moving correct option and answer index together",
-      "depth": "per-question qualityDiagnosis overrides generic heuristic where specified",
-      "normal_flow": "wrong answer -> diagnosis -> O/X repair -> same original question retry",
-      "adaptive_review": "only unresolved wrong questions are actionable; resolved questions remain only as reduced-weight history"
+    "runtime_regression_qa": "RUNTIME_REGRESSION_QA_2026-08-17.json",
+    "wrong_book_gate_audit": "WRONG_ANSWER_BOOK_GATE_AUDIT_2026-08-17.json",
+    "permanent_wrong_registry": {
+      "engine": "wrong_answer_registry.js",
+      "storage": "history2-wrong-answer-registry-v1",
+      "policy": "once wrong, always retained as history; mastery changes status but does not delete record"
     },
-    "runtime_fixes": [
-      {
-        "id": "QA-FAST-STATE-001",
-        "commit": "4c9e117e7bcfd068506abeffecdad31439e8302d",
-        "result": "one-time transient selected-option/repair state reset after answer-order migration; accumulated progress/history preserved"
-      },
-      {
-        "id": "QA-FAST-REVIEW-002",
-        "commit": "777136e6bf12bb8c39a6f36f11e6699296612a24",
-        "result": "resolved fast questions excluded from actionable adaptive-review queue and empty review recommendations prevented"
-      }
-    ],
-    "storage_and_sync": "release persistence and Firebase sync remain enabled; historical learning events are not rewritten"
+    "textbook_locator": {
+      "engine": "textbook_locator_engine.js",
+      "day1_to_day6": "use QUESTION_SOURCE_MAPPING_AUDIT.json exact problem-page mapping where verified",
+      "day7_to_day18": "never guess pages; use page-unverified unit/chapter/section guidance"
+    },
+    "pre_chapter_wrong_gate": {
+      "guard": "pre_chapter_gate_guard.js",
+      "page": "pre_chapter_wrong_gate.html",
+      "controller": "pre_chapter_wrong_gate.js",
+      "policy": "before Day2-18, resurface up to three historical wrongs from any earlier Day"
+    },
+    "book_first_repeat_wrong": {
+      "day1_to_day6": "unit1_book_gate.html + unit1_book_gate_addon.js reuse original source problem",
+      "day7_to_day18": "fast_book_gate_engine.js reuses normal fast content pipeline",
+      "wrong_behavior": "no answer, why, recovery clue, O/X or answer keyword; show book location then retry same problem",
+      "correct_behavior": "brief consolidation allowed only after correct retry"
+    },
+    "storage_and_sync": "release persistence and Firebase sync remain enabled; registry follows history2-* storage convention"
   },
   "important_files": [
     "NEXT_CHAT_START_HERE.md",
     "CURRENT_RELEASE_STATE.json",
-    "CONTENT_ACCURACY_AUDIT_2026-08-17.json",
-    "QUESTION_QUALITY_AUDIT_2026-08-17.json",
-    "RUNTIME_REGRESSION_QA_2026-08-17.json",
-    "fast_content_accuracy_patch.js",
-    "fast_question_quality_patch.js",
-    "fast_boost_hook.js",
-    "fast_day.html",
-    "fast_day_engine.js",
-    "adaptive_fast_review.html",
-    "adaptive_fast_review.js",
-    "weakness_profile_engine.js",
-    "sync_local_hook.js"
+    "WRONG_ANSWER_BOOK_GATE_AUDIT_2026-08-17.json",
+    "QUESTION_SOURCE_MAPPING_AUDIT.json",
+    "textbook_locator_engine.js",
+    "wrong_answer_registry.js",
+    "wrong_learning_system_bootstrap.js",
+    "pre_chapter_gate_guard.js",
+    "pre_chapter_wrong_gate.html",
+    "pre_chapter_wrong_gate.js",
+    "unit1_book_gate.html",
+    "unit1_book_gate_addon.js",
+    "fast_book_gate_engine.js",
+    "fast_sync_boot.js",
+    "app_mode_config.js"
   ],
   "next_work": {
     "priority": 1,
-    "task": "maintenance only: fix concrete defects observed in actual learner use or explicit user-requested UX/content changes",
-    "do_not": [
-      "restart broad audits without a new explicit reason",
-      "rewrite Day 1-6 source questions",
-      "redesign Firebase/deployment architecture",
-      "add speculative features"
+    "task": "live click-through QA of the new wrong-book gate with real stored wrongs, then fix only concrete defects",
+    "checks": [
+      "a Day1-6 wrong appears before a later chapter and opens the exact original problem",
+      "a repeated Day1-6 wrong shows audited page/chapter guidance without explanation",
+      "a Day7-18 repeated wrong shows page-unverified chapter/list guidance without guessing a page",
+      "correct retry returns to the gate and advances to the next stored wrong",
+      "all gate items completed -> requested new chapter starts",
+      "wrong registry persists after mastery and across Firebase reconciliation"
     ]
   },
-  "local_sync_note": "GitHub main is newer than the user's last local checkpoint. At the next stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
+  "local_sync_note": "GitHub main is newer than the user's local checkpoint. At a stable local sync, GitHub Desktop should only Pull origin; do not Commit or Push stale local files.",
   "backup_rule": "GitHub main is source of truth. Do not create a full ZIP unless explicitly requested."
 }
