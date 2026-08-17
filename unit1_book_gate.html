@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>한국사Ⅱ · 교재 탐색 오답 복구</title>
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#f4f7fa}#frame{display:block;width:100%;height:100dvh;border:0;background:#f4f7fa}#loading{position:fixed;inset:0;z-index:10;display:grid;place-items:center;background:#f4f7fa;color:#294966;font:900 20px/1.5 Pretendard,"Noto Sans KR",system-ui,sans-serif}body.ready #loading{display:none}</style>
+</head>
+<body>
+<div id="loading">이전 오답 원문을 불러오는 중입니다.</div>
+<iframe id="frame" title="이전 오답 원문 복구"></iframe>
+<script>
+(function(){
+'use strict';
+const p=new URLSearchParams(location.search);
+const day=Math.max(1,Math.min(6,Number(String(p.get('day')||'1').replace(/[^0-9]/g,''))||1));
+const problem=String(p.get('problem')||'').trim();
+const gateUid=String(p.get('gateUid')||'').trim();
+const ret=String(p.get('return')||'pre_chapter_wrong_gate.html');
+const q=new URLSearchParams({adaptive:'1',problem,bookGate:'1',gateUid,return:ret});
+const frame=document.getElementById('frame');
+function add(doc,src){return new Promise(resolve=>{const s=doc.createElement('script');s.src=src;s.onload=resolve;s.onerror=resolve;doc.head.appendChild(s)})}
+frame.onload=async()=>{
+  try{
+    const doc=frame.contentDocument;
+    await add(doc,'textbook_locator_engine.js');
+    await add(doc,'wrong_answer_registry.js');
+    await add(doc,'unit1_book_gate_addon.js');
+    document.body.classList.add('ready');
+  }catch(e){document.getElementById('loading').textContent='오답 복구 화면을 불러오지 못했습니다. 전체 Day 목록으로 돌아가 다시 시도하세요.'}
+};
+frame.src=`korean_history2_day${day}_metacog_app.html?${q.toString()}`;
+})();
+</script>
+</body>
+</html>
