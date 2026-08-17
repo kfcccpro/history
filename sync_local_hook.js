@@ -10,13 +10,14 @@
   const firebaseCfgKey='history2-firebase-config-v1';
 
   const studentPath=location.pathname||'';
+  const isUnit1Detailed=/\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
   const isStudentVisibilityPage=
     /\/fast_index\.html$/i.test(studentPath)||
     /\/fast_day\.html$/i.test(studentPath)||
-    /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
+    isUnit1Detailed;
   const isStudentLearningPage=
     /\/fast_day\.html$/i.test(studentPath)||
-    /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
+    isUnit1Detailed;
   const isAdaptiveFastReview=/\/adaptive_fast_review\.html$/i.test(studentPath);
   const isUnifiedJourneyPage=isStudentLearningPage||isAdaptiveFastReview;
   const isStudentHub=/\/fast_index\.html$/i.test(studentPath);
@@ -37,6 +38,15 @@
       refineLink.href='student_visibility_refine.css';
       document.head.appendChild(refineLink);
     }
+  }
+
+  if(isUnit1Detailed&&!window.__H2_UNIT1_ACCURACY_PATCH_REQUESTED__){
+    window.__H2_UNIT1_ACCURACY_PATCH_REQUESTED__=true;
+    const unit1Accuracy=document.createElement('script');
+    unit1Accuracy.src='unit1_content_accuracy_patch.js';
+    unit1Accuracy.defer=true;
+    unit1Accuracy.onerror=()=>console.error('[History2] unit1_content_accuracy_patch.js load failed');
+    document.head.appendChild(unit1Accuracy);
   }
 
   if(isStudentLearningPage&&!window.__H2_LEARNING_SOURCE_CONTEXT_REQUESTED__){
