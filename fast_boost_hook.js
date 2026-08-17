@@ -18,6 +18,7 @@ try{
           extra.forEach(q=>{if(q.branch)branches.add(q.branch)});
           v.branches=[...branches];
         }
+        if(window.applyHistory2FastAccuracy)v=window.applyHistory2FastAccuracy(v)||v;
       }catch(_){ }
       value=v;
     }
