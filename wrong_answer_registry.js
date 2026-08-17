@@ -17,14 +17,24 @@ function read(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(_)
 function now(){return Date.now()}
 function ntime(v){const n=Number(v||0);return Number.isFinite(n)&&n>0?n:0}
 function uid(day,id){return `d${Number(day)}:${String(id||'').trim()}`}
-function load(){const x=read(KEY);return x&&typeof x==='object'?x:{version:1,updatedAt:0,records:{}}}
-function save(db){db.version=1;db.updatedAt=now();try{localStorage.setItem(KEY,JSON.stringify(db))}catch(_){}return db}
+function normalizeRecord(r){
+  if(!r||typeof r!=='object')return r;
+  r.gateWrongCount=Number(r.gateWrongCount||0);r.gateCorrectCount=Number(r.gateCorrectCount||0);r.bookResolvedCount=Number(r.bookResolvedCount||0);
+  r.lastWrongAt=ntime(r.lastWrongAt);r.lastGateAt=ntime(r.lastGateAt);r.lastBookPromptAt=ntime(r.lastBookPromptAt);r.resolvedAt=ntime(r.resolvedAt);r.lastResolvedAt=Math.max(ntime(r.lastResolvedAt),r.resolvedAt);
+  const pending=r.lastBookPromptAt>Math.max(r.lastResolvedAt,r.lastWrongAt);
+  if(pending){r.resolvedAt=0;r.status=r.gateWrongCount>=2?'recurring':'book-retry'}
+  else if(r.resolvedAt){r.status='resolved'}
+  else if(r.status==='resolved'||!r.status){r.status=r.gateWrongCount>=2?'recurring':'open'}
+  return r;
+}
+function load(){const x=read(KEY),db=x&&typeof x==='object'?x:{version:1,updatedAt:0,records:{}};if(!db.records||typeof db.records!=='object')db.records={};Object.values(db.records).forEach(normalizeRecord);return db}
+function save(db){db.version=1;db.updatedAt=now();Object.values(db.records||{}).forEach(normalizeRecord);try{localStorage.setItem(KEY,JSON.stringify(db))}catch(_){}return db}
 function clone(x){return JSON.parse(JSON.stringify(x))}
 function hashText(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(36)}
 
 function ensure(db,day,id,meta){
   const k=uid(day,id);if(!id)return null;
-  const old=db.records[k]||{};
+  const old=normalizeRecord(db.records[k]||{});
   const m=meta||{};
   const oldResolved=ntime(old.resolvedAt);
   const rec=db.records[k]={
@@ -37,13 +47,12 @@ function ensure(db,day,id,meta){
     status:old.status||'open',resolvedAt:oldResolved,lastResolvedAt:Math.max(ntime(old.lastResolvedAt),oldResolved),lastGateAt:ntime(old.lastGateAt),lastBookPromptAt:ntime(old.lastBookPromptAt),
     locator:old.locator||null,source:'history2'
   };
-  return rec;
+  return normalizeRecord(rec);
 }
 
 function needsBookLookupValue(rec){
-  if(!rec)return false;
-  const prompt=ntime(rec.lastBookPromptAt),cleared=Math.max(ntime(rec.lastResolvedAt),ntime(rec.lastWrongAt));
-  return prompt>cleared;
+  if(!rec)return false;normalizeRecord(rec);
+  return ntime(rec.lastBookPromptAt)>Math.max(ntime(rec.lastResolvedAt),ntime(rec.lastWrongAt));
 }
 function reopenIfNewSourceWrong(rec,wrongAt){
   const at=ntime(wrongAt),resolved=ntime(rec&&rec.resolvedAt);
@@ -144,9 +153,9 @@ function markGateAttempt(recordUid,correct,opts){
   r.lastGateAt=now();
   if(correct){r.gateCorrectCount=(r.gateCorrectCount||0)+1;resolveRecord(r,r.lastGateAt);if(o.bookUsed)r.bookResolvedCount=(r.bookResolvedCount||0)+1}
   else{r.gateWrongCount=(r.gateWrongCount||0)+1;r.status=r.gateWrongCount>=2?'recurring':'book-retry';r.lastBookPromptAt=r.lastGateAt;r.resolvedAt=0}
-  save(db);return clone(r);
+  normalizeRecord(r);save(db);return clone(r);
 }
-function reopen(recordUid){const db=load(),r=db.records[recordUid];if(!r)return null;const old=ntime(r.resolvedAt);if(old)r.lastResolvedAt=Math.max(ntime(r.lastResolvedAt),old);r.status='open';r.resolvedAt=0;save(db);return clone(r)}
+function reopen(recordUid){const db=load(),r=db.records[recordUid];if(!r)return null;const old=ntime(r.resolvedAt);if(old)r.lastResolvedAt=Math.max(ntime(r.lastResolvedAt),old);r.status='open';r.resolvedAt=0;normalizeRecord(r);save(db);return clone(r)}
 function stats(){const a=all();return{total:a.length,open:a.filter(x=>x.status!=='resolved').length,resolved:a.filter(x=>x.status==='resolved').length,recurring:a.filter(x=>x.status==='recurring').length,pendingBook:a.filter(needsBookLookupValue).length}}
 
 g.H2WrongAnswerRegistry={KEY,sync,all,get,needsBookLookup,actionableBefore,historicalBefore,sourceRevisionBefore,markGateAttempt,reopen,stats};
