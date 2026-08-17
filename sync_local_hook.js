@@ -9,19 +9,28 @@
   const cloudDisabled=mode.firebaseSync===false;
   const firebaseCfgKey='history2-firebase-config-v1';
 
-  // Load the visibility boost only on student-facing learning pages.
+  // Load student readability styles only on student-facing learning pages.
   // parent/admin pages also use this sync hook and must keep their own layout untouched.
   const studentPath=location.pathname||'';
   const isStudentVisibilityPage=
     /\/fast_index\.html$/i.test(studentPath)||
     /\/fast_day\.html$/i.test(studentPath)||
     /\/korean_history2_day[1-6]_student_flow_app\.html$/i.test(studentPath);
-  if(isStudentVisibilityPage&&!document.getElementById('history2-student-visibility-boost')){
-    const styleLink=document.createElement('link');
-    styleLink.id='history2-student-visibility-boost';
-    styleLink.rel='stylesheet';
-    styleLink.href='student_visibility_boost.css';
-    document.head.appendChild(styleLink);
+  if(isStudentVisibilityPage){
+    if(!document.getElementById('history2-student-visibility-boost')){
+      const styleLink=document.createElement('link');
+      styleLink.id='history2-student-visibility-boost';
+      styleLink.rel='stylesheet';
+      styleLink.href='student_visibility_boost.css';
+      document.head.appendChild(styleLink);
+    }
+    if(!document.getElementById('history2-student-visibility-refine')){
+      const refineLink=document.createElement('link');
+      refineLink.id='history2-student-visibility-refine';
+      refineLink.rel='stylesheet';
+      refineLink.href='student_visibility_refine.css';
+      document.head.appendChild(refineLink);
+    }
   }
 
   window.__HISTORY2_SYNC_DIRTY__=window.__HISTORY2_SYNC_DIRTY__||new Set();
