@@ -16,7 +16,7 @@
   document.head.appendChild(script);
 
   function fatal(msg){app.innerHTML=`<div class="shell"><div></div><section class="card"><h1 class="title">${esc(msg)}</h1><button class="primary" id="goHub">전체 목록</button></section><div></div></div>`;const b=document.getElementById('goHub');if(b)b.onclick=()=>location.href='fast_index.html'}
-  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]))}
 
   function ensureDiagnosisStyles(){
     if(document.getElementById('fastDepthDiagnosisStyles'))return;
@@ -80,6 +80,8 @@
     }
 
     function diagnosisFor(item,pickedIndex){
+      const quality=window.History2FastQuestionQuality;
+      if(quality&&typeof quality.diagnose==='function')return quality.diagnose(item,pickedIndex);
       const text=`${item.q||''} ${item.concept||''}`;
       let depth='D3',skill='개념과 보기 연결',label='관계 연결';
       if(/옳지 않은|아닌 것은|잘못|구별|해당하지/.test(text)){
