@@ -19,6 +19,7 @@ try{
           v.branches=[...branches];
         }
         if(window.applyHistory2FastAccuracy)v=window.applyHistory2FastAccuracy(v)||v;
+        if(window.applyHistory2FastQuestionQuality)v=window.applyHistory2FastQuestionQuality(v)||v;
       }catch(_){ }
       value=v;
     }
