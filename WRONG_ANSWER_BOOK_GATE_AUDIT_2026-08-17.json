@@ -1,7 +1,7 @@
 {
-  "version": "2026-08-17-v2",
+  "version": "2026-08-17-v3",
   "macro": "persistent wrong registry -> pre-chapter gate -> textbook lookup -> same-question retry",
-  "status": "STATIC_STATE_TRANSITION_QA_PASSED_WITH_FIXES",
+  "status": "INTEGRATED_STATIC_FLOW_QA_PASSED_WITH_FIXES",
   "principles": [
     "Any question missed at least once remains in the permanent wrong-answer registry even after later mastery.",
     "Before Day 2-18 starts, up to three wrong questions from any earlier Day can be resurfaced regardless of current chapter topic.",
@@ -9,7 +9,8 @@
     "Textbook page numbers are never fabricated.",
     "After textbook lookup, the learner retries the same original question; brief explanation is allowed only after a correct retry.",
     "A later source-learning wrong reopens a previously resolved registry record.",
-    "A chapter-gate pass is valid only for the exact source-wrong revision that existed when the learner passed it."
+    "A chapter-gate pass is valid only for the exact source-wrong revision that existed when the learner passed it.",
+    "Gate attempts must never mutate the normal Day1-6 source-learning mastery/wrongNote/attempt state."
   ],
   "locator": {
     "engine": "textbook_locator_engine.js",
@@ -29,28 +30,10 @@
   "registry": {
     "engine": "wrong_answer_registry.js",
     "storage_key": "history2-wrong-answer-registry-v1",
-    "sources": [
-      "Day1-6 wrongNotes and problemStatus",
-      "Day7-18 answer history"
-    ],
+    "sources": ["Day1-6 wrongNotes and problemStatus", "Day7-18 answer history"],
     "retention": "Records are never deleted on mastery; status changes between open/book-retry/recurring/resolved.",
-    "reopen_policy": "If a source-learning wrong occurs after resolvedAt, resolvedAt is cleared and the record reopens. Repeated historical gate failures retain recurring severity.",
-    "source_revision": "sourceRevisionBefore(targetDay) fingerprints only uid + source wrongCount + source lastWrongAt. Gate attempts do not independently invalidate a pass.",
-    "fields": [
-      "day",
-      "questionId",
-      "firstWrongAt",
-      "lastWrongAt",
-      "wrongCount",
-      "gateWrongCount",
-      "gateCorrectCount",
-      "depth",
-      "skill",
-      "status",
-      "resolvedAt",
-      "lastResolvedAt",
-      "locator"
-    ]
+    "reopen_policy": "If a source-learning wrong occurs after resolvedAt, resolvedAt is cleared and the record reopens.",
+    "source_revision": "sourceRevisionBefore(targetDay) fingerprints only uid + source wrongCount + source lastWrongAt. Gate attempts do not independently invalidate a pass."
   },
   "pre_chapter_gate": {
     "guard": "pre_chapter_gate_guard.js",
@@ -60,78 +43,69 @@
     "selection": "up to three historical wrongs from earlier Days",
     "bypass_prevention": "guard is attached to actual Day entry pages, not only the hub",
     "pass_policy": "PASS stores the current source-wrong revision. If earlier-Day source wrong history changes, the old PASS is invalid.",
-    "session_policy": "Gate session stores the same revision. A revision mismatch rebuilds the selected wrong list instead of reusing stale uids."
+    "session_policy": "Gate session stores the same revision. A revision mismatch rebuilds the selected wrong list."
   },
   "source_question_reuse": {
     "day1_to_day6": {
       "wrapper": "unit1_book_gate.html",
       "addon": "unit1_book_gate_addon.js",
-      "policy": "Reuse existing problem-specific metacog source question; intercept explain mode during bookGate only."
+      "policy": "Reuse the existing original question UI and isCorrect() only. The gate replaces checkAnswer() with an isolated gate-only verdict path so normal source attempts/problemStatus/wrongNotes are not mutated.",
+      "book_evidence": "bookSeen persists across retry and is recorded when the learner eventually answers correctly after textbook lookup."
     },
     "day7_to_day18": {
       "engine": "fast_book_gate_engine.js",
       "route": "fast_sync_boot.js? bookGate=1",
-      "policy": "Load the same fast content pipeline, including boost, accuracy patch and question-quality reorder."
+      "policy": "Use a dedicated gate engine and the same patched content/answer pipeline; normal history2-fast-day-* state is not mutated."
     }
   },
   "repeated_wrong_behavior": {
-    "before_correct": [
-      "show no why explanation",
-      "show no recovery clue",
-      "show no correct option",
-      "show no O/X remediation",
-      "show textbook location only",
-      "retry same question"
-    ],
-    "after_correct": [
-      "mark gate attempt resolved",
-      "brief consolidation may be shown",
-      "return to pre-chapter gate for next historical wrong"
-    ]
+    "before_correct": ["show no why explanation", "show no recovery clue", "show no correct option", "show no O/X remediation", "show textbook location only", "retry same question"],
+    "after_correct": ["mark gate attempt resolved", "record whether textbook lookup was used", "brief consolidation may be shown", "return to pre-chapter gate for next historical wrong"]
   },
   "integration": {
     "bootstrap": "wrong_learning_system_bootstrap.js",
     "load_order": "textbook locator -> wrong registry -> registry sync -> gate guard",
-    "config_loader": "app_mode_config.js includes pre_chapter_wrong_gate.html as a student page",
-    "fast_boot": "fast_sync_boot.js switches to fast_book_gate_engine.js for bookGate=1",
-    "firebase": "registry key uses history2-* storage convention and is eligible for existing release sync"
+    "firebase": "history2-wrong-answer-registry-v1 matches the generic history2-* sync prefix and is eligible for existing release Firebase sync"
   },
   "qa": {
     "fixed_defects": [
       {
         "id": "QA-GATE-STATE-001",
         "severity": "high",
-        "problem": "A record already marked resolved could remain resolved after a later source-learning wrong.",
-        "fix": "Compare source wrong timestamp with resolvedAt and reopen when the newer source wrong occurred after resolution.",
+        "result": "resolved historical wrongs reopen when a newer source-learning wrong occurs",
         "commit": "a512b5860b2efc179ab8f2947c95c834cbab2447"
       },
       {
         "id": "QA-GATE-PASS-002",
         "severity": "high",
-        "problem": "A previously stored chapter PASS could permanently bypass the gate even after new earlier-Day wrongs were added.",
-        "fix": "Bind PASS and gate session to a deterministic source-wrong revision and invalidate/rebuild on mismatch.",
-        "commits": [
-          "2201ea6d43ec55f7a804fc39e6b7e24818b71d56",
-          "a7b32f9d53ea4d96354d7884c5ff456928036e23"
-        ]
+        "result": "stale chapter PASS and stale gate sessions are invalidated when source wrong history changes",
+        "commits": ["2201ea6d43ec55f7a804fc39e6b7e24818b71d56", "a7b32f9d53ea4d96354d7884c5ff456928036e23"]
+      },
+      {
+        "id": "QA-GATE-ISOLATION-003",
+        "severity": "critical",
+        "problem": "Day1-6 gate reused the normal checkAnswer(), so a gate retry could mutate normal attempts/problemStatus/wrongNotes and recursively change the source-wrong revision.",
+        "fix": "Gate mode now overrides checkAnswer() with an isolated isCorrect()-based verdict and never calls normal saveState/remote attempt mutation for the gate answer.",
+        "commit": "010de08f334cade9f67e0ae8fcd56fb80d928b8d"
+      },
+      {
+        "id": "QA-GATE-BOOK-EVIDENCE-004",
+        "severity": "low",
+        "problem": "bookUsed evidence could be cleared at retry before the eventual correct answer.",
+        "fix": "bookSeen now persists across the retry cycle and success wording distinguishes first-try success from textbook-assisted recovery.",
+        "commit": "4d965dbb3fa83dec0482a08da5c41868d11a4e7c"
       }
     ],
     "static_checks": [
-      "Day1-6 exact locator source is QUESTION_SOURCE_MAPPING_AUDIT.json rather than inferred page numbers.",
+      "Day1-6 original metacog source files are real non-empty pages; earlier empty connector output was a fetch representation issue, not a zero-byte file.",
+      "Day1-6 exact locator comes from QUESTION_SOURCE_MAPPING_AUDIT.json.",
       "Day7-18 fallback has page=null and verified=false.",
-      "gate locator suppresses keywords before correct retry.",
-      "Day1-6 gate reuses original metacog question via wrapper instead of copying 140 questions.",
-      "Day7-18 gate uses existing content and answer-key pipeline.",
-      "normal Day entry is guarded so the hub cannot be the only enforcement point.",
+      "gate locator suppresses answer keywords before correct retry.",
+      "Day1-6 gate no longer mutates source-learning attempts/problemStatus/wrongNotes.",
+      "Day7-18 gate uses its dedicated engine and does not mutate normal fast-day state.",
       "registry sync completes before pre-chapter guard runs.",
-      "old PASS without revision is treated as invalid and upgraded through a new gate pass.",
       "new source wrong history changes the revision; gate-only counters do not."
     ],
-    "pages_build": {
-      "commit": "a7b32f9d53ea4d96354d7884c5ff456928036e23",
-      "status": "built",
-      "error": null
-    },
-    "limitation": "No interactive browser with the learner's real localStorage/Firebase account state is available here. Visual click-through with a real stored wrong remains a separate runtime checkpoint."
+    "limitation": "No interactive browser with the learner's real localStorage/Firebase account state is available in this environment. This is integrated static/runtime-code QA, not a claimed visual click-through."
   }
 }
