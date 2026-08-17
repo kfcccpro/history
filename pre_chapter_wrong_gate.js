@@ -28,8 +28,8 @@ function launch(rec){
   session.awaiting=rec.uid;session.baselineCorrect=Number(rec.gateCorrectCount||0);session.updatedAt=Date.now();save(SESSION,session);
   const back=`pre_chapter_wrong_gate.html?targetDay=${targetDay}&return=${encodeURIComponent(safeReturn())}`;
   if(rec.day<=6){
-    const q=new URLSearchParams({adaptive:'1',problem:rec.questionId,bookGate:'1',gateUid:rec.uid,return:back});
-    location.href=`korean_history2_day${rec.day}_metacog_app.html?${q.toString()}`;
+    const q=new URLSearchParams({day:String(rec.day),problem:rec.questionId,gateUid:rec.uid,return:back});
+    location.href=`unit1_book_gate.html?${q.toString()}`;
   }else{
     const q=new URLSearchParams({day:String(rec.day),bookGate:'1',problem:rec.questionId,gateUid:rec.uid,return:back});
     location.href=`fast_day.html?${q.toString()}`;
