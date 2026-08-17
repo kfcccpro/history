@@ -1,0 +1,57 @@
+{
+  "project": "History2 Korean History II learning webapp",
+  "audit_date": "2026-08-17",
+  "scope": "Day 1-18 question quality",
+  "status": "completed-with-fast-flow-quality-patch",
+  "criteria": [
+    "distractor plausibility",
+    "answer-position bias",
+    "rote recall versus relationship/application",
+    "duplicate/review purpose",
+    "depth diagnosis fit",
+    "source fidelity"
+  ],
+  "day1_to_day6": {
+    "problems": 140,
+    "policy": "Preserve workbook/textbook original stems and options. Do not rewrite source questions solely to make them harder.",
+    "existing_structural_audit": "V6_CONTENT_AUDIT.json reports 140 problems, 55 concepts, 0 structural errors and 0 warnings.",
+    "quality_support": "Option-level feedback, concept-depth recovery and original-question retry compensate for weak or simple source items without breaking source fidelity.",
+    "rewrite_count": 0
+  },
+  "day7_to_day18": {
+    "policy": "Self-authored fast/test questions may be improved when distractors are implausible, answer position is predictable, or the prompt tests only superficial recognition.",
+    "major_findings": [
+      "Correct answers were frequently concentrated in the first option in several fast/test sets.",
+      "Some distractors were from obviously unrelated periods or categories and could be removed without knowing the target concept.",
+      "Several items asked only for a year/name even when a relationship or application question was appropriate.",
+      "Keyword-only depth heuristics could under-classify comparison/application items."
+    ],
+    "runtime_changes": {
+      "quality_patch": "fast_question_quality_patch.js",
+      "answer_balance": "Correct-answer position is deterministically distributed by question id. Correct content is preserved while option order and answer index move together.",
+      "normal_learning": "fast_day.html loads the quality patch before fast_boost_hook.js; fast_day_engine.js uses the audited diagnosis when available.",
+      "adaptive_review": "adaptive_fast_review.html loads the same quality patch and adaptive_fast_review.js uses the same audited diagnosis.",
+      "history_policy": "Existing historical correct/incorrect records are not rewritten. Weakness profiling continues to rely on question id and correctness rather than old option text."
+    },
+    "selected_rewrites": [
+      "d10q02","d10q06","d10q12","d11s13","d11q06","d11q11",
+      "d12q01","d12q03","d12q08","d12q10","d13q07","d13q09",
+      "d14q05","d14q07","d14q11","d14q15","d15q03","d15q09",
+      "d15q10","d15q11","d15q14","d16q04","d16q10","d16q11",
+      "d16q15","d17q04","d17q06","d17q12","d17q14","d17q15"
+    ],
+    "rewrite_count": 30
+  },
+  "depth_policy": {
+    "D2": "term or core fact recognition",
+    "D3": "time/order, cause-effect, person/government-activity, example-concept relationship",
+    "D4": "comparison, plausible-distractor discrimination, balanced interpretation, application",
+    "implementation": "Per-question qualityDiagnosis overrides the generic keyword heuristic; legacy heuristic remains fallback."
+  },
+  "non_goals": [
+    "Do not make every question difficult.",
+    "Do not remove deliberate spaced review across chapter tests.",
+    "Do not modify source-based Day 1-6 original options solely for difficulty.",
+    "Do not change Firebase persistence or learner-history keys."
+  ]
+}
