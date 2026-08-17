@@ -1,0 +1,101 @@
+{
+  "version": "2026-08-17-v1",
+  "macro": "persistent wrong registry -> pre-chapter gate -> textbook lookup -> same-question retry",
+  "status": "IMPLEMENTED_STATIC_INTEGRATION_QA",
+  "principles": [
+    "Any question missed at least once remains in the permanent wrong-answer registry even after later mastery.",
+    "Before Day 2-18 starts, up to three wrong questions from any earlier Day can be resurfaced regardless of current chapter topic.",
+    "A repeated wrong in the gate must not reveal the answer, explanation, recovery clue, O/X answer, or answer keyword before textbook lookup.",
+    "Textbook page numbers are never fabricated.",
+    "After textbook lookup, the learner retries the same original question; brief explanation is allowed only after a correct retry."
+  ],
+  "locator": {
+    "engine": "textbook_locator_engine.js",
+    "book": "한국사Ⅱ 문제편",
+    "day1_to_day6": {
+      "source": "QUESTION_SOURCE_MAPPING_AUDIT.json",
+      "source_declared_total": 140,
+      "policy": "Use audited problem ID -> page/question-number mappings where page exists.",
+      "confidence": "A for audited exact page"
+    },
+    "day7_to_day18": {
+      "policy": "Do not guess pages; show unit -> chapter -> section/list only.",
+      "confidence": "C, explicitly labeled page-unverified"
+    },
+    "gate_answer_leak_policy": "Locator guide is rendered with includeKeywords=false before the learner answers correctly."
+  },
+  "registry": {
+    "engine": "wrong_answer_registry.js",
+    "storage_key": "history2-wrong-answer-registry-v1",
+    "sources": [
+      "Day1-6 wrongNotes and problemStatus",
+      "Day7-18 answer history"
+    ],
+    "retention": "Records are never deleted on mastery; status changes between open/book-retry/recurring/resolved.",
+    "fields": [
+      "day",
+      "questionId",
+      "firstWrongAt",
+      "lastWrongAt",
+      "wrongCount",
+      "gateWrongCount",
+      "gateCorrectCount",
+      "depth",
+      "skill",
+      "status",
+      "locator"
+    ]
+  },
+  "pre_chapter_gate": {
+    "guard": "pre_chapter_gate_guard.js",
+    "page": "pre_chapter_wrong_gate.html",
+    "controller": "pre_chapter_wrong_gate.js",
+    "scope": "Day 2-18 chapter entry",
+    "selection": "up to three historical wrongs from earlier Days",
+    "bypass_prevention": "guard is attached to actual Day entry pages, not only the hub"
+  },
+  "source_question_reuse": {
+    "day1_to_day6": {
+      "wrapper": "unit1_book_gate.html",
+      "addon": "unit1_book_gate_addon.js",
+      "policy": "Reuse existing problem-specific metacog source question; intercept explain mode during bookGate only."
+    },
+    "day7_to_day18": {
+      "engine": "fast_book_gate_engine.js",
+      "route": "fast_sync_boot.js? bookGate=1",
+      "policy": "Load the same fast content pipeline, including boost, accuracy patch and question-quality reorder."
+    }
+  },
+  "repeated_wrong_behavior": {
+    "before_correct": [
+      "show no why explanation",
+      "show no recovery clue",
+      "show no correct option",
+      "show no O/X remediation",
+      "show textbook location only",
+      "retry same question"
+    ],
+    "after_correct": [
+      "mark gate attempt resolved",
+      "brief consolidation may be shown",
+      "return to pre-chapter gate for next historical wrong"
+    ]
+  },
+  "integration": {
+    "bootstrap": "wrong_learning_system_bootstrap.js",
+    "config_loader": "app_mode_config.js",
+    "fast_boot": "fast_sync_boot.js",
+    "firebase": "registry key uses history2-* storage convention and is eligible for existing release sync"
+  },
+  "qa": {
+    "static_checks": [
+      "Day1-6 exact locator source is QUESTION_SOURCE_MAPPING_AUDIT.json rather than inferred page numbers.",
+      "Day7-18 fallback has page=null and verified=false.",
+      "gate locator suppresses keywords before correct retry.",
+      "Day1-6 gate reuses original metacog question via wrapper instead of copying 140 questions.",
+      "Day7-18 gate uses existing content and answer-key pipeline.",
+      "normal Day entry is guarded so the hub cannot be the only enforcement point."
+    ],
+    "limitation": "No visual browser interaction harness is available in this environment; live click-through should be treated as the next concrete QA checkpoint, not as already visually verified."
+  }
+}
