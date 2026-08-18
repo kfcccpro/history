@@ -30,4 +30,13 @@
     s.onerror=()=>console.error('[History2] wrong_learning_system_bootstrap.js load failed');
     document.head.appendChild(s);
   }
+
+  if(/\/korean_history2_day[1-6]_(?:student_flow_app|metacog_app)\.html$/i.test(p)&&!window.__H2_ADHD_DEPTH_UX_LOADER_REQUESTED__){
+    window.__H2_ADHD_DEPTH_UX_LOADER_REQUESTED__=true;
+    const u=document.createElement('script');
+    u.src='adhd_depth_ux_addon.js';
+    u.defer=true;
+    u.onerror=()=>console.error('[History2] adhd_depth_ux_addon.js load failed');
+    document.head.appendChild(u);
+  }
 })();
